@@ -1314,6 +1314,31 @@
             头像图片
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.UserManagerEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserManagerEntity.Id">
+            <summary> 
+            主键Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserManagerEntity.Account">
+            <summary> 
+            账号
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserManagerEntity.Pwd">
+            <summary> 
+            密码
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.UserManagerEntity.IsEnablef">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Entity.UserTenantEntity">
             <summary>
              用户关联租户    

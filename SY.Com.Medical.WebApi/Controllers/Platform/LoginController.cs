@@ -53,12 +53,12 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 }
             }
         }
-
+        
         /// <summary>
-        /// 后台管理系统登录
+        /// 后台充值页面登录
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>       
+        /// <param name="request">账号密码</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         public BaseResponse<LoginResponse> loginSystem(LoginRequest request)
