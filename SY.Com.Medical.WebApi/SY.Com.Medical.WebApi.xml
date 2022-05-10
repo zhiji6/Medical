@@ -1120,10 +1120,10 @@
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.LoginController.loginSystem(SY.Com.Medical.Model.LoginRequest)">
             <summary>
-            后台管理系统登录
+            后台充值页面登录
             </summary>
-            <param name="request"></param>
-            <returns></returns>       
+            <param name="request">账号密码</param>
+            <returns></returns>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.LoginController.register(SY.Com.Medical.Model.RegisterRequest)">
             <summary>
