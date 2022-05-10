@@ -23,7 +23,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="start"></param>
         /// <param name="end"></param>
         /// <returns></returns>
-        public Tuple<IEnumerable<RegisterEntity>, int> SearchPage(int tenantId,int pageSize,int pageIndex,string searchkey,DateTime? start,DateTime? end,int IsUsed = 0)
+        public Tuple<IEnumerable<RegisterEntity>, int> SearchPage(int tenantId,int pageSize,int pageIndex,string searchkey,DateTime? start,DateTime? end,string doctorname,int IsUsed = 0)
         {
             //string sql = @" Select * From Registers Where TenantId = @TenantId ";
             string where = "";
@@ -45,6 +45,12 @@ namespace SY.Com.Medical.Repository.Clinic
             }else if(IsUsed == 1)
             {
                 where += " And IsUsed=1 ";
+            }
+
+            if (doctorname != null)
+            {
+                where += " And DoctorName = '" + doctorname + "' ";
+
             }
 
             string sqlpage = @$" 
@@ -88,5 +94,18 @@ namespace SY.Com.Medical.Repository.Clinic
             return _dbid.Query<EmployeeEntity>(sql, new { tenandid = tenantid, names = names });
         }
 
-	}
+        ///<summary>
+        ///获取医生姓名
+        ///</summary>
+        ///<param name="tenantid"></param>
+        ///<param name="doctorid"></param>
+        ///<returns></returns>
+        public IEnumerable<EmployeeEntity> BackDoctorName(int tenantId, int doctorid)
+        {
+            string sql = " select * From Employees Where TenantId = @tenandid And EmployeeId in@doctorid  And IsEnable = 1";
+            return _dbid.Query<EmployeeEntity>(sql, new { TenantId = tenantId, EmployeeId = doctorid });
+
+        }
+
+    }
 } 

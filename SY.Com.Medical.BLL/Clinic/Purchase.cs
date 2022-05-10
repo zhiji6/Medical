@@ -31,7 +31,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			PurchaseModel model = new PurchaseModel();
 			model.PurchaseId = x.PurchaseId;
 			model.GoodsCount = x.GoodsCount;
-			model.GoodsMoney = x.GoodsMoney;
+			model.GoodsMoney = Math.Round(x.GoodsMoney/1000.00,3); ///Math.Round(x.PurchasePrice / 1000.00, 3);
 			model.CreateTime = x.CreateTime.Value;
 			return model;
 		}
@@ -49,7 +49,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				PurchaseModel model = new PurchaseModel();
 				model.PurchaseId = x.PurchaseId;
 				model.GoodsCount = x.GoodsCount;
-				model.GoodsMoney = x.GoodsMoney;
+				model.GoodsMoney = Math.Round(x.GoodsMoney/1000.00,3);
 				model.CreateTime = x.CreateTime.Value;
 				list.Add(model);
 			});
