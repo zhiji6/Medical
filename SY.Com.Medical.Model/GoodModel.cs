@@ -235,6 +235,10 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string Usage { get; set; }
 		/// <summary>
+		/// 用法id
+		/// </summary>
+		public int UsageId { get; set; }
+		/// <summary>
 		/// 单次用量
 		/// </summary>
 		public int Single { get; set; }
@@ -242,6 +246,10 @@ namespace SY.Com.Medical.Model
 		/// 一天用量
 		/// </summary>
 		public string EveryDay { get; set; }
+		/// <summary>
+		/// 一天用量Id
+		/// </summary>
+		public int EveryDayId { get; set; }
 	}
 
 	/// <summary>

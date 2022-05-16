@@ -53,8 +53,10 @@ namespace SY.Com.Medical.BLL.Clinic
                 mod.Stock = x.Stock;
                 mod.BarCode = x.BarCode;
                 mod.Usage = x.Usage;
+                mod.UsageId = dicbll.getIdByValue(x.TenantId, x.Usage, "Usage", x.GoodType.ToString());
                 mod.Single = x.Single;
                 mod.EveryDay = x.EveryDay;
+                mod.EveryDayId = dicbll.getIdByValue(x.TenantId, x.EveryDay, "EveryDay", "");
                 mod.InsuranceCode = x.InsuranceCode;
                 mod.CustomerCode = x.CustomerCode;
                 mods.Add(mod);

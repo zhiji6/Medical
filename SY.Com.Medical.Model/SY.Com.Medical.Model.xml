@@ -1262,6 +1262,11 @@
             用法
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.GoodBllModels.UsageId">
+            <summary>
+            用法id
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.GoodBllModels.Single">
             <summary>
             单次用量
@@ -1270,6 +1275,11 @@
         <member name="P:SY.Com.Medical.Model.GoodBllModels.EveryDay">
             <summary>
             一天用量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodBllModels.EveryDayId">
+            <summary>
+            一天用量Id
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodBllModel">
