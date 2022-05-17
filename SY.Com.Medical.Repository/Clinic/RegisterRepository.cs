@@ -47,7 +47,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 where += " And IsUsed=1 ";
             }
 
-            if (doctorname != null)
+            if (!string.IsNullOrEmpty(doctorname))
             {
                 where += " And DoctorName = '" + doctorname + "' ";
 
@@ -102,7 +102,7 @@ namespace SY.Com.Medical.Repository.Clinic
         ///<returns></returns>
         public IEnumerable<EmployeeEntity> BackDoctorName(int tenantId, int doctorid)
         {
-            string sql = " select * From Employees Where TenantId = @tenandid And EmployeeId in@doctorid  And IsEnable = 1";
+            string sql = " select * From Employees Where TenantId = @TenantId And EmployeeId = @EmployeeId  And IsEnable = 1 ";
             return _dbid.Query<EmployeeEntity>(sql, new { TenantId = tenantId, EmployeeId = doctorid });
 
         }

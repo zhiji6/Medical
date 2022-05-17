@@ -185,6 +185,11 @@ namespace SY.Com.Medical.BLL.Clinic
 			string doctorname = "";
 			//	string sql = "select * from Employees where TenantId=" + request + " and EmployeeId=" + doctorid;
 			var doctornames =db.BackDoctorName(request, doctorid);
+			if(doctorname != null && doctorname.Length > 0)
+            {
+				doctorname = doctornames.First().EmployeeName;
+
+			}
 		///	doctorname = doctornames;
 			var datas  = db.SearchPage(request,pageSize,pageIndex,searchKey,start,end, doctorname, isUsed);
 			if(datas.Item1 == null || !datas.Item1.Any())
