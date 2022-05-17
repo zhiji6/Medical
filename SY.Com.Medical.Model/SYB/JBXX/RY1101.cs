@@ -110,7 +110,7 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
-        public string age { get; set; }// 年龄 数值型	4,1	　	Y
+        public double age { get; set; }// 年龄 数值型	4,1	　	Y
     }
     /// <summary>
     /// 
@@ -120,7 +120,7 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
-        public string balc { get;set;}// 余额  数值型	16,2		Y
+        public double balc { get;set;}// 余额  数值型	16,2		Y
         /// <summary>
         /// 
         /// </summary>

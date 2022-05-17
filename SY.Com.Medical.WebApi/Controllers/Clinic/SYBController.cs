@@ -337,7 +337,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             foreach(var item in mod.Message.output.insuinfo)
             {
                 YBinsuinfo node = new YBinsuinfo();
-                node.balc = item.balc;
+                node.balc = item.balc.ToString();
                 node.insutype = item.insutype;
             }
             return result;
