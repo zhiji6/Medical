@@ -75,10 +75,19 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="tenantId"></param>
         /// <param name="registerId"></param>
         /// <returns></returns>
-        public int Back(int tenantId,int registerId)
+        public int Back(int tenantId,int registerId,string mdtrt_id)
         {
-            string sql = " Update Registers Set IsEnable = 2 Where TenantId = @TenantId And RegisterId = @RegisterId ";
-            return _db.Execute(sql, new { TenantId = tenantId, RegisterId = registerId });
+            if(string.IsNullOrEmpty(mdtrt_id))
+            {
+                string sql = " Update Registers Set IsEnable = 2 Where TenantId = @TenantId And RegisterId = @RegisterId ";
+                return _db.Execute(sql, new { TenantId = tenantId, RegisterId = registerId });
+            }
+            else
+            {
+                string sql = " Update Registers Set IsEnable = 2 Where TenantId = @TenantId And mdtrt_id = @mdtrt_id ";
+                return _db.Execute(sql, new { TenantId = tenantId, mdtrt_id = mdtrt_id });
+            }
+
 
         }
 

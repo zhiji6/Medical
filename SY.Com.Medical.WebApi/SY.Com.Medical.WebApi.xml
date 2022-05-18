@@ -528,6 +528,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.Back(SY.Com.Medical.Model.RegisterBackModel)">
+            <summary>
+            退号
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.RegisterController.getDoctors(SY.Com.Medical.Model.BaseModel)">
             <summary>
             挂号时获取医生下拉框

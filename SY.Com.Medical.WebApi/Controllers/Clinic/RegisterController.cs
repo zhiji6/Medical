@@ -38,6 +38,19 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		}
 
 		/// <summary>
+		/// 退号
+		/// </summary>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public BaseResponse<int> Back(RegisterBackModel request)
+        {
+			BaseResponse<int> result = new BaseResponse<int>();
+			result.Data = bll.Back(request.TenantId,request.RegisterId,request.mdtrt_id);
+			return result;
+		}
+
+		/// <summary>
 		/// 挂号时获取医生下拉框
 		/// </summary>
 		/// <param name="request"></param>

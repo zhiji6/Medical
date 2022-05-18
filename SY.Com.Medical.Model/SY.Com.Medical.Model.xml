@@ -5651,6 +5651,21 @@
             住院/门诊号-院内唯一流水
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.RegisterBackModel">
+            <summary>
+            挂号入参模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterBackModel.RegisterId">
+            <summary>
+            挂号记录id-普通退号使用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.RegisterBackModel.mdtrt_id">
+            <summary>
+            医保流水号-医保退号使用
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.RegisterProjectModel">
             <summary>
              RegisterProject模型

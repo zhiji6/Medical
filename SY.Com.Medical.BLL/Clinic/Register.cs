@@ -115,10 +115,10 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <param name="tenantId"></param>
 		/// <param name="registerId"></param>
 		/// <returns></returns>
-		public int Back(int tenantId,int registerId)
+		public int Back(int tenantId,int registerId,string mdtrt_id)
         {
 			int result = 0;
-			var i = db.Back(tenantId, registerId);
+			var i = db.Back(tenantId, registerId,mdtrt_id);
 			var entity = db.Get(registerId);
 			//保存退费记录
 			ChargeRecordEntity chargeentity = new ChargeRecordEntity();

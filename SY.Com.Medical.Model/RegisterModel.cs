@@ -319,4 +319,20 @@ namespace SY.Com.Medical.Model
 
 	}
 
+	/// <summary>
+	/// 挂号入参模型
+	/// </summary>
+	public class RegisterBackModel : BaseModel
+    {
+		/// <summary>
+		/// 挂号记录id-普通退号使用
+		/// </summary>
+		public int RegisterId { get; set; }
+
+		/// <summary>
+		/// 医保流水号-医保退号使用
+		/// </summary>
+		public string mdtrt_id { get; set; }
+
+	}
 } 
