@@ -54,11 +54,11 @@ namespace SY.Com.Medical.Repository.Clinic
             }
 
             string sqlpage = @$" 
-            Select  count(1) as nums From Registers Where TenantId = @TenantId And IsDelete = 1 {where}
+            Select  count(1) as nums From Registers Where TenantId = @TenantId And IsEnable <> 2 And IsDelete = 1 {where}
             Select * From
             (
                 Select  ROW_NUMBER() over(order by CreateTime desc) as row_id,* From Registers
-                Where TenantId = @TenantId And IsDelete = 1 {where} 
+                Where TenantId = @TenantId And IsEnable <> 2 And IsDelete = 1 {where} 
             )t
             Where t.row_id between {(pageIndex - 1) * pageSize + 1} and { pageIndex * pageSize }
             ";
