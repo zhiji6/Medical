@@ -234,6 +234,27 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             return result;
         }
+        public OutpatientAddStructure getStructure2(int tenantId, int outpatientId)
+        {
+            OutpatientAddStructure result = new OutpatientAddStructure();
+            string sql = @" Select * From Outpatients Where TenantId = @TenantId And OutpatientId=@OutpatientId And IsDelete = 1 ";
+            var entitys = _db.Query<OutpatientEntity>(sql, new { TenantId = tenantId, OutpatientId = outpatientId });
+            if (entitys != null && entitys.Any())
+            {
+                var json = getOutpatientJson(outpatientId, tenantId);
+                try
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<OutpatientAddStructure>(json);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("json转换失败");
+                }
+            }
+            return result;
+        }
+
+
 
         /// <summary>
         /// 插入门诊相关信息
@@ -302,6 +323,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 SearchKey = structure.Patient.PatientName + "|" + structure.Patient.PatientName.GetPinYin() + "|" + structure.Patient.Phone
             };
             var outpatientId = Create(entity);
+            SaveOutpatientJson(outpatientId, structure.TenantId, Newtonsoft.Json.JsonConvert.SerializeObject(structure));
             //更新病历
             structure.CaseBook.OutPatientId = outpatientId;
             var departs = new DepartmentRepository(dbidstr).getTenantDepartment(structure.TenantId);
@@ -492,6 +514,34 @@ namespace SY.Com.Medical.Repository.Clinic
             var tenant_entity = tenant_db.getById(tenantId);
             string sql = @" Update Outpatients Set chrg_bchno = @chrg_bchno Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
             _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, chrg_bchno= tenant_entity.YBCode + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "1" });
+        }
+
+        public void SaveOutpatientJson(int outpatientId,int tenantId,string json)
+        {
+            string sql = @" if exists( select OutpatientId From  OutpatientsJson Where OutpatientId = @id And TenantId=@TenantId  )
+                            Begin
+	                            Update OutpatientsJson
+	                            Set Context = @json
+	                            Where OutpatientId = @id
+                            End else begin
+	                            Insert Into OutpatientsJson(OutpatientId,TenantId,Context)
+	                            Values(@TenantId,@id,@json)
+                            end  ";
+            _db.Execute(sql, new { TenantId = tenantId, id = outpatientId, json = json });
+        }
+
+        public string getOutpatientJson(int outpatientId, int tenantId)
+        {
+            string sql = @" Select Context From OutpatientsJson Where OutpatientId = @id And TenantId=@TenantId ";
+            var result = _db.Query<string>(sql, new { TenantId = tenantId, id = outpatientId });
+            if(result != null && result.Any())
+            {
+                return result.First();
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

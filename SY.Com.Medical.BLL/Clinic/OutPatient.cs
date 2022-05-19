@@ -138,6 +138,11 @@ namespace SY.Com.Medical.BLL.Clinic
 			return db.getStructure(tenantId, outpatientId);
         }
 
+		public OutpatientAddStructure getStructure2(int tenantId, int outpatientId)
+		{
+			return db.getStructure2(tenantId, outpatientId);
+		}		
+
 		/// <summary>
 		/// 新增门诊
 		/// </summary>

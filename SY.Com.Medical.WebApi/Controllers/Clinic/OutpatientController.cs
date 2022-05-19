@@ -86,10 +86,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<OutpatientStructure> getDetail(OutpatientStructureRequest request)
+        public BaseResponse<OutpatientAddStructure> getDetail(OutpatientStructureRequest request)
         {
-            BaseResponse<OutpatientStructure> result = new BaseResponse<OutpatientStructure>();
-            result.Data = bll.getStructure(request.TenantId, request.OutpatientId);
+            BaseResponse<OutpatientAddStructure> result = new BaseResponse<OutpatientAddStructure>();
+            //result.Data = bll.getStructure(request.TenantId, request.OutpatientId);
+            result.Data = bll.getStructure2(request.TenantId, request.OutpatientId);
             return result;
         }
 
