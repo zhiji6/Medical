@@ -525,7 +525,7 @@ namespace SY.Com.Medical.Repository.Clinic
 	                            Where OutpatientId = @id
                             End else begin
 	                            Insert Into OutpatientsJson(OutpatientId,TenantId,Context)
-	                            Values(@TenantId,@id,@json)
+	                            Values(@id,@TenantId,@json)
                             end  ";
             _db.Execute(sql, new { TenantId = tenantId, id = outpatientId, json = json });
         }

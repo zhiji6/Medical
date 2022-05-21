@@ -86,6 +86,8 @@ namespace SY.Com.Medical.BLL.Clinic
                 entity.DoctorName = empmod.EmployeeName;
                 entity.DepartmentName = empmod.Departments;
             }
+            var oldentity = get(entity.CaseBookId);
+            entity.PatientId = oldentity.PatientId;
             db.Update(entity);
         }
         
