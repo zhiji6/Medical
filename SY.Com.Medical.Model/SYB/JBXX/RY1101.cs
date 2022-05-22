@@ -36,8 +36,7 @@ namespace SZSI_Smart.Model.SYB
         public string card_sn { get; set; }// 卡识别码 字符型	32			就诊凭证类型为“03”时必填
         /// <summary>
         /// 
-        /// </summary>
-        [JsonIgnore]
+        /// </summary>        
         public DateTime begntime { get; set; } //   开始时间 日期时间型               获取历史参保信息时传入
         /// <summary>
         /// 人员证件类型,暂时都输入1
@@ -45,13 +44,11 @@ namespace SZSI_Smart.Model.SYB
         public string psn_cert_type { get; set; } //  人员证件类型 字符型	6	Y
         /// <summary>
         /// 
-        /// </summary>
-        [JsonIgnore]
+        /// </summary>        
         public string certno { get; set; }//  证件号码 字符型	50		
         /// <summary>
         /// 
-        /// </summary>
-        [JsonIgnore]
+        /// </summary>        
         public string psn_name { get; set; }// 人员姓名    字符型	50		
     }
     /// <summary>

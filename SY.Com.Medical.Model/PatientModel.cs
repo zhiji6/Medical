@@ -360,6 +360,10 @@ namespace SY.Com.Medical.Model
             }
         }
         /// <summary>
+        /// 医保号
+        /// </summary>
+        public string psn_no { get; set; }        
+        /// <summary>
         /// 医保信息
         /// </summary>
         public List<YBinsuinfo> ybinfo { get; set; }

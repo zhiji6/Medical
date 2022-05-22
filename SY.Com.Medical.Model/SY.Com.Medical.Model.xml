@@ -3666,6 +3666,11 @@
             小于6月的显示天
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientYBModel.psn_no">
+            <summary>
+            医保号
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PatientYBModel.ybinfo">
             <summary>
             医保信息
@@ -14318,7 +14323,7 @@
         <member name="P:SZSI_Smart.Model.SYB.In1101data.begntime">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.psn_cert_type">
             <summary>
@@ -14328,12 +14333,12 @@
         <member name="P:SZSI_Smart.Model.SYB.In1101data.certno">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In1101data.psn_name">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="T:SZSI_Smart.Model.SYB.Out1101">
             <summary>
@@ -17633,32 +17638,32 @@
         <member name="P:SZSI_Smart.Model.SYB.In2201data.ipt_otp_no">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In2201data.atddr_no">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In2201data.dr_name">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In2201data.dept_code">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In2201data.dept_name">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SZSI_Smart.Model.SYB.In2201data.caty">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="T:SZSI_Smart.Model.SYB.Out2201">
             <summary>
