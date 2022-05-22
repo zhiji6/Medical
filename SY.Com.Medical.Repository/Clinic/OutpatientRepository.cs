@@ -181,20 +181,23 @@ namespace SY.Com.Medical.Repository.Clinic
                     Department = doc_entity.Departments,
                     YBCode = doc_entity.YBCode
                 };
-                result.CaseBook = new CaseBookStructure
+                if(case_entity != null)
                 {
-                    CaseBookId = case_entity.CaseBookId,
-                    Complaint = case_entity.Complaint,
-                    Diagnosis = case_entity.Diagnosis,
-                    Disease = case_entity.Disease,
-                    CaseOrder = case_entity.CaseOrder,
-                    PastCase = case_entity.PastCase,
-                    HistoryCase = case_entity.HistoryCase,
-                    Physical = case_entity.Physical,
-                    Opinions = case_entity.Opinions,
-                    Tooth = case_entity.Tooth,
-                    Place = case_entity.Place
-                };
+                    result.CaseBook = new CaseBookStructure
+                    {
+                        CaseBookId = case_entity.CaseBookId,
+                        Complaint = case_entity.Complaint,
+                        Diagnosis = case_entity.Diagnosis,
+                        Disease = case_entity.Disease,
+                        CaseOrder = case_entity.CaseOrder,
+                        PastCase = case_entity.PastCase,
+                        HistoryCase = case_entity.HistoryCase,
+                        Physical = case_entity.Physical,
+                        Opinions = case_entity.Opinions,
+                        Tooth = case_entity.Tooth,
+                        Place = case_entity.Place
+                    };
+                }
                 Dictionary<string, List<PrescriptionDetailStructure>> predic = new Dictionary<string, List<PrescriptionDetailStructure>>();                
                 foreach(var item in pres_entitys)
                 {
@@ -342,15 +345,16 @@ namespace SY.Com.Medical.Repository.Clinic
             PrescriptionRepository pres_db = new PrescriptionRepository();
             DicRepository dic_db = new DicRepository();
             List<PrescriptionEntity> pres_entitys = new List<PrescriptionEntity>();
-            int preno = 1;
+            int preno = 0;
             foreach(var item in structure.Prescriptions)
             {
-                foreach(var node in item.Details)
+                preno++;
+                foreach (var node in item.Details)
                 {
                     PrescriptionEntity pres_entity = new PrescriptionEntity();
+                    pres_entity.PreNo = preno;//item.PreNo;
                     pres_entity.TenantId = structure.TenantId;
-                    pres_entity.OutpatientId = outpatientId;
-                    pres_entity.PreNo = preno++;//item.PreNo;
+                    pres_entity.OutpatientId = outpatientId;                    
                     pres_entity.PreName = item.PreName;
                     pres_entity.GoodsId = node.GoodsId;
                     pres_entity.GoodsName = node.GoodsName;

@@ -339,6 +339,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 YBinsuinfo node = new YBinsuinfo();
                 node.balc = item.balc.ToString();
                 node.insutype = item.insutype;
+                result.Data.ybinfo.Add(node);
             }
             return result;
         }

@@ -41,7 +41,8 @@ namespace SY.Com.Medical.BLL.Clinic
 				OutpatientListModel mod = new OutpatientListModel();
 				var pamod = pat.getContainDelete(x.PatientId);
 				mod.OutpatientId = x.OutpatientId;
-				mod.TenantId = x.TenantId;				
+				mod.TenantId = x.TenantId;
+				mod.RegisterId = x.RegisterId;
 				mod.PatientName = pamod.PatientName;
 				mod.Sex = pamod.Sex == 1 ? "男" : "女";
 				mod.Age = pamod.Age;
@@ -80,6 +81,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.PatientName = pamod.PatientName;
 				mod.Sex = pamod.Sex == 1 ? "男" : "女";
 				mod.Age = pamod.Age;
+				mod.RegisterId = x.RegisterId;
 				mod.Phone = pamod.Phone;
 				mod.Cost = x.Cost;
 				mod.DoctorName = x.DoctorName;
@@ -112,6 +114,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				OutpatientListModel mod = new OutpatientListModel();
 				var pamod = pat.get(x.PatientId);
 				mod.OutpatientId = x.OutpatientId;
+				mod.RegisterId = x.RegisterId;
 				mod.TenantId = x.TenantId;
 				mod.PatientName = pamod.PatientName;
 				mod.Sex = pamod.Sex == 1 ? "男" : "女";

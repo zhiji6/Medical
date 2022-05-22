@@ -3258,6 +3258,11 @@
             处方数量
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientListModel.RegisterId">
+            <summary>
+            挂号Id
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientListModel.CreateTime">
             <summary>
             就诊日期

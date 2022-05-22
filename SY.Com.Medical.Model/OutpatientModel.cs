@@ -484,6 +484,10 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public int PrescriptionCount { get; set; }
 		/// <summary>
+		/// 挂号Id
+		/// </summary>
+		public int RegisterId { get; set; }
+		/// <summary>
 		/// 就诊日期
 		/// </summary>
 		public DateTime? CreateTime { get; set; }
