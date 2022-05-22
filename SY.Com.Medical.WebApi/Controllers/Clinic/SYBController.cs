@@ -579,6 +579,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             {
                 throw new MyException(mod.Message.err_msg);
             }
+            result.Data = true;
             return result;
         }
 
