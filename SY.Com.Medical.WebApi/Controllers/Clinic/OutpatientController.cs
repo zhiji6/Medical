@@ -91,6 +91,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<OutpatientAddStructure> result = new BaseResponse<OutpatientAddStructure>();
             //result.Data = bll.getStructure(request.TenantId, request.OutpatientId);
             result.Data = bll.getStructure2(request.TenantId, request.OutpatientId);
+            result.Data.OutpatientId = request.OutpatientId;
             return result;
         }
 

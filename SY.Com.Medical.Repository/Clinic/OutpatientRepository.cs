@@ -455,6 +455,8 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsPrice = Convert.ToInt64(node.GoodsPrice * 1000);
                     pres_entity.GoodsNum = node.GoodsNum;
                     pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice;
+                    pres_entity.InsuranceCode = node.InsuranceCode;
+                    pres_entity.CustomerCode = node.CustomerCode;
                     string secondkey = "";
                     if (item.PreName.IndexOf("西药") > -1 || item.PreName.IndexOf("中成药") > -1)
                     {

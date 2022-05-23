@@ -682,6 +682,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             {
                 throw new MyException(mod.Message.err_msg);
             }
+            result.Data = true;
             return result;
         }
 
@@ -777,9 +778,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         fdmod.med_list_codg = node.InsuranceCode;
                         fdmod.medins_list_codg = node.CustomerCode;
-                        fdmod.det_item_fee_sumamt = Math.Round(decimal.Parse(node.GoodsCost.ToString()),2);
+                        fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
                         fdmod.cnt = node.GoodsNum;
-                        fdmod.pric = Math.Round(decimal.Parse(node.GoodsPrice.ToString()), 4);
+                        fdmod.pric = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 4).ToString());
                         fdmod.bilg_dept_codg = department.code;
                         fdmod.bilg_dept_name = department.name;
                         fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
@@ -814,6 +815,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             {
                 throw new MyException(mod.Message.err_msg);
             }
+            result.Data = true;
             return result;
         }
 
@@ -994,13 +996,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);                
                 In2206Data model = new In2206Data();
                 model.data = new In2206();
+                model.data.OutPatientId = mod.OutpatientId;
                 model.data.chrg_bchno = opstructure.chrg_bchno;
                 model.data.mdtrt_id = opstructure.mdtrt_id;
                 model.data.psn_no = opstructure.Patient.psn_no;
                 model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
                 model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
                 model.data.med_type = "11";
-                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()),2);
+                model.data.medfee_sumamt =decimal.Parse(Math.Round(opstructure.Cost / 1000.00, 2).ToString());
                 model.data.psn_setlway = "02";
                 model.data.acct_used_flag = "1";
                 model.data.insutype = "310";
@@ -1059,7 +1062,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
                 model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
                 model.data.med_type = "11";
-                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()), 2);
+                model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost / 1000.00, 2).ToString());
                 model.data.psn_setlway = "02";
                 model.data.acct_used_flag = "1";
                 model.data.insutype = "310";
@@ -1110,7 +1113,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.psn_no = opstructure.Patient.psn_no;
                 model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
                 model.data.med_type = "11";
-                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()), 2); ;
+                model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost / 1000.00, 2).ToString());
                 model.data.psn_setlway = "02";
                 model.data.mdtrt_id = opstructure.mdtrt_id;
                 model.data.chrg_bchno = opstructure.chrg_bchno;
@@ -1174,7 +1177,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.psn_no = opstructure.Patient.psn_no;
                 model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
                 model.data.med_type = "11";
-                model.data.medfee_sumamt = Math.Round(decimal.Parse(opstructure.Cost.ToString()), 2); ;
+                model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost / 1000.00, 2).ToString());
                 model.data.psn_setlway = "02";
                 model.data.mdtrt_id = opstructure.mdtrt_id;
                 model.data.chrg_bchno = opstructure.chrg_bchno;
