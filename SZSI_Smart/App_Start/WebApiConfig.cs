@@ -10,8 +10,10 @@ namespace Client
     {
         public static void Register(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            //var cors = new EnableCorsAttribute("*", "origin,x-requested-with,content-type,Authorization,tenantid", "*");
+            //var cors = new EnableCorsAttribute("*", "*", "*");
+            //cors.SupportsCredentials = true;
+            //config.EnableCors(cors);
             // Web API 配置和服务
 
             // Web API 路由
