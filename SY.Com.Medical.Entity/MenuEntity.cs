@@ -44,6 +44,10 @@ namespace SY.Com.Medical.Entity
         /// 图标名称
         /// </summary>
         public string Icon { get; set; }
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get; set; }
 
     }
 }

@@ -76,6 +76,7 @@ namespace SY.Com.Medical.BLL.Platform
                         MenuRoute = x.MenuRoute,
                         MenuParent = x.MenuParent,
                         MenuSysName = x.MenuSysName,
+                        Sort = x.Sort,
                         Icon = x.Icon,
                         SubMenu = new List<MenuResponse>()
                     }); ;

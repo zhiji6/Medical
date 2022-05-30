@@ -22,7 +22,8 @@ namespace SY.Com.Medical.Repository.Platform
         public IEnumerable<MenuEntity> getSystem()
         {
             string sql = @" Select * From Menus
-                            Where IsEnable=@IsEnable And IsDelete=@IsDelete ";
+                            Where IsEnable=@IsEnable And IsDelete=@IsDelete
+                            Order By Sort Desc ";
             return _db.Query<MenuEntity>(sql, new { IsEnable = (int)Enable.启用, IsDelete = (int)Enum.Delete.正常 });
         }
 

@@ -51,10 +51,6 @@ namespace SY.Com.Medical.Enum
     public enum Sex
     {
         /// <summary>
-        /// 全部
-        /// </summary>
-        全部 = 0,
-        /// <summary>
         /// 男
         /// </summary>
         男 = 1,        

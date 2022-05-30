@@ -139,11 +139,6 @@
             性别
             </summary>
         </member>
-        <member name="F:SY.Com.Medical.Enum.Sex.全部">
-            <summary>
-            全部
-            </summary>
-        </member>
         <member name="F:SY.Com.Medical.Enum.Sex.男">
             <summary>
             男

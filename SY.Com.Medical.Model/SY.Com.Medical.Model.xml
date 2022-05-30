@@ -2646,6 +2646,11 @@
             false:不拥有
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.MenuResponse.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.MenuTreeResponse">
             <summary>
             一级菜单和二级菜单,二维树结构
@@ -2686,6 +2691,11 @@
             是否拥有
             true:拥有
             false:不拥有
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.MenuTreeResponse.Sort">
+            <summary>
+            排序
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.MenuTreeResponse.SubMenu">
