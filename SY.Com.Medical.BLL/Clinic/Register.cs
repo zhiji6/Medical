@@ -80,7 +80,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			radd = mod.Mapping<RegisterAdd>();
 			radd.DoctorName = employeemodel.EmployeeName;
 			radd.DepartmentName = employeemodel.Departments;
-			radd.SearchKey = mod.Name.GetPinYin() + mod.Phone + mod.psn_no + mod.SFZH;
+			radd.SearchKey = mod.Name.GetPinYin() + mod.Name + mod.Phone + mod.psn_no + mod.SFZH;
 			var entity = radd.DtoToEntity<RegisterEntity>();
 			entity.IsUsed = -1;			
 			var registerid = db.Create(entity);

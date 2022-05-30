@@ -23,7 +23,7 @@ namespace SY.Com.Medical.Repository.Platform
         {
             string sql = @" Select * From Menus
                             Where IsEnable=@IsEnable And IsDelete=@IsDelete
-                            Order By Sort Desc ";
+                            Order by MenuParent asc,Sort desc ";
             return _db.Query<MenuEntity>(sql, new { IsEnable = (int)Enable.启用, IsDelete = (int)Enum.Delete.正常 });
         }
 
