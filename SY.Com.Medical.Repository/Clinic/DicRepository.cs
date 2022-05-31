@@ -70,7 +70,10 @@ namespace SY.Com.Medical.Repository.Clinic
             var result = _db.Query<string>(sql, new { TenantId = tenantId });
             if(result != null && result.Any())
             {
-                return result.FirstOrDefault();
+                var first = result.FirstOrDefault();
+                string sqlupdate = " Update Dics Set IsReference = 1 Where Id = @id ";
+                _db.Execute(sqlupdate, new { id = id });
+                return first;
             }
             return "";
         }
@@ -125,7 +128,11 @@ namespace SY.Com.Medical.Repository.Clinic
             return Create(mod);
         }
 
-
+        public int Delete(int dicid)
+        {
+            string sql = " Delete From Dics Where Id = @id And IsReference = 0  ";
+            return _db.Execute(sql, new { id = dicid });
+        }
 
     }
 } 

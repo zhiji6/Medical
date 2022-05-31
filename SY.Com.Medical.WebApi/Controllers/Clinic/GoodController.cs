@@ -275,6 +275,41 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
+        /// 删除字典
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> deleteDic(GoodDicDeleteRequest request)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            try
+            {
+                var isdelete = bll.Delete(request.DicId);
+                if(isdelete > 0)
+                {
+                    result.Data = true;
+                }
+                else
+                {
+                    result.Data = false;
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
         /// 获取项目列表分页
         /// </summary>
         /// <param name="request"></param>

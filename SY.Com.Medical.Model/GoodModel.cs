@@ -559,6 +559,17 @@ namespace SY.Com.Medical.Model
     }
 
 	/// <summary>
+	/// 删除字典
+	/// </summary>
+	public class GoodDicDeleteRequest : BaseModel
+    {
+		/// <summary>
+		/// 字典Id
+		/// </summary>
+		public int DicId { get; set; }
+    }
+
+	/// <summary>
 	/// 药品列表入参
 	/// </summary>
 	public class GoodRequest : PageModel

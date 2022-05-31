@@ -1619,6 +1619,16 @@
             字典内容
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.GoodDicDeleteRequest">
+            <summary>
+            删除字典
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodDicDeleteRequest.DicId">
+            <summary>
+            字典Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodRequest">
             <summary>
             药品列表入参

@@ -60,5 +60,10 @@ namespace SY.Com.Medical.BLL.Clinic
 			return db.Add(tenantId, value, keyFirst, keySecond);
         }
 
+		public int Delete(int dicid)
+        {			
+			return db.Delete(dicid);
+        }
+
 	}
 } 

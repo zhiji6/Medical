@@ -274,5 +274,15 @@ namespace SY.Com.Medical.BLL.Clinic
             return result;
         }
 
+        public int Delete(int dicid)
+        {
+            var result = dicbll.Delete(dicid);
+            if (result == 0)
+            {
+                throw new MyException("该数据已存在");
+            }
+            return result;
+        }
+
     }
 } 
