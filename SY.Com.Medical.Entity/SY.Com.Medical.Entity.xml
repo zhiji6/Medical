@@ -554,6 +554,11 @@
             图标名称
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.MenuEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.OutpatientEntity">
             <summary>
             实体

@@ -71,7 +71,7 @@ namespace SY.Com.Medical.Repository.Clinic
             if(result != null && result.Any())
             {
                 var first = result.FirstOrDefault();
-                string sqlupdate = " Update Dics Set IsReference = 1 Where Id = @id ";
+                string sqlupdate = " Update Dics Set IsReference = 1 Where DicId = @id ";
                 _db.Execute(sqlupdate, new { id = id });
                 return first;
             }
