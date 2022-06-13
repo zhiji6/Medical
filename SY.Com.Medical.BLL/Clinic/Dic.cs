@@ -65,5 +65,9 @@ namespace SY.Com.Medical.BLL.Clinic
 			return db.Delete(dicid);
         }
 
+		public int Update(int dicid,string dicvalue)
+        {
+			return db.Update(dicid, dicvalue);
+        }
 	}
 } 

@@ -570,6 +570,21 @@ namespace SY.Com.Medical.Model
     }
 
 	/// <summary>
+	/// 修改字典
+	/// </summary>
+	public class GoodDicUpdateRequest : BaseModel
+	{
+		/// <summary>
+		/// 字典Id
+		/// </summary>
+		public int DicId { get; set; }
+		/// <summary>
+		/// 字典名称
+		/// </summary>
+		public string DicValue { get; set; }
+	}
+
+	/// <summary>
 	/// 药品列表入参
 	/// </summary>
 	public class GoodRequest : PageModel

@@ -134,5 +134,11 @@ namespace SY.Com.Medical.Repository.Clinic
             return _db.Execute(sql, new { id = dicid });
         }
 
+        public int Update(int dicid,string dicvalue)
+        {
+            string sql = " Update From Dics Where Id = @id  ";
+            return _db.Execute(sql, new { id = dicid });
+        }
+
     }
 } 

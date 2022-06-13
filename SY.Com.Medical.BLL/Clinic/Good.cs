@@ -284,5 +284,11 @@ namespace SY.Com.Medical.BLL.Clinic
             return result;
         }
 
+        public int Update(int dicid,string dicvalue)
+        {
+            var result = dicbll.Update(dicid, dicvalue);
+            return result;
+        }
+
     }
 } 

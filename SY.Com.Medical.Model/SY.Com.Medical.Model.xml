@@ -1629,6 +1629,21 @@
             字典Id
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.GoodDicUpdateRequest">
+            <summary>
+            修改字典
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodDicUpdateRequest.DicId">
+            <summary>
+            字典Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodDicUpdateRequest.DicValue">
+            <summary>
+            字典名称
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodRequest">
             <summary>
             药品列表入参
