@@ -10148,6 +10148,166 @@
             
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.TemplateModel">
+            <summary>
+             Template模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.TemplateId">
+            <summary> 
+            模板Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.EmployeeId">
+            <summary> 
+            创建人Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.TemplateName">
+            <summary> 
+            模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.TemplateType">
+            <summary> 
+            模板类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.WestCount">
+            <summary> 
+            西药处方数量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.EastCount">
+            <summary> 
+            中药处方数量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.ProjectCount">
+            <summary> 
+            项目处方数量
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.Content">
+            <summary> 
+            处方文本
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.Prescription">
+            <summary>
+            处方信息
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TemplateRequest">
+            <summary>
+             Template模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateRequest.EmployeeId">
+            <summary> 
+            创建人Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateRequest.TemplateName">
+            <summary> 
+            模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateRequest.TemplateType">
+            <summary> 
+            模板类型
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.TemplateAdd">
+            <summary>
+             Template模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateAdd.EmployeeId">
+            <summary> 
+            创建人Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateAdd.TemplateName">
+            <summary> 
+            模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateAdd.TemplateType">
+            <summary> 
+            模板类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateAdd.Content">
+            <summary> 
+            处方内容文本
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateAdd.Prescription">
+            <summary>
+            处方信息
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TemplateUpdate">
+            <summary>
+             Template模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateUpdate.TemplateId">
+            <summary> 
+            模板Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateUpdate.EmployeeId">
+            <summary> 
+            创建人Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateUpdate.TemplateName">
+            <summary> 
+            模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateUpdate.TemplateType">
+            <summary> 
+            模板类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateUpdate.Content">
+            <summary> 
+            处方文本Json格式
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateUpdate.Prescription">
+            <summary>
+            处方信息
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.TemplateDelete">
+            <summary>
+             Template模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateDelete.TemplateId">
+            <summary> 
+            模板Id
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.TemplateType">
+            <summary>
+            获取Template类型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateType.TemplateTypeId">
+            <summary>
+            模板类型Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TemplateType.TemplateName">
+            <summary>
+            模板类型名称
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.TenantModel">
             <summary>
             租户

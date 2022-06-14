@@ -1033,6 +1033,66 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.get(System.Int32)">
+            <summary> 
+            获取详情记录
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.gets(SY.Com.Medical.Model.TemplateRequest)">
+            <summary> 
+            获取列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.add(SY.Com.Medical.Model.TemplateAdd)">
+            <summary> 
+            新增
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.update(SY.Com.Medical.Model.TemplateUpdate)">
+            <summary> 
+            修改
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.delete(SY.Com.Medical.Model.TemplateDelete)">
+            <summary> 
+            删除
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.getTemplateType">
+            <summary>
+            获取模板类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.getEmployeeList(SY.Com.Medical.Model.EmployeeGetsModel)">
+            <summary>
+            获取租户的员工
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController.getsGoods(SY.Com.Medical.Model.GoodsRequest)">
+            <summary>
+            获取药品和材料列表-分页
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
             <summary>
             科室控制器abc
