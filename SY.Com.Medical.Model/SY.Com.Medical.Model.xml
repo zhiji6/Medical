@@ -10163,6 +10163,11 @@
             创建人Id
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Model.TemplateModel.EmployeeName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.TemplateModel.TemplateName">
             <summary> 
             模板名称

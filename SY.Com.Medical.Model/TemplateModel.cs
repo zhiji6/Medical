@@ -22,6 +22,10 @@ namespace SY.Com.Medical.Model
 		///创建人Id
 		///</summary> 
 		public int EmployeeId {get;set;} 
+		/// <summary>
+		/// 创建人姓名
+		/// </summary>
+		public string EmployeeName { get; set; }
 		///<summary> 
 		///模板名称
 		///</summary> 
