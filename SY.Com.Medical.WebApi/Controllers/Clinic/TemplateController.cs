@@ -58,9 +58,13 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 				BaseResponse<List<TemplateModel>> result = new BaseResponse<List<TemplateModel>>();
 				try{
 					var tuple = bll.gets(request);
-					result.Data = tuple.Item1.ToList();
-					result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+				if(tuple == null)
+                {
 					return result;
+                }
+				result.Data = tuple.Item1.ToList();
+				result.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
+				return result;
 				}catch(Exception ex)
 				{
 					if (ex is MyException)
