@@ -130,7 +130,7 @@ namespace SY.Com.Medical.Repository.Clinic
 
         public int Delete(int dicid)
         {
-            string sql = " Delete From Dics Where Id = @id And IsReference = 0  ";
+            string sql = " Delete From Dics Where DicId = @id And IsReference = 0  ";
             return _db.Execute(sql, new { id = dicid });
         }
 
