@@ -136,8 +136,8 @@ namespace SY.Com.Medical.Repository.Clinic
 
         public int Update(int dicid,string dicvalue)
         {
-            string sql = " Update From Dics Where Id = @id  ";
-            return _db.Execute(sql, new { id = dicid });
+            string sql = " Update  Dics Set DicValue= @dicvalue  Where DicId = @id  ";
+            return _db.Execute(sql, new { id = dicid, dicvalue=dicvalue });
         }
 
     }
