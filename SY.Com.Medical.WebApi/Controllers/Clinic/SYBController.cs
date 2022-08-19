@@ -49,8 +49,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     //[Api_Tenant]
     public partial class SYBController : ControllerBase
     {
-        //private string syburl = "http://localhost:8002/api/SYB/Down";
-        private string syburl = "http://t5u2900410.51vip.biz/api/SYB/Down";        
+        private string syburl = "http://localhost:8002/api/SYB/Down";
+        //private string syburl = "http://t5u2900410.51vip.biz/api/SYB/Down";        
         SYBbll bll = new SYBbll();
         Patient patientbll = new Patient();
 

@@ -85,16 +85,17 @@
             经办人编号:<input type="text" value="mks" id="opter_code" />
             经办人名称:<input type="text" value="测试用户1" id="opter_name" />
             <p class="title" 患者信息></p>
-            患者编号:<input type="text" value="44030000000645017014" id="psn_no" />
-            患者姓名:<input type="text" value="崔桂玲" id="psn_name" />
+            患者编号:<input type="text" value="44030000000641884613" id="psn_no" />
+            患者姓名:<input type="text" value="宋芳" id="psn_name" />
             身份证:<input type="text" value="420528198310290065" id="certno" />
             余额:<input type="text" value="" id="balc" />
             人员类别:<input type="text" value="" id="psn_type" />
             险种类型:<input type="text" value="" id="insutype" />
             参保地医保区划:<input type="text" value="440300" id="insuplc_admdvs" />
+            性别:<input type="text" value="1" id="gend" />
             <p class="title">医生信息</p>
-            医生编码:<input type="text" value="D548494651871" id="dr_code" />
-            医生姓名:<input type="text" value="张医生" id="dr_name" />
+            医生编码:<input type="text" value="N110102002594" id="dr_code" />
+            医生姓名:<input type="text" value="何洛洛" id="dr_name" />
             科室编码:<input type="text" value="A50" id="dept_code" />
             科室名称:<input type="text" value="中医科" id="dept_name" />
             科别:<input type="text" value="中医科" id="caty" />
@@ -137,6 +138,7 @@
         <div class="container">
             <p class="title">自动测试2</p>
             <button type="button" class="btn" id="autoInterface">自动</button>
+            <button type="button" class="btn" id="clearTaskLinkFill">清理并填充</button>
             <p class="empty"></p>
             <p class="empty"></p>
             <p class="empty"></p>
@@ -146,7 +148,7 @@
         <div class="container">            
             <p class="title">自动测试</p>
             <button type="button" class="btn" id="AutoTestYB">自动测试医保接口</button>
-            <button type="button" class="btn" id="clearTaskLink">清理</button>
+            <button type="button" class="btn" id="clearTaskLink">清理</button>            
             <p class="empty"></p>
             <p class="empty"></p>
             <p class="empty"></p>
@@ -393,7 +395,7 @@
         , SYB2204, SYB2205, SYB2206, SYB2207, SYB2208
         , SYB2505, SYB2506, SYB4201
     ];
-
+    
 
     //自动化测试医保
     function AutoTestYB() {
@@ -419,15 +421,14 @@
 
     //清空链表
     function clearTaskLink() {
-        tasklinkclear();
-        //删除表格行
-        $("#tabWxResult tr:gt(0):not(:eq(1))").remove();
-        swal({
-            title: "刷新",
-            text: "成功",
-            icon: "success",
-            button: "确定",
-        });
+        ClearData();        
+    }
+
+    //清理并填充
+    function clearTaskLinkFill()
+    {
+        ClearData();   
+        LoadData();
     }
 
 
