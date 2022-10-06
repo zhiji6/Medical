@@ -658,7 +658,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<string> result = new BaseResponse<string>();
             try
             {
-                result.Data = "http://" + Request.Host.Value + "/GoodTemplate/物料模板.xlsx";
+                result.Data = "http://" + Request.Host.Value + "/GoodTemplate/药品项目模板.xlsx";
                 return result;
             }
             catch (Exception ex)
