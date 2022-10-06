@@ -50,6 +50,7 @@ namespace SY.Com.Medical.Repository.Clinic
             Tuple<List<TemplateEntity>, int> result = new Tuple<List<TemplateEntity>, int>(datas, count);
             return result;
         }
+        
 
     }
 } 

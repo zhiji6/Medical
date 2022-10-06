@@ -639,8 +639,16 @@ namespace SY.Com.Medical.Repository
         public int getID(string name,int step = 1)
         {
             string sql = @" 
-                            Update IDGlobal Set ID = ID + @step Where Name = @Name ;
-                            Select ID From IDGlobal Where Name = @Name; ";
+                            if exists(Select ID From IDGlobal Where Name = @Name)
+                            begin
+                                 Update IDGlobal Set ID = ID + @step Where Name = @Name ;
+                                Select ID From IDGlobal Where Name = @Name;
+                            end else begin
+                                Insert Into IDGlobal(ID,Name)
+                                Values(@step,@Name)
+                                Select ID From IDGlobal Where Name = @Name;
+                            end 
+                            ";
             lock (obj)
             {
                 return _dbid.QueryFirst<int>(sql, new { Name = name, step = step });

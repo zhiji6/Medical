@@ -61,9 +61,21 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public int add(TemplateAdd request)
 		{
-			request.TemplateType = request.TemplateType == "1" ? "私有" : "公开";
-			request.Content = Newtonsoft.Json.JsonConvert.SerializeObject(request.Prescription);
-			return db.Create(request.DtoToEntity<TemplateEntity>());
+			TemplateEntity entity = new TemplateEntity();
+			entity.EmployeeId = request.EmployeeId;
+			entity.TemplateName = request.TemplateName;
+			entity.TemplateType = request.TemplateType == "1" ? "私有" : "公开";
+			entity.Content = Newtonsoft.Json.JsonConvert.SerializeObject(request.Prescription);
+			entity.WestCount = request.Prescription.Where(x => x.PreName == "西药处方")?.ToList().Count ?? 0;
+			entity.EastCount = request.Prescription.Where(x => x.PreName == "中药处方")?.ToList().Count ?? 0;
+			entity.ProjectCount = request.Prescription.Where(x => x.PreName == "项目处方")?.ToList().Count ?? 0;
+			entity.TenantId = request.TenantId;
+			entity.IsDelete = Enum.Delete.正常;
+			entity.IsEnable = Enum.Enable.启用;
+			return db.Create(entity);
+			//request.TemplateType = request.TemplateType == "1" ? "私有" : "公开";			
+			//request.Content = Newtonsoft.Json.JsonConvert.SerializeObject(request.Prescription);
+			//return db.Create(request.DtoToEntity<TemplateEntity>());
 		}
 		///<summary> 
 		///修改
@@ -72,10 +84,19 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public void update(TemplateUpdate request)
 		{
-			var mod = request.DtoToEntity<TemplateEntity>();
-			request.TemplateType = request.TemplateType == "1" ? "私有" : "公开";
-			mod.Content = Newtonsoft.Json.JsonConvert.SerializeObject(request.Prescription);
-			db.Update(mod);
+			TemplateEntity entity = new TemplateEntity();
+			entity.EmployeeId = request.EmployeeId;
+			entity.TemplateName = request.TemplateName;
+			entity.TemplateType = request.TemplateType == "1" ? "私有" : "公开";
+			entity.Content = Newtonsoft.Json.JsonConvert.SerializeObject(request.Prescription);
+			entity.WestCount = request.Prescription.Where(x => x.PreName == "西药处方")?.ToList().Count ?? 0;
+			entity.EastCount = request.Prescription.Where(x => x.PreName == "中药处方")?.ToList().Count ?? 0;
+			entity.ProjectCount = request.Prescription.Where(x => x.PreName == "项目处方")?.ToList().Count ?? 0;
+			db.Update(entity);
+			//var mod = request.DtoToEntity<TemplateEntity>();
+			//request.TemplateType = request.TemplateType == "1" ? "私有" : "公开";
+			//mod.Content = Newtonsoft.Json.JsonConvert.SerializeObject(request.Prescription);
+			//db.Update(mod);
 		}
 		///<summary> 
 		///删除
@@ -84,7 +105,8 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public void delete(TemplateDelete request)
 		{
-			db.Delete(request.DtoToEntity<TemplateEntity>());
+			TemplateEntity entity = db.GetDelete(request.TemplateId);
+			db.Delete(entity);
 		}
 	}
 } 
