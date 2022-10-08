@@ -122,8 +122,8 @@ namespace SY.Com.Medical.BLL.Clinic
                     CaseBookDoctorDepart mod = new CaseBookDoctorDepart();
                     mod.DoctorId = node.EmployeeId;
                     mod.DoctorName = node.EmployeeName;
-                    mod.DepartmentId = int.Parse(node.Departments);
-                    mod.Departments = departs.Find(x => x.DepartmentId == mod.DepartmentId) == null ? "" : departs.Find(x => x.DepartmentId == mod.DepartmentId).DepartmentName; ;                    
+                    mod.DepartmentId = departs.Find(f=> f.DepartmentName == node.Departments)?.DepartmentId ?? 1;
+                    mod.Departments = node.Departments;//departs.Find(x => x.DepartmentId == mod.DepartmentId) == null ? "" : departs.Find(x => x.DepartmentId == mod.DepartmentId).DepartmentName; ;                    
                     result.Add(mod);
                 }
             }
