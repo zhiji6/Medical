@@ -1013,4 +1013,16 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string DicType { get; set; }
     }
-} 
+
+	/// <summary>
+	/// 药品模板下载入参
+	/// </summary>
+    public class GoodDownFileType : BaseModel
+    { 
+		/// <summary>
+		/// 文件下载类型,1:药品,2:项目,3:材料
+		/// </summary>
+		public int Type { get; set; }
+	}
+
+}

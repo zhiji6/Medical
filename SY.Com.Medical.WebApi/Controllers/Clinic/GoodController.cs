@@ -653,12 +653,18 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<string> getDownloadUrl(BaseModel request)
+        public BaseResponse<string> getDownloadUrl(GoodDownFileType request)
         {
             BaseResponse<string> result = new BaseResponse<string>();
             try
             {
-                result.Data = "http://" + Request.Host.Value + "/GoodTemplate/药品项目模板.xlsx";
+                switch(request.Type)
+                {
+                    case 1: result.Data = "http://" + Request.Host.Value + "/GoodTemplate/药品模板.xlsx";break;
+                    case 2: result.Data = "http://" + Request.Host.Value + "/GoodTemplate/项目模板.xlsx"; break;
+                    case 3: result.Data = "http://" + Request.Host.Value + "/GoodTemplate/材料模板.xlsx"; break;
+                    default: result.Data = "http://" + Request.Host.Value + "/GoodTemplate/药品项目模板.xlsx"; break;
+                }
                 return result;
             }
             catch (Exception ex)

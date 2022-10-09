@@ -158,7 +158,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Excel, StaticFileBusiness = StaticFileBusiness.物料导入Excel, filepathExtension = tenantid };
                 if (files.Count < 1)
                 {
-                    throw new MyException("为上传任何文件");
+                    throw new MyException("未上传任何文件");
                 }
                 foreach (var item in files)
                 {

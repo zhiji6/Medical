@@ -103,6 +103,10 @@ namespace SY.Com.Medical.Entity
 		/// 每日用量
 		/// </summary>
 		public string EveryDay { get; set; }
+		/// <summary>
+		/// 部位
+		/// </summary>
+		public string Place { get; set; }
 
 	}
 } 

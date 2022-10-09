@@ -79,6 +79,41 @@ namespace SY.Com.Medical.BLL.Platform
                             {
                                 hasValue = true;
                             }
+                            switch (header.GetCell(j).StringCellValue)
+                            {
+                                case "类型":
+                                    {
+                                        switch (cellvalue)
+                                        {
+                                            case "西药": data.GoodType = Enum.GoodType.西药; break;
+                                            case "中成药": data.GoodType = Enum.GoodType.中成药; break;
+                                            case "中药": data.GoodType = Enum.GoodType.中药; break;
+                                            case "项目": data.GoodType = Enum.GoodType.项目; break;
+                                            case "材料": data.GoodType = Enum.GoodType.材料; break;
+                                            default: data.GoodType = Enum.GoodType.西药; break;
+                                        }
+                                    }
+                                    break;
+                                case "名称": data.GoodName = cellvalue.ToString(); break;
+                                case "规格": data.Norm = cellvalue.ToString(); break;
+                                case "厂家": data.Factory = cellvalue.ToString(); break;
+                                case "计价单位": data.SalesUnit = cellvalue.ToString(); break;
+                                case "采购单位": data.StockUnit = cellvalue.ToString(); break;
+                                case "比率": data.Ratio = int.Parse(cellvalue.ToString()); break;
+                                case "物料分类": data.GoodSort = dicbll.getIdByValue(data.TenantId, cellvalue.ToString(), "GoodSort", data.GoodType.ToString()); break;
+                                case "单次用量": data.Single = int.Parse(cellvalue.ToString()); break;
+                                case "一天用量": data.EveryDay = cellvalue.ToString(); break;
+                                case "用法": data.Usage = cellvalue.ToString(); break;
+                                case "国药准字": data.GoodStandard = cellvalue.ToString(); break;
+                                case "医保编码": data.InsuranceCode = cellvalue.ToString(); break;
+                                case "机构编码": data.CustomerCode = cellvalue.ToString(); break;
+                                case "条形码": data.BarCode = cellvalue.ToString(); break;
+                                case "价格": data.Price = (long)(Math.Round(double.Parse(cellvalue.ToString()), 2) * 100); break;
+                                case "部位": data.Place = cellvalue.ToString(); break;
+                                default: break;
+                            }
+                            #region 注释
+                            /*
                             switch (j)
                             {
                                 case 0:
@@ -109,8 +144,11 @@ namespace SY.Com.Medical.BLL.Platform
                                 case 13: data.CustomerCode = cellvalue.ToString(); break;
                                 case 14: data.BarCode = cellvalue.ToString(); break;
                                 case 15: data.Price = (long)(Math.Round(double.Parse(cellvalue.ToString()), 2) * 100); break;
+                                case 16:data.Place = cellvalue.ToString();break;
                                 default: break;
                             }
+                            */
+                            #endregion
                         }
                         if (hasValue)
                         {
