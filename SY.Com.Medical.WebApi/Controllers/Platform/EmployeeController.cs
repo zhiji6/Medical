@@ -38,6 +38,18 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 result.Data = tuple.Item1;
                 var closemods = bll.getEmployeesClose(request.TenantId);
                 result.Data.AddRange(closemods);
+                User userbll = new User();
+                var users = userbll.getUsers(result.Data.Select(s => s.UserId).ToList());
+                if(users != null)
+                {
+                    foreach(var data in result.Data)
+                    {
+                        if(users.Exists(e=>e.UserId == data.UserId))
+                        {
+                            data.Account = users.Find(e => e.UserId == data.UserId).Account;
+                        }
+                    }
+                }
                 result.CalcPage(tuple.Item2 + closemods.Count, request.PageIndex, request.PageSize);
                 return result;
             }
@@ -122,7 +134,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             BaseResponse<int> result = new BaseResponse<int>();
             try
             {
-                result.Data = bll.invite(request.Account,request.TenantId,request.Roles);
+                result.Data = bll.invite(request.Account,request.TenantId,request.Roles,request.EmployeeName);
                 return result;
             }
             catch (Exception ex)

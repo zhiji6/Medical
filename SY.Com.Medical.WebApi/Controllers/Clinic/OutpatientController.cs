@@ -102,10 +102,25 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <returns></returns>
         [HttpPost]
         public BaseResponse<int> OutpatientCharge(OutpatientChargeModel request)
-        {
+        {            
             BaseResponse<int> result = new BaseResponse<int>();
-            result.Data = bll.Charge(request);
-            return result;
+            if (request.Cashier == 0) return result.busExceptino(Enum.ErrorCode.业务逻辑错误, "需要传入Cashier表示收银员Id");
+            try
+            {
+                result.Data = bll.Charge(request);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return result.sysException(ex.Message);
+                }
+            }
         }
 
         /// <summary>

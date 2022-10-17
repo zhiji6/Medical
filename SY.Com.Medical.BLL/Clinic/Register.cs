@@ -180,18 +180,18 @@ namespace SY.Com.Medical.BLL.Clinic
 		///</summary> 
 		///<param name="request"></param>
 		/// <returns></returns>
-		public Tuple<List<RegisterModel>,int> gets(int request,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int doctorid,int isUsed = 0)
+		public Tuple<List<RegisterModel>,int> gets(int tenantid,int pageSize,int pageIndex,string searchKey,DateTime? start,DateTime? end,int doctorid,int isUsed = 0)
 		{
 			string doctorname = "";
 			//	string sql = "select * from Employees where TenantId=" + request + " and EmployeeId=" + doctorid;
-			var doctornames =db.BackDoctorName(request, doctorid);
+			var doctornames =db.BackDoctorName(tenantid, doctorid);
 			if(doctorname != null && doctorname.Length > 0)
             {
 				doctorname = doctornames.First().EmployeeName;
 
 			}
 		///	doctorname = doctornames;
-			var datas  = db.SearchPage(request,pageSize,pageIndex,searchKey,start,end, doctorname, isUsed);
+			var datas  = db.SearchPage(tenantid, pageSize,pageIndex,searchKey,start,end, doctorname, isUsed);
 			if(datas.Item1 == null || !datas.Item1.Any())
             {
 				Tuple<List<RegisterModel>, int> result1 = new(new List<RegisterModel>(), datas.Item2);

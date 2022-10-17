@@ -204,6 +204,16 @@
             
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.Cashier">
+            <summary>
+            收银员id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.CashierName">
+            <summary>
+            收银员名称
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.DepartmentEntity">
             <summary>
              科室实体    
@@ -422,6 +432,11 @@
         <member name="P:SY.Com.Medical.Entity.GoodEntity.EveryDay">
             <summary>
             每日用量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.GoodEntity.Place">
+            <summary>
+            部位
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.InventoryEntity">
@@ -1193,6 +1208,56 @@
             <summary>
             角色id
             </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.TemplateEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.TemplateId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.EmployeeId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.TemplateName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.TemplateType">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.WestCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.EastCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.ProjectCount">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.TemplateEntity.Content">
+            <summary> 
+            
+            </summary> 
         </member>
         <member name="T:SY.Com.Medical.Entity.TenantDepartmentEntity">
             <summary>

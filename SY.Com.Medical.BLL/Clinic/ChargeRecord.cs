@@ -29,9 +29,23 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public ChargeRecordEntity getByOutpatientId(int tenantId, int outpatientId,string chargetype = "门诊收费")
 		{
-
 			return db.getByOutpatientId(tenantId, outpatientId,chargetype);
         }
+
+
+		/// <summary>
+		/// 获取收费-批量
+		/// </summary>
+		/// <param name="tenantId"></param>
+		/// <param name="outpatientIds"></param>
+		/// <param name="chargetype"></param>
+		/// <returns></returns>
+		public List<ChargeRecordEntity> getByOutpatientIds(int tenantId, List<int> outpatientIds, string chargetype = "门诊收费")
+		{
+			if (outpatientIds == null || outpatientIds.Count < 1) return null;
+			return db.getByOutpatientIds(tenantId, outpatientIds, chargetype);
+		}
+		
 
 		///<summary> 
 		///获取详情记录

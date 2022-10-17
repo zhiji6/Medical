@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\代码\门诊\SY.Com.Medical.Model\SY.Com.Medical.Model.xml</DocumentationFile>
+    <DocumentationFile>..\SY.Com.Medical.Model\SY.Com.Medical.Model.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>E:\代码\门诊\SY.Com.Medical.Model\SY.Com.Medical.Model.xml</DocumentationFile>
+    <DocumentationFile>..\SY.Com.Medical.Model\SY.Com.Medical.Model.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

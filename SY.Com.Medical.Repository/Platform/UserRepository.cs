@@ -49,5 +49,11 @@ namespace SY.Com.Medical.Repository.Platform
             return _db.QueryFirstOrDefault<UserEntity>(sql, new { Account = Account, YZM= YZM });
         }
 
+        public List<UserEntity> getUsers(List<int> UserIds)
+        {
+            string sql = " Select * From Users Where UserId in@ids ";
+            return _db.Query<UserEntity>(sql, new { ids = UserIds })?.ToList();
+        }
+
     }
 }

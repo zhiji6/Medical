@@ -105,7 +105,7 @@ namespace SY.Com.Medical.BLL.Platform
         /// <param name="TenantId"></param>
         /// <param name="roles"></param>
         /// <returns></returns>
-        public int invite(string Account,int TenantId,string roles)
+        public int invite(string Account,int TenantId,string roles,string employeeName)
         {
             User us = new User();
             bool exists = us.ExistsAccount(Account);
@@ -130,7 +130,7 @@ namespace SY.Com.Medical.BLL.Platform
                         Roles = roles,
                         TenantId = TenantId,
                         Sex = (int)Enum.Sex.男,
-                        EmployeeName = user.Account,
+                        EmployeeName = employeeName,
                         Departments = departs.FirstOrDefault().DepartmentId.ToString()
                     };
                     return createEmployee(mod);
@@ -146,7 +146,7 @@ namespace SY.Com.Medical.BLL.Platform
                     Roles = roles,
                     TenantId = TenantId,
                     Sex = (int)Enum.Sex.男,
-                    EmployeeName = Account,
+                    EmployeeName = employeeName,
                     Departments = departs.FirstOrDefault().DepartmentId.ToString()
                 };
                 return createEmployee(mod2);
@@ -174,6 +174,11 @@ namespace SY.Com.Medical.BLL.Platform
             return db.getByUser(new UserEntity { UserId = request.UserId },request.TenantId).EntityToDto<EmployeeModel>();
         }
 
+
+        public EmployeeModel getEmployeeByUser(int tenantid ,int userid)
+        {
+            return db.getByUser(new UserEntity { UserId = userid }, tenantid).EntityToDto<EmployeeModel>();
+        }
         
 
     }

@@ -937,6 +937,11 @@
             启用禁用:1:启用,2:禁用
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeModel.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.EmployeeGetModel">
             <summary>
             获取员工信息
@@ -975,6 +980,11 @@
         <member name="P:SY.Com.Medical.Model.EmployeeInvity.Account">
             <summary>
             账号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.EmployeeInvity.EmployeeName">
+            <summary>
+            名称
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.EmployeeOpenClose">
@@ -2107,6 +2117,16 @@
         <member name="P:SY.Com.Medical.Model.GoodSortReuqest.DicType">
             <summary>
             字典类型
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.GoodDownFileType">
+            <summary>
+            药品模板下载入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodDownFileType.Type">
+            <summary>
+            文件下载类型,1:药品,2:项目,3:材料
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.InventoryListRequest">
@@ -3303,6 +3323,16 @@
             就诊日期
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientListModel.Cashier">
+            <summary>
+            收银员Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientListModel.CashierName">
+            <summary>
+            收银员名称
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientSearchModel">
             <summary>
             Outpatient搜索模型
@@ -3386,6 +3416,11 @@
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.PayWay">
             <summary>
             自费支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.Cashier">
+            <summary>
+            收银员Id(EmployeeId)
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PageModel">

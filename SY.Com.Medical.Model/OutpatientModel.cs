@@ -491,6 +491,14 @@ namespace SY.Com.Medical.Model
 		/// 就诊日期
 		/// </summary>
 		public DateTime? CreateTime { get; set; }
+		/// <summary>
+		/// 收银员Id
+		/// </summary>
+		public int Cashier { get; set; }
+		/// <summary>
+		/// 收银员名称
+		/// </summary>
+		public string CashierName { get; set; }
 		
 	}
 	
@@ -571,6 +579,10 @@ namespace SY.Com.Medical.Model
 		/// 自费支付方式0:现金,1:微信,2:支付宝,3:银行卡,4:医保卡标记
 		/// </summary>
 		public int PayWay { get; set; }
+		/// <summary>
+		/// 收银员Id(EmployeeId)
+		/// </summary>
+		public int Cashier { get; set; }
 
 
     }

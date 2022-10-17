@@ -72,6 +72,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			List<OutpatientListModel> modellist = new List<OutpatientListModel>();
 			Patient pat = new Patient();
 			var tuple = db.getHistoryPaid(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId);
+			var crs = new ChargeRecord().getByOutpatientIds(tenantId, tuple.Item1?.Select(s => s.OutpatientId).ToList());
 			tuple.Item1.ForEach(x =>
 			{
 				OutpatientListModel mod = new OutpatientListModel();
@@ -87,6 +88,8 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.DoctorName = x.DoctorName;
 				mod.CreateTime = x.CreateTime;
 				mod.PrescriptionCount = x.PrescriptionCount;
+				mod.Cashier = crs?.Find(f=> f.SeeDoctorId == x.OutpatientId)?.Cashier ?? 0;
+				mod.CashierName = crs?.Find(f => f.SeeDoctorId == x.OutpatientId)?.CashierName ?? "";
 				modellist.Add(mod);
 			});
 			Tuple<List<OutpatientListModel>, int> result = new Tuple<List<OutpatientListModel>, int>(modellist, tuple.Item2);
@@ -184,7 +187,7 @@ namespace SY.Com.Medical.BLL.Clinic
             }
 			//修改支付状态和医保结算时,医保结算号,医保余额
 			db.UpdateIsPay(mod.TenantId, mod.OutpatientId,mod.setl_id,Convert.ToInt64(mod.Balc * 1000));
-
+			var employeemodel = new Platform.Employee().getEmployeeByUser(mod.UserId, mod.TenantId);
 			//保存收费记录
 			ChargeRecord chargebll = new ChargeRecord();
 			ChargeRecordEntity chargeentity = new ChargeRecordEntity();
@@ -194,6 +197,8 @@ namespace SY.Com.Medical.BLL.Clinic
 			chargeentity.SeeDoctorId = mod.OutpatientId;
 			chargeentity.Price = Convert.ToInt64(mod.Cost * 1000);
 			chargeentity.ChargeType = "门诊收费";
+			chargeentity.Cashier = employeemodel.EmployeeId;
+			chargeentity.CashierName = employeemodel.EmployeeName;
 			if (!string.IsNullOrEmpty(entity.mdtrt_id))
 			{
 				chargeentity.PayYB = Convert.ToInt64(mod.YBCost * 1000);

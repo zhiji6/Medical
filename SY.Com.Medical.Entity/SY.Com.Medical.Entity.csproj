@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>E:\代码\门诊\SY.Com.Medical.Entity\SY.Com.Medical.Entity.xml</DocumentationFile>
+    <DocumentationFile>..\SY.Com.Medical.Entity\SY.Com.Medical.Entity.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

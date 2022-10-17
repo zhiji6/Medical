@@ -34,8 +34,24 @@ namespace SY.Com.Medical.BLL.Platform
         public UserModel getUser(int UserId)
         {
             UserModel result = new UserModel();
-            return CloneClass.Clone<UserEntity, UserModel>(db.Get(UserId), result);
-            
+            return CloneClass.Clone<UserEntity, UserModel>(db.Get(UserId), result);            
+        }
+
+        /// <summary>
+        /// 根据UserId批量获取用户账号信息
+        /// </summary>
+        /// <param name="UserIds"></param>
+        /// <returns></returns>
+        public List<UserModel> getUsers(List<int> UserIds)
+        {
+            if (UserIds == null) return null;
+            var entitys = db.getUsers(UserIds);
+            if(entitys != null)
+            {
+                return entitys.EntityToDto<UserModel>();
+            }
+            return null;
+
         }
 
         /// <summary>

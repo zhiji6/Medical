@@ -63,5 +63,13 @@ namespace SY.Com.Medical.Entity
 		///
 		///</summary> 
 		public long PayAli {get;set;} 
+		/// <summary>
+		/// 收银员id
+		/// </summary>
+		public int Cashier { get; set; }
+		/// <summary>
+		/// 收银员名称
+		/// </summary>
+		public string CashierName { get; set; }
 	}
 } 

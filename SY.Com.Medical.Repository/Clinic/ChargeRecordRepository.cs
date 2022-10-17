@@ -24,5 +24,18 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             return null;
         }
+
+        public List<ChargeRecordEntity> getByOutpatientIds(int tenantId, List<int> outpatientIds, string chargetype)
+        {
+            string sql = @" Select * From ChargeRecords 
+                            Where TenantId=@TenantId And SeeDoctorId in@SeeDoctorId And ChargeType= '" + chargetype + "' ";
+            var mods = _db.Query<ChargeRecordEntity>(sql, new { TenantId = tenantId, SeeDoctorId = outpatientIds });
+            if (mods != null && mods.Any())
+            {
+                return mods.ToList();
+            }
+            return null;
+        }
+
     }
 } 

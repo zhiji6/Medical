@@ -224,7 +224,7 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getDownloadUrl(SY.Com.Medical.Model.BaseModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.GoodController.getDownloadUrl(SY.Com.Medical.Model.GoodDownFileType)">
             <summary>
             下载物料
             </summary>

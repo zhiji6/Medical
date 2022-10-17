@@ -54,6 +54,10 @@ namespace SY.Com.Medical.Model
         /// 启用禁用:1:启用,2:禁用
         /// </summary>
         public int IsEnable { get; set; }
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string Account { get; set; }
     }
 
     /// <summary>
@@ -95,6 +99,10 @@ namespace SY.Com.Medical.Model
         /// 账号
         /// </summary>
         public string Account { get; set; }
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string EmployeeName { get; set; }
     }
 
     /// <summary>
