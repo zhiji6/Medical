@@ -138,4 +138,21 @@ namespace SY.Com.Medical.Model
         public int UserId { get; set; }
     }
 
+    /// <summary>
+    ///  修改密码
+    /// </summary>
+    public class ChangeRequst : BaseModel
+    {        
+        /// <summary>
+        /// 新密码
+        /// </summary>
+        public string Pwd { get; set; }
+        /// <summary>
+        /// 新密码确认
+        /// </summary>
+
+        public string PwdConfirm { get; set; }
+    }
+
+
 }

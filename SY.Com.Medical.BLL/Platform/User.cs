@@ -148,8 +148,16 @@ namespace SY.Com.Medical.BLL.Platform
             response.UserId = entity.UserId;
             return response;
         }
-
-
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="pwd">密码</param>
+        /// <param name="userid">用户id</param>
+        /// <returns></returns>
+        public bool Change(string pwd,int userid)
+        {
+            return db.Change(userid, pwd);
+        }
 
 
     }

@@ -1389,6 +1389,13 @@
             用户控制器
             </summary>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.UserController.ChangePwd(SY.Com.Medical.Model.ChangeRequst)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Filter.CustomerFilter">
             <summary>
             获取JWT中的user信息和head中传入的TenantId

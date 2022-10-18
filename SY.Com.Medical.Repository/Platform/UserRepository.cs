@@ -55,5 +55,17 @@ namespace SY.Com.Medical.Repository.Platform
             return _db.Query<UserEntity>(sql, new { ids = UserIds })?.ToList();
         }
 
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public bool Change(int userid,string pwd)
+        {
+            string sql = " Update Users Set Pwd = @pwd Where UserId = @id ";
+            return _db.Execute(sql, new { pwd = pwd, id = userid }) >= 0;
+        }
+
     }
 }

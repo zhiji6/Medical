@@ -10968,6 +10968,21 @@
             用户ID
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.ChangeRequst">
+            <summary>
+             修改密码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChangeRequst.Pwd">
+            <summary>
+            新密码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChangeRequst.PwdConfirm">
+            <summary>
+            新密码确认
+            </summary>
+        </member>
         <member name="T:SZSI_Smart.Model.SYB.CFZX.CF7103">
             <summary>
             处方购药结果反馈
