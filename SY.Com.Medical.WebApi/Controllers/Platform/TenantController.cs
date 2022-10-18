@@ -16,8 +16,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
     /// 租户控制器
     /// </summary>
     [Route("api/[controller]/[Action]")]
-    [Authorize]    
-    [ApiController]    
+    [Authorize]
+    [ApiController]
     public class TenantController : ControllerBase
     {
         Tenant tenantbll = new Tenant();
@@ -62,7 +62,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             try
             {
                 response.Data = tenantbll.GetTenant(request);
-                if(response.Data != null)
+                if (response.Data != null)
                 {
                     if (string.IsNullOrEmpty(response.Data.YBUrl))
                     {
@@ -90,7 +90,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost]        
+        [HttpPost]
         public BaseResponse<UserTenantResponse> createTenant(TenentCreateRequest request)
         {
             BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();
@@ -110,7 +110,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 {
                     return response.sysException(ex.Message);
                 }
-            }            
+            }
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <returns></returns>
         [HttpPost]
         [Api_Tenant]
-        public BaseResponse<TenantModel> updateTenant(TenantRequest request )
+        public BaseResponse<TenantModel> updateTenant(TenantRequest request)
         {
             BaseResponse<TenantModel> response = new BaseResponse<TenantModel>();
             try
@@ -154,7 +154,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             BaseResponse<bool> response = new BaseResponse<bool>();
             try
             {
-                tenantbll.DeleteTenant(request.TenantId,request.UserId);
+                tenantbll.DeleteTenant(request.TenantId, request.UserId);
                 response.Data = true;
                 return response;
             }
@@ -182,7 +182,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         {
             BaseResponse<List<MenuTreeResponse>> response = new BaseResponse<List<MenuTreeResponse>>();
             try
-            {                
+            {
                 response.Data = tenantbll.GetMenu(request);
                 return response;
             }
@@ -214,7 +214,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 response.CalcPage(tuple.Item2, request.PageIndex, request.PageSize);
                 return response;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 if (ex is MyException)
                 {
@@ -269,6 +269,34 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             try
             {
                 response.Data = tenantbll.BuyServiceTime(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 点击进入诊所，或者员工信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Api_Tenant]        
+        public BaseResponse<EmployeeModel> IntoTenant(BaseModel request)
+        {
+            BaseResponse<EmployeeModel> response = new BaseResponse<EmployeeModel>();
+            try
+            {
+                response.Data = tenantbll.IntoTenant(request.TenantId,request.UserId);
                 return response;
             }
             catch (Exception ex)

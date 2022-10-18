@@ -1377,6 +1377,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.IntoTenant(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            点击进入诊所，或者员工信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.UserController">
             <summary>
             用户控制器

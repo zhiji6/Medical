@@ -65,6 +65,10 @@ namespace SY.Com.Medical.Model
         /// 头像路径全路径
         /// </summary>
         public string LogoImg { get; set; }
+        /// <summary>
+        /// 用户Id,通过用户Id和诊所Id换取员工id(EmployeeId)
+        /// </summary>
+        public int Uid { get; set; }
 
     }
 
@@ -84,7 +88,7 @@ namespace SY.Com.Medical.Model
         /// <summary>
         /// 验证码
         /// </summary>
-        public string YZM { get; set; }
+        public string YZM { get; set; }        
     }
 
 

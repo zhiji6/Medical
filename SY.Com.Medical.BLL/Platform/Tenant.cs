@@ -177,5 +177,12 @@ namespace SY.Com.Medical.BLL.Platform
             return result > 0;
         }
 
+        public EmployeeModel IntoTenant(int tenantid,int userid)
+        {
+            Employee em = new Employee();
+            var emmodel = em.getEmployee(new EmployeeGetModel { TenantId = tenantid, UserId = userid });
+            return emmodel;
+        }
+
     }
 }

@@ -39,6 +39,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 result.Data.access_token = JWTTokenValidationParameters.getSecurityToken(usermodel.UserId, usermodel.Account);
                 result.Data.Account = usermodel.Account;
                 result.Data.LogoImg = usermodel.LogoImg;
+                result.Data.Uid = usermodel.UserId;
                 return result;
             }
             catch (Exception ex)

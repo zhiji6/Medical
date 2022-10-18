@@ -10898,6 +10898,11 @@
             头像路径全路径
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.LoginResponse.Uid">
+            <summary>
+            用户Id,通过用户Id和诊所Id换取员工id(EmployeeId)
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.RegisterRequest">
             <summary>
             注册入参

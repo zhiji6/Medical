@@ -78,6 +78,7 @@ namespace SY.Com.Medical.BLL.Platform
             response.Account = entity.Account;
             response.UserId = entity.UserId;
             response.LogoImg = entity.LogoImg;
+            response.UserId = entity.UserId;
             return response;
         }        
 
