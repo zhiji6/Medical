@@ -30,8 +30,9 @@ namespace SY.Com.Medical.Repository.Platform
         public IEnumerable<DepartmentEntity> getTenantDepartment(int TenantId)
         {
             string sql = @" 
-                            select * From Departments                            
-                            Where TenantId = @TenantId  And IsDelete = @IsDelete ";
+                            Select * From Departments                            
+                            Where TenantId = @TenantId  And IsDelete = @IsDelete
+                            Order By Sort Asc ";
             var result = _db.Query<DepartmentEntity>(sql, new { TenantId = TenantId, IsEnable=Enable.启用,IsDelete=Enum.Delete.正常 });
             return result;
         }
@@ -56,8 +57,8 @@ namespace SY.Com.Medical.Repository.Platform
                 x.DepartmentId = maxid--;
                 x.TenantId = TenantId;
             });
-            string sql2 = @" Insert Into Departments(DepartmentId,TenantId,DepartmentName,DepartmentCode,CreateTime,IsEnable,IsDelete)
-                             Values(@DepartmentId,@TenantId,@DepartmentName,@DepartmentCode,getdate(),1,1)";
+            string sql2 = @" Insert Into Departments(DepartmentId,TenantId,DepartmentName,DepartmentCode,CreateTime,IsEnable,IsDelete,Sort)
+                             Values(@DepartmentId,@TenantId,@DepartmentName,@DepartmentCode,getdate(),1,1,@Sort)";
             _db.Execute(sql2, entitys);
         }
 

@@ -33,6 +33,10 @@ namespace SY.Com.Medical.Entity
         /// 科室编码    
         /// </summary>
         public string DepartmentCode { get; set; }
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get; set; }
 
 
 
