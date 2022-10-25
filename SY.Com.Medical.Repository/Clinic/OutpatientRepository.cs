@@ -81,7 +81,7 @@ namespace SY.Com.Medical.Repository.Clinic
         private Tuple<List<OutpatientEntity>,int> getList(int tenantId, int pageSize, int pageIndex, string searchKey, DateTime? start, DateTime? end,int doctorId = 0,int isNoPaid = 0 )
         {            
             string where = "";
-            if (string.IsNullOrEmpty(searchKey))
+            if (!string.IsNullOrEmpty(searchKey))
             {
                 where += " And SearchKey like '%"+ searchKey +"%' ";
             }
@@ -251,7 +251,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("json转换失败");
+                    throw new Exception("json转换失败:" +ex.Message);
                 }
             }
             return result;

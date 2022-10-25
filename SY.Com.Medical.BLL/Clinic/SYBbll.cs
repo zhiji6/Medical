@@ -149,7 +149,7 @@ namespace SY.Com.Medical.BLL.Clinic
         /// <param name="name"></param>
         /// <returns></returns>
         public string getDiagnosisCode(string name)
-        {
+        {            
             string code = "B90.251";
             return code;
         }

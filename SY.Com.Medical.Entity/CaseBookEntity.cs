@@ -67,9 +67,13 @@ namespace SY.Com.Medical.Entity
         public string Diagnosis { get; set; }
 
         /// <summary>
-        /// 疾病    
+        /// 疾病
         /// </summary>
         public string Disease { get; set; }
+        /// <summary>
+        /// 疾病编码
+        /// </summary>
+        public string DiseaseCode { get; set; }
 
         /// <summary>
         /// 门诊日期    

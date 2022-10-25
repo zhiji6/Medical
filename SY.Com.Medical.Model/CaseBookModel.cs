@@ -57,9 +57,13 @@ namespace SY.Com.Medical.Model
         public string Diagnosis { get; set; }
 
         /// <summary>
-        /// 疾病    
+        /// 疾病
         /// </summary>
         public string Disease { get; set; }
+        /// <summary>
+        /// 疾病编码
+        /// </summary>
+        public string DiseaseCode { get; set; }
 
         /// <summary>
         /// 门诊日期    
@@ -162,6 +166,10 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public string Disease { get; set; }
         /// <summary>
+        /// 疾病编码
+        /// </summary>
+        public string DiseaseCode { get; set; }
+        /// <summary>
         /// 医嘱    
         /// </summary>
         public string CaseOrder { get; set; }
@@ -233,6 +241,10 @@ namespace SY.Com.Medical.Model
         /// 疾病    
         /// </summary>
         public string Disease { get; set; }
+        /// <summary>
+        /// 疾病编码
+        /// </summary>
+        public string DiseaseCode { get; set; }
         /// <summary>
         /// 医嘱    
         /// </summary>

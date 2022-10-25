@@ -26,11 +26,11 @@ namespace CodeGenerator
         {
             if (param.dbname == dbName.Platform)
             {
-                db = new CodeGenRepository("server=.;database=Medical_Platform;uid=sa;pwd=sql2021");
+                db = new CodeGenRepository("server=.\\MS2008;database=Medical_Platform;uid=sa;pwd=sql2021");
             }
             else if (param.dbname == dbName.Clinic)
             {
-                db = new CodeGenRepository("server=.;database=Medical_Clinic;uid=sa;pwd=sql2021");
+                db = new CodeGenRepository("server=.\\MS2008;database=Medical_Clinic;uid=sa;pwd=sql2021");
             }
             else
             {

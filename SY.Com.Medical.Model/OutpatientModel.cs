@@ -248,6 +248,10 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string Disease { get; set; }
 		/// <summary>
+		/// 疾病编码
+		/// </summary>
+		public string DiseaseCode { get; set; }
+		/// <summary>
 		/// 医嘱
 		/// </summary>
 		public string CaseOrder { get; set; }

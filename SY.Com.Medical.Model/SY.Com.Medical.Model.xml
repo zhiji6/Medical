@@ -154,7 +154,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookModel.Disease">
             <summary>
-            疾病    
+            疾病
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.DiseaseCode">
+            <summary>
+            疾病编码
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookModel.OutPatientDate">
@@ -252,6 +257,11 @@
             疾病    
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookAdd.DiseaseCode">
+            <summary>
+            疾病编码
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookAdd.CaseOrder">
             <summary>
             医嘱    
@@ -320,6 +330,11 @@
         <member name="P:SY.Com.Medical.Model.CaseBookUpdate.Disease">
             <summary>
             疾病    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookUpdate.DiseaseCode">
+            <summary>
+            疾病编码
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookUpdate.CaseOrder">
@@ -886,6 +901,76 @@
             <summary>
             搜索词
             </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.DiseaseModel">
+            <summary>
+             Disease模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseModel.DiseaseName">
+            <summary> 
+            疾病名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseModel.DiseaseCode">
+            <summary> 
+            疾病编码
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DiseaseRequest">
+            <summary>
+             Disease模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseRequest.DiseaseName">
+            <summary> 
+            疾病名称
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DiseaseAdd">
+            <summary>
+             Disease模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseAdd.DiseaseName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseAdd.DiseaseCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DiseaseUpdate">
+            <summary>
+             Disease模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseUpdate.DiseaseName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseUpdate.DiseaseCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.DiseaseDelete">
+            <summary>
+             Disease模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseDelete.DiseaseName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.DiseaseDelete.DiseaseCode">
+            <summary> 
+            
+            </summary> 
         </member>
         <member name="T:SY.Com.Medical.Model.EmployeeModel">
             <summary>
@@ -3041,6 +3126,11 @@
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.Disease">
             <summary>
             疾病
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookStructure.DiseaseCode">
+            <summary>
+            疾病编码
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.CaseOrder">
@@ -6836,6 +6926,16 @@
         <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.Diagnosis">
             <summary>
             诊断信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.DiseaseName">
+            <summary>
+            疾病名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.DiseaseCode">
+            <summary>
+            疾病编码
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.SYBMZ2204Model">

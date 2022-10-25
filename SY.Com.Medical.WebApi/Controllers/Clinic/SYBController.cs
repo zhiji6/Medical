@@ -648,8 +648,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 ZJ2203.Diseinfo dmod = new ZJ2203.Diseinfo();
                 dmod.diag_type = rentity.DepartmentName.IndexOf("中医") > 0 ?  "3" : "1";
                 dmod.diag_srt_no = "1";
-                dmod.diag_code = bll.getDiagnosisCode(mod.Diagnosis);
-                dmod.diag_name = mod.Diagnosis;
+                dmod.diag_code = mod.DiseaseCode;
+                dmod.diag_name = mod.DiseaseName;//mod.Diagnosis;
                 dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).code;
                 dmod.dise_dor_no = doctor.YBCode;
                 dmod.dise_dor_name = doctor.EmployeeName;
@@ -714,8 +714,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 ZJ2203.Diseinfo dmod = new ZJ2203.Diseinfo();
                 dmod.diag_type = rentity.DepartmentName.IndexOf("中医") > 0 ? "3" : "1";
                 dmod.diag_srt_no = "1";
-                dmod.diag_code = bll.getDiagnosisCode(mod.Diagnosis);
-                dmod.diag_name = mod.Diagnosis;
+                dmod.diag_code = mod.DiseaseCode;
+                dmod.diag_name = mod.DiseaseName;//mod.Diagnosis;
                 dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).code;
                 dmod.dise_dor_no = doctor.YBCode;
                 dmod.dise_dor_name = doctor.EmployeeName;

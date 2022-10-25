@@ -131,6 +131,17 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public string Diagnosis { get; set; }
 
+        /// <summary>
+        /// 疾病名称
+        /// </summary>
+        public string DiseaseName { get; set; }
+        /// <summary>
+        /// 疾病编码
+        /// </summary>
+        public string DiseaseCode { get; set; }
+
+
+
     }
 
     /// <summary>

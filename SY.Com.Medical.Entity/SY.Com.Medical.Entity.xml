@@ -81,7 +81,12 @@
         </member>
         <member name="P:SY.Com.Medical.Entity.CaseBookEntity.Disease">
             <summary>
-            疾病    
+            疾病
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookEntity.DiseaseCode">
+            <summary>
+            疾病编码
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Entity.CaseBookEntity.OutPatientDate">
@@ -278,6 +283,26 @@
             <summary>
             搜索值
             </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.DiseaseEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DiseaseEntity.DiseaseId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DiseaseEntity.DiseaseName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.DiseaseEntity.DiseaseCode">
+            <summary> 
+            
+            </summary> 
         </member>
         <member name="T:SY.Com.Medical.Entity.EmployeeEntity">
             <summary>
