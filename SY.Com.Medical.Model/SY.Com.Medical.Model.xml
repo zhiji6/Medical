@@ -3013,7 +3013,7 @@
             租户Id
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PatientStructure.PatienId">
+        <member name="P:SY.Com.Medical.Model.PatientStructure.PatientId">
             <summary>
             患者ID
             </summary>

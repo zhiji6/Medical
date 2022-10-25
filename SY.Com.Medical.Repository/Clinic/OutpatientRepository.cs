@@ -165,7 +165,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 result.DiscountCost = 0.00;
                 result.Patient = new PatientStructure
                 {
-                    PatienId = patient_entity.PatientId,
+                    PatientId = patient_entity.PatientId,
                     PatientName = patient_entity.PatientName,
                     Phone = patient_entity.Phone,
                     CSRQ = patient_entity.CSRQ,
@@ -271,10 +271,10 @@ namespace SY.Com.Medical.Repository.Clinic
             PatientRepository patient_db = new PatientRepository();
             structure.Patient.TenantId = structure.TenantId;
             structure.CaseBook.TenantId = structure.TenantId;
-            if (structure.Patient.PatienId == 0)
+            if (structure.Patient.PatientId == 0)
             {                
                 var patientId = patient_db.Create(TypeConvert.DeepCopyByReflection(structure.Patient, new PatientEntity()));
-                structure.Patient.PatienId = patientId;
+                structure.Patient.PatientId = patientId;
             }
             else {
                 patient_db.Update(TypeConvert.DeepCopyByReflection(structure.Patient, new PatientEntity()));
@@ -282,7 +282,7 @@ namespace SY.Com.Medical.Repository.Clinic
             //插入或修改病历
             CaseBookRepository case_db = new CaseBookRepository();
             structure.CaseBook.OutPatientId = structure.OutpatientId;
-            structure.CaseBook.PatientId = structure.Patient.PatienId;
+            structure.CaseBook.PatientId = structure.Patient.PatientId;
             structure.CaseBook.DoctorId = structure.DoctorId;            
             if (structure.CaseBook.CaseBookId == 0)
             {                
@@ -308,7 +308,7 @@ namespace SY.Com.Medical.Repository.Clinic
             {
                 OutpatientId = structure.OutpatientId,
                 TenantId = structure.TenantId,
-                PatientId = structure.Patient.PatienId,
+                PatientId = structure.Patient.PatientId,
                 RegisterId = structure.RegisterId,
                 CaseBookId = structure.CaseBook.CaseBookId,
                 DoctorId = structure.DoctorId,
@@ -399,10 +399,10 @@ namespace SY.Com.Medical.Repository.Clinic
         {
             //插入或修改Patient
             PatientRepository patient_db = new PatientRepository();
-            if (structure.Patient.PatienId == 0)
+            if (structure.Patient.PatientId == 0)
             {
                 var patientId = patient_db.Create(TypeConvert.DeepCopyByReflection(structure.Patient, new PatientEntity()));
-                structure.Patient.PatienId = patientId;
+                structure.Patient.PatientId = patientId;
             }
             else
             {
@@ -426,7 +426,7 @@ namespace SY.Com.Medical.Repository.Clinic
                             Set PatientId=@PatientId,DoctorId=@DoctorId,DoctorName=@DoctorName,mdtrt_id=@mdtrt_id,PrescriptionCount=@PrescriptionCount
                                 ,Cost=@Cost,SearchKey=@SearchKey
                             Where TenantId=@TenantId And OutpatientId = @OutpatientId ";
-            _db.Execute(sql,new { TenantId=structure.TenantId, OutpatientId= structure.OutpatientId,PatientId= structure.Patient.PatienId
+            _db.Execute(sql,new { TenantId=structure.TenantId, OutpatientId= structure.OutpatientId,PatientId= structure.Patient.PatientId
                 ,DoctorId = structure.DoctorId,DoctorName= doc_entity.EmployeeName,
                 mdtrt_id= structure.mdtrt_id,
                 PrescriptionCount= structure.Prescriptions.Count,

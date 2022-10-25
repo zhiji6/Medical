@@ -153,7 +153,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 患者ID
 		/// </summary>
-		public int PatienId { get; set; }
+		public int PatientId { get; set; }
 		/// <summary>
 		/// 患者姓名
 		/// </summary>

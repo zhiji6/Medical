@@ -88,7 +88,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 result.DiscountCost = 0.00;
                 result.Patient = new PatientStructure
                 {
-                    PatienId = patient_entity.PatientId,
+                    PatientId = patient_entity.PatientId,
                     PatientName = patient_entity.PatientName,
                     Phone = patient_entity.Phone,
                     CSRQ = patient_entity.CSRQ,
