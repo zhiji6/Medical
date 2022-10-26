@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SY.Com.Medical.Attribute;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.BLL.Clinic;
+using SY.Com.Medical.BLL.Platform;
 using SY.Com.Medical.Model;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     public class PrintPreViewController : ControllerBase
     {
         PrintPreView bll = new PrintPreView();
+        Tenant tenant = new Tenant();
         /// <summary>
         /// 挂号打印
         /// </summary>
@@ -34,6 +36,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try {
                 result.Data = bll.getRegisterData(request.RegisterId);
                 result.Data.ViewPath = bll.getViewPath(1, request.TenantId);
+                var tenantmodel = tenant.getById(request.TenantId);
+                result.Data.TenantName = tenantmodel.TenantName;
                 return result;
             }
             catch (Exception ex)
@@ -104,7 +108,9 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                     case 4: result.Data.ViewPath = bll.getViewPath(8, request.TenantId);
                         result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.Where(x => x.PreName == "项目处方").ToList();
                         break;
-                }                
+                }
+                var tenantmodel = tenant.getById(request.TenantId);
+                result.Data.Data.TenantName = tenantmodel.TenantName;
                 return result;
             }
             catch (Exception ex)

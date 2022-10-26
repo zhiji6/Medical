@@ -66,8 +66,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox2",
-					"Left":2.64583,
-					"Top":3.65125,
+					"Left":2.48708,
+					"Top":4.94771,
 					"Width":2.91042,
 					"Height":0.582083,
 					"Text":"[#{name}#]"
@@ -75,8 +75,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox3",
-					"Left":10.4775,
-					"Top":2.72521,
+					"Left":10.3188,
+					"Top":4.02167,
 					"Width":5.34458,
 					"Height":0.582083,
 					"Text":"[#{createTime}#]"
@@ -84,8 +84,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox5",
-					"Left":3.28083,
-					"Top":2.75167,
+					"Left":3.12208,
+					"Top":4.04813,
 					"Width":3.88938,
 					"Height":0.582083,
 					"Text":"[#{departmentName}#]"
@@ -102,8 +102,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox10",
-					"Left":2.61938,
-					"Top":4.78896,
+					"Left":2.46063,
+					"Top":6.08542,
 					"Width":3.43958,
 					"Height":0.529167,
 					"Text":"[#{doctorName}#]"
@@ -111,8 +111,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox1",
-					"Left":0.661458,
-					"Top":2.80458,
+					"Left":0.502708,
+					"Top":4.10104,
 					"Width":2.2225,
 					"Height":0.529167,
 					"Text":"挂号科室："
@@ -120,8 +120,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox2",
-					"Left":7.77875,
-					"Top":2.77813,
+					"Left":7.62,
+					"Top":4.07458,
 					"Width":2.64583,
 					"Height":0.529167,
 					"Text":"挂号时间："
@@ -129,8 +129,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox3",
-					"Left":0.635,
-					"Top":3.73063,
+					"Left":0.47625,
+					"Top":5.02708,
 					"Width":1.66688,
 					"Height":0.529167,
 					"Text":"姓名："
@@ -138,8 +138,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox4",
-					"Left":5.95313,
-					"Top":3.65125,
+					"Left":5.79438,
+					"Top":4.94771,
 					"Width":1.40229,
 					"Height":0.529167,
 					"Text":"性别"
@@ -147,8 +147,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox11",
-					"Left":7.64646,
-					"Top":3.62479,
+					"Left":7.48771,
+					"Top":4.92125,
 					"Width":2.64583,
 					"Height":0.529167,
 					"Text":"[#{SexDesc}#]"
@@ -156,8 +156,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox5",
-					"Left":10.5569,
-					"Top":3.62479,
+					"Left":10.3981,
+					"Top":4.92125,
 					"Width":1.34938,
 					"Height":0.529167,
 					"Text":"年龄:"
@@ -165,8 +165,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox12",
-					"Left":12.1444,
-					"Top":3.59833,
+					"Left":11.9856,
+					"Top":4.89479,
 					"Width":1.77271,
 					"Height":0.529167,
 					"Text":"[#{Age}#]"
@@ -174,8 +174,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox6",
-					"Left":0.661458,
-					"Top":4.78896,
+					"Left":0.502708,
+					"Top":6.08542,
 					"Width":1.61396,
 					"Height":0.529167,
 					"Text":"医生："
@@ -183,8 +183,8 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox7",
-					"Left":0.846667,
-					"Top":6.13833,
+					"Left":0.687917,
+					"Top":7.43479,
 					"Width":1.98438,
 					"Height":0.529167,
 					"Text":"挂号费："
@@ -192,8 +192,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox13",
-					"Left":3.09563,
-					"Top":6.08542,
+					"Left":2.93688,
+					"Top":7.38188,
 					"Width":2.64583,
 					"Height":0.529167,
 					"TextAlign":"MiddleRight",
@@ -202,17 +202,17 @@
 				{
 					"Type":"StaticBox",
 					"Name":"StaticBox8",
-					"Left":4.78896,
-					"Top":0.502708,
-					"Width":2.93688,
-					"Height":1.32292,
+					"Left":4.86833,
+					"Top":0.926042,
+					"Width":2.64583,
+					"Height":1.34938,
 					"Font":{
 						"Name":"宋体",
 						"Size":180000,
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"挂号单"
+					"Text":"退号单"
 				}
 			]
 		}

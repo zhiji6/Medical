@@ -33,6 +33,10 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public int TenantId { get; set; }
 		/// <summary>
+		/// 机构名称
+		/// </summary>
+		public string TenantName { get; set; }
+		/// <summary>
 		/// 医保门诊号--非医保为空
 		/// </summary>
 		public string mdtrt_id { get; set; }
@@ -171,6 +175,13 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public int Sex { get; set; }
 		/// <summary>
+		/// 性别描述
+		/// </summary>
+		public string SexDesc { get {
+				if (Sex == 0) return "男";
+				return "女";
+			} }
+		/// <summary>
 		/// 身份证
 		/// </summary>
 		public string SFZ { get; set; }
@@ -182,6 +193,36 @@ namespace SY.Com.Medical.Model
 		/// 医保编号
 		/// </summary>
 		public string psn_no { get; set; }
+		/// <summary>
+		/// 年龄
+		/// </summary>
+		public string Age
+		{
+			get
+			{
+				if (CSRQ == null) return "未知";
+				var totalMonth = (DateTime.Now.Year - CSRQ.Value.Year) * 12 - CSRQ.Value.Month + DateTime.Now.Month;
+				if (totalMonth < 2)
+				{
+					return $"{(DateTime.Now - CSRQ.Value).Days}天";
+				}
+				else if (totalMonth >= 24)
+				{
+					return $"{totalMonth / 12}岁";
+				}
+				else
+				{
+					if (totalMonth >= 12)
+					{
+						return $"{totalMonth / 12}岁{totalMonth % 12}月";
+					}
+					else
+					{
+						return $"{totalMonth}月";
+					}
+				}
+			}
+		}
 	}
 
 	/// <summary>
@@ -592,4 +633,4 @@ namespace SY.Com.Medical.Model
     }
 
 
-} 
+}

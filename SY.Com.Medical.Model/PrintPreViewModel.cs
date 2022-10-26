@@ -46,10 +46,82 @@ namespace SY.Com.Medical.Model
 		///患者性别
 		///</summary> 
 		public int Sex { get; set; }
+		/// <summary>
+		/// 性别描述
+		/// </summary>
+		public string SexDesc { get {
+				if (Sex == 0) return "男";
+				return "女";
+			} }
 		///<summary> 
 		///出生日期
 		///</summary> 
 		public DateTime? CSRQ { get; set; }
+		///// <summary>
+		///// 年龄
+		///// </summary>
+		//public string Age { get {
+		//		if (CSRQ == null) return "不详";
+		//		int diffyear = DateTime.Now.Year - CSRQ.Value.Year;
+		//		double diffday = (DateTime.Now - CSRQ.Value).TotalDays;
+		//		int totalday = 0;
+		//		for(int i =DateTime.Now.Year;i<= CSRQ.Value.Year; i++)
+  //              {
+		//			//润年
+		//			if( (i % 4 == 0 && i % 100 != 0 ) || i % 400 == 0)
+  //                  {
+		//				totalday += 366;
+  //                  }
+  //                  else
+  //                  {
+		//				totalday += 365;
+  //                  }
+  //              }
+		//		if(totalday < diffday)
+  //              {
+		//			return (diffyear - 1).ToString();
+  //              }
+  //              else
+  //              {
+		//			return diffyear.ToString();
+  //              }
+		//	} }
+
+		/// <summary>
+		/// 年龄
+		/// 使用出生日期计算
+		/// 大于等于24个月，只显示岁，岁用总月数整除12向下取整
+		/// 小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+		/// 小于6月的显示天
+		/// </summary>
+		public string Age
+		{
+			get
+			{
+				if (CSRQ == null) return "未知";
+				var totalMonth = (DateTime.Now.Year - CSRQ.Value.Year) * 12 - CSRQ.Value.Month + DateTime.Now.Month;
+				if (totalMonth < 2)
+				{
+					return $"{(DateTime.Now - CSRQ.Value).Days}天";
+				}
+				else if (totalMonth >= 24)
+				{
+					return $"{totalMonth / 12}岁";
+				}
+				else
+				{
+					if (totalMonth >= 12)
+					{
+						return $"{totalMonth / 12}岁{totalMonth % 12}月";
+					}
+					else
+					{
+						return $"{totalMonth}月";
+					}
+				}
+			}
+		}
+
 		///<summary> 
 		///省份证号
 		///</summary> 
@@ -95,6 +167,14 @@ namespace SY.Com.Medical.Model
 		/// 搜索字段
 		/// </summary>
 		public string SearchKey { get; set; }
+		/// <summary>
+		/// 挂号时间
+		/// </summary>
+		public DateTime CreateTime { get; set; }
+		/// <summary>
+		/// 机构名称
+		/// </summary>
+		public string TenantName { get; set; }
 	}
 
 	/// <summary>
@@ -106,10 +186,6 @@ namespace SY.Com.Medical.Model
 		/// 门诊Id
 		/// </summary>
 		public int OutpatientId { get; set; }
-		/// <summary>
-		/// 处方PreNo
-		/// </summary>
-		public int PreNo { get; set; }
 		/// <summary>
 		/// 中药处方:1,西药处方:2,项目处方:3,治疗单:4
 		/// </summary>

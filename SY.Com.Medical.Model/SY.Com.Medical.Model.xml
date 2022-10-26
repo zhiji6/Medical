@@ -2873,6 +2873,11 @@
             机构Id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.TenantName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.mdtrt_id">
             <summary>
             医保门诊号--非医保为空
@@ -3038,6 +3043,11 @@
             性别
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientStructure.SexDesc">
+            <summary>
+            性别描述
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PatientStructure.SFZ">
             <summary>
             身份证
@@ -3051,6 +3061,11 @@
         <member name="P:SY.Com.Medical.Model.PatientStructure.psn_no">
             <summary>
             医保编号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PatientStructure.Age">
+            <summary>
+            年龄
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.DoctorStructure">
@@ -4476,10 +4491,24 @@
             患者性别
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.SexDesc">
+            <summary>
+            性别描述
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.CSRQ">
             <summary> 
             出生日期
             </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.Age">
+            <summary>
+            年龄
+            使用出生日期计算
+            大于等于24个月，只显示岁，岁用总月数整除12向下取整
+            小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+            小于6月的显示天
+            </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.SFZH">
             <summary> 
@@ -4536,6 +4565,16 @@
             搜索字段
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.CreateTime">
+            <summary>
+            挂号时间
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.TenantName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrintPrescriptionRequestModel">
             <summary>
             处方打印入参
@@ -4544,11 +4583,6 @@
         <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.OutpatientId">
             <summary>
             门诊Id
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.PreNo">
-            <summary>
-            处方PreNo
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.Type">
