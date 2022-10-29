@@ -185,8 +185,7 @@ namespace SY.Com.Medical.BLL.Clinic
             {
 				throw new MyException("该门诊已经收费");
             }
-			//修改支付状态和医保结算时,医保结算号,医保余额
-			db.UpdateIsPay(mod.TenantId, mod.OutpatientId,mod.setl_id,Convert.ToInt64(mod.Balc * 1000));			
+
 			EmployeeModel employeemodel = new Platform.Employee().getEmployeeByUser(mod.Cashier, mod.TenantId);
 			if (employeemodel == null) throw new MyException("未找到收银员信息");
 			//保存收费记录
@@ -218,6 +217,8 @@ namespace SY.Com.Medical.BLL.Clinic
             {
 				chargeentity.PayBank = chargeentity.Price;
 			}
+			//修改支付状态和医保结算时,医保结算号,医保余额
+			db.UpdateIsPay(mod.TenantId, mod.OutpatientId, mod.setl_id, Convert.ToInt64(mod.Balc * 1000));
 			int chargeid = chargebll.add(chargeentity);
 			return chargeid;
         }
