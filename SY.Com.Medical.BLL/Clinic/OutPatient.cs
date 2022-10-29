@@ -186,7 +186,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				throw new MyException("该门诊已经收费");
             }
 
-			EmployeeModel employeemodel = new Platform.Employee().getEmployeeByUser(mod.Cashier, mod.TenantId);
+			EmployeeModel employeemodel = new Platform.Employee().getEmployee(mod.Cashier);
 			if (employeemodel == null) throw new MyException("未找到收银员信息");
 			//保存收费记录
 			ChargeRecord chargebll = new ChargeRecord();
