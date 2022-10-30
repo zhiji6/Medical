@@ -147,7 +147,10 @@ namespace SY.Com.Medical.BLL.Platform
             RoleRepository dbrole = new RoleRepository();
             var menus = dbrole.getMenus(listrole);
             Menu menubll = new Menu();
-            return menubll.GetSystemTree(menus);
+            var retmenus = menubll.GetSystemTree(menus);
+            retmenus.ForEach(f => f.SubMenu.OrderBy(o => o.Sort));
+            var sortretmenus = retmenus.OrderBy(x => x.Sort).ToList();
+            return sortretmenus;
             //return dbrole.getMenus(listrole).EntityToDto<MenuResponse>();
         }
 
