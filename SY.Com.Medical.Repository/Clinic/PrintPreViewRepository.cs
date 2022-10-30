@@ -24,7 +24,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <param name="tenantId">租户Id</param>
         /// <returns></returns>
         public string getViewPath(int style,int tenantId)
-        {
+        { 
             string sql = " Select top 1 TenantId From PrintViews Where Style="+ style +" And TenantId In("+ tenantId +",0) Order By TenantId Desc ";
             var tenantid = _db.Query<int>(sql).First();
             return "PrintView/"+ style +"/"+ tenantid + "/Print.grf";

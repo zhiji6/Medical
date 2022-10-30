@@ -63,7 +63,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         {
             BaseResponse<PrintRegisterResponseModel> result = new BaseResponse<PrintRegisterResponseModel>();
             try
-            {
+            { 
                 result.Data = bll.getRegisterData(request.RegisterId);
                 result.Data.ViewPath = bll.getViewPath(2, request.TenantId);
                 return result;

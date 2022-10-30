@@ -28,7 +28,7 @@ namespace SY.Com.Medical.BLL.Clinic
         /// <param name="tenantId">租户Id</param>
         /// <returns></returns>
         public string getViewPath(int style, int tenantId)
-        {
+        { 
             return db.getViewPath(style, tenantId);
         }
 
