@@ -148,7 +148,7 @@ namespace SY.Com.Medical.BLL.Platform
             var menus = dbrole.getMenus(listrole);
             Menu menubll = new Menu();
             var retmenus = menubll.GetSystemTree(menus);
-            retmenus.ForEach(f => f.SubMenu.OrderBy(o => o.Sort));
+            retmenus.ForEach(f => f.SubMenu = f.SubMenu.OrderBy(o => o.Sort).ToList());
             var sortretmenus = retmenus.OrderBy(x => x.Sort).ToList();
             return sortretmenus;
             //return dbrole.getMenus(listrole).EntityToDto<MenuResponse>();
