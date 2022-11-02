@@ -70,6 +70,8 @@ namespace SY.Com.Medical.Repository.Clinic
                 {
                     throw new Exception("该门诊没有处方,数据错误");
                 }
+
+                var chargerecord = getByOutpatientId(tenantId, outpatientId, "门诊收费");
                 #region 组装数据
                 result.OutpatientId = entity.OutpatientId;
                 result.TenantId = entity.TenantId;
@@ -86,6 +88,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 result.Cost = Math.Round(entity.Cost / 1000.00, 3);
                 result.RealCost = result.Cost;
                 result.DiscountCost = 0.00;
+                result.CreateTime = entity.CreateTime ?? DateTime.Now;
                 result.Patient = new PatientStructure
                 {
                     PatientId = patient_entity.PatientId,
@@ -138,7 +141,7 @@ namespace SY.Com.Medical.Repository.Clinic
                         GoodsDays = item.GoodsDays,
                         GoodsSalesUnit = item.GoodsSalesUnit,
                         InsuranceCode = item.InsuranceCode,
-                        CustomerCode = item.CustomerCode,
+                        CustomerCode = item.CustomerCode,                        
                         Place = item.Place
                     });
                 }
@@ -152,6 +155,13 @@ namespace SY.Com.Medical.Repository.Clinic
                     prestru.Cost = item.Value.Sum(x => x.GoodsCost);
                     prestru.Details = item.Value;
                     result.Prescriptions.Add(prestru);
+                }
+                result.ChargeRecord = new ChargeRecordModel();
+                if(chargerecord != null)
+                {
+                    result.ChargeRecord.PayCash = chargerecord.PayCash;
+                    result.ChargeRecord.Cashier = chargerecord.Cashier;
+                    result.ChargeRecord.CashierName = chargerecord.CashierName;                   
                 }
                 #endregion
             }
@@ -171,6 +181,17 @@ namespace SY.Com.Medical.Repository.Clinic
             string sql = @" Select * From ChargeRecords 
                             Where TenantId=@TenantId And SeeDoctorId=@SeeDoctorId And ChargeType= '" + chargetype + "' ";
             var mods = _db.Query<ChargeRecordEntity>(sql, new { TenantId = tenantId, SeeDoctorId = outpatientId });
+            if (mods != null && mods.Any())
+            {
+                return mods.FirstOrDefault();
+            }
+            return null;
+        }
+        
+        public OutpatientEntity getOutpatientIdById(int tenantId,int outpatientId)
+        {
+            string sql = @" Select * From Outpatients where  TenantId=@TenantId And OutpatientId = @oid  ";
+            var mods = _db.Query<OutpatientEntity>(sql, new { TenantId = tenantId, oid = outpatientId });
             if (mods != null && mods.Any())
             {
                 return mods.FirstOrDefault();

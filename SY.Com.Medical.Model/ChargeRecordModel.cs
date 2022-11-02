@@ -61,6 +61,14 @@ public class ChargeRecordModel : BaseModel
 		///
 		///</summary> 
 		public DateTime? CreateTime {get;set;} 
+		/// <summary>
+		/// 收费人id
+		/// </summary>
+		public int Cashier { get; set; }
+		/// <summary>
+		/// 收费人姓名
+		/// </summary>
+		public string CashierName { get; set; }
 		///<summary> 
 		///
 		///</summary> 

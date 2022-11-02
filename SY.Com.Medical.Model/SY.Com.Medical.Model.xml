@@ -482,6 +482,16 @@
             
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.Cashier">
+            <summary>
+            收费人id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordModel.CashierName">
+            <summary>
+            收费人姓名
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.ChargeRecordModel.IsEnable">
             <summary> 
             
@@ -2878,6 +2888,11 @@
             机构名称
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.TenantCode">
+            <summary>
+            机构编码
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.mdtrt_id">
             <summary>
             医保门诊号--非医保为空
@@ -2948,6 +2963,11 @@
             优惠
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.Patient">
             <summary>
             患者信息
@@ -2966,6 +2986,11 @@
         <member name="P:SY.Com.Medical.Model.OutpatientStructure.Prescriptions">
             <summary>
             处方
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientStructure.ChargeRecord">
+            <summary>
+            收费信息
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.OutpatientAddStructure">
@@ -4630,6 +4655,16 @@
             模板路径
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.TenantName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.TenantCode">
+            <summary>
+            机构编码
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.ChargeRecordId">
             <summary> 
             收费记录Id
@@ -4684,6 +4719,16 @@
             <summary> 
             支付宝支付
             </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.mdtrt_id">
+            <summary>
+            医保mdtrt_id值
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordResponseModel.setl_id">
+            <summary>
+            医保结算号
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.CaseBookRequestModel">
             <summary>

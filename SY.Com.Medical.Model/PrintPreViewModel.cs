@@ -231,6 +231,14 @@ namespace SY.Com.Medical.Model
 		/// 模板路径
 		/// </summary>
 		public string ViewPath { get; set; }
+		/// <summary>
+		/// 机构名称
+		/// </summary>
+		public string TenantName { get; set; }
+		/// <summary>
+		/// 机构编码
+		/// </summary>
+		public string TenantCode { get; set; }
 		///<summary> 
 		///收费记录Id
 		///</summary> 
@@ -275,6 +283,15 @@ namespace SY.Com.Medical.Model
 		///支付宝支付
 		///</summary> 
 		public long PayAli { get; set; }
+
+		/// <summary>
+		/// 医保mdtrt_id值
+		/// </summary>
+		public string mdtrt_id { get; set; }
+		/// <summary>
+		/// 医保结算号
+		/// </summary>
+		public string setl_id { get; set; }
 	}
 
 	/// <summary>

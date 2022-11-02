@@ -55,17 +55,6 @@ namespace SY.Com.Medical.BLL.Clinic
             return db.getOutpatient(tenantId, outpatientId);
         }
 
-        /// <summary>
-        /// 获取收费退费打印明细
-        /// </summary>
-        /// <param name="tenantId"></param>
-        /// <param name="outpatientId"></param>
-        /// <param name="chargetype"></param>
-        /// <returns></returns>
-        public ChargeRecordResponseModel getByOutpatientId(int tenantId, int outpatientId, string chargetype)
-        {
-            return db.getByOutpatientId(tenantId, outpatientId, chargetype).EntityToDto<ChargeRecordResponseModel>();
-        }
 
         /// <summary>
         /// 获取病历记录

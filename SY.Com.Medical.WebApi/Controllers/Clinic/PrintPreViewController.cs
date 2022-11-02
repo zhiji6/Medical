@@ -106,7 +106,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.Where(x => x.PreName == "项目处方").ToList();
                         break;
                     case 4: result.Data.ViewPath = bll.getViewPath(8, request.TenantId);
-                        result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.Where(x => x.PreName == "项目处方").ToList();
+                        result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.ToList();
                         break;
                 }
                 var tenantmodel = tenant.getById(request.TenantId);
@@ -132,13 +132,16 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<ChargeRecordResponseModel> PrintCharge(ChargeRecordRequestModel request)
+        public BaseResponse<PrintPrescriptionResponseModel> PrintCharge(ChargeRecordRequestModel request)
         {
-            BaseResponse<ChargeRecordResponseModel> result = new BaseResponse<ChargeRecordResponseModel>();
+            BaseResponse<PrintPrescriptionResponseModel> result = new BaseResponse<PrintPrescriptionResponseModel>();
             try
             {
-                result.Data = bll.getByOutpatientId(request.TenantId,request.OutPatientId,request.ChargeType);
-                switch(request.ChargeType)
+                result.Data.Data = bll.getOutpatient(request.TenantId,request.OutPatientId);
+                var tenantmodel = tenant.getById(request.TenantId);
+                result.Data.Data.TenantName = tenantmodel.TenantName;
+                result.Data.Data.TenantCode = tenantmodel.YBCode;
+                switch (request.ChargeType)
                 {
                     case "门诊收费": result.Data.ViewPath = bll.getViewPath(6, request.TenantId);break;
                     case "门诊退费": result.Data.ViewPath = bll.getViewPath(7, request.TenantId); break;

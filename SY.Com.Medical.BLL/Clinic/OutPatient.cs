@@ -199,6 +199,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			chargeentity.ChargeType = "门诊收费";			
 			chargeentity.Cashier = employeemodel.EmployeeId;
 			chargeentity.CashierName = employeemodel.EmployeeName;
+			
 			if (!string.IsNullOrEmpty(entity.mdtrt_id))
 			{
 				chargeentity.PayYB = Convert.ToInt64(mod.YBCost * 1000);

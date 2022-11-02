@@ -31,11 +31,15 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 机构Id
 		/// </summary>
-		public int TenantId { get; set; }
+		public int TenantId { get; set; }		
 		/// <summary>
 		/// 机构名称
 		/// </summary>
 		public string TenantName { get; set; }
+		/// <summary>
+		/// 机构编码
+		/// </summary>
+		public string TenantCode { get; set; }
 		/// <summary>
 		/// 医保门诊号--非医保为空
 		/// </summary>
@@ -93,6 +97,10 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public double DiscountCost { get; set; }
 		/// <summary>
+		/// 创建时间
+		/// </summary>
+		public DateTime CreateTime { get; set; }
+		/// <summary>
 		/// 患者信息
 		/// </summary>
 		public PatientStructure Patient { get; set; }
@@ -108,6 +116,10 @@ namespace SY.Com.Medical.Model
 		/// 处方
 		/// </summary>
 		public List<PrescriptionStructure> Prescriptions { get; set; }
+		/// <summary>
+		/// 收费信息
+		/// </summary>
+		public ChargeRecordModel ChargeRecord { get; set; }
 	}
 
 	/// <summary>

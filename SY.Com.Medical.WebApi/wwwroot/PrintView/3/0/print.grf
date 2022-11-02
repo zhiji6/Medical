@@ -1,5 +1,5 @@
 ﻿{
-	"Version":"6.8.2.2",
+	"Version":"6.8.5.6",
 	"Title":"Grid++Report",
 	"ShowGrid":false,
 	"PrintAsDesignPaper":false,
@@ -21,7 +21,6 @@
 	"DetailGrid":{
 		"CenterView":true,
 		"PageColumnDirection":"AcrossDown",
-		"PageColumnCount":3,
 		"PrintAdaptMethod":"ResizeToFit",
 		"Border":{
 			"Styles":"[]"
@@ -35,199 +34,31 @@
 		"Recordset":{
 			"Field":[
 				{
-					"Name":"CFMXBH"
-				},
-				{
-					"Name":"ZHID"
-				},
-				{
-					"Name":"MZBH"
-				},
-				{
-					"Name":"CFBH"
-				},
-				{
-					"Name":"YPBH"
-				},
-				{
-					"Name":"PC"
-				},
-				{
-					"Name":"YPMC"
-				},
-				{
-					"Name":"FPXMBH"
+					"Name":"GoodsName"
 				},
 				{
 					"Name":"YPLBBH"
 				},
 				{
-					"Name":"GG",
-					"Tag":"规格"
-				},
-				{
-					"Name":"MRSL",
-					"Type":"Float"
-				},
-				{
-					"Name":"YYTS",
-					"Tag":"用药天数",
-					"Type":"Float"
-				},
-				{
-					"Name":"PD"
-				},
-				{
-					"Name":"MCYL",
-					"Tag":"每次用量"
-				},
-				{
-					"Name":"JXDWBH"
-				},
-				{
-					"Name":"YYZL",
-					"Tag":"用药总量"
-				},
-				{
-					"Name":"YYZCS",
-					"Type":"Integer"
-				},
-				{
-					"Name":"DJ",
-					"Type":"Currency"
-				},
-				{
-					"Name":"YFZT",
-					"Type":"Integer"
-				},
-				{
-					"Name":"YFBH"
-				},
-				{
-					"Name":"LRRBH",
-					"Type":"Integer"
-				},
-				{
-					"Name":"LRRMC"
-				},
-				{
-					"Name":"BZ"
-				},
-				{
-					"Name":"SFBH"
-				},
-				{
-					"Name":"DDW"
-				},
-				{
-					"Name":"XDW"
-				},
-				{
-					"Name":"YPZLDW"
-				},
-				{
-					"Name":"ZH"
-				},
-				{
-					"Name":"TFSL",
-					"Type":"Float"
-				},
-				{
-					"Name":"JL",
-					"Tag":"剂量",
-					"Type":"Float"
-				},
-				{
-					"Name":"PDMC"
-				},
-				{
-					"Name":"YFMC",
+					"Name":"GoodsUsage",
 					"Tag":"用法名称"
 				},
 				{
-					"Name":"XYYFMC"
-				},
-				{
-					"Name":"ZYPDMC"
-				},
-				{
-					"Name":"ZLDWMC",
+					"Name":"GoodsSalesUnit",
 					"Tag":"总量单位"
 				},
 				{
-					"Name":"FJFY",
-					"Tag":"附加费用"
-				},
-				{
-					"Name":"JZF"
-				},
-				{
-					"Name":"CBZ",
-					"Tag":"针对中药的备注"
-				},
-				{
-					"Name":"ZYDDYFMC",
-					"Tag":"中药单独用法名称"
-				},
-				{
-					"Name":"PDMC2",
-					"Tag":"频度中文"
-				},
-				{
-					"Name":"SFZH",
-					"Tag":"身份证号"
-				},
-				{
-					"Name":"NHBH",
-					"Tag":"农合编号"
-				},
-				{
-					"Name":"YBBH",
-					"Tag":"医保编号"
-				},
-				{
-					"Name":"GMS",
-					"Tag":"过敏史"
-				},
-				{
-					"Name":"ZJM",
-					"Tag":"助记码"
-				},
-				{
-					"Name":"ZJE",
-					"Tag":"药金额"
-				},
-				{
-					"Name":"SFR",
-					"Tag":"收费人"
-				},
-				{
-					"Name":"Weight",
-					"Tag":"体重"
-				},
-				{
-					"Name":"Height",
-					"Tag":"身高"
-				},
-				{
-					"Name":"Aliases",
-					"Tag":"别名"
-				},
-				{
-					"Name":"BZ1"
-				},
-				{
-					"Name":"DCYL",
+					"Name":"GoodsEveryDay",
 					"Type":"Float"
 				},
 				{
-					"Name":"JLTS"
+					"Name":"GoodsDays"
 				},
 				{
-					"Name":"TotalJL"
+					"Name":"GoodsNum"
 				},
 				{
-					"Name":"TotalYFMC"
+					"Name":"InsuranceCode"
 				}
 			]
 		},
@@ -238,7 +69,7 @@
 			},
 			{
 				"Name":"PD",
-				"Width":0
+				"Width":4
 			}
 		],
 		"ColumnContent":{
@@ -261,7 +92,7 @@
 								"Charset":134
 							},
 							"WordWrap":true,
-							"Text":"[#YPMC#][#YFMC#]"
+							"Text":"[#GoodsName#][#GoodsUsage#]"
 						},
 						{
 							"Type":"MemoBox",
@@ -275,13 +106,24 @@
 								"Weight":400,
 								"Charset":134
 							},
-							"Text":"[#DCYL#][#ZLDWMC#]"
+							"Text":"[#GoodsNum#][#GoodsSalesUnit#]"
 						}
 					]
 				},
 				{
 					"Column":"PD",
-					"FreeCell":true
+					"FreeCell":true,
+					"Control":[
+						{
+							"Type":"MemoBox",
+							"Name":"MemoBox78",
+							"Left":0.396875,
+							"Top":0.211667,
+							"Width":2.61938,
+							"Height":0.396875,
+							"Text":"[#GoodsEveryDay#]     [#InsuranceCode#]"
+						}
+					]
 				}
 			]
 		},
@@ -314,32 +156,32 @@
 	},
 	"Parameter":[
 		{
-			"Name":"MZBH"
+			"Name":"outpatientId"
 		},
 		{
-			"Name":"HZXM"
+			"Name":"patientName"
 		},
 		{
 			"Name":"XB"
 		},
 		{
-			"Name":"NY"
+			"Name":"age"
 		},
 		{
-			"Name":"FBRQ",
+			"Name":"CreateTime",
 			"DataType":"DateTime"
 		},
 		{
-			"Name":"KSMC"
+			"Name":"department"
 		},
 		{
 			"Name":"YLZH"
 		},
 		{
-			"Name":"ZDXX2"
+			"Name":"diagnosis"
 		},
 		{
-			"Name":"LXDHHM"
+			"Name":"phone"
 		},
 		{
 			"Name":"BZ1"
@@ -363,7 +205,7 @@
 			"Name":"TotalJL"
 		},
 		{
-			"Name":"ZHMC"
+			"Name":"tenantName"
 		}
 	],
 	"ReportHeader":[
@@ -391,7 +233,7 @@
 						"Charset":134
 					},
 					"TextAlign":"MiddleCenter",
-					"Text":"[#ZHMC#]"
+					"Text":"[#tenantName#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -422,7 +264,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"No：[#{MZBH}#]"
+					"Text":"No：[#{outpatientId}#]"
 				},
 				{
 					"Type":"Line",
@@ -444,7 +286,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"姓名：[#HZXM#]"
+					"Text":"姓名：[#patientName#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -474,7 +316,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"年龄：[#NY#]岁"
+					"Text":"年龄：[#age#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -489,7 +331,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"日期:[#FBRQ:yyyy年MM月dd日#]"
+					"Text":"日期:[#CreateTime:yyyy年MM月dd日#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -543,7 +385,7 @@
 					},
 					"CanGrow":true,
 					"WordWrap":true,
-					"Text":"[#{ZDXX2}#]"
+					"Text":"[#{diagnosis}#]"
 				},
 				{
 					"Type":"Line",
@@ -580,7 +422,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"科别：[#{KSMC}#]"
+					"Text":"科别：[#{department}#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -624,7 +466,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"电话：[#{LXDHHM}#]"
+					"Text":"电话：[#{phone}#]"
 				}
 			],
 			"RepeatOnPage":true
@@ -649,22 +491,7 @@
 						"Charset":134
 					},
 					"LnSpacing":5,
-					"Text":"用法：[#TotalYFMC#]  每[#JLTS#]天[#MRSL#]剂  ×[#YYTS#]天 共[#TotalJL#]剂"
-				},
-				{
-					"Type":"MemoBox",
-					"Name":"MemoBox37",
-					"Left":1.00542,
-					"Top":1.16417,
-					"Width":12.2238,
-					"Height":0.555625,
-					"Font":{
-						"Name":"宋体",
-						"Size":105000,
-						"Weight":400,
-						"Charset":134
-					},
-					"Text":"备注：[#BZ1#]"
+					"Text":"用法：[#GoodsUsage#]  共[#GoodsDays#]天"
 				},
 				{
 					"Type":"MemoBox",
