@@ -1,0 +1,112 @@
+{
+  "result": 0,
+  "errCode": null,
+  "errMes": null,
+  "data": {
+    "viewPath": "PrintView/8/0/Print.grf",
+    "data": {
+      "outpatientId": 17,
+      "tenantId": 9,
+      "tenantName": "string",
+      "tenantCode": null,
+      "mdtrt_id": "44039100000412743053",
+      "chrg_bchno": "H44030900226202205222110439221",
+      "setl_id": null,
+      "registerId": 0,
+      "prescriptionCount": 1,
+      "isPay": -1,
+      "isBack": -1,
+      "payYB": 0,
+      "payCash": 0,
+      "payYBBefor": 0,
+      "payYBAfter": 0,
+      "cost": 2000,
+      "realCost": 2000,
+      "discountCost": 0,
+      "createTime": "2022-05-22",
+      "patient": {
+        "tenantId": 0,
+        "patientId": 39,
+        "patientName": "宋芳",
+        "phone": "",
+        "csrq": "1983-10-29 00:00:00",
+        "sex": 2,
+        "sexDesc": "女",
+        "sfz": "420528198310290065",
+        "addr": null,
+        "psn_no": "44030000000641884613",
+        "age": "39岁"
+      },
+      "doctor": {
+        "employeeId": 3,
+        "employeeName": "医生1",
+        "department": "儿科",
+        "ybCode": "D548494651871"
+      },
+      "caseBook": {
+        "tenantId": 0,
+        "caseBookId": 18,
+        "outPatientId": 0,
+        "patientId": 0,
+        "doctorId": 0,
+        "departmentId": 0,
+        "complaint": "string",
+        "diagnosis": "string",
+        "disease": "string",
+        "diseaseCode": null,
+        "caseOrder": "string",
+        "pastCase": "string",
+        "historyCase": "string",
+        "physical": "string",
+        "opinions": "string",
+        "tooth": "string",
+        "place": "string"
+      },
+      "prescriptions": [
+        {
+          "preNo": 1,
+          "preName": "中药处方",
+          "cost": 2000,
+          "pair": 10,
+          "details": [
+            {
+              "goodsId": 79,
+              "goodsName": "维生素C泡腾片",
+              "goodsNum": 1000,
+              "goodsNorm": "2g",
+              "goodsPrice": 2,
+              "goodsCost": 2000,
+              "goodsUsage": "",
+              "goodsEveryDay": "",
+              "goodsDays": 0,
+              "goodsSalesUnit": "元",
+              "place": "",
+              "insuranceCode": null,
+              "customerCode": null
+            }
+          ]
+        }
+      ],
+      "chargeRecord": {
+        "chargeRecordId": 0,
+        "patientId": 0,
+        "registerId": 0,
+        "seeDoctorId": 0,
+        "price": 0,
+        "chargeType": null,
+        "payYB": 0,
+        "payCash": 0,
+        "payWx": 0,
+        "payBank": 0,
+        "payAli": 0,
+        "createTime": null,
+        "cashier": 0,
+        "cashierName": null,
+        "isEnable": 0,
+        "isDelete": 0
+      }
+    }
+  },
+  "totalPage": 0,
+  "totalCount": 0
+}

@@ -290,5 +290,15 @@ namespace SY.Com.Medical.BLL.Clinic
             return result;
         }
 
+        /// <summary>
+        /// 从一个诊所复制药品到另外一个诊所
+        /// </summary>
+        /// <param name="sourceTenantId"></param>
+        /// <param name="targetTenantId"></param>
+        public void CopyTo(int sourceTenantId,int targetTenantId)
+        {
+            db.CopyTo(sourceTenantId, targetTenantId);
+        }
+
     }
 } 

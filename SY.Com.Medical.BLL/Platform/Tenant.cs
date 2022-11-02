@@ -8,6 +8,7 @@ using System.Linq;
 using SY.Com.Medical.Extension;
 using System.Text;
 using System.Threading.Tasks;
+using SY.Com.Medical.BLL.Clinic;
 
 namespace SY.Com.Medical.BLL.Platform
 {
@@ -99,6 +100,9 @@ namespace SY.Com.Medical.BLL.Platform
             //
             DepartmentRepository dbdepart = new DepartmentRepository();
             dbdepart.CopyToTenant(TenantID);
+            Good goodbll = new Good();
+            //复制药品
+            goodbll.CopyTo(0, TenantID);
             return response;
         }
 

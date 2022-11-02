@@ -73,5 +73,26 @@ namespace SY.Com.Medical.Repository.Clinic
             return _db.Query<GoodEntity>(sql, new { TenantId = tenantId, GoodId = goodId }).FirstOrDefault();
         }
 
+        /// <summary>
+        /// 复制药品从source诊所到target诊所
+        /// </summary>
+        /// <param name="sourceTenantId"></param>
+        /// <param name="targetTenantId"></param>
+        /// <returns></returns>
+        public void CopyTo(int sourceTenantId,int targetTenantId)
+        {
+            string sql = " Select * From Goods Where TenantId = @TenantId And IsEnable = 1 And IsDelete = 1 ";
+            var goods = _db.Query<GoodEntity>(sql, new { TenantId = sourceTenantId })?.ToList();
+            if(goods != null && goods.Count >0)
+            {
+                foreach(var good in goods)
+                {
+                    good.TenantId = targetTenantId;
+                    Create(good);
+                }
+            }
+            
+        }
+
 	}
 } 

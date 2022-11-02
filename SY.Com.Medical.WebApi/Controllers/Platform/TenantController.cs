@@ -97,7 +97,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             try
             {
                 response.Data = tenantbll.CreateTenant(request);
-
+                
                 return response;
             }
             catch (Exception ex)

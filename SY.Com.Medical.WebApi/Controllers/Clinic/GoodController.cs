@@ -679,5 +679,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 }
             }
         }
+
+
     }
 }
