@@ -30,133 +30,10 @@
 			"Name":"setl_id"
 		},
 		{
-			"Name":"HZXM"
-		},
-		{
-			"Name":"XB"
+			"Name":"SexDesc"
 		},
 		{
 			"Name":"CSRQ"
-		},
-		{
-			"Name":"psn_type"
-		},
-		{
-			"Name":"SFZH"
-		},
-		{
-			"Name":"KSMC"
-		},
-		{
-			"Name":"insutype"
-		},
-		{
-			"Name":"ZDXX"
-		},
-		{
-			"Name":"SFRQ"
-		},
-		{
-			"Name":"YLFZE"
-		},
-		{
-			"Name":"JJZFJE"
-		},
-		{
-			"Name":"GRZFJE"
-		},
-		{
-			"Name":"psn_cash_pay"
-		},
-		{
-			"Name":"FYCWF"
-		},
-		{
-			"Name":"FYZCY"
-		},
-		{
-			"Name":"FYZCF"
-		},
-		{
-			"Name":"FYZLF"
-		},
-		{
-			"Name":"FYSSF"
-		},
-		{
-			"Name":"FYCLF"
-		},
-		{
-			"Name":"FYQT"
-		},
-		{
-			"Name":"FYXYF"
-		},
-		{
-			"Name":"FYZCY2"
-		},
-		{
-			"Name":"FYJCF"
-		},
-		{
-			"Name":"FYHLF"
-		},
-		{
-			"Name":"FYHYF"
-		},
-		{
-			"Name":"FYGHF"
-		},
-		{
-			"Name":"FYYBZLF"
-		},
-		{
-			"Name":"FLFZE"
-		},
-		{
-			"Name":"pool_prop_selfpay"
-		},
-		{
-			"Name":"hifob_pay"
-		},
-		{
-			"Name":"hifmi_pay"
-		},
-		{
-			"Name":"hifes_pay"
-		},
-		{
-			"Name":"maf_pay"
-		},
-		{
-			"Name":"cvlserv_pay"
-		},
-		{
-			"Name":"oth_pay"
-		},
-		{
-			"Name":"acct_pay"
-		},
-		{
-			"Name":"SFRXM"
-		},
-		{
-			"Name":"YSXM"
-		},
-		{
-			"Name":"Parameter1"
-		},
-		{
-			"Name":"Parameter2"
-		},
-		{
-			"Name":"LXDHHM"
-		},
-		{
-			"Name":"YLJGMC"
-		},
-		{
-			"Name":"emp_name"
 		},
 		{
 			"Name":"psn_no"
@@ -166,6 +43,47 @@
 		},
 		{
 			"Name":"setl_time"
+		},
+		{
+			"Name":"PatientName"
+		},
+		{
+			"Name":"Phone"
+		},
+		{
+			"Name":"SFZ"
+		},
+		{
+			"Name":"DepartmentName"
+		},
+		{
+			"Name":"Diagnosis"
+		},
+		{
+			"Name":"PayTime"
+		},
+		{
+			"Name":"Cost",
+			"DataType":"Float"
+		},
+		{
+			"Name":"PayYB",
+			"DataType":"Float"
+		},
+		{
+			"Name":"EastCost"
+		},
+		{
+			"Name":"ProjCost"
+		},
+		{
+			"Name":"WestCost"
+		},
+		{
+			"Name":"CashierName"
+		},
+		{
+			"Name":"DoctorName"
 		}
 	],
 	"ReportHeader":[
@@ -317,12 +235,12 @@
 						{
 							"row":3,
 							"col":1,
-							"Text":"姓名:[#{HZXM}#]"
+							"Text":"姓名:[#{PatientName}#]"
 						},
 						{
 							"row":3,
 							"col":2,
-							"Text":"性别:[#{XB}#]"
+							"Text":"性别:[#{SexDesc}#]"
 						},
 						{
 							"row":3,
@@ -349,7 +267,7 @@
 						{
 							"row":3,
 							"col":5,
-							"Text":"人员类别：[#{psn_type}#]  ",
+							"Text":"人员类别：",
 							"ColSpan":2
 						},
 						{
@@ -359,18 +277,13 @@
 						},
 						{
 							"row":4,
-							"col":2,
-							"Text":"[#{emp_name}#]"
-						},
-						{
-							"row":4,
 							"col":3,
 							"Text":"联系电话："
 						},
 						{
 							"row":4,
 							"col":4,
-							"Text":"[#{LXDHHM}#]"
+							"Text":"[#{Phone}#]"
 						},
 						{
 							"row":4,
@@ -380,7 +293,7 @@
 						{
 							"row":4,
 							"col":6,
-							"Text":"[#{SFZH}#]"
+							"Text":"[#{SFZ}#]"
 						},
 						{
 							"row":5,
@@ -390,7 +303,7 @@
 						{
 							"row":5,
 							"col":2,
-							"Text":"科别：[#{KSMC}#]"
+							"Text":"科别：[#{DepartmentName}#]"
 						},
 						{
 							"row":5,
@@ -425,7 +338,7 @@
 						{
 							"row":6,
 							"col":3,
-							"Text":"诊断:[#{ZDXX}#]",
+							"Text":"诊断:[#{Diagnosis}#]",
 							"ColSpan":4
 						},
 						{
@@ -447,13 +360,13 @@
 						{
 							"row":7,
 							"col":5,
-							"Text":"[#{SFRQ}#]",
+							"Text":"[#{PayTime}#]",
 							"ColSpan":2
 						},
 						{
 							"row":8,
 							"col":1,
-							"Text":"本次就医：总费用[#{YLFZE}#]元，基金支付[#{JJZFJE}#]，个人支付[#{YLFZE}-{JJZFJE}#]，自费支付[#{psn_cash_pay}#]",
+							"Text":"本次就医：总费用[#{Cost}#]元，基金支付0，个人支付[#{PayYB}#]，自费支付[#{Cost}-{PayYB}#]",
 							"ColSpan":6
 						},
 						{
@@ -494,7 +407,7 @@
 						{
 							"row":10,
 							"col":2,
-							"Text":"[#{FYCWF}#]"
+							"Text":"0"
 						},
 						{
 							"row":10,
@@ -504,7 +417,7 @@
 						{
 							"row":10,
 							"col":4,
-							"Text":"[#{FYZCY}#]"
+							"Text":"[#{EastCost}#]"
 						},
 						{
 							"row":10,
@@ -514,7 +427,7 @@
 						{
 							"row":10,
 							"col":6,
-							"Text":"[#{FYZCF}#]"
+							"Text":"0"
 						},
 						{
 							"row":11,
@@ -524,7 +437,7 @@
 						{
 							"row":11,
 							"col":2,
-							"Text":"[#{FYZLF}#]"
+							"Text":"[#{ProjCost}#]"
 						},
 						{
 							"row":11,
@@ -534,7 +447,7 @@
 						{
 							"row":11,
 							"col":4,
-							"Text":"[#{FYSSF}#]"
+							"Text":"0"
 						},
 						{
 							"row":11,
@@ -544,7 +457,7 @@
 						{
 							"row":11,
 							"col":6,
-							"Text":"[#{FYCLF}#]"
+							"Text":"0"
 						},
 						{
 							"row":12,
@@ -554,7 +467,7 @@
 						{
 							"row":12,
 							"col":2,
-							"Text":"[#{FYQT}#]"
+							"Text":"0"
 						},
 						{
 							"row":12,
@@ -564,7 +477,7 @@
 						{
 							"row":12,
 							"col":4,
-							"Text":"[#{FYXYF}#]"
+							"Text":"[#{WestCost}#]"
 						},
 						{
 							"row":12,
@@ -574,7 +487,7 @@
 						{
 							"row":12,
 							"col":6,
-							"Text":"[#{FYZCY2}#]"
+							"Text":"0"
 						},
 						{
 							"row":13,
@@ -584,7 +497,7 @@
 						{
 							"row":13,
 							"col":2,
-							"Text":"[#{FYJCF}#]"
+							"Text":"0"
 						},
 						{
 							"row":13,
@@ -594,7 +507,7 @@
 						{
 							"row":13,
 							"col":4,
-							"Text":"[#{FYHLF}#]"
+							"Text":"0"
 						},
 						{
 							"row":13,
@@ -604,7 +517,7 @@
 						{
 							"row":13,
 							"col":6,
-							"Text":"[#{FYHYF}#]"
+							"Text":"0"
 						},
 						{
 							"row":14,
@@ -614,7 +527,7 @@
 						{
 							"row":14,
 							"col":2,
-							"Text":"[#{FYGHF}#]"
+							"Text":"0"
 						},
 						{
 							"row":14,
@@ -624,7 +537,7 @@
 						{
 							"row":14,
 							"col":4,
-							"Text":"[#{FYYBZLF}#]"
+							"Text":"0"
 						},
 						{
 							"row":15,
@@ -634,7 +547,7 @@
 						{
 							"row":15,
 							"col":2,
-							"Text":"[#{YLFZE}#]"
+							"Text":"[#{Cost}#]"
 						},
 						{
 							"row":16,
@@ -650,7 +563,7 @@
 						{
 							"row":16,
 							"col":2,
-							"Text":"[#{pool_prop_selfpay}#]"
+							"Text":"0"
 						},
 						{
 							"row":16,
@@ -660,7 +573,7 @@
 						{
 							"row":16,
 							"col":4,
-							"Text":"[#{hifob_pay}#]"
+							"Text":"0"
 						},
 						{
 							"row":16,
@@ -670,7 +583,7 @@
 						{
 							"row":16,
 							"col":6,
-							"Text":"[#{hifmi_pay}#]"
+							"Text":"0"
 						},
 						{
 							"row":17,
@@ -680,7 +593,7 @@
 						{
 							"row":17,
 							"col":2,
-							"Text":"[#{hifes_pay}#]"
+							"Text":"0"
 						},
 						{
 							"row":17,
@@ -690,7 +603,7 @@
 						{
 							"row":17,
 							"col":4,
-							"Text":"[#{maf_pay}#]"
+							"Text":"0"
 						},
 						{
 							"row":17,
@@ -700,7 +613,7 @@
 						{
 							"row":17,
 							"col":6,
-							"Text":"[#{cvlserv_pay}#]"
+							"Text":"0"
 						},
 						{
 							"row":18,
@@ -710,7 +623,7 @@
 						{
 							"row":18,
 							"col":2,
-							"Text":"[#{oth_pay}#]"
+							"Text":"0"
 						},
 						{
 							"row":18,
@@ -720,7 +633,7 @@
 						{
 							"row":18,
 							"col":4,
-							"Text":"[#{acct_pay}#]"
+							"Text":"[#{PayYB}#]"
 						},
 						{
 							"row":18,
@@ -730,7 +643,7 @@
 						{
 							"row":18,
 							"col":6,
-							"Text":"[#{psn_cash_pay}#]"
+							"Text":"[#{Cost}-{PayYB}#]"
 						},
 						{
 							"row":19,
@@ -740,7 +653,7 @@
 						{
 							"row":19,
 							"col":2,
-							"Text":"[#{SFRXM}#]"
+							"Text":"[#{CashierName}#]"
 						},
 						{
 							"row":19,
@@ -750,12 +663,12 @@
 						{
 							"row":19,
 							"col":4,
-							"Text":"[#{YSXM}#]"
+							"Text":"[#{DoctorName}#]"
 						},
 						{
 							"row":19,
 							"col":5,
-							"Text":"制单人:[#{YSXM}#]"
+							"Text":"制单人:[#{CashierName}#]"
 						},
 						{
 							"row":19,
