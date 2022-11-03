@@ -87,30 +87,30 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<PrintPrescriptionResponseModel> PrintPrescriptions(PrintPrescriptionRequestModel request)
+        public BaseResponse<CombinePrintDataModel> PrintPrescriptions(PrintPrescriptionRequestModel request)
         {
-            BaseResponse<PrintPrescriptionResponseModel> result = new BaseResponse<PrintPrescriptionResponseModel>();
+            BaseResponse<CombinePrintDataModel> result = new BaseResponse<CombinePrintDataModel>();
             try
             {
-                result.Data = new PrintPrescriptionResponseModel();
-                result.Data.Data = bll.getOutpatient(request.TenantId,request.OutpatientId);
+                result.Data = new CombinePrintDataModel();
+                result.Data = bll.getCombineData(request.TenantId,request.OutpatientId);
                 switch (request.Type)
                 {
+                    //中药处方
                     case 1: result.Data.ViewPath = bll.getViewPath(3, request.TenantId);
-                        result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.Where(x => x.PreName == "中处方药").ToList();
-                        break;
+                        result.Data.Goods.Where(w => w.PreName == "中药处方"); break;
+                    //西药处方
                     case 2: result.Data.ViewPath = bll.getViewPath(4, request.TenantId);
-                        result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.Where(x => x.PreName == "西处方药").ToList();
-                        break;
+                        result.Data.Goods.Where(w => w.PreName == "西药处方"); break;
+                    //项目处方
                     case 3: result.Data.ViewPath = bll.getViewPath(5, request.TenantId);
-                        result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.Where(x => x.PreName == "项目处方").ToList();
-                        break;
-                    case 4: result.Data.ViewPath = bll.getViewPath(8, request.TenantId);
-                        result.Data.Data.Prescriptions = result.Data.Data.Prescriptions.ToList();
-                        break;
+                        result.Data.Goods.Where(w => w.PreName == "项目处方"); break;
+                    //处置单
+                    case 4: result.Data.ViewPath = bll.getViewPath(8, request.TenantId);break;
                 }
                 var tenantmodel = tenant.getById(request.TenantId);
-                result.Data.Data.TenantName = tenantmodel.TenantName;
+                result.Data.TenantName = tenantmodel.TenantName;
+                result.Data.TenantCode = tenantmodel.YBCode;
                 return result;
             }
             catch (Exception ex)
@@ -132,15 +132,15 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<PrintPrescriptionResponseModel> PrintCharge(ChargeRecordRequestModel request)
+        public BaseResponse<CombinePrintDataModel> PrintCharge(ChargeRecordRequestModel request)
         {
-            BaseResponse<PrintPrescriptionResponseModel> result = new BaseResponse<PrintPrescriptionResponseModel>();
+            BaseResponse<CombinePrintDataModel> result = new BaseResponse<CombinePrintDataModel>();
             try
             {
-                result.Data.Data = bll.getOutpatient(request.TenantId,request.OutPatientId);
+                result.Data = bll.getCombineData(request.TenantId,request.OutPatientId);
                 var tenantmodel = tenant.getById(request.TenantId);
-                result.Data.Data.TenantName = tenantmodel.TenantName;
-                result.Data.Data.TenantCode = tenantmodel.YBCode;
+                result.Data.TenantName = tenantmodel.TenantName;
+                result.Data.TenantCode = tenantmodel.YBCode;
                 switch (request.ChargeType)
                 {
                     case "门诊收费": result.Data.ViewPath = bll.getViewPath(6, request.TenantId);break;

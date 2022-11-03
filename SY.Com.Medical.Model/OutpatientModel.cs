@@ -421,6 +421,10 @@ namespace SY.Com.Medical.Model
 		/// 机构编码
 		/// </summary>
 		public string CustomerCode { get; set; }
+		/// <summary>
+		/// 单次用量
+		/// </summary>
+		public int SingleNum { get; set; }
 	}
 
 	/// <summary>

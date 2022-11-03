@@ -38,7 +38,7 @@
 					"Name":"insuranceCode"
 				},
 				{
-					"Name":"goodsNum"
+					"Name":"Total"
 				}
 			]
 		},
@@ -105,7 +105,7 @@
 				},
 				{
 					"Column":"次数",
-					"DataField":"goodsNum",
+					"DataField":"Total",
 					"BorderCustom":true,
 					"Border":{
 						"Styles":"[DrawLeft|DrawTop|DrawRight|DrawBottom]"
@@ -295,7 +295,7 @@
 			"Name":"patientName"
 		},
 		{
-			"Name":"employeeName",
+			"Name":"DoctorName",
 			"Tag":"科室名称"
 		},
 		{
@@ -552,7 +552,7 @@
 					"Top":0.238125,
 					"Width":2.61938,
 					"Height":0.582083,
-					"Text":"[#{employeeName}#]"
+					"Text":"[#{DoctorName}#]"
 				},
 				{
 					"Type":"StaticBox",

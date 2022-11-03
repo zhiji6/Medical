@@ -1,5 +1,5 @@
 ﻿{
-	"Version":"6.8.5.6",
+	"Version":"6.8.2.2",
 	"Title":"Grid++Report",
 	"ShowGrid":false,
 	"PrintAsDesignPaper":false,
@@ -33,19 +33,149 @@
 		"Recordset":{
 			"Field":[
 				{
-					"Name":"Total"
+					"Name":"CFMXBH"
 				},
 				{
-					"Name":"GoodsName"
+					"Name":"ZHID",
+					"Tag":"租户ID"
 				},
 				{
-					"Name":"Price"
+					"Name":"MZBH",
+					"Tag":"门诊编号"
 				},
 				{
-					"Name":"Place"
+					"Name":"CFBH"
 				},
 				{
-					"Name":"InsuranceCode"
+					"Name":"YPBH"
+				},
+				{
+					"Name":"PC"
+				},
+				{
+					"Name":"YPMC"
+				},
+				{
+					"Name":"FPXMBH"
+				},
+				{
+					"Name":"YPLBBH"
+				},
+				{
+					"Name":"GG"
+				},
+				{
+					"Name":"MRSL",
+					"Type":"Float"
+				},
+				{
+					"Name":"YYTS",
+					"Type":"Float"
+				},
+				{
+					"Name":"PDMC",
+					"Tag":"频度名称"
+				},
+				{
+					"Name":"MCYL",
+					"Tag":"每次用量"
+				},
+				{
+					"Name":"JXDWBH",
+					"Tag":"剂型单位编号"
+				},
+				{
+					"Name":"YYZL",
+					"Tag":"用药总量"
+				},
+				{
+					"Name":"YYZCS",
+					"Type":"Integer"
+				},
+				{
+					"Name":"DJ",
+					"Tag":"单价",
+					"Type":"Currency"
+				},
+				{
+					"Name":"YFZT",
+					"Type":"Integer"
+				},
+				{
+					"Name":"YFBH"
+				},
+				{
+					"Name":"LRRBH",
+					"Type":"Integer"
+				},
+				{
+					"Name":"LRRMC"
+				},
+				{
+					"Name":"BZ",
+					"Tag":"备注"
+				},
+				{
+					"Name":"MC",
+					"Tag":"名称"
+				},
+				{
+					"Name":"SL",
+					"Tag":"数量"
+				},
+				{
+					"Name":"JE",
+					"Tag":"金额"
+				},
+				{
+					"Name":"BW",
+					"Tag":"部位"
+				},
+				{
+					"Name":"PD",
+					"Tag":"频度英文"
+				},
+				{
+					"Name":"TS",
+					"Tag":"天数"
+				},
+				{
+					"Name":"XMMC"
+				},
+				{
+					"Name":"PDMC2",
+					"Tag":"频度中文"
+				},
+				{
+					"Name":"SFZH",
+					"Tag":"身份证号"
+				},
+				{
+					"Name":"NHBH",
+					"Tag":"农合编号"
+				},
+				{
+					"Name":"YBBH",
+					"Tag":"医保编号"
+				},
+				{
+					"Name":"GMS",
+					"Tag":"过敏史"
+				},
+				{
+					"Name":"SFR",
+					"Tag":"收费人"
+				},
+				{
+					"Name":"Weight",
+					"Tag":"体重"
+				},
+				{
+					"Name":"Height",
+					"Tag":"身高"
+				},
+				{
+					"Name":"Aliases"
 				}
 			]
 		},
@@ -107,7 +237,7 @@
 					},
 					"WordWrap":true,
 					"CanGrow":true,
-					"DataField":"GoodsName"
+					"DataField":"MC"
 				},
 				{
 					"Column":"MRSL",
@@ -117,7 +247,8 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"DataField":"Total"
+					"TextAlign":"MiddleCenter",
+					"DataField":"SL"
 				},
 				{
 					"Column":"Column2",
@@ -134,7 +265,7 @@
 								"Weight":400,
 								"Charset":134
 							},
-							"Text":"[#Price#]"
+							"Text":"[#DJ#]"
 						}
 					]
 				},
@@ -147,7 +278,7 @@
 						"Charset":134
 					},
 					"ShrinkFontToFit":true,
-					"DataField":"Place"
+					"DataField":"BW"
 				},
 				{
 					"Column":"Column5",
@@ -156,7 +287,8 @@
 						"Size":105000,
 						"Weight":400,
 						"Charset":134
-					}
+					},
+					"DataField":"BZ"
 				}
 			]
 		},
@@ -199,7 +331,7 @@
 				{
 					"GroupTitle":false,
 					"Column":"Column5",
-					"Text":"编码"
+					"Text":"备注"
 				}
 			]
 		}
@@ -209,11 +341,15 @@
 	},
 	"Parameter":[
 		{
-			"Name":"TenantName",
+			"Name":"MZBH",
+			"Tag":"门诊编号"
+		},
+		{
+			"Name":"ZHID",
 			"Tag":"租户ID"
 		},
 		{
-			"Name":"PatientName",
+			"Name":"HZBH",
 			"Tag":"患者编号"
 		},
 		{
@@ -222,16 +358,16 @@
 			"DataType":"Integer"
 		},
 		{
-			"Name":"Phone",
+			"Name":"YSXM",
 			"Tag":"医生姓名"
 		},
 		{
-			"Name":"OutpatienTime",
+			"Name":"CJRQ",
 			"Tag":"创建日期",
 			"DataType":"DateTime"
 		},
 		{
-			"Name":"Diagnosis",
+			"Name":"HZXM",
 			"Tag":"患者姓名"
 		},
 		{
@@ -239,16 +375,150 @@
 			"Tag":"性别"
 		},
 		{
-			"Name":"age",
-			"Tag":"年龄"
+			"Name":"NY",
+			"Tag":"年龄",
+			"DataType":"Integer"
 		},
 		{
 			"Name":"CSRQ",
 			"DataType":"DateTime"
 		},
 		{
-			"Name":"Cost",
+			"Name":"HYZK",
+			"DataType":"Integer"
+		},
+		{
+			"Name":"LXDHHM",
+			"Tag":"联系电话"
+		},
+		{
+			"Name":"XXDZ",
+			"Tag":"详细地址"
+		},
+		{
+			"Name":"NLDW",
+			"Tag":"年龄单位",
+			"DataType":"Integer"
+		},
+		{
+			"Name":"HZYLZH"
+		},
+		{
+			"Name":"JSBJ",
+			"DataType":"Integer"
+		},
+		{
+			"Name":"ZDBJ",
+			"DataType":"Integer"
+		},
+		{
+			"Name":"ZDLB"
+		},
+		{
+			"Name":"ZHMC"
+		},
+		{
+			"Name":"XBMC"
+		},
+		{
+			"Name":"NLDW2"
+		},
+		{
+			"Name":"YPMC"
+		},
+		{
+			"Name":"GG"
+		},
+		{
+			"Name":"JXDWBH"
+		},
+		{
+			"Name":"MCYL"
+		},
+		{
+			"Name":"MRSL"
+		},
+		{
+			"Name":"YYZL"
+		},
+		{
+			"Name":"ZH"
+		},
+		{
+			"Name":"DJ"
+		},
+		{
+			"Name":"JL"
+		},
+		{
+			"Name":"PDMC"
+		},
+		{
+			"Name":"YFMC"
+		},
+		{
+			"Name":"XYYFMC"
+		},
+		{
+			"Name":"ZYPDMC"
+		},
+		{
+			"Name":"ZLDW"
+		},
+		{
+			"Name":"CFBH"
+		},
+		{
+			"Name":"KSMC",
+			"Tag":"科室名称"
+		},
+		{
+			"Name":"YSYZ",
 			"Tag":"医生医嘱"
+		},
+		{
+			"Name":"FBRQ",
+			"Tag":"发病日期",
+			"DataType":"DateTime"
+		},
+		{
+			"Name":"ZJE"
+		},
+		{
+			"Name":"ZDXX2"
+		},
+		{
+			"Name":"YLZH"
+		},
+		{
+			"Name":"ZZ"
+		},
+		{
+			"Name":"ZS"
+		},
+		{
+			"Name":"pulse"
+		},
+		{
+			"Name":"weight1"
+		},
+		{
+			"Name":"height"
+		},
+		{
+			"Name":"BloodFat"
+		},
+		{
+			"Name":"BloodSugar"
+		},
+		{
+			"Name":"bloodpre"
+		},
+		{
+			"Name":"bloodpre2"
+		},
+		{
+			"Name":"Parameter10"
 		}
 	],
 	"ReportHeader":[
@@ -269,7 +539,7 @@
 						"Charset":134
 					},
 					"TextAlign":"MiddleCenter",
-					"Text":"[#TenantName#]"
+					"Text":"[#ZHMC#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -286,6 +556,21 @@
 					},
 					"TextAlign":"MiddleCenter",
 					"Text":"处方单"
+				},
+				{
+					"Type":"MemoBox",
+					"Name":"MemoBox6",
+					"Left":0.238125,
+					"Top":1.93146,
+					"Width":5.55625,
+					"Height":0.608542,
+					"Font":{
+						"Name":"宋体",
+						"Size":105000,
+						"Weight":400,
+						"Charset":134
+					},
+					"Text":"门诊编号：[#{MZBH}#]"
 				},
 				{
 					"Type":"Line",
@@ -307,7 +592,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"姓名：[#{PatientName}#]"
+					"Text":"姓名：[#{HZXM}#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -337,7 +622,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"年龄：[#{Age}#]"
+					"Text":"年龄：[#{NY}#]岁"
 				},
 				{
 					"Type":"MemoBox",
@@ -346,7 +631,7 @@
 					"Top":3.28083,
 					"Width":11.9856,
 					"Height":0.687917,
-					"Text":"诊断信息：[#Diagnosis#]"
+					"Text":"诊断信息：[#ZDXX2#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -373,7 +658,7 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox10",
-					"Left":0.211667,
+					"Left":7.19667,
 					"Top":1.93146,
 					"Width":6.19125,
 					"Height":0.555625,
@@ -383,7 +668,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"日期：[#OutpatienTime:yyyy年MM月dd日#]"
+					"Text":"日期：[#FBRQ:yyyy年MM月dd日#]"
 				},
 				{
 					"Type":"MemoBox",
@@ -406,7 +691,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"电话：[#{Phone}#]"
+					"Text":"电话：[#{LXDHHM}#]"
 				}
 			],
 			"RepeatOnPage":true
@@ -450,7 +735,7 @@
 						"Weight":400,
 						"Charset":134
 					},
-					"Text":"总金额：[#Cost#] 元"
+					"Text":"总金额：[#ZJE:0.00#] 元"
 				}
 			],
 			"RepeatOnPage":true

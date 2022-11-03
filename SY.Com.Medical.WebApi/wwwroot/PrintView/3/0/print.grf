@@ -37,28 +37,21 @@
 					"Name":"GoodsName"
 				},
 				{
-					"Name":"YPLBBH"
-				},
-				{
-					"Name":"GoodsUsage",
+					"Name":"Usage",
 					"Tag":"用法名称"
 				},
 				{
-					"Name":"GoodsSalesUnit",
+					"Name":"Unit",
 					"Tag":"总量单位"
 				},
 				{
-					"Name":"GoodsEveryDay",
-					"Type":"Float"
-				},
-				{
-					"Name":"GoodsDays"
-				},
-				{
-					"Name":"GoodsNum"
+					"Name":"Single"
 				},
 				{
 					"Name":"InsuranceCode"
+				},
+				{
+					"Name":"Total"
 				}
 			]
 		},
@@ -92,7 +85,7 @@
 								"Charset":134
 							},
 							"WordWrap":true,
-							"Text":"[#GoodsName#][#GoodsUsage#]"
+							"Text":"[#GoodsName#][#Usage#]"
 						},
 						{
 							"Type":"MemoBox",
@@ -106,7 +99,7 @@
 								"Weight":400,
 								"Charset":134
 							},
-							"Text":"[#GoodsNum#][#GoodsSalesUnit#]"
+							"Text":"[#Single#][#Unit#]"
 						}
 					]
 				},
@@ -121,7 +114,7 @@
 							"Top":0.211667,
 							"Width":2.61938,
 							"Height":0.396875,
-							"Text":"[#GoodsEveryDay#]     [#InsuranceCode#]"
+							"Text":"[#Total#] [#Unit#]    [#InsuranceCode#]"
 						}
 					]
 				}
@@ -175,43 +168,22 @@
 			"Name":"department"
 		},
 		{
-			"Name":"YLZH"
-		},
-		{
 			"Name":"diagnosis"
 		},
 		{
 			"Name":"phone"
 		},
 		{
-			"Name":"BZ1"
-		},
-		{
-			"Name":"Parameter2"
-		},
-		{
-			"Name":"TotalYFMC"
-		},
-		{
-			"Name":"JLTS"
-		},
-		{
-			"Name":"MRSL"
-		},
-		{
-			"Name":"YYTS"
-		},
-		{
-			"Name":"TotalJL"
-		},
-		{
 			"Name":"tenantName"
+		},
+		{
+			"Name":"Pair"
 		}
 	],
 	"ReportHeader":[
 		{
 			"CanGrow":true,
-			"Height":5.79438,
+			"Height":5.21229,
 			"Font":{
 				"Name":"宋体",
 				"Size":180000,
@@ -252,21 +224,6 @@
 					"Text":"处 方 笺"
 				},
 				{
-					"Type":"MemoBox",
-					"Name":"MemoBox6",
-					"Left":0.238125,
-					"Top":1.93146,
-					"Width":5.76792,
-					"Height":0.608542,
-					"Font":{
-						"Name":"宋体",
-						"Size":105000,
-						"Weight":400,
-						"Charset":134
-					},
-					"Text":"No：[#{outpatientId}#]"
-				},
-				{
 					"Type":"Line",
 					"Name":"Line1",
 					"Left":0.264583,
@@ -276,8 +233,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox7",
-					"Left":0.238125,
-					"Top":2.75167,
+					"Left":0.211667,
+					"Top":2.01083,
 					"Width":4.445,
 					"Height":0.555625,
 					"Font":{
@@ -291,8 +248,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox8",
-					"Left":3.59833,
-					"Top":2.75167,
+					"Left":4.78896,
+					"Top":2.01083,
 					"Width":2.19604,
 					"Height":0.555625,
 					"Font":{
@@ -306,8 +263,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox9",
-					"Left":5.79438,
-					"Top":2.75167,
+					"Left":7.59354,
+					"Top":2.01083,
 					"Width":3.01625,
 					"Height":0.555625,
 					"Font":{
@@ -321,8 +278,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox10",
-					"Left":8.80533,
-					"Top":2.75167,
+					"Left":8.81062,
+					"Top":2.80458,
 					"Width":4.0005,
 					"Height":0.555625,
 					"Font":{
@@ -337,7 +294,7 @@
 					"Type":"MemoBox",
 					"Name":"MemoBox12",
 					"Left":0.211667,
-					"Top":4.92125,
+					"Top":4.39208,
 					"Width":2.19604,
 					"Height":0.767292,
 					"Font":{
@@ -349,17 +306,10 @@
 					"Text":"Rp："
 				},
 				{
-					"Type":"Line",
-					"Name":"Line2",
-					"Left":0.264583,
-					"Top":4.94771,
-					"Width":12.409
-				},
-				{
 					"Type":"MemoBox",
 					"Name":"MemoBox11",
-					"Left":0.238125,
-					"Top":4.20688,
+					"Left":0.211667,
+					"Top":3.59833,
 					"Width":1.77271,
 					"Height":0.687917,
 					"Font":{
@@ -374,7 +324,7 @@
 					"Type":"MemoBox",
 					"Name":"MemoBox39",
 					"Left":2.01083,
-					"Top":4.20688,
+					"Top":3.59833,
 					"Width":6.58813,
 					"Height":0.687917,
 					"Font":{
@@ -397,8 +347,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox40",
-					"Left":8.38729,
-					"Top":1.93146,
+					"Left":10.3981,
+					"Top":2.01083,
 					"Width":4.02167,
 					"Height":0.608542,
 					"Font":{
@@ -412,8 +362,8 @@
 				{
 					"Type":"MemoBox",
 					"Name":"MemoBox41",
-					"Left":0.238125,
-					"Top":3.4925,
+					"Left":0.211667,
+					"Top":2.80458,
 					"Width":4.20688,
 					"Height":0.608542,
 					"Font":{
@@ -440,24 +390,9 @@
 				},
 				{
 					"Type":"MemoBox",
-					"Name":"MemoBox43",
-					"Left":3.59833,
-					"Top":3.4925,
-					"Width":5.00063,
-					"Height":0.608542,
-					"Font":{
-						"Name":"宋体",
-						"Size":105000,
-						"Weight":400,
-						"Charset":134
-					},
-					"Text":"病历号："
-				},
-				{
-					"Type":"MemoBox",
 					"Name":"MemoBox77",
-					"Left":8.59896,
-					"Top":4.20688,
+					"Left":4.60375,
+					"Top":2.80458,
 					"Width":3.99521,
 					"Height":0.687917,
 					"Font":{
@@ -491,7 +426,7 @@
 						"Charset":134
 					},
 					"LnSpacing":5,
-					"Text":"用法：[#GoodsUsage#]  共[#GoodsDays#]天"
+					"Text":"共[#Pair#]副"
 				},
 				{
 					"Type":"MemoBox",

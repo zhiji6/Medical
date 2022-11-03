@@ -919,6 +919,11 @@
             机构编码
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.SingleNum">
+            <summary>
+            单次用量
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.PrintViewEntity">
             <summary>
             实体

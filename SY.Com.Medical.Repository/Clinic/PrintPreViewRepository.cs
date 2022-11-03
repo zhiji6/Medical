@@ -129,7 +129,7 @@ namespace SY.Com.Medical.Repository.Clinic
                         predic.Add(item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString(), new List<PrescriptionDetailStructure>());
                     }
                     predic[item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString()].Add(new PrescriptionDetailStructure
-                    {
+                    {                                  
                         GoodsId = item.GoodsId,
                         GoodsName = item.GoodsName,
                         GoodsNum = item.GoodsNum,
@@ -142,7 +142,11 @@ namespace SY.Com.Medical.Repository.Clinic
                         GoodsSalesUnit = item.GoodsSalesUnit,
                         InsuranceCode = item.InsuranceCode,
                         CustomerCode = item.CustomerCode,                        
-                        Place = item.Place
+                        Place = item.Place,
+                        SingleNum = item.SingleNum
+                        
+                        
+
                     });
                 }
                 result.Prescriptions = new List<PrescriptionStructure>();

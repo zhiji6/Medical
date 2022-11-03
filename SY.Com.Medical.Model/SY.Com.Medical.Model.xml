@@ -3308,6 +3308,11 @@
             机构编码
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.SingleNum">
+            <summary>
+            单次用量
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrescriptionAddStructure">
             <summary>
             门诊内处方结构
@@ -4753,6 +4758,220 @@
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Data">
             <summary>
             打印数据
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CombinePrintDataModel">
+            <summary>
+            综合打印数据
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.ViewPath">
+            <summary>
+            打印模板路径
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.TenantName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.TenantCode">
+            <summary>
+            结构编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.PatientName">
+            <summary>
+            患者姓名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.psn_no">
+            <summary>
+            患者医保号码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.SexDesc">
+            <summary>
+            性别描述
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.CSRQ">
+            <summary> 
+            出生日期
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Age">
+            <summary>
+            年龄
+            使用出生日期计算
+            大于等于24个月，只显示岁，岁用总月数整除12向下取整
+            小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+            小于6月的显示天
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.SFZ">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.DepartmentName">
+            <summary>
+            科室名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.DoctorName">
+            <summary>
+            医生名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.DoctorCode">
+            <summary>
+            医生编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Diagnosis">
+            <summary>
+            诊断
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.OutpatienTime">
+            <summary>
+            门诊时间
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.mdtrt_id">
+            <summary>
+            医保同名字段
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.chrg_bchno">
+            <summary>
+            医保同名字段
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.setl_id">
+            <summary>
+            医保同名字段
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Balc">
+            <summary>
+            医保余额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.PayYB">
+            <summary>
+            医保支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Cost">
+            <summary>
+            实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.WestCost">
+            <summary>
+            医药实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.EastCost">
+            <summary>
+            中药实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.ProjCost">
+            <summary>
+            项目实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.CashierName">
+            <summary>
+            收费人名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.PayTime">
+            <summary>
+            收费日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Goods">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintDataModel.Pair">
+            <summary>
+            中药副数
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CombinePrintGoodModel">
+            <summary>
+            综合打印数据之物料
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.PreName">
+            <summary>
+            处方种类名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.GoodsName">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.InsuranceCode">
+            <summary>
+            医保编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.CustomerCode">
+            <summary>
+            自定义编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Usage">
+            <summary>
+            用法
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Single">
+            <summary>
+            单次用量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Total">
+            <summary>
+            总量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Unit">
+            <summary>
+             单位
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Place">
+            <summary>
+            部位
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Price">
+            <summary>
+            单价
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PrintViewModel">
