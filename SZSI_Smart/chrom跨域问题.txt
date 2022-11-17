@@ -1,0 +1,1 @@
+在Chrome浏览器地址栏搜索chrome://flags，然后在搜索框搜索Block insecure private network requests，最后将其Default改为Disabled

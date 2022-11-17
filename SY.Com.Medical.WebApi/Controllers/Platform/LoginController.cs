@@ -101,7 +101,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             {
                 if(userbll.ExistsAccount(request.Account))
                 {
-                    return result.busExceptino(Enum.ErrorCode.用户不存在,"用户已存在,请重新登录");
+                    return result.busExceptino(Enum.ErrorCode.用户已存在,"用户已存在,请重新登录");
                 }                
                 result.Data = userbll.Register(request);
                 return result;

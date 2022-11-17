@@ -60,7 +60,7 @@ namespace SY.Com.Medical.Model
         public BaseResponse<T> busExceptino(ErrorCode errcode, string message)
         {
             Result = -2;
-            ErrCode = errcode.ToString();
+            ErrCode = "[" + errcode.ToString() + "]";
             ErrMes = message;
             return this;
         }

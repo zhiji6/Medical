@@ -32,9 +32,9 @@ namespace SY.Com.Medical.Entity
         public DateTime? CreateTime { get; set; }
 
         [DB_NotColum]
-        public DateTime CreateTimeStart { get; set; }
+        public DateTime? CreateTimeStart { get; set; }
         [DB_NotColum]
-        public DateTime CreateTimeEnd { get; set; }
+        public DateTime? CreateTimeEnd { get; set; }
 
     }
 }

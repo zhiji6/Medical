@@ -36,7 +36,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 出生日期
 		/// </summary>
-		public DateTime CSRQ { get; set; }
+		public DateTime? CSRQ { get; set; }
 		/// <summary>
 		/// 身份证号
 		/// </summary>
@@ -56,7 +56,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 价格
 		/// </summary>
-		public double GoodsPrice { get; set; }
+		public double? GoodsPrice { get; set; }
 		/// <summary>
 		/// 医保时需要-医保解析接口会返回此值
 		/// </summary>
@@ -256,7 +256,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 出生日期
 		/// </summary>
-		public DateTime CSRQ { get; set; }
+		public DateTime? CSRQ { get; set; }
 		/// <summary>
 		/// 身份证号
 		/// </summary>
@@ -284,7 +284,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 价格
 		/// </summary>
-		public double GoodsPrice { get; set; }
+		public double? GoodsPrice { get; set; }
 		/// <summary>
 		/// 医保时需要-医保解析接口会返回此值
 		/// </summary>
