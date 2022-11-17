@@ -65,7 +65,7 @@ namespace SY.Com.Medical.WebApi.JWT
             };
             SecurityToken securityToken = new JwtSecurityToken(
                 signingCredentials: securityKey,
-                expires: DateTime.Now.AddMinutes(120),//过期时间
+                expires: DateTime.Now.AddMinutes(double.Parse(ReadConfig.GetConfigSection("TokenExpire"))),//过期时间
                 claims: claims
             );
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
