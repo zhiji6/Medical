@@ -218,17 +218,13 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<List<RegisterModel>> result = new BaseResponse<List<RegisterModel>>();
             try
             {
-                var tuple = regbll.gets(request.TenantId, request.PageSize, request.PageIndex, request.SearchKey, request.start, request.end,-1);
+                var tuple = regbll.gets(request.TenantId, request.PageSize, request.PageIndex, request.SearchKey, request.start, request.end,request.DoctorId);
                 if(tuple.Item1 != null && tuple.Item1.Count > 0 )
                 {
                     //获取医生Id和科室Id
-                    var doctornames = regbll.getDoctorIds(tuple.Item1.First().TenantId, tuple.Item1.Select(x => x.DoctorName).ToList());
+                    var doctornames = regbll.getDoctorIds(tuple.Item1.First().TenantId, tuple.Item1.Select(x => x.DoctorName ?? "").ToList());
                     if (doctornames != null && doctornames.Any())
                     {
-                        foreach (var item in tuple.Item1)
-                        {
-
-                        }
                         tuple.Item1.ToList().ForEach(x =>
                         {
                             if (doctornames.ToList().Find(y => y.EmployeeName == x.DoctorName) != null)

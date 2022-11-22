@@ -184,7 +184,7 @@ namespace SY.Com.Medical.BLL.Clinic
 		{
 			string doctorname = "";
 			//	string sql = "select * from Employees where TenantId=" + request + " and EmployeeId=" + doctorid;
-			if(doctorid != 0)
+			if(doctorid > 0)
             {
 				var doctornames = db.BackDoctorName(tenantid, doctorid);
 				if (doctornames != null && doctornames.Any())
