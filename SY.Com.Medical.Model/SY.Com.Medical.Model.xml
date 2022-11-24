@@ -6932,7 +6932,7 @@
         <member name="T:SY.Com.Medical.Model.SYBCommon.InCommon">
             <summary>
             
-            </summary>
+            </summary>        
         </member>
         <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.infno">
             <summary>
@@ -7021,8 +7021,8 @@
         </member>
         <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.input">
             <summary>
-            
-            </summary>
+                        
+            </summary>            
         </member>
         <member name="P:SY.Com.Medical.Model.SYBCommon.InCommon.departname">
             <summary>

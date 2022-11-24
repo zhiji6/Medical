@@ -17,6 +17,7 @@ using SY.Com.Medical.WebApi.Format;
 using SY.Com.Medical.WebApi.JWT;
 using System;
 using System.IO;
+using System.Text.Json.Serialization;
 
 namespace SY.Com.Medical.WebApi
 {
@@ -50,7 +51,12 @@ namespace SY.Com.Medical.WebApi
             services.AddAuthentication("Bearer")
             .AddJwtBearer(options => options.TokenValidationParameters = JWTTokenValidationParameters.getParameters());
 
-            services.AddControllers(options => options.Filters.Add(new CustomerFilter()));
+            services.AddControllers(options => options.Filters.Add(new CustomerFilter()))
+                .AddJsonOptions(option=> {
+                    option.JsonSerializerOptions.Converters.Add(new DateConverter());
+                    option.JsonSerializerOptions.Converters.Add(new DateTimeNullableConverter());
+                    option.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                });
             services.AddMvc(opt =>
             {
                 opt.Filters.Add<ExceptionFilter>();
@@ -60,6 +66,7 @@ namespace SY.Com.Medical.WebApi
                 //option.JsonSerializerOptions.PropertyNamingPolicy = null;
                 option.JsonSerializerOptions.Converters.Add(new DateConverter());
                 option.JsonSerializerOptions.Converters.Add(new DateTimeNullableConverter());
+                option.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
             });
             //配置跨域处理
             services.AddCors(options =>
@@ -69,7 +76,7 @@ namespace SY.Com.Medical.WebApi
                 {
                     builder.AllowAnyOrigin() //允许任何来源的主机访问
                     .AllowAnyMethod()
-                    .AllowAnyHeader();      //.AllowCredentials();//指定处理cookie              
+                    .AllowAnyHeader();      //.AllowCredentials();//指定处理cookie                                  
                 });
             });
             
@@ -150,7 +157,8 @@ namespace SY.Com.Medical.WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "TwBusManagement API V1");
                 //c.ShowExtensions();
             });
-            app.UseRouting();
+            app.UseRouting();            
+            app.UseRequestLocalization();   
             app.UseAuthentication();//JWT验证  
             app.UseAuthorization();
             app.UseCors("abcany");

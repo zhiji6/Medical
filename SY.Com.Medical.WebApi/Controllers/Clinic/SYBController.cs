@@ -803,6 +803,59 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public BaseResponse<InCommon> TestTest()
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            try
+            {
+                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
+                InCommon rd1 = bll.getComm(9, 3);
+                Outpatient opbll = new Outpatient();
+                var opstructure = opbll.getStructure(9, 3);
+                var department = bll.getYBDepartment(opstructure.Doctor.Department);
+                List<FeeDetail> fdlist = new List<FeeDetail>();
+                foreach (var item in opstructure.Prescriptions)
+                {
+                    foreach (var node in item.Details)
+                    {
+                        FeeDetail fdmod = new FeeDetail();
+                        fdmod.feedetl_sn = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmss") + (9999 - fdlist.Count).ToString();
+                        fdmod.mdtrt_id = opstructure.mdtrt_id;
+                        fdmod.psn_no = opstructure.Patient.psn_no;
+                        fdmod.chrg_bchno = opstructure.chrg_bchno;
+                        fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
+                        fdmod.rx_circ_flag = "0";
+                        fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        fdmod.med_list_codg = node.InsuranceCode;
+                        fdmod.medins_list_codg = node.CustomerCode;
+                        fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
+                        fdmod.cnt = node.GoodsNum;
+                        fdmod.pric = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 4).ToString());
+                        fdmod.bilg_dept_codg = department.code;
+                        fdmod.bilg_dept_name = department.name;
+                        fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
+                        fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
+                        fdmod.hosp_appr_flag = "1";
+                        fdlist.Add(fdmod);
+                    }
+                }
+                In2204 model = new In2204();
+                model.feedetail = fdlist;
+                rd1.infno = "2204";
+                rd1.input = model;
+                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+                return rd;
+            }
+            catch (Exception ex)
+            {
+                return rd.sysException(ex.Message);
+            }
+        }
+        /// <summary>
         /// 门诊费用上传-解析报文
         /// </summary>
         /// <param name="mod"></param>

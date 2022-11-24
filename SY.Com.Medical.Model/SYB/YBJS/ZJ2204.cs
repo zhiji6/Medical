@@ -25,11 +25,13 @@ namespace SZSI_Smart.Model.SYB
         /// <summary>
         /// 
         /// </summary>
+        
         public class FeeDetail
         {
             /// <summary>
             /// 
             /// </summary>
+            
             public string feedetl_sn { get; set; }// 费用明细流水号 字符型	30	　	Y 单次就诊内唯一
             /// <summary>
             /// 

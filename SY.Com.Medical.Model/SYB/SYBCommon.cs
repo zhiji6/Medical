@@ -13,7 +13,7 @@ namespace SY.Com.Medical.Model
     {
         /// <summary>
         /// 
-        /// </summary>
+        /// </summary>        
         public class InCommon 
         {
             /// <summary>
@@ -85,13 +85,13 @@ namespace SY.Com.Medical.Model
             /// </summary>
             public string sign_no { get; set; }// 交易签到流水号 字符型	30			通过签到【9001】交易获取
             /// <summary>
-            /// 
-            /// </summary>
+            ///             
+            /// </summary>            
             public object input { get; set; } //  交易输入 字符型	40000		
             /// <summary>
             /// 
             /// </summary>
-            [JsonIgnore]
+            [System.Text.Json.Serialization.JsonIgnore]
             public string departname { get; set; }
 
         }
