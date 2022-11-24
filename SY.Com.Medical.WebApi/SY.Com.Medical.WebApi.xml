@@ -766,12 +766,6 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.TestTest">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ2204Parse(SY.Com.Medical.Model.SYBCommonParseModel{SZSI_Smart.Model.SYB.ZJ2204})">
             <summary>
             门诊费用上传-解析报文

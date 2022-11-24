@@ -778,9 +778,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         fdmod.med_list_codg = node.InsuranceCode;
                         fdmod.medins_list_codg = node.CustomerCode;
-                        fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
+                        //fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
                         fdmod.cnt = node.GoodsNum;
                         fdmod.pric = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 4).ToString());
+                        fdmod.det_item_fee_sumamt = Math.Round(node.GoodsNum * fdmod.pric, 2) ;
                         fdmod.bilg_dept_codg = department.code;
                         fdmod.bilg_dept_name = department.name;
                         fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;

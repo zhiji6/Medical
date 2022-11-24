@@ -61,7 +61,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <returns></returns>
         public string GetSign(int tenantId, int employeeId)
         {
-            string result = "";
+            string result = "sign_no";
             string sql = " Select * From YBSign Where TenantId=@TenantId and EmployeeId =@EmployeeId ";
             var mods = _db.Query<YBSign>(sql, new { TenantId = tenantId, EmployeeId = employeeId });
             if(mods != null && mods.Any())

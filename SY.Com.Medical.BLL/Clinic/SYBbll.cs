@@ -128,8 +128,8 @@ namespace SY.Com.Medical.BLL.Clinic
         public YBDepartment getYBDepartment(string name)
         {
             YBDepartment result = new YBDepartment();
-            result.code = "1101";
-            result.name = "全科";
+            result.code = "A50";
+            result.name = "中医科";
             return result;
         }
 
