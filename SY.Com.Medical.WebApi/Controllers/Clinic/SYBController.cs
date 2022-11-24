@@ -787,6 +787,19 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
                         fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
                         fdmod.hosp_appr_flag = "1";
+                        fdmod.dise_codg = "";
+                        fdmod.sin_dos_dscr = "";
+                        fdmod.used_frqu_dscr = "";
+                        fdmod.medc_way_dscr = "";
+                        fdmod.acord_dept_codg = "";
+                        fdmod.acord_dept_name = "";
+                        fdmod.orders_dr_code = "";
+                        fdmod.orders_dr_name = "";
+                        fdmod.tcmdrug_used_way = "";
+                        fdmod.etip_flag = "";
+                        fdmod.etip_hosp_code = "";
+                        fdmod.dscg_tkdrug_flag = "";
+                        fdmod.matn_fee_flag = "";
                         fdlist.Add(fdmod);
                     }
                 }
