@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using log4net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using SY.Com.Medical.BLL;
 using SY.Com.Medical.Model;
@@ -14,6 +15,7 @@ namespace SY.Com.Medical.WebApi.Filter
     /// </summary>
     public class ExceptionFilter : IExceptionFilter
     {
+        log4net.ILog log = LogManager.GetLogger("mylog");
         /// <summary>
         /// 全局异常处理
         /// </summary>
@@ -28,6 +30,7 @@ namespace SY.Com.Medical.WebApi.Filter
                 }
                 else
                 {
+                    log.Debug(context.Exception.Message + " 堆栈:" + context.Exception.StackTrace);
                     context.Result = new JsonResult(new BaseResponse<string>().sysException(context.Exception.Message));
                 }                
             }

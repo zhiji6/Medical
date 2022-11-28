@@ -293,9 +293,7 @@ namespace SY.Com.Medical.Repository.Clinic
             {
                 case_db.Update(TypeConvert.DeepCopyByReflection(structure.CaseBook, new CaseBookEntity()));
             }
-            //修改register为已使用            
-            string regupdate = " Update Registers Set IsUsed = 1 Where TenantId = @TenantId And RegisterId=@RegisterId ";
-            _db.Execute(regupdate, new { TenantId = structure.TenantId, RegisterId = structure.RegisterId });
+
 
             //获取机构信息
             TenantRepository tenant_db = new TenantRepository(ReadConfig.GetConfigSection("Medical_Platform"));
@@ -337,7 +335,7 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             else
             {
-                structure.CaseBook.DepartmentId = departs.ToList().Find(x => x.DepartmentId == int.Parse(doc_entity.Departments)).DepartmentId;
+                structure.CaseBook.DepartmentId = departs.ToList().Find(x => x.DepartmentId == int.Parse(doc_entity.Departments))?.DepartmentId ?? 0;
             }            
             case_db.Update(TypeConvert.DeepCopyByReflection(structure.CaseBook, new CaseBookEntity()));
 
@@ -387,6 +385,9 @@ namespace SY.Com.Medical.Repository.Clinic
                 }
             }
             pres_db.InsertBulk(pres_entitys);
+            //修改register为已使用            
+            string regupdate = " Update Registers Set IsUsed = 1 Where TenantId = @TenantId And RegisterId=@RegisterId ";
+            _db.Execute(regupdate, new { TenantId = structure.TenantId, RegisterId = structure.RegisterId });
             return outpatientId;
         }
 

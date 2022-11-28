@@ -218,7 +218,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<List<RegisterModel>> result = new BaseResponse<List<RegisterModel>>();
             try
             {
-                var tuple = regbll.gets(request.TenantId, request.PageSize, request.PageIndex, request.SearchKey, request.start, request.end,request.DoctorId);
+                var tuple = regbll.gets(request.TenantId, request.PageSize, request.PageIndex, request.SearchKey, request.start, request.end,request.DoctorId,-1);
                 if(tuple.Item1 != null && tuple.Item1.Count > 0 )
                 {
                     //获取医生Id和科室Id

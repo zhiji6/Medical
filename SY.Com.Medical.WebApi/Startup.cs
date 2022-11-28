@@ -1,4 +1,5 @@
 using DocumentFormat.OpenXml.EMMA;
+using log4net.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -128,6 +129,8 @@ namespace SY.Com.Medical.WebApi
             {
                 options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
             });
+            //◊¢≤·log4net»’÷æ
+            XmlConfigurator.Configure(new System.IO.FileInfo("log4net.xml"));
         }
 
         /// <summary>
