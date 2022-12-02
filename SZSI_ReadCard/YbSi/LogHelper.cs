@@ -9,7 +9,7 @@ namespace MKDBFramwork
         private const string SDebug = "Debug";
         private const string DefaultName = "Info";
         
-
+         
         static LogHelper()
         {
             var path = AppDomain.CurrentDomain.BaseDirectory + @"log4net.config";
