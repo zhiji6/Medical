@@ -17,13 +17,13 @@ namespace Client.Controllers
         [HttpGet]
         public ReturnData<string> Get(string guid)
         {
-            return new ReturnData<string>() { Data = "3423423894320" };
-            //string ybkh = "";//"%GAAFSAKSXSUKKWDKHDAD?;07734724145330238292?";
-            //if (ylzhlist.TryRemove(guid, out ybkh))
-            //{
-            //    return new ReturnData<string>() { Data = ybkh };
-            //}
-            //return new ReturnData<string>() { Data = ybkh };
+            //return new ReturnData<string>() { Data = "3423423894320" };
+            string ybkh = "";//"%GAAFSAKSXSUKKWDKHDAD?;07734724145330238292?";
+            if (ylzhlist.TryRemove(guid, out ybkh))
+            {
+                return new ReturnData<string>() { Data = ybkh };
+            }
+            return new ReturnData<string>() { Data = ybkh };
         }
 
         /// <summary>
