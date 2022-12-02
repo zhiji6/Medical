@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Filter
 {
     /// <summary>
-    /// 统一处理异常
+    /// 统一处理异常 
     /// </summary>
     public class ExceptionFilter : IExceptionFilter
     {
