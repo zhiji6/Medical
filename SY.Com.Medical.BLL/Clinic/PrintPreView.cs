@@ -74,35 +74,33 @@ namespace SY.Com.Medical.BLL.Clinic
             if (data.Patient == null) return new CombinePrintDataModel();
             if (data.Doctor == null) return new CombinePrintDataModel();
             if (data.Prescriptions == null || data.Prescriptions.Count < 1) return new CombinePrintDataModel();
-            CombinePrintDataModel result = new CombinePrintDataModel
-            {
-                Addr = data.Patient.Addr,
-                CSRQ = data.Patient.CSRQ,
-                CashierName = data.ChargeRecord?.CashierName ?? "",
-                chrg_bchno = data.chrg_bchno,
-                Cost = data.Cost,
-                DepartmentName = data.Doctor.Department,
-                Diagnosis = data.CaseBook?.Diagnosis ?? "",
-                DoctorCode = data.Doctor.YBCode,
-                DoctorName = data.Doctor.EmployeeName,
-                EastCost = data.Prescriptions?.Where(w => w.PreName == "中药处方")?.Sum(s => s.Cost) ?? 0.0,
-                WestCost = data.Prescriptions?.Where(w => w.PreName == "西药处方")?.Sum(s => s.Cost) ?? 0.0,
-                ProjCost = data.Prescriptions?.Where(w => w.PreName == "项目处方")?.Sum(s => s.Cost) ?? 0.0,
-                Pair = data.Prescriptions?.Where(w => w.PreName == "中药处方")?.FirstOrDefault().Pair ?? 0,
-                mdtrt_id = data.mdtrt_id,
-                OutpatienTime = data.CreateTime,
-                PatientName = data.Patient.PatientName,
-                PayTime = data.ChargeRecord?.CreateTime ?? DateTime.Now,
-                PayYB = data.PayYB,
-                Phone = data.Patient.Phone,
-                psn_no = data.Patient.psn_no,
-                setl_id = data.setl_id,
-                Sex = data.Patient.Sex,
-                SFZ = data.Patient.SFZ,
-                TenantCode = data.TenantCode,
-                TenantName = data.TenantName,
-                Balc = data.PayYBAfter
-            };
+            CombinePrintDataModel result = new CombinePrintDataModel();
+            result.Addr = data.Patient.Addr;
+            result.CSRQ = data.Patient.CSRQ;
+            result.CashierName = data.ChargeRecord?.CashierName ?? "";
+            result.chrg_bchno = data.chrg_bchno;
+            result.Cost = data.Cost;
+            result.DepartmentName = data.Doctor.Department;
+            result.Diagnosis = data.CaseBook?.Diagnosis ?? "";
+            result.DoctorCode = data.Doctor.YBCode;
+            result.DoctorName = data.Doctor.EmployeeName;
+            result.EastCost = data.Prescriptions?.Where(w => w.PreName == "中药处方")?.Sum(s => s.Cost) ?? 0.0;
+            result.WestCost = data.Prescriptions?.Where(w => w.PreName == "西药处方")?.Sum(s => s.Cost) ?? 0.0;
+            result.ProjCost = data.Prescriptions?.Where(w => w.PreName == "项目处方")?.Sum(s => s.Cost) ?? 0.0;
+            result.Pair = data.Prescriptions?.Where(w => w.PreName == "中药处方")?.FirstOrDefault()?.Pair ?? 0;
+            result.mdtrt_id = data.mdtrt_id;
+            result.OutpatienTime = data.CreateTime;
+            result.PatientName = data.Patient.PatientName;
+            result.PayTime = data.ChargeRecord?.CreateTime ?? DateTime.Now;
+            result.PayYB = data.PayYB;
+            result.Phone = data.Patient.Phone;
+            result.psn_no = data.Patient.psn_no;
+            result.setl_id = data.setl_id;
+            result.Sex = data.Patient.Sex;
+            result.SFZ = data.Patient.SFZ;
+            result.TenantCode = data.TenantCode;
+            result.TenantName = data.TenantName;
+            result.Balc = data.PayYBAfter;
             result.Goods = new List<CombinePrintGoodModel>();
             foreach(var prescription in data.Prescriptions)
             {                

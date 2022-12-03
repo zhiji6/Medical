@@ -135,30 +135,16 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         public BaseResponse<CombinePrintDataModel> PrintCharge(ChargeRecordRequestModel request)
         {
             BaseResponse<CombinePrintDataModel> result = new BaseResponse<CombinePrintDataModel>();
-            try
+            result.Data = bll.getCombineData(request.TenantId, request.OutPatientId);
+            var tenantmodel = tenant.getById(request.TenantId);
+            result.Data.TenantName = tenantmodel.TenantName;
+            result.Data.TenantCode = tenantmodel.YBCode;
+            switch (request.ChargeType)
             {
-                result.Data = bll.getCombineData(request.TenantId,request.OutPatientId);
-                var tenantmodel = tenant.getById(request.TenantId);
-                result.Data.TenantName = tenantmodel.TenantName;
-                result.Data.TenantCode = tenantmodel.YBCode;
-                switch (request.ChargeType)
-                {
-                    case "门诊收费": result.Data.ViewPath = bll.getViewPath(6, request.TenantId);break;
-                    case "门诊退费": result.Data.ViewPath = bll.getViewPath(7, request.TenantId); break;
-                }
-                return result;
+                case "门诊收费": result.Data.ViewPath = bll.getViewPath(6, request.TenantId); break;
+                case "门诊退费": result.Data.ViewPath = bll.getViewPath(7, request.TenantId); break;
             }
-            catch (Exception ex)
-            {
-                if (ex is MyException)
-                {
-                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-                }
-                else
-                {
-                    return result.sysException(ex.Message);
-                }
-            }
+            return result;
         }
 
         /// <summary>
