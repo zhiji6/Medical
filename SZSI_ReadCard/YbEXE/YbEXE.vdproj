@@ -33,6 +33,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_20F13EBFC02B41D9B7225BC8851698F7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2324950EC74A4D939F58E1D649D0848C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -352,7 +358,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_49251A8CC30B4F7ABA0CCFE735D08284"
+        "OwnerKey" = "8:_5E760E1C89A741928918D0C340BD9317"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -376,7 +382,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5E760E1C89A741928918D0C340BD9317"
+        "OwnerKey" = "8:_49251A8CC30B4F7ABA0CCFE735D08284"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -404,6 +410,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -428,6 +442,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -504,6 +526,26 @@
             "TargetName" = "8:SSCardDriver.dll"
             "Tag" = "8:"
             "Folder" = "8:_49BDB5CBD05B43899E46BC48C3922A4D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_20F13EBFC02B41D9B7225BC8851698F7"
+            {
+            "SourcePath" = "8:C:\\Windows\\System32\\msiexec.exe"
+            "TargetName" = "8:msiexec.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_91CE6A8A83CE420D97FD9D5F80E9B852"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1641,6 +1683,17 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_695CAC9B60F54B489B310048F7AD8041"
+            {
+            "Name" = "8:#1928"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:StartupFolder"
+                "Folders"
+                {
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_91CE6A8A83CE420D97FD9D5F80E9B852"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
@@ -1791,7 +1844,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:医保读卡"
         "ProductCode" = "8:{5023E385-86ED-4002-BCC8-07BB5DBC4A4A}"
-        "PackageCode" = "8:{A44D168E-7706-42A4-87B0-036EC30A5E57}"
+        "PackageCode" = "8:{D8447BF0-FD8F-4069-A74A-3B404E017357}"
         "UpgradeCode" = "8:{87CAA553-E420-4360-9BBC-EC37DC8DB0E2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1983,6 +2036,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_66969BB169454EBEB809D9EBBDCBE125"
+            {
+            "Name" = "8:uninstall.exe"
+            "Arguments" = "8:/x {5023E385-86ED-4002-BCC8-07BB5DBC4A4A}"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_20F13EBFC02B41D9B7225BC8851698F7"
+            "Folder" = "8:_91CE6A8A83CE420D97FD9D5F80E9B852"
+            "WorkingFolder" = "8:_91CE6A8A83CE420D97FD9D5F80E9B852"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

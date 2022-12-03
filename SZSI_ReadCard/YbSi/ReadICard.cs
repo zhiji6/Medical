@@ -111,13 +111,7 @@ namespace MkSi
             CardModel info = new MkSi.CardModel { result = -1,err_msg="为寻找到合适方法" };
             switch (method.ToLower())
             {
-                case "readcard":
-                    info = SYBReadCard.readID();
-                    if (info.result != 0)
-                        info = SYBReadCard.readQR();
-                    if(info.result != 0)
-                        info = SYBReadCard.readCard();
-                    break;
+                case "readcard":info = SYBReadCard.readCard();break;
                 case "readid": info = SYBReadCard.readID();break;
                 case "readqr": info = SYBReadCard.readQR();break;
                 case "checkpin":info = SYBReadCard.CheckPin();break;
