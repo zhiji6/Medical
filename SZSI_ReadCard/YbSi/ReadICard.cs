@@ -111,10 +111,12 @@ namespace MkSi
             CardModel info = new MkSi.CardModel { result = -1,err_msg="为寻找到合适方法" };
             switch (method.ToLower())
             {
-                case "readcard": 
-                    info = SYBReadCard.readCard();
+                case "readcard":
+                    info = SYBReadCard.readID();
                     if (info.result != 0)
-                        info = SYBReadCard.readID();
+                        info = SYBReadCard.readQR();
+                    if(info.result != 0)
+                        info = SYBReadCard.readCard();
                     break;
                 case "readid": info = SYBReadCard.readID();break;
                 case "readqr": info = SYBReadCard.readQR();break;
@@ -127,7 +129,8 @@ namespace MkSi
                 MessageBox.Show("读卡器错误:" + info.err_msg);
                 System.Environment.Exit(0);
             }
-            string ylzh = Newtonsoft.Json.JsonConvert.SerializeObject(info);
+            //string ylzh = Newtonsoft.Json.JsonConvert.SerializeObject(info);
+            string ylzh = info.cardinfo;
             StoreSzsbhUrl = string.Format(StoreSzsbhUrl, key, ylzh, "&");
             UploadDataToLocal();
         }
