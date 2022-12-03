@@ -87,7 +87,14 @@ namespace MkSi
                     MessageBox.Show("入参异常" + "key=" + key + " ; method=" + method + " ; flag=" + flag + ";operate=" + operate);
                     System.Environment.Exit(0);
                 }
-                SYB();
+                if (operate == "test")
+                {
+                    Virutal();
+                }
+                else
+                {
+                    SYB();
+                }                
             }
             catch (Exception ex)
             {
@@ -126,6 +133,12 @@ namespace MkSi
             //string ylzh = Newtonsoft.Json.JsonConvert.SerializeObject(info);
             string ylzh = info.cardinfo;
             StoreSzsbhUrl = string.Format(StoreSzsbhUrl, key, ylzh, "&");
+            UploadDataToLocal();
+        }
+
+        private void Virutal()
+        {
+            StoreSzsbhUrl = string.Format(StoreSzsbhUrl, key, "123456", "&");
             UploadDataToLocal();
         }
 

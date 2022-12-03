@@ -1105,6 +1105,18 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.TestController">
+            <summary>
+            测试控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.TestController.getKS(System.String)">
+            <summary>
+            测试科室
+            </summary>
+            <param name="kename"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.DepartmentController">
             <summary>
             科室控制器abc
@@ -1440,7 +1452,7 @@
         </member>
         <member name="T:SY.Com.Medical.WebApi.Filter.ExceptionFilter">
             <summary>
-            统一处理异常
+            统一处理异常 
             </summary>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Filter.ExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">

@@ -1844,7 +1844,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:医保读卡"
         "ProductCode" = "8:{5023E385-86ED-4002-BCC8-07BB5DBC4A4A}"
-        "PackageCode" = "8:{D8447BF0-FD8F-4069-A74A-3B404E017357}"
+        "PackageCode" = "8:{1009B48E-B525-44DC-9184-D4AF968F1EEE}"
         "UpgradeCode" = "8:{87CAA553-E420-4360-9BBC-EC37DC8DB0E2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

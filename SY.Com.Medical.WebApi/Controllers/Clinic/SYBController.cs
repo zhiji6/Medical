@@ -1018,7 +1018,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt =decimal.Parse(Math.Round(opstructure.Cost, 2).ToString());
-                model.data.psn_setlway = "02";
+                model.data.psn_setlway = "01";
                 model.data.acct_used_flag = "1";
                 model.data.insutype = "310";
                 rd1.infno = "2206";
@@ -1077,7 +1077,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost, 2).ToString());
-                model.data.psn_setlway = "02";
+                model.data.psn_setlway = "01";
                 model.data.acct_used_flag = "1";
                 model.data.insutype = "310";
                 rd1.infno = "2206";
@@ -1128,7 +1128,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost, 2).ToString());
-                model.data.psn_setlway = "02";
+                model.data.psn_setlway = "01";
                 model.data.mdtrt_id = opstructure.mdtrt_id;
                 model.data.chrg_bchno = opstructure.chrg_bchno;
                 model.data.insutype = "310";
@@ -1192,7 +1192,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost , 2).ToString());
-                model.data.psn_setlway = "02";
+                model.data.psn_setlway = "01";
                 model.data.mdtrt_id = opstructure.mdtrt_id;
                 model.data.chrg_bchno = opstructure.chrg_bchno;
                 model.data.insutype = "310";

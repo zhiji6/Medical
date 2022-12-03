@@ -1,4 +1,5 @@
 ﻿using Client.Model;
+using System;
 using System.Collections.Concurrent;
 using System.Web.Http;
 
@@ -17,13 +18,22 @@ namespace Client.Controllers
         [HttpGet]
         public string Get(string guid)
         {
-            //return new ReturnData<string>() { Data = "3423423894320" };
-            string ybkh = "";//"%GAAFSAKSXSUKKWDKHDAD?;07734724145330238292?";
-            if (ylzhlist.TryRemove(guid, out ybkh))
+            try
             {
-                return ybkh;
+                //return new ReturnData<string>() { Data = "3423423894320" };
+                string ybkh = "";//"%GAAFSAKSXSUKKWDKHDAD?;07734724145330238292?";
+                if (ylzhlist.TryRemove(guid, out ybkh))
+                {
+                    return ybkh;
+                }
+                return "";
             }
-            return ybkh;
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
+            return "";
+
         }
 
         /// <summary>
@@ -35,7 +45,7 @@ namespace Client.Controllers
         [HttpGet]
         public ReturnData<string> UpdateCardInfo(string guid,string ybkh)
         {
-            //LogHelper.Info( "时间:" + DateTime.Now.ToString("yyyyMMdd-HHmmss") + "guid:" + guid);
+            LogHelper.Debug($"guid:{guid},ybka:{ybkh}");
             ylzhlist.TryAdd(guid, ybkh);
             return new ReturnData<string>();
         }

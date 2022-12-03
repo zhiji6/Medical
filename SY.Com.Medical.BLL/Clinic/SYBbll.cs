@@ -67,7 +67,7 @@ namespace SY.Com.Medical.BLL.Clinic
             comm.fixmedins_code = tenantmod.YBCode;//  定点医药机构编号 字符型 12      Y
             comm.fixmedins_name = tenantmod.YBName;//  定点医药机构名称 字符型 20      Y
             comm.sign_no = getSign(tenantId,opterId);
-            comm.departname = optermod.Departments;
+            comm.departname = new Department().getDetail(int.Parse(optermod.Departments))?.DepartmentName ?? "";
             return comm;
         }
 
@@ -112,6 +112,15 @@ namespace SY.Com.Medical.BLL.Clinic
             {
                 return null;
             }
+            int dpid = 1;
+            if (int.TryParse(mod.Departments,out dpid))
+            {
+                mod.Departments = dpid.ToString();
+            }
+            else
+            {
+                mod.Departments = "1";
+            }
             return mod;
         }
 
@@ -128,8 +137,19 @@ namespace SY.Com.Medical.BLL.Clinic
         public YBDepartment getYBDepartment(string name)
         {
             YBDepartment result = new YBDepartment();
-            result.code = "A50";
-            result.name = "中医科";
+            if (SYBKS.departmentdic.ContainsKey(name))
+            {
+                result.name = name;
+                result.code = SYBKS.departmentdic[name];                
+            }else if(name.IndexOf("口腔") != -1)
+            {
+                result.name = "口腔科";
+                result.code = "1200";
+            }else
+            {
+                result.code = "5000";
+                result.name = "中医科";
+            }
             return result;
         }
 
