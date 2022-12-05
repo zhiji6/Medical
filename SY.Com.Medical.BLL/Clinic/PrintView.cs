@@ -44,7 +44,8 @@ namespace SY.Com.Medical.BLL.Clinic
 				new PrintStyleModel{ Id = 7,Name = "收费打印", TenantId=0, UserId=0},
 				new PrintStyleModel{ Id = 8,Name = "退费打印", TenantId=0, UserId=0},
 				new PrintStyleModel{ Id = 9,Name = "治疗单打印", TenantId=0, UserId=0},
-				new PrintStyleModel{ Id = 10,Name = "病历打印", TenantId=0, UserId=0}
+				new PrintStyleModel{ Id = 10,Name = "病历打印", TenantId=0, UserId=0},
+				new PrintStyleModel{ Id=100,Name="测试保存打印",TenantId=0,UserId=0 }
 			};
 			return styles;
 

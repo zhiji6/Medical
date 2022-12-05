@@ -16,7 +16,7 @@ namespace SY.Com.Medical.BLL.Platform
             filepathextent = filepathparam;
             if (!format.Contains(extension))
             {
-                throw new MyException("文件格式不匹配本业务");
+                throw new MyException($"文件格式不匹配本业务:{extension}");
             }
             _extension = extension;
         }
