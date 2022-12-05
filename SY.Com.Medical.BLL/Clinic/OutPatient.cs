@@ -84,7 +84,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.Age = pamod.Age;
 				mod.RegisterId = x.RegisterId;
 				mod.Phone = pamod.Phone;
-				mod.Cost = x.Cost;
+				mod.Cost = Math.Round(x.Cost / 1000.00, 2);
 				mod.DoctorName = x.DoctorName;
 				mod.CreateTime = x.CreateTime;
 				mod.PrescriptionCount = x.PrescriptionCount;
@@ -123,7 +123,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.Sex = pamod.Sex == 1 ? "男" : "女";
 				mod.Age = pamod.Age;
 				mod.Phone = pamod.Phone;
-				mod.Cost = x.Cost;
+				mod.Cost = Math.Round(x.Cost / 1000.00, 2);
 				mod.DoctorName = x.DoctorName;
 				mod.CreateTime = x.CreateTime;
 				mod.PrescriptionCount = x.PrescriptionCount;
@@ -219,7 +219,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				chargeentity.PayBank = chargeentity.Price;
 			}
 			//修改支付状态和医保结算时,医保结算号,医保余额
-			db.UpdateIsPay(mod.TenantId, mod.OutpatientId, mod.setl_id, Convert.ToInt64(mod.Balc * 1000));
+			db.UpdateIsPay(mod.TenantId, mod.OutpatientId, mod.setl_id, Convert.ToInt64(mod.Balc * 1000),chargeentity.PayYB);
 			int chargeid = chargebll.add(chargeentity);
 			return chargeid;
         }

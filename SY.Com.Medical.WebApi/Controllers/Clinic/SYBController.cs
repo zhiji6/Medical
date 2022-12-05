@@ -1125,7 +1125,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 In2207data model = new In2207data();
                 model.data = new In2207();
                 model.data.psn_no = opstructure.Patient.psn_no;
-                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
+                model.data.mdtrt_cert_type = "02";// mod.Mdtrt_cert_type;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost, 2).ToString());
                 model.data.psn_setlway = "01";

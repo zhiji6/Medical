@@ -98,7 +98,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 where += " And IsPay = -1 ";
             }else if(isNoPaid == 2)
             {
-                where += " And IsPay = 1 ";
+                where += " And IsPay = 1 And IsBack = -1 ";
             }
             if(doctorId != 0)
             {
@@ -492,10 +492,10 @@ namespace SY.Com.Medical.Repository.Clinic
         /// </summary>
         /// <param name="tenantId"></param>
         /// <param name="outpatientId"></param>
-        public void UpdateIsPay(int tenantId,int outpatientId,string setl_id,long balance)
+        public void UpdateIsPay(int tenantId,int outpatientId,string setl_id,long balance,long PayYB)
         {
-            string sql = @" Update Outpatients Set IsPay = 1,setl_id=@Setl_id,PayYBAfter=@PayYBAfter Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
-            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, Setl_id= setl_id, PayYBAfter=balance });
+            string sql = @" Update Outpatients Set IsPay = 1,setl_id=@Setl_id,PayYBAfter=@PayYBAfter,PayYB=@YBcost Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, Setl_id= setl_id, PayYBAfter=balance, YBcost=PayYB });
         }
 
         /// <summary>
