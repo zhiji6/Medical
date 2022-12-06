@@ -18,6 +18,7 @@ using SY.Com.Medical.WebApi.Format;
 using SY.Com.Medical.WebApi.JWT;
 using System;
 using System.IO;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace SY.Com.Medical.WebApi
@@ -73,9 +74,10 @@ namespace SY.Com.Medical.WebApi
             services.AddCors(options =>
             {
                 //any
-                options.AddPolicy("abcany", builder =>
+                options.AddPolicy("any", builder =>
                 {
-                    builder.AllowAnyOrigin() //允许任何来源的主机访问
+                    var corsPath = Configuration.GetSection("CorsPaths").GetChildren().Select(p => p.Value).ToArray();
+                    builder.WithOrigins(corsPath).AllowAnyOrigin() //允许任何来源的主机访问
                     .AllowAnyMethod()
                     .AllowAnyHeader();      //.AllowCredentials();//指定处理cookie                                  
                 });
@@ -164,10 +166,10 @@ namespace SY.Com.Medical.WebApi
             app.UseRequestLocalization();   
             app.UseAuthentication();//JWT验证  
             app.UseAuthorization();
-            app.UseCors("abcany");
+            app.UseCors("any");
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("any");
             });
         }
     }

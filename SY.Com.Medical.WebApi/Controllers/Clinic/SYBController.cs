@@ -37,6 +37,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using RestSharp;
+using System.Net.NetworkInformation;
 
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
@@ -72,7 +73,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd1.infno = "9001";                             
                 In9001 qd = new In9001();
                 qd.signIn = new In9001model();
-                qd.signIn.mac = mod.input.mac;
+                qd.signIn.mac = GetMACAddress();
                 qd.signIn.ip = HttpContext.Connection.RemoteIpAddress.ToString();
                 qd.signIn.opter_no = rd1.opter;
                 //rd1.input = Newtonsoft.Json.JsonConvert.SerializeObject(qd);
@@ -282,8 +283,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.card_sn = mod.input.card_sn;// 卡识别码 字符型 32          就诊凭证类型为“03”时必填
                 model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));//开始时间 日期时间型               获取历史参保信息时传入
                 model.data.psn_cert_type = "";//   人员证件类型 字符型 6   Y
-                model.data.certno = mod.input.mdtrt_cert_no;//  证件号码 字符型 50
-                model.data.psn_name = "";// 人员姓名    字符型 50
+                //model.data.certno = mod.input.mdtrt_cert_no;//  证件号码 字符型 50
+                //model.data.psn_name = "";// 人员姓名    字符型 50
                 rd1.infno = "1101";
                 rd1.input = model;//Newtonsoft.Json.JsonConvert.SerializeObject(model);
                 rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
@@ -1014,7 +1015,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.chrg_bchno = opstructure.chrg_bchno;
                 model.data.mdtrt_id = opstructure.mdtrt_id;
                 model.data.psn_no = opstructure.Patient.psn_no;
-                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;
+                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;// == "03" ? "02" : mod.Mdtrt_cert_type;
                 model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt =decimal.Parse(Math.Round(opstructure.Cost, 2).ToString());
@@ -1125,7 +1126,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 In2207data model = new In2207data();
                 model.data = new In2207();
                 model.data.psn_no = opstructure.Patient.psn_no;
-                model.data.mdtrt_cert_type = "02";// mod.Mdtrt_cert_type;
+                model.data.mdtrt_cert_type = mod.Mdtrt_cert_type;// == "03" ? "02" : mod.Mdtrt_cert_type;// mod.Mdtrt_cert_type;
                 model.data.med_type = "11";
                 model.data.medfee_sumamt = decimal.Parse(Math.Round(opstructure.Cost, 2).ToString());
                 model.data.psn_setlway = "01";
@@ -2219,6 +2220,41 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 return rd.sysException(e.Message);
             }
             return rd;
+        }
+
+        /// <summary>
+        /// 获取Mac地址
+        /// </summary>
+        /// <returns></returns>
+        private string GetMACAddress()
+        {
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+            String sMacAddress = string.Empty;
+            foreach (NetworkInterface adapter in nics)
+            {
+                if (sMacAddress == String.Empty)// only return MAC Address from first card  
+                {
+                    IPInterfaceProperties properties = adapter.GetIPProperties();
+                    sMacAddress = adapter.GetPhysicalAddress().ToString();
+                }
+            }
+            if (!string.IsNullOrEmpty(sMacAddress))
+            {
+                StringBuilder sb = new StringBuilder();
+                for(int i = 0; i < sMacAddress.Length; i++)
+                {
+                    if(i >0 && i % 2 == 0)
+                    {
+                        sb.Append("-" + sMacAddress[i]);
+                    }
+                    else
+                    {
+                        sb.Append(sMacAddress[i]);
+                    }
+                }
+                sMacAddress = sb.ToString();
+            }
+            return sMacAddress;
         }
 
         #endregion

@@ -6826,12 +6826,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.In9001model.mac">
             <summary>
-            
+            Mac地址,调用接口Message9001时可不传
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.In9001model.ip">
             <summary>
-            
+            Ip地址,调用接口Message9001时可不传
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.Out9001">

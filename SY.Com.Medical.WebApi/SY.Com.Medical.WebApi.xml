@@ -1045,6 +1045,12 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.GetMACAddress">
+            <summary>
+            获取Mac地址
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.TemplateController">
             <summary>
             控制器
