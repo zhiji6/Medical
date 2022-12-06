@@ -50,7 +50,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     //[Api_Tenant]
     public partial class SYBController : ControllerBase
     {
-        private string syburl = "http://localhost:8002/api/SYB/Down";
+        private string syburl = "http://localhost:8001/api/SYB/Down";
         //private string syburl = "http://t5u2900410.51vip.biz/api/SYB/Down";        
         SYBbll bll = new SYBbll();
         Patient patientbll = new Patient();
@@ -122,7 +122,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 rd1.infno = "9001";
                 In9001 qd = new In9001();
                 qd.signIn = new In9001model();
-                qd.signIn.mac = mod.input.mac;
+                qd.signIn.mac = GetMACAddress();
                 qd.signIn.ip = HttpContext.Connection.RemoteIpAddress.ToString();
                 qd.signIn.opter_no = rd1.opter;
                 //rd1.input = Newtonsoft.Json.JsonConvert.SerializeObject(qd);

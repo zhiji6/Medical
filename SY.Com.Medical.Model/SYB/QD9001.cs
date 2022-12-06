@@ -27,8 +27,7 @@ namespace SY.Com.Medical.Model
     {
         /// <summary>
         /// 
-        /// </summary>
-        [JsonIgnore]
+        /// </summary>        
         public string opter_no { get; set; }// 操作员编号   字符型	20		Y
         /// <summary>
         /// Mac地址,调用接口Message9001时可不传
