@@ -3727,6 +3727,11 @@
             搜索
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PatientAdddto.insuplc_admdvs">
+            <summary>
+            参保地医保区划
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PatientUpdatedto">
             <summary>
             修改

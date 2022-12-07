@@ -38,6 +38,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using RestSharp;
 using System.Net.NetworkInformation;
+using System.Linq;
 
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
@@ -322,7 +323,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                     Sex = int.Parse(mod.Message.output.baseinfo.gend),
                     CSRQ = mod.Message.output.baseinfo.brdy,
                     SFZ = mod.Message.output.baseinfo.certno,
-                    psn_no = mod.Message.output.baseinfo.psn_no
+                    psn_no = mod.Message.output.baseinfo.psn_no,
+                    insuplc_admdvs = mod.Message.output.insuinfo?.Where(w=>w.balc > 0)?.First()?.insuplc_admdvs ?? "",
                 }) ;
                 if(addresult > 0)
                 {
@@ -332,6 +334,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 {
                     throw new MyException("解析失败,无法创建信息");
                 }
+            }
+            else
+            {
+                entity.insuplc_admdvs = mod.Message.output.insuinfo?.Where(w => w.balc > 0)?.First()?.insuplc_admdvs ?? "";
+                patientbll.Update(entity);
             }
             result.Data = entity.EntityToDto<PatientYBModel>();
             result.Data.ybinfo = new List<YBinsuinfo>();
@@ -415,7 +422,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         {
             BaseResponse<InCommon> rd= new BaseResponse<InCommon>();
             //InCommon rd1 = bll.getComm(mod.fixmedins_code,mod.fixmedins_name,mod.opter,mod.opter_name,mod.sign_no);
-            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId,mod.input.psn_no);
             InCommon rd2 = bll.getComm(mod.TenantId, mod.input.DoctorId);
             YBDepartment department = bll.getYBDepartment(rd2.departname);
             In2201 model = new In2201();
@@ -549,7 +556,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try {
                 //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId,mod.input.psn_no);
                 In2202 model = new In2202();
                 model.data = new In2202data();
                 model.data = new SZSI_Smart.Model.SYB.GH2202.In2202data();
@@ -635,10 +642,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try {
                 //11
                 //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                
                 var rentity = bll.getRegisterById(mod.RegisterId);
                 var doctor = bll.getEmployeeById( mod.DoctorId);
-
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId,rentity.psn_no);
                 In2203 model = new In2203();
                 MdtrtInfo mmod = new MdtrtInfo();
                 mmod.mdtrt_id = rentity.mdtrt_id;
@@ -651,7 +658,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 dmod.diag_srt_no = "1";
                 dmod.diag_code = mod.DiseaseCode;
                 dmod.diag_name = mod.DiseaseName;//mod.Diagnosis;
-                dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).code;
+                dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).name;
                 dmod.dise_dor_no = doctor.YBCode;
                 dmod.dise_dor_name = doctor.EmployeeName;
                 dmod.diag_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -760,9 +767,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                
                 Outpatient opbll = new Outpatient();
                 var opstructure= opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
                 var department = bll.getYBDepartment(opstructure.Doctor.Department);
                 List <FeeDetail> fdlist = new List<FeeDetail>();
                 foreach(var item in opstructure.Prescriptions)
@@ -788,19 +796,19 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
                         fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
                         fdmod.hosp_appr_flag = "1";
-                        fdmod.dise_codg = "";
-                        fdmod.sin_dos_dscr = "";
-                        fdmod.used_frqu_dscr = "";
-                        fdmod.medc_way_dscr = "";
-                        fdmod.acord_dept_codg = "";
-                        fdmod.acord_dept_name = "";
-                        fdmod.orders_dr_code = "";
-                        fdmod.orders_dr_name = "";
-                        fdmod.tcmdrug_used_way = "";
-                        fdmod.etip_flag = "";
-                        fdmod.etip_hosp_code = "";
-                        fdmod.dscg_tkdrug_flag = "";
-                        fdmod.matn_fee_flag = "";
+                        //fdmod.dise_codg = "";
+                        //fdmod.sin_dos_dscr = "";
+                        //fdmod.used_frqu_dscr = "";
+                        //fdmod.medc_way_dscr = "";
+                        //fdmod.acord_dept_codg = "";
+                        //fdmod.acord_dept_name = "";
+                        //fdmod.orders_dr_code = "";
+                        //fdmod.orders_dr_name = "";
+                        //fdmod.tcmdrug_used_way = "";
+                        //fdmod.etip_flag = "";
+                        //fdmod.etip_hosp_code = "";
+                        //fdmod.dscg_tkdrug_flag = "";
+                        //fdmod.matn_fee_flag = "";
                         fdlist.Add(fdmod);
                     }
                 }
@@ -909,9 +917,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             try
             {
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                
                 Outpatient opbll = new Outpatient();
                 var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
                 In2205data model = new In2205data();
                 model.data = new In2205();
                 model.data.chrg_bchno = "0000";
@@ -1006,9 +1015,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                
                 Outpatient opbll = new Outpatient();
-                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);                
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
                 In2206Data model = new In2206Data();
                 model.data = new In2206();
                 model.data.OutPatientId = mod.OutpatientId;
@@ -1120,9 +1130,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                
                 Outpatient opbll = new Outpatient();
-                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);                
+                var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
                 In2207data model = new In2207data();
                 model.data = new In2207();
                 model.data.psn_no = opstructure.Patient.psn_no;
@@ -1242,9 +1253,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+                
                 Outpatient opbll = new Outpatient();
                 var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
                 In2208data model = new In2208data();
                 model.data = new In2208();
                 model.data.psn_no = opstructure.Patient.psn_no;

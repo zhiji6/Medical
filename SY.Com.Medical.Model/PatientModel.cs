@@ -187,6 +187,11 @@ namespace SY.Com.Medical.Model
         /// </summary>
         [JsonIgnore]
         public string SearchKey { get; set; }
+        /// <summary>
+        /// 参保地医保区划
+        /// </summary>
+        [JsonIgnore]
+        public string insuplc_admdvs { get; set; }
 
     }
 

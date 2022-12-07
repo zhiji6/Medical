@@ -75,6 +75,18 @@ namespace SY.Com.Medical.Repository.Clinic
             return result;
         }
 
+        public string GetInsuplcAdmdvs(string psn_no)
+        {
+            string sql = " Select * From Patients Where psn_no = @psnno And insuplc_admdvs <> '' ";
+            var mods = _db.Query<PatientEntity>(sql, new { psnno = psn_no });
+            if (mods != null && mods.Any())
+            {
+                var mod = mods.FirstOrDefault();
+                return mod.insuplc_admdvs;
+            }
+            return "";
+        }
+
 
 
     }

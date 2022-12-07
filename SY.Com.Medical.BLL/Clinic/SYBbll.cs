@@ -46,13 +46,14 @@ namespace SY.Com.Medical.BLL.Clinic
             return comm;
         }
 
-        public InCommon getComm(int tenantId,int opterId)
+        public InCommon getComm(int tenantId,int opterId,string psn_no = "")
         {
             var tenantmod = getTenantById(tenantId);
             var optermod = getEmployeeById(opterId);
             InCommon comm = new InCommon();
             comm.mdtrtarea_admvs = "440300"; //就医地医保区划 医保绑定，存储在库中。
-            comm.insuplc_admdvs = "440304";  //参保地医保区划 字符型 6，读卡读到的
+            comm.insuplc_admdvs = string.IsNullOrEmpty(psn_no) ? "440304" : _repository.GetInsuplcAdmdvs(psn_no) ;  //参保地医保区划 字符型 6，读卡读到的
+            comm.insuplc_admdvs = string.IsNullOrEmpty(comm.insuplc_admdvs) ? "440304" : comm.insuplc_admdvs;
             comm.recer_sys_code = "PQ";// 接收方系统代码 字符型 10      Y  PQzsy
             comm.dev_no = "";// 设备编号 字符型 100
             comm.dev_safe_info = ""; //设备安全信息  字符型 2000
@@ -144,10 +145,10 @@ namespace SY.Com.Medical.BLL.Clinic
             }else if(name.IndexOf("口腔") != -1)
             {
                 result.name = "口腔科";
-                result.code = "1200";
+                result.code = "A12 ";
             }else
             {
-                result.code = "5000";
+                result.code = "A50";
                 result.name = "中医科";
             }
             return result;
@@ -173,6 +174,8 @@ namespace SY.Com.Medical.BLL.Clinic
             string code = "B90.251";
             return code;
         }
+
+
 
 
     }

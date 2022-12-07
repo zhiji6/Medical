@@ -83,5 +83,9 @@ namespace SY.Com.Medical.Entity
         /// 医保编号
         /// </summary>
         public string psn_no { get; set; }
+        /// <summary>
+        /// 医保区划
+        /// </summary>
+        public string insuplc_admdvs { get; set; }
     }
 }

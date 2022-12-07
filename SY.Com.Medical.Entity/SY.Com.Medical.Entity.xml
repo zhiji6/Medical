@@ -769,6 +769,11 @@
             医保编号
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.PatientEntity.insuplc_admdvs">
+            <summary>
+            医保区划
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Entity.PlatformsEntity.PlatformId">
             <summary>
             主键id    

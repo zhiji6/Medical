@@ -49,6 +49,8 @@ namespace SY.Com.Medical.BLL.Clinic
             return db.GetDelete(patientId).EntityToDto<PatientModel>();
         }
 
+        
+
         /// <summary>
         /// 添加患者
         /// </summary>
@@ -75,6 +77,12 @@ namespace SY.Com.Medical.BLL.Clinic
             //搜索字段
             request.SearchKey = request.PatientName + request.PatientPinYin + request.Phone;
             db.Update(request.DtoToEntity<PatientEntity>());
+        }
+
+        public void Update(PatientEntity patient)
+        {
+            if (patient == null || patient.PatientId == 0) return;
+            db.Update(patient);
         }
 
         /// <summary>
