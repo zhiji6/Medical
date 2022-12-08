@@ -130,8 +130,8 @@ namespace MkSi
                 MessageBox.Show("读卡器错误:" + info.err_msg);
                 System.Environment.Exit(0);
             }
-            //string ylzh = Newtonsoft.Json.JsonConvert.SerializeObject(info);
-            string ylzh = info.cardinfo;
+            string ylzh = Newtonsoft.Json.JsonConvert.SerializeObject(info);
+            //string ylzh = info.cardinfo;
             StoreSzsbhUrl = string.Format(StoreSzsbhUrl, key, ylzh, "&");
             UploadDataToLocal();
         }

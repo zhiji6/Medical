@@ -76,9 +76,8 @@ namespace SY.Com.Medical.BLL.Clinic
 			PrintViewEntity view = new PrintViewEntity();
 			var smod = getStyles().Find(x => x.Id == request.Style);
 			if(smod == null)
-            {
-				throw new MyException("打印视图Id不对");
-
+            {				
+				throw new MyException($"打印视图Id不对,输入Id:{request.Style}");
 			}
 			view.PrintViewName = smod.Name;
 			view.TenantId = request.TenantId;

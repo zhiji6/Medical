@@ -50,10 +50,15 @@ namespace SY.Com.Medical.BLL.Clinic
         {
             var tenantmod = getTenantById(tenantId);
             var optermod = getEmployeeById(opterId);
+            PatientEntity patient = null;
+            if (!string.IsNullOrEmpty(psn_no))
+            {
+                patient = _repository.GetInsuplcAdmdvs(psn_no);                
+            }
+            
             InCommon comm = new InCommon();
             comm.mdtrtarea_admvs = "440300"; //就医地医保区划 医保绑定，存储在库中。
-            comm.insuplc_admdvs = string.IsNullOrEmpty(psn_no) ? "440304" : _repository.GetInsuplcAdmdvs(psn_no) ;  //参保地医保区划 字符型 6，读卡读到的
-            comm.insuplc_admdvs = string.IsNullOrEmpty(comm.insuplc_admdvs) ? "440304" : comm.insuplc_admdvs;
+            comm.insuplc_admdvs = patient == null ? "440304" : patient.insuplc_admdvs;  //参保地医保区划 字符型 6，读卡读到的
             comm.recer_sys_code = "PQ";// 接收方系统代码 字符型 10      Y  PQzsy
             comm.dev_no = "";// 设备编号 字符型 100
             comm.dev_safe_info = ""; //设备安全信息  字符型 2000
@@ -173,6 +178,16 @@ namespace SY.Com.Medical.BLL.Clinic
         {            
             string code = "B90.251";
             return code;
+        }
+
+        public int SetYBCardInfo(string area, string idcard, string ybcard, string ybcardsn)
+        {
+            return _repository.SetYBCardInfo(area,idcard,ybcard,ybcardsn);
+        }
+
+        public YBCardInfo GetYBCardInfo(string idcard)
+        {
+            return _repository.GetYBCardInfo(idcard);
         }
 
 

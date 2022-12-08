@@ -75,16 +75,48 @@ namespace SY.Com.Medical.Repository.Clinic
             return result;
         }
 
-        public string GetInsuplcAdmdvs(string psn_no)
+        /// <summary>
+        /// 保存卡信息
+        /// </summary>
+        /// <param name="area"></param>
+        /// <param name="idcard"></param>
+        /// <param name="ybcard"></param>
+        /// <param name="ybcardsn"></param>
+        /// <returns></returns>
+        public int SetYBCardInfo(string area,string idcard,string ybcard,string ybcardsn)
+        {
+            string sql = @" if exists(select id from  YBCardInfo where IdCard=@idcard  )
+                            begin
+	                            update YBCardInfo
+	                            Set Area=@area,YbCard=@ybcard,YbCardSn=@sn,UpdateTime = getdate()
+	                            where IdCard=@idcard
+                            end else begin
+	                            Insert Into YBCardInfo(Area,IdCard,YbCard,YbCardSn,CreateTime,UpdateTime)
+	                            Values(@area,@idcard,@ybcard,@sn,getdate(),getdate())
+                            end ";
+            return _db.Execute(sql, new { area = area, ybcard = ybcard, sn = ybcardsn, idcard= idcard });
+        }
+
+        public YBCardInfo GetYBCardInfo(string idcard)
+        {
+            string sql = " Select * From YBCardInfo where IdCard=@idcard  ";
+            var mods = _db.Query<YBCardInfo>(sql, new { idcard = idcard });
+            if(mods != null && mods.Any())
+            {
+                return mods.First();
+            }
+            return null;
+        }
+
+        public PatientEntity GetInsuplcAdmdvs(string psn_no)
         {
             string sql = " Select * From Patients Where psn_no = @psnno And insuplc_admdvs <> '' ";
             var mods = _db.Query<PatientEntity>(sql, new { psnno = psn_no });
             if (mods != null && mods.Any())
             {
-                var mod = mods.FirstOrDefault();
-                return mod.insuplc_admdvs;
+                return mods.FirstOrDefault();                
             }
-            return "";
+            return null;
         }
 
 

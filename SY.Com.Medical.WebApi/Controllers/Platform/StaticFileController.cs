@@ -93,48 +93,34 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
 
             BaseResponse<List<string>> result = new BaseResponse<List<string>>();
             result.Data = new List<string>();
-            try
-            {
 
-                StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Print, StaticFileBusiness = StaticFileBusiness.租户打印视图, filepathExtension=$"{Style}/{TenantId}" };
-                if (files.Count < 1)
-                {
-                    throw new MyException("为上传任何文件");
-                }
-                foreach (var item in files)
-                {
-                    if (item != null)
-                    {
-                        //文件后缀
-                        request.fileExtension = Path.GetExtension(item.FileName);
-                        //获取文件操作类
-                        var fileupload = FileUploadFactory.getInstance(request);
-                        MemoryStream ms = new MemoryStream();
-                        item.CopyTo(ms);
-                        ms.Flush();
-                        //执行文件保存
-                        string filepath = fileupload.SaveFile(ms);
-                        ms.Close();
-                        PrintView print = new PrintView();
-                        print.add(new PrintViewAdd() { TenantId = TenantId, Style = Style });
-                        result.Data.Add("http://" + Request.Host.Value + filepath);
-                    }
-                }
-                //返回文件路径
-                return result;
-            }
-            catch (Exception ex)
+            StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Print, StaticFileBusiness = StaticFileBusiness.租户打印视图, filepathExtension=$"{Style}/{TenantId}" };
+            if (files.Count < 1)
             {
-                if (ex is MyException)
+                throw new MyException("为上传任何文件");
+            }
+            foreach (var item in files)
+            {
+                if (item != null)
                 {
-                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-                }
-                else
-                {
-                    return result.sysException(ex.Message);
+                    //文件后缀
+                    request.fileExtension = Path.GetExtension(item.FileName);
+                    //获取文件操作类
+                    var fileupload = FileUploadFactory.getInstance(request);
+                    MemoryStream ms = new MemoryStream();
+                    item.CopyTo(ms);
+                    ms.Flush();
+                    //执行文件保存
+                    string filepath = fileupload.SaveFile(ms);
+                    ms.Close();
+                    PrintView print = new PrintView();
+                    print.add(new PrintViewAdd() { TenantId = TenantId, Style = Style });
+                    result.Data.Add("http://" + Request.Host.Value + filepath);
                 }
             }
-
+            //返回文件路径
+            return result;
+         
         }
 
         /// <summary>

@@ -6809,6 +6809,106 @@
             
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.SYB.SYB90991">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SYB90991.Psn_no">
+            <summary>
+            人员医保号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SYB90991.Card">
+            <summary>
+            医保号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.SYB90991.PassWord">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.In90991">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.In90991.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.Out90991">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991.result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.In90991Model">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.In90991Model.fixmedins_code">
+            <summary>
+            医药机构编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.In90991Model.psn_no">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.In90991Model.card_pwd">
+            <summary>
+            社保卡密码,如无密码，默认上传“000000”
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.In90991Model.sscno">
+            <summary>
+            社保卡号 后续医院需增加入参，设置过渡期，如果用户使用旧卡会报错“当前使用的社保卡已被注销，请使用有效社保卡。
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.Out90991Model">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991Model.psn_no">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991Model.card_stat">
+            <summary>
+            社保卡状态
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991Model.certno">
+            <summary>
+            证件号码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991Model.psn_name">
+            <summary>
+            人员姓名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991Model.check_stat">
+            <summary>
+            校验结果 1=成功0=失败
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.Out90991Model.sscno_check_stat">
+            <summary>
+            社保卡号校验结果 1=成功 0=失败
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.In9001">
             <summary>
             
@@ -6925,6 +7025,38 @@
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.QT9002.Out9002.Signoutoutb.sign_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYBCardModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCardModel.result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCardModel.method">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCardModel.cardinfo">
+            <summary>
+            发卡地区行政区划代码（卡识别码前6位）、社会保障号码、卡号、卡识别码、姓名、卡复位信息（仅取历史字节）
+            、规范版本、发卡日期、卡有效期、终端机编号、终端设备号。
+            各数据项之间以“|”分割，且最后一个数据项以“|”结尾
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCardModel.sign">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYBCardModel.err_msg">
             <summary>
             
             </summary>

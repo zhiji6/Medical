@@ -39,6 +39,7 @@ using System.Text;
 using RestSharp;
 using System.Net.NetworkInformation;
 using System.Linq;
+using SY.Com.Medical.Model.SYB;
 
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
@@ -252,7 +253,71 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 
         }
 
+        /// <summary>
+        /// 解析读卡信息
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<string> ReadCardParse(SYBCardModel mod)
+        {
+            BaseResponse<string> rd = new BaseResponse<string>();
+            if (mod.result != 0)
+                rd.Data = "-1";
+            if (string.IsNullOrEmpty(mod.cardinfo))
+                throw new MyException($"读社保卡失败,{mod.err_msg},请联系管理员");
+            var values = mod.cardinfo.Split('|');
+            if(values.Length>4)
+            {
+                bll.SetYBCardInfo(values[0], values[1], values[2], values[3]);
+                rd.Data = values[1];
+            }
+            else
+            {
+                throw new MyException($"读社保卡失败,{mod.cardinfo},请联系管理员");
+            }
+            return rd;
+        }
 
+        /// <summary>
+        /// 医保卡校验-获取报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<InCommon> Check90991(SYBCommonModel<SYB90991> mod)
+        {
+            BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
+            InCommon rd1 = new InCommon();
+            rd1 = bll.getComm(mod.TenantId, mod.EmployeeId);
+            var ybcard = bll.GetYBCardInfo(mod.input.Card);
+            if(ybcard != null)
+            {
+                In90991 model = new In90991();
+                model.data = new In90991Model();
+                model.data.sscno = ybcard.YbCard;
+                model.data.card_pwd = string.IsNullOrEmpty(mod.input.PassWord) ? "000000" : mod.input.PassWord;
+                model.data.fixmedins_code = rd1.fixmedins_code;
+                model.data.psn_no = mod.input.Psn_no;
+                rd1.infno = "90991";
+                rd1.input = model;//Newtonsoft.Json.JsonConvert.SerializeObject(model);
+                rd.Data = rd1;//Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+            }
+            return rd;
+        }
+
+        /// <summary>
+        /// 医保卡校验-解析报文
+        /// </summary>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<bool> Check90991Parse(SYBCommonParseModel<Out90991> mod)
+        {
+            BaseResponse<bool> result = new BaseResponse<bool>();
+            result.Data = mod.Message?.output?.result?.check_stat == "1";
+            return result;
+        }
 
         /// <summary>
         /// 获取人员信息-获取报文

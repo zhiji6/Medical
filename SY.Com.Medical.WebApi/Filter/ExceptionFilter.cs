@@ -30,7 +30,7 @@ namespace SY.Com.Medical.WebApi.Filter
                 }
                 else
                 {
-                    log.Debug(context.Exception.Message + " 堆栈:" + context.Exception.StackTrace);
+                    log.Debug(context.Exception.Message + " 堆栈:" + context.Exception.ToString());
                     context.Result = new JsonResult(new BaseResponse<string>().sysException(context.Exception.Message));
                 }                
             }

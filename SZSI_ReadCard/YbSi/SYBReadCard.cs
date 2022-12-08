@@ -72,12 +72,12 @@ namespace MkSi
                 err_msg = strOutInfo
             };
             //"440300|445222198709062439|BCH826720|440300D156000005006CFEED8AA783F6|陈力生|0081544C9286844403006CFEED|2.00|20180416|20280416|000000000000|00010601202211000461||
-            if (mod.result == 0 && !string.IsNullOrEmpty(mod.cardinfo))
-            {
-                var infos = mod.cardinfo.Split('|');
-                if (infos.Length > 1)
-                    mod.cardinfo = infos[1];
-            }
+            //if (mod.result == 0 && !string.IsNullOrEmpty(mod.cardinfo))
+            //{
+            //    var infos = mod.cardinfo.Split('|');
+            //    if (infos.Length > 1)
+            //        mod.cardinfo = infos[1];
+            //}
             return mod;
         }
 

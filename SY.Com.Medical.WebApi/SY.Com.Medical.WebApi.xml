@@ -675,6 +675,27 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.ReadCardParse(SY.Com.Medical.Model.SYBCardModel)">
+            <summary>
+            解析读卡信息
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Check90991(SY.Com.Medical.Model.SYBCommonModel{SY.Com.Medical.Model.SYB.SYB90991})">
+            <summary>
+            医保卡校验-获取报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Check90991Parse(SY.Com.Medical.Model.SYBCommonParseModel{SY.Com.Medical.Model.SYB.Out90991})">
+            <summary>
+            医保卡校验-解析报文
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.Messge1101(SY.Com.Medical.Model.SYBCommonModel{SZSI_Smart.Model.SYB.In1101data})">
             <summary>
             获取人员信息-获取报文
