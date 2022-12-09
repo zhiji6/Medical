@@ -162,11 +162,11 @@ namespace SY.Com.Medical.WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "TwBusManagement API V1");
                 //c.ShowExtensions();
             });
-            app.UseRouting();            
-            app.UseRequestLocalization();   
-            app.UseAuthentication();//JWT验证  
-            app.UseAuthorization();
+            app.UseRouting();
             app.UseCors("any");
+            app.UseRequestLocalization();            
+            app.UseAuthentication();//JWT验证  
+            app.UseAuthorization();            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers().RequireCors("any");
