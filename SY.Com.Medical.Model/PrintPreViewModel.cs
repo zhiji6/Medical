@@ -356,7 +356,7 @@ namespace SY.Com.Medical.Model
 		{
 			get
 			{
-				if (Sex == 0) return "男";
+				if (Sex == 1) return "男";
 				return "女";
 			}
 		}

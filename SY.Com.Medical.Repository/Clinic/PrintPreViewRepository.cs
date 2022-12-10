@@ -27,7 +27,7 @@ namespace SY.Com.Medical.Repository.Clinic
         { 
             string sql = " Select top 1 TenantId From PrintViews Where Style="+ style +" And TenantId In("+ tenantId +",0) Order By TenantId Desc ";
             var tenantid = _db.Query<int>(sql).First();
-            return "PrintView/"+ style +"/"+ tenantid + "/Print.grf";
+            return "Print/PrintView/"+ style +"/"+ tenantid + "/Print.grf";
         }
 
         /// <summary>

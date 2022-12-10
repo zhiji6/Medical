@@ -28,7 +28,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 打印视图文件地址(不带域名)
 		/// </summary>
-		public string Url { get { return $"/PrintView/{Style}/{TenantId}/print.grf"; } }
+		public string Url { get { return $"Print/PrintView/{Style}/{TenantId}/print.grf"; } }
 		///<summary> 
 		///
 		///</summary> 
