@@ -66,11 +66,37 @@ namespace SY.Com.Medical.BLL.Platform
         }
 
         /// <summary>
-        /// 创建租户
+        /// 后台创建租户
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public UserTenantResponse CreateTenant(TenentCreateRequest request)
+        public UserTenantResponse CreateTenantAdmin(TenentCreateAdminRequest request)
+        {
+            //创建用户
+            User ubll = new User();
+            UserEntity ue;
+            if(ubll.ExistsAccount(request.Account))
+            {
+                ue = ubll.getByAccount(request.Account);
+            }
+            else
+            {
+                ubll.Register(new RegisterRequest { Account = request.Account, Pwd = string.IsNullOrEmpty(request.PassWord) ? "123456" : request.PassWord, YZM = "123456" });
+                ue = ubll.getByAccount(request.Account);
+            }
+            TenentCreateRequest tentity = new TenentCreateRequest();
+            tentity.TenantName = request.TenantName;
+            tentity.TenantType = request.TenantType;
+            tentity.UserId = ue.UserId;            
+            return CreateTenant(tentity,request.UserName);
+        }
+
+        /// <summary>
+        /// 前台创建租户
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public UserTenantResponse CreateTenant(TenentCreateRequest request,string employeeName = "")
         {
 
             var entity = request.DtoToEntity<TenantEntity>();
@@ -89,6 +115,7 @@ namespace SY.Com.Medical.BLL.Platform
                 var mod = CloneClass.Clone<UserModel, EmployeeModel>(ummod, emmod);
                 mod.TenantId = TenantID;
                 mod.Roles = "1,2";
+                mod.EmployeeName = employeeName;                    
                 embll.createEmployee(mod);
             }
             UserTenantResponse response = new UserTenantResponse();
@@ -174,7 +201,7 @@ namespace SY.Com.Medical.BLL.Platform
         {
             var tuple = db.getAllPaltform(request.TenantName, request.TenantIds, request.BossName
                 , request.TenantServiceEndStart, request.TenantServiceEndEnd
-                , request.CreateTimeStart, request.CreateTimeEnd,request.PageSize,request.PageIndex);
+                , request.CreateTimeStart, request.CreateTimeEnd,request.PageSize,request.PageIndex,request.Account);
             return new Tuple<List<TenantAllSearchResponse>, int>(tuple.Item1.ToList(), tuple.Item2);
         }
 

@@ -86,7 +86,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
 
 
         /// <summary>
-        /// 创建租户
+        /// 前台创建租户
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -112,6 +112,36 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
                 }
             }
         }
+
+        /// <summary>
+        /// 管理台创建租户
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<UserTenantResponse> createTenantAdmin(TenentCreateAdminRequest request)
+        {
+            BaseResponse<UserTenantResponse> response = new BaseResponse<UserTenantResponse>();
+            try
+            {
+                response.Data = tenantbll.CreateTenantAdmin(request);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                if (ex is MyException)
+                {
+                    return response.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+                }
+                else
+                {
+                    return response.sysException(ex.Message);
+                }
+            }
+        }
+
+        
 
         /// <summary>
         /// 修改租户信息

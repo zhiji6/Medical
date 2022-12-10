@@ -10973,6 +10973,41 @@
             图片路径(相对),通过图片上传接口返回的路径
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.TenentCreateAdminRequest">
+            <summary>
+            后端创建诊所模型
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateAdminRequest.Account">
+            <summary>
+            创建账户
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateAdminRequest.PassWord">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateAdminRequest.UserName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateAdminRequest.TenantName">
+            <summary>
+            租户名称    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateAdminRequest.TenantType">
+            <summary>
+            租户类型,枚举    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenentCreateAdminRequest.LogoImg">
+            <summary>
+            图片路径(相对),通过图片上传接口返回的路径
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.TenantRequest">
             <summary>
             租户模型入参
@@ -11098,6 +11133,11 @@
             创建时间-结束
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.Account">
+            <summary>
+            创建者账号
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.TenantAllSearchRequest.PageSize">
             <summary>
             每页数量
@@ -11126,6 +11166,21 @@
         <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.EmployeeName">
             <summary>
             创建者名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.Account">
+            <summary>
+            创建者账号
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.Pwd">
+            <summary>
+            创建者密码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.YZM">
+            <summary>
+            创建者验证码
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.TenantAllSearchResponse.CreateTime">

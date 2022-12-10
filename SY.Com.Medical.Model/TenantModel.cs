@@ -111,6 +111,47 @@ namespace SY.Com.Medical.Model
     }
 
     /// <summary>
+    /// 后端创建诊所模型
+    /// </summary>
+    public class TenentCreateAdminRequest
+    {
+        /// <summary>
+        /// 创建账户
+        /// </summary>
+        [Required]
+        public string Account { get; set; }
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string PassWord { get; set; }
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        [Required]
+        public string UserName { get; set; }
+        /// <summary>
+        /// 租户名称    
+        /// </summary>
+        [Required]
+        public string TenantName { get; set; }
+
+        /// <summary>
+        /// 租户类型,枚举    
+        /// </summary>
+        [Required]
+        public int TenantType { get; set; }
+
+        /// <summary>
+        /// 图片路径(相对),通过图片上传接口返回的路径
+        /// </summary>
+        public string LogoImg { get; set; }
+
+
+    }
+
+
+
+    /// <summary>
     /// 租户模型入参
     /// </summary>
     public class TenantRequest : BaseModel
@@ -238,6 +279,10 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public DateTime? CreateTimeEnd { get; set; }
         /// <summary>
+        /// 创建者账号
+        /// </summary>
+        public string Account { get; set; }
+        /// <summary>
         /// 每页数量
         /// </summary>
         [Required]
@@ -268,6 +313,18 @@ namespace SY.Com.Medical.Model
         /// 创建者名称
         /// </summary>
         public string EmployeeName { get; set; }
+        /// <summary>
+        /// 创建者账号
+        /// </summary>
+        public string Account { get; set; }
+        /// <summary>
+        /// 创建者密码
+        /// </summary>
+        public string Pwd { get; set; }
+        /// <summary>
+        /// 创建者验证码
+        /// </summary>
+        public string YZM { get; set; }
         /// <summary>
         /// 创建日期
         /// </summary>

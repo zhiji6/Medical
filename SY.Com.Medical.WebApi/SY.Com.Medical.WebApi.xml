@@ -1381,7 +1381,14 @@
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.createTenant(SY.Com.Medical.Model.TenentCreateRequest)">
             <summary>
-            创建租户
+            前台创建租户
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.TenantController.createTenantAdmin(SY.Com.Medical.Model.TenentCreateAdminRequest)">
+            <summary>
+            管理台创建租户
             </summary>
             <param name="request"></param>
             <returns></returns>

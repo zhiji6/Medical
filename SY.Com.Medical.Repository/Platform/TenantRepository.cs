@@ -89,7 +89,7 @@ namespace SY.Com.Medical.Repository.Platform
         /// <param name="CreateStart"></param>
         /// <param name="CreateEnd"></param>
         /// <returns></returns>
-        public Tuple<IEnumerable<TenantAllSearchResponse>, int> getAllPaltform(string tenantName,string tenantIds,string BossName,DateTime? StopStart,DateTime? StopEnd,DateTime? CreateStart,DateTime? CreateEnd,int pageSize,int pageIndex)
+        public Tuple<IEnumerable<TenantAllSearchResponse>, int> getAllPaltform(string tenantName,string tenantIds,string BossName,DateTime? StopStart,DateTime? StopEnd,DateTime? CreateStart,DateTime? CreateEnd,int pageSize,int pageIndex,string Account)
         {
             StringBuilder where = new StringBuilder();
             //处理名称
@@ -144,18 +144,24 @@ namespace SY.Com.Medical.Repository.Platform
             {
                 where.Append(" And a.CreateTime <= '" + CreateEnd + "' ");
             }
+            if(!string.IsNullOrEmpty(Account))
+            {
+                where.Append(" And d.Account Like '%" + Account + "%' ");
+            }
             string sql = @" Select * From
                             (
                                 Select ROW_NUMBER() over(order by a.Createtime desc) as rowid, a.TenantId,a.TenantName,a.TenantServiceStart,a.TenantServiceEnd
-                                , a.IsEnable,a.CreateTime,c.EmployeeName
+                                , a.IsEnable,a.CreateTime,c.EmployeeName,d.Account,d.Pwd,d.YZM
                                     From Tenants as a
                                 Inner Join UserTenants as b on a.TenantId = b.TenantId And b.IsBoss = 1
-                                Inner Join Employees as c on b.UserId = c.EmployeeId
+                                Inner Join Employees as c on b.UserId = c.UserId And c.TenantId = b.TenantId
+                                Inner Join Users as d on d.UserId = c.UserId
                                 Where a.IsDelete = 1  " + where 
                             + ")as T Where rowid between " + ((pageIndex - 1) * pageSize + 1) +" And "+ pageIndex * pageSize +";" +
                             @" Select count(1) as nums From  Tenants as a
                                 Inner Join UserTenants as b on a.TenantId = b.TenantId And b.IsBoss = 1
-                                Inner Join Employees as c on b.UserId = c.EmployeeId
+                                Inner Join Employees as c on b.UserId = c.UserId And c.TenantId = b.TenantId
+                                Inner Join Users as d on d.UserId = c.UserId
                                 Where a.IsDelete = 1  " + where;
             var multi = _db.QueryMultiple(sql);                        
             IEnumerable<TenantAllSearchResponse> datas = multi.Read<TenantAllSearchResponse>();
