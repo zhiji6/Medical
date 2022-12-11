@@ -108,7 +108,7 @@ namespace SY.Com.Medical.BLL.Platform
                                 case "医保编码": data.InsuranceCode = cellvalue.ToString(); break;
                                 case "机构编码": data.CustomerCode = cellvalue.ToString(); break;
                                 case "条形码": data.BarCode = cellvalue.ToString(); break;
-                                case "价格": data.Price = (long)(Math.Round(double.Parse(cellvalue.ToString()), 2) * 100); break;
+                                case "价格": data.Price = (long)(Math.Round(double.Parse(cellvalue.ToString()), 2) * 1000); break;
                                 case "部位": data.Place = cellvalue.ToString(); break;
                                 default: break;
                             }
