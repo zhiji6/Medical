@@ -27,8 +27,7 @@ namespace MKDBFramwork
         public static void Debug(string message)
         {
             var log = log4net.LogManager.GetLogger(SDebug);
-            if (log.IsDebugEnabled)
-                log.Debug(message);
+            log.Debug(message);            
         }
 
         public static void Debug(Exception ex)

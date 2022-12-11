@@ -90,8 +90,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     good.TenantId = targetTenantId;
                     Create(good);
                 }
-            }
-            
+            }            
         }
 
 	}

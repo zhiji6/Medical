@@ -1844,7 +1844,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:沛尔医保读卡"
         "ProductCode" = "8:{5023E385-86ED-4002-BCC8-07BB5DBC4A4A}"
-        "PackageCode" = "8:{1009B48E-B525-44DC-9184-D4AF968F1EEE}"
+        "PackageCode" = "8:{66465A50-C98A-4DCE-B018-E3C727E22A09}"
         "UpgradeCode" = "8:{87CAA553-E420-4360-9BBC-EC37DC8DB0E2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1989,7 +1989,7 @@
                                                     "Condition" = "8:"
                                                     "Transitive" = "11:FALSE"
                                                     "ValueTypes" = "3:1"
-                                                    "Value" = "8:C:\\Program Files (x86)\\医保读卡\\医保读卡\\YbSi.exe %1"
+                                                    "Value" = "8:C:\\Program Files (x86)\\沛尔医保读卡\\沛尔医保读卡\\YbSi.exe %1"
                                                     }
                                                 }
                                             }

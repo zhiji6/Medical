@@ -89,8 +89,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         /// <returns></returns>
         [HttpPost]
         public BaseResponse<List<string>> PrintFile([FromForm] List<IFormFile> files,int TenantId,int Style)
-        {
-
+        {                        
+            if(TenantId == 0)
+            {
+                TenantId = int.Parse(Request.Headers["TenantId"].ToString());
+            }
             BaseResponse<List<string>> result = new BaseResponse<List<string>>();
             result.Data = new List<string>();
 

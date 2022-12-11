@@ -380,18 +380,17 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             if(entity == null)
             {
                 //如果不不存在就需要插入
-                var addresult = patientbll.add(new PatientAdddto
-                {
-                    TenantId = mod.TenantId,
-                    PatientName = mod.Message.output.baseinfo.psn_name,
-                    Phone = "",
-                    Sex = int.Parse(mod.Message.output.baseinfo.gend),
-                    CSRQ = mod.Message.output.baseinfo.brdy,
-                    SFZ = mod.Message.output.baseinfo.certno,
-                    psn_no = mod.Message.output.baseinfo.psn_no,
-                    insuplc_admdvs = mod.Message.output.insuinfo?.Where(w=>w.balc > 0)?.First()?.insuplc_admdvs ?? "",
-                }) ;
-                if(addresult > 0)
+                var addmodel = new PatientAdddto();
+                addmodel.TenantId = mod.TenantId;
+                addmodel.PatientName = mod.Message.output.baseinfo.psn_name;
+                addmodel.Phone = "";
+                addmodel.Sex = int.Parse(mod.Message.output.baseinfo.gend);
+                addmodel.CSRQ = mod.Message.output.baseinfo.brdy;
+                addmodel.SFZ = mod.Message.output.baseinfo.certno;
+                addmodel.psn_no = mod.Message.output.baseinfo.psn_no;
+                addmodel.insuplc_admdvs = mod.Message.output.insuinfo?.Where(w => w.balc > 0)?.First()?.insuplc_admdvs ?? "";
+                var addresult = patientbll.add(addmodel);
+                if (addresult > 0)
                 {
                     entity = patientbll.getBypsnNo(mod.TenantId, mod.Message.output.baseinfo.psn_no);
                 }

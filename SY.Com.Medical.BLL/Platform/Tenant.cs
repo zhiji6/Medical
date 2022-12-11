@@ -127,9 +127,13 @@ namespace SY.Com.Medical.BLL.Platform
             //
             DepartmentRepository dbdepart = new DepartmentRepository();
             dbdepart.CopyToTenant(TenantID);
-            Good goodbll = new Good();
-            //复制药品
-            goodbll.CopyTo(0, TenantID);
+            if(request.TenantType == (int)Enum.TenantType.口腔诊所 || request.TenantType == (int)Enum.TenantType.口腔门诊部)
+            {
+                //复制口腔项目药品
+                Good goodbll = new Good();                
+                goodbll.CopyTo(0, TenantID);
+            }
+
             return response;
         }
 

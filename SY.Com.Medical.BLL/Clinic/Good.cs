@@ -164,6 +164,7 @@ namespace SY.Com.Medical.BLL.Clinic
             {
                 foreach(var data in datas)
                 {
+                    data.SearchKey = (data.GoodName ?? "") + (data.GoodName.GetPinYinHead() ?? "") + (data.InsuranceCode ?? "") + (data.GoodStandard ?? "");
                     data.CreateTime = DateTime.Now;
                     data.IsDelete = Enum.Delete.正常;
                     data.IsEnable = Enum.Enable.启用;

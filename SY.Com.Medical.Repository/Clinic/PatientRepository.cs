@@ -27,6 +27,12 @@ namespace SY.Com.Medical.Repository.Clinic
             return mods.FirstOrDefault();
         }
 
+        public override int Create(PatientEntity t)
+        {
+            t.insuplc_admdvs = string.IsNullOrEmpty(t.insuplc_admdvs) ? "" : t.insuplc_admdvs;
+            return base.Create(t);
+        }
+
 
     }
 }
