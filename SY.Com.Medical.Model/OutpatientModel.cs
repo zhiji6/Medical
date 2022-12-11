@@ -142,10 +142,12 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 医生Id
 		/// </summary>
+		[Required]
 		public int DoctorId { get; set; }
 		/// <summary>
 		/// 患者信息
 		/// </summary>
+		[Required]
 		public PatientStructure Patient { get; set; }
 		/// <summary>
 		/// 病历
@@ -173,6 +175,7 @@ namespace SY.Com.Medical.Model
 		/// <summary>
 		/// 患者姓名
 		/// </summary>
+		[Required]
 		public string PatientName { get; set; }
 		/// <summary>
 		/// 手机号

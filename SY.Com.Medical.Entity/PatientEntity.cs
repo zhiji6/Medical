@@ -86,6 +86,7 @@ namespace SY.Com.Medical.Entity
         /// <summary>
         /// 医保区划
         /// </summary>
+        [DB_Default(typeof(string))]
         public string insuplc_admdvs { get; set; }
     }
 }

@@ -19,7 +19,11 @@ namespace SY.Com.Medical.Attribute
             if (t == typeof(Int32))
             {
                 value = "0";
-            }else if(t == typeof(DateTime))
+            }else if(t == typeof(string))
+            {
+                value = "";
+            }
+            else if(t == typeof(DateTime))
             {
                 value = DateTime.Now;
             }else if(t == typeof(DateTime?))
