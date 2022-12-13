@@ -190,7 +190,13 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             BaseResponse<bool> result = new BaseResponse<bool>();
             try
             {
-                bll.updateEmployee(request,1);
+                var em = bll.getEmployee(request.EmployeeId);
+                if(em != null)
+                {
+                    request.UserId = em.UserId;
+                    request.TenantId = em.TenantId;
+                    bll.updateEmployee(request, 1);
+                }                
                 result.Data = true;
                 return result;
             }
