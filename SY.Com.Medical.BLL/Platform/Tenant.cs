@@ -9,6 +9,7 @@ using SY.Com.Medical.Extension;
 using System.Text;
 using System.Threading.Tasks;
 using SY.Com.Medical.BLL.Clinic;
+using SY.Com.Medical.Enum;
 
 namespace SY.Com.Medical.BLL.Platform
 {
@@ -135,6 +136,18 @@ namespace SY.Com.Medical.BLL.Platform
             }
 
             return response;
+        }
+
+        /// <summary>
+        /// 创建用户和诊所的关系
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <param name="TenantId"></param>
+        /// <param name="isboss"></param>
+        /// <returns></returns>
+        public int CreateUserTenant(int UserId, int TenantId, IsBoss isboss = IsBoss.不是)
+        {
+            return db.CreateUserTenant(UserId, TenantId, isboss);
         }
 
         /// <summary>

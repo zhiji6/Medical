@@ -140,6 +140,8 @@ namespace SY.Com.Medical.BLL.Platform
             {
                 RegisterRequest mod = new RegisterRequest() { Account = Account, Pwd = "123456", TenantId = TenantId, YZM = "123456" };
                 var res = us.Register(mod);
+                Tenant tbll = new Tenant();
+                tbll.CreateUserTenant(res.UserId, TenantId, Enum.IsBoss.不是);
                 EmployeeModel mod2 = new EmployeeModel()
                 {
                     UserId = res.UserId,
