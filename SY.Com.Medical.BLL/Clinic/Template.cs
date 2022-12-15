@@ -45,11 +45,18 @@ namespace SY.Com.Medical.BLL.Clinic
 			if (datas != null && datas.Item1.Count > 0)
             {
 				var result = datas.Item1.EntityToDto<TemplateModel>();
-				result.ForEach(f =>
-				{
-					f.Prescription = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PrescriptionAddStructure>>(f.Content);
-					f.EmployeeName = ebll.getEmployee(f.EmployeeId).EmployeeName;
-				});
+				foreach(var item in result)
+                {
+					item.Prescription = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PrescriptionAddStructure>>(item.Content);
+					if(item.Prescription != null && item.Prescription.Any())
+                    {
+						item.Prescription = item.Prescription.Where(w => w.Details != null && w.Details.Count > 0)?.ToList() ?? new List<PrescriptionAddStructure>();
+                    }
+					item.WestCount = item.Prescription.Where(w => w.PreName == "西药处方")?.Count() ?? 0;
+					item.EastCount = item.Prescription.Where(w => w.PreName == "中药处方")?.Count() ?? 0;
+					item.ProjectCount = item.Prescription.Where(w => w.PreName == "项目处方")?.Count() ?? 0;
+					item.EmployeeName = ebll.getEmployee(item.EmployeeId).EmployeeName;					
+				}
 				return new Tuple<List<TemplateModel>, int>(result, datas.Item2);
             }
 			return null;
