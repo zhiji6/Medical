@@ -842,65 +842,56 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         public BaseResponse<InCommon> MZ2204(SYBMZ2204Model mod)
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
-            try
+            Outpatient opbll = new Outpatient();
+            var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
+            InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
+            var department = bll.getYBDepartment(opstructure.Doctor.Department);
+            List<FeeDetail> fdlist = new List<FeeDetail>();
+            foreach (var item in opstructure.Prescriptions)
             {
-                //InCommon rd1 = bll.getComm(mod.fixmedins_code, mod.fixmedins_name, mod.opter, mod.opter_name, mod.sign_no);
-                
-                Outpatient opbll = new Outpatient();
-                var opstructure= opbll.getStructure(mod.TenantId, mod.OutpatientId);
-                InCommon rd1 = bll.getComm(mod.TenantId, mod.EmployeeId, opstructure.Patient.psn_no);
-                var department = bll.getYBDepartment(opstructure.Doctor.Department);
-                List <FeeDetail> fdlist = new List<FeeDetail>();
-                foreach(var item in opstructure.Prescriptions)
+                foreach (var node in item.Details)
                 {
-                    foreach(var node in item.Details)
-                    {
-                        FeeDetail fdmod = new FeeDetail();
-                        fdmod.feedetl_sn = rd1.fixmedins_code + mod.TenantId.ToString() + mod.OutpatientId.ToString() + node.GoodsId.ToString() + (9999 - fdlist.Count).ToString();
-                        fdmod.mdtrt_id = opstructure.mdtrt_id;
-                        fdmod.psn_no = opstructure.Patient.psn_no;
-                        fdmod.chrg_bchno = opstructure.chrg_bchno;
-                        fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
-                        fdmod.rx_circ_flag = "0";
-                        fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        fdmod.med_list_codg = node.InsuranceCode;
-                        fdmod.medins_list_codg = node.CustomerCode;
-                        //fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
-                        fdmod.cnt = node.GoodsNum;
-                        fdmod.pric = decimal.Parse(Math.Round(node.GoodsPrice, 2).ToString());
-                        fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost, 2).ToString());
-                        fdmod.bilg_dept_codg = department.code;
-                        fdmod.bilg_dept_name = department.name;
-                        fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
-                        fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
-                        fdmod.hosp_appr_flag = "1";
-                        //fdmod.dise_codg = "";
-                        //fdmod.sin_dos_dscr = "";
-                        //fdmod.used_frqu_dscr = "";
-                        //fdmod.medc_way_dscr = "";
-                        //fdmod.acord_dept_codg = "";
-                        //fdmod.acord_dept_name = "";
-                        //fdmod.orders_dr_code = "";
-                        //fdmod.orders_dr_name = "";
-                        //fdmod.tcmdrug_used_way = "";
-                        //fdmod.etip_flag = "";
-                        //fdmod.etip_hosp_code = "";
-                        //fdmod.dscg_tkdrug_flag = "";
-                        //fdmod.matn_fee_flag = "";
-                        fdlist.Add(fdmod);
-                    }
+                    FeeDetail fdmod = new FeeDetail();
+                    fdmod.feedetl_sn = rd1.fixmedins_code + mod.TenantId.ToString() + mod.OutpatientId.ToString() + node.GoodsId.ToString() + (9999 - fdlist.Count).ToString();
+                    fdmod.mdtrt_id = opstructure.mdtrt_id;
+                    fdmod.psn_no = opstructure.Patient.psn_no;
+                    fdmod.chrg_bchno = opstructure.chrg_bchno;
+                    fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
+                    fdmod.rx_circ_flag = "0";
+                    fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    fdmod.med_list_codg = node.InsuranceCode;
+                    fdmod.medins_list_codg = node.CustomerCode;
+                    //fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
+                    fdmod.cnt = node.GoodsNum;
+                    fdmod.pric = decimal.Parse(Math.Round(node.GoodsPrice, 2).ToString());
+                    fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost, 2).ToString());
+                    fdmod.bilg_dept_codg = department.code;
+                    fdmod.bilg_dept_name = department.name;
+                    fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
+                    fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
+                    fdmod.hosp_appr_flag = "1";
+                    //fdmod.dise_codg = "";
+                    //fdmod.sin_dos_dscr = "";
+                    //fdmod.used_frqu_dscr = "";
+                    //fdmod.medc_way_dscr = "";
+                    //fdmod.acord_dept_codg = "";
+                    //fdmod.acord_dept_name = "";
+                    //fdmod.orders_dr_code = "";
+                    //fdmod.orders_dr_name = "";
+                    //fdmod.tcmdrug_used_way = "";
+                    //fdmod.etip_flag = "";
+                    //fdmod.etip_hosp_code = "";
+                    //fdmod.dscg_tkdrug_flag = "";
+                    //fdmod.matn_fee_flag = "";
+                    fdlist.Add(fdmod);
                 }
-                In2204 model = new In2204();
-                model.feedetail = fdlist;
-                rd1.infno = "2204";
-                rd1.input = model;
-                rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
-                return rd;
             }
-            catch (Exception ex)
-            {
-                return rd.sysException(ex.Message);
-            }
+            In2204 model = new In2204();
+            model.feedetail = fdlist;
+            rd1.infno = "2204";
+            rd1.input = model;
+            rd.Data = rd1;// Newtonsoft.Json.JsonConvert.SerializeObject(rd1);
+            return rd;
         }
 
         /// <summary>

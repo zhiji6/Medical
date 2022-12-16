@@ -400,6 +400,7 @@ namespace SY.Com.Medical.Repository.Clinic
         {
             //插入或修改Patient
             PatientRepository patient_db = new PatientRepository();
+
             if (structure.Patient.PatientId == 0)
             {
                 var patientId = patient_db.Create(TypeConvert.DeepCopyByReflection(structure.Patient, new PatientEntity()));
@@ -407,7 +408,18 @@ namespace SY.Com.Medical.Repository.Clinic
             }
             else
             {
-                patient_db.Update(TypeConvert.DeepCopyByReflection(structure.Patient, new PatientEntity()));
+                var old_patient = patient_db.Get(structure.Patient.PatientId);
+                if(old_patient != null && old_patient.TenantId == structure.TenantId)
+                {
+                    old_patient.Addr = structure.Patient.Addr;
+                    old_patient.CSRQ = structure.Patient.CSRQ;
+                    old_patient.PatientName = structure.Patient.PatientName;
+                    old_patient.Phone = structure.Patient.Phone;
+                    old_patient.psn_no = structure.Patient.psn_no;
+                    old_patient.Sex = (Enum.Sex)structure.Patient.Sex;
+                    old_patient.SFZ = structure.Patient.SFZ;
+                    patient_db.Update(old_patient);
+                }
             }
             //插入或修改病历
             CaseBookRepository case_db = new CaseBookRepository();
