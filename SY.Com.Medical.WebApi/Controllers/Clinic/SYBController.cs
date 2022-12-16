@@ -388,7 +388,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 addmodel.CSRQ = mod.Message.output.baseinfo.brdy;
                 addmodel.SFZ = mod.Message.output.baseinfo.certno;
                 addmodel.psn_no = mod.Message.output.baseinfo.psn_no;
-                addmodel.insuplc_admdvs = mod.Message.output.insuinfo?.Where(w => w.balc > 0)?.First()?.insuplc_admdvs ?? "";
+                if(mod.Message.output.insuinfo.Count > 1)
+                {
+                    addmodel.insuplc_admdvs = mod.Message.output.insuinfo?.Where(w => w.balc > 0)?.FirstOrDefault()?.insuplc_admdvs ?? "";
+                }
+                else
+                {
+                    addmodel.insuplc_admdvs = mod.Message.output.insuinfo.FirstOrDefault().insuplc_admdvs;
+                }
                 var addresult = patientbll.add(addmodel);
                 if (addresult > 0)
                 {
@@ -401,7 +408,14 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
             else
             {
-                entity.insuplc_admdvs = mod.Message.output.insuinfo?.Where(w => w.balc > 0)?.First()?.insuplc_admdvs ?? "";
+                if(mod.Message.output.insuinfo.Count > 1)
+                {
+                    entity.insuplc_admdvs = mod.Message.output.insuinfo?.Where(w => w.balc > 0)?.FirstOrDefault()?.insuplc_admdvs ?? "";
+                }
+                else
+                {
+                    entity.insuplc_admdvs = mod.Message.output.insuinfo.FirstOrDefault().insuplc_admdvs;
+                }
                 patientbll.Update(entity);
             }
             result.Data = entity.EntityToDto<PatientYBModel>();
@@ -409,7 +423,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             foreach(var item in mod.Message.output.insuinfo)
             {
                 YBinsuinfo node = new YBinsuinfo();
-                node.balc = item.balc.ToString();
+                node.balc = mod.Message.output.insuinfo.Count == 1 && item.balc <= 0 ? "0.01" : item.balc.ToString();
                 node.insutype = item.insutype;
                 result.Data.ybinfo.Add(node);
             }
