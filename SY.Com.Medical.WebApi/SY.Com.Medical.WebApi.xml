@@ -4,6 +4,46 @@
         <name>SY.Com.Medical.WebApi</name>
     </assembly>
     <members>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.CaseBookTemplateController">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.CaseBookTemplateController.get(System.Int32)">
+            <summary> 
+            获取详情记录
+            </summary> 
+            <param name="id"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.CaseBookTemplateController.gets(SY.Com.Medical.Model.CaseBookTemplateRequest)">
+            <summary> 
+            获取列表-分页
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.CaseBookTemplateController.add(SY.Com.Medical.Model.CaseBookTemplateAdd)">
+            <summary> 
+            新增
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.CaseBookTemplateController.update(SY.Com.Medical.Model.CaseBookTemplateUpdate)">
+            <summary> 
+            修改
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.CaseBookTemplateController.delete(SY.Com.Medical.Model.CaseBookTemplateDelete)">
+            <summary> 
+            删除
+            </summary> 
+            <param name="request"></param>
+             <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.ChargeRecordController">
             <summary>
             收费管理

@@ -262,24 +262,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             BaseResponse<OutpatientAddStructure> result = new BaseResponse<OutpatientAddStructure>();
             //result.Data = bll.getStructure(request.TenantId, request.OutpatientId);
             result.Data = bll.getStructure2(request.TenantId, request.OutpatientId);
-            List<PrescriptionAddStructure> newprescription = new List<PrescriptionAddStructure>();
-            if(result.Data.Prescriptions != null)
-            {
-                foreach(var p in result.Data.Prescriptions)
-                {
-                    if(p.Details != null)
-                    {
-                        foreach(var pp in p.Details)
-                        {
-                            if(pp.PrescriptionId == request.PrescriptionId)
-                            {
-                                newprescription.Add(p);
-                            }
-                        }
-                    }
-                }
-            }
-            result.Data.Prescriptions = newprescription;
             result.Data.OutpatientId = request.OutpatientId;
             return result;
         }

@@ -417,6 +417,311 @@
             科室Id
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookTemplateModel">
+            <summary>
+             CaseBookTemplate模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.CaseBookTemplateId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.CaseBookName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.CreatorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.CaseBookTypeId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Complaint">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Diagnosis">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Disease">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.OutPatientDate">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.CaseOrder">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.PastCase">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.HistoryCase">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Physical">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Opinions">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Tooth">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.Place">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.DoctorName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.DepartmentName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.CreateTime">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.IsEnable">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.IsDelete">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateModel.DiseaseCode">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookTemplateRequest">
+            <summary>
+             CaseBookTemplate模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateRequest.CaseBookName">
+            <summary> 
+            病历模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateRequest.CreatorId">
+            <summary> 
+            创建者Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateRequest.CaseBookTypeId">
+            <summary> 
+            病历模板类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateRequest.CreateTimeStart">
+            <summary>
+            创建时间-开始
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateRequest.CreateTimeEnd">
+            <summary>
+            创建时间-结束
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookTemplateAdd">
+            <summary>
+             CaseBookTemplate模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.CaseBookName">
+            <summary> 
+            病历模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.CreatorId">
+            <summary> 
+            创建者Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.CaseBookTypeId">
+            <summary> 
+            病历模板类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Complaint">
+            <summary> 
+            主诉
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Diagnosis">
+            <summary> 
+            诊断
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Disease">
+            <summary> 
+            疾病
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.CaseOrder">
+            <summary> 
+            医嘱
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.PastCase">
+            <summary> 
+            现病史
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.HistoryCase">
+            <summary> 
+            既往史
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Physical">
+            <summary> 
+            体格检查
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Opinions">
+            <summary> 
+            治疗意见
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Tooth">
+            <summary> 
+            牙位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.Place">
+            <summary> 
+            部位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateAdd.DiseaseCode">
+            <summary> 
+            疾病编码
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookTemplateUpdate">
+            <summary>
+             CaseBookTemplate模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.CaseBookTemplateId">
+            <summary> 
+            病历模板Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.CaseBookName">
+            <summary> 
+            病历模板名称
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.CreatorId">
+            <summary> 
+            创建者Id
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.CaseBookTypeId">
+            <summary> 
+            病历模板类型
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Complaint">
+            <summary> 
+            主诉
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Diagnosis">
+            <summary> 
+            诊断
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Disease">
+            <summary> 
+            疾病
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.CaseOrder">
+            <summary> 
+            医嘱
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.PastCase">
+            <summary> 
+            现病史
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.HistoryCase">
+            <summary> 
+            既往史
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Physical">
+            <summary> 
+            体格检查
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Opinions">
+            <summary> 
+            治疗意见
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Tooth">
+            <summary> 
+            牙位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.Place">
+            <summary> 
+            部位
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateUpdate.DiseaseCode">
+            <summary> 
+            疾病编码
+            </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Model.CaseBookTemplateDelete">
+            <summary>
+             CaseBookTemplate模型
+             </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookTemplateDelete.CaseBookTemplateId">
+            <summary> 
+            病历模板Id
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Model.ChargeRecordModel">
             <summary>
              ChargeRecord模型
@@ -2876,11 +3181,6 @@
         <member name="P:SY.Com.Medical.Model.PrescriptionDetailRequest.OutpatientId">
             <summary>
             门诊ID
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.PrescriptionDetailRequest.PrescriptionId">
-            <summary>
-            处方Id
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.OutpatientStructure">

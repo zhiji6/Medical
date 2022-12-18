@@ -144,6 +144,106 @@
             患者导航属性
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Entity.CaseBookTemplateEntity">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.CaseBookTemplateId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.TenantId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.CaseBookName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.CreatorId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.CaseBookTypeId">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Complaint">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Diagnosis">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Disease">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.OutPatientDate">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.CaseOrder">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.PastCase">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.HistoryCase">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Physical">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Opinions">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Tooth">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.Place">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.DoctorName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.DepartmentName">
+            <summary> 
+            
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Entity.CaseBookTemplateEntity.DiseaseCode">
+            <summary> 
+            
+            </summary> 
+        </member>
         <member name="T:SY.Com.Medical.Entity.ChargeRecordEntity">
             <summary>
             实体

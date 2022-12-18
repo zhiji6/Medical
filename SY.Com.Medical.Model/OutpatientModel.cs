@@ -29,11 +29,6 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		[Required]
 		public int OutpatientId { get; set; }
-		/// <summary>
-		/// 处方Id
-		/// </summary>
-		[Required]
-		public int PrescriptionId { get; set; }
 	}
 
     
