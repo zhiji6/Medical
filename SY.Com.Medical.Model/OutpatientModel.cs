@@ -20,9 +20,28 @@ namespace SY.Com.Medical.Model
     }
 
 	/// <summary>
-	/// 门诊复合结构-查询
+	/// 处方详情入参
 	/// </summary>
-	public class OutpatientStructure
+	public class PrescriptionDetailRequest : BaseModel
+	{
+		/// <summary>
+		/// 门诊ID
+		/// </summary>
+		[Required]
+		public int OutpatientId { get; set; }
+		/// <summary>
+		/// 处方Id
+		/// </summary>
+		[Required]
+		public int PrescriptionId { get; set; }
+	}
+
+    
+
+    /// <summary>
+    /// 门诊复合结构-查询
+    /// </summary>
+    public class OutpatientStructure
 	{
 		/// <summary>
 		/// 门诊Id
@@ -460,6 +479,10 @@ namespace SY.Com.Medical.Model
 	/// </summary>
 	public class PrescriptionDetailAddStructure
 	{
+		/// <summary>
+		/// 处方Id
+		/// </summary>
+		public int PrescriptionId { get; set; }
 		/// <summary>
 		/// 药物或项目id
 		/// </summary>

@@ -355,6 +355,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.OutpatientController.getPrescriptionDetail(SY.Com.Medical.Model.PrescriptionDetailRequest)">
+            <summary>
+            获取具体一个门诊处方详细信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PatientController">
             <summary>
             患者信息

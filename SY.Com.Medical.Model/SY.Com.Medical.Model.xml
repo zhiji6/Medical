@@ -2868,6 +2868,21 @@
             门诊ID
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.PrescriptionDetailRequest">
+            <summary>
+            处方详情入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailRequest.OutpatientId">
+            <summary>
+            门诊ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailRequest.PrescriptionId">
+            <summary>
+            处方Id
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientStructure">
             <summary>
             门诊复合结构-查询
@@ -3341,6 +3356,11 @@
         <member name="T:SY.Com.Medical.Model.PrescriptionDetailAddStructure">
             <summary>
             处方明细-物品明细
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.PrescriptionId">
+            <summary>
+            处方Id
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.GoodsId">
