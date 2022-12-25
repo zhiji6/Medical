@@ -52,7 +52,14 @@ namespace SY.Com.Medical.BLL.Clinic
         /// <returns></returns>
         public CaseBookModel get(int casebookId)
         {
-            return db.getOne(casebookId).EntityToDto<CaseBookModel>();
+            var result = db.getOne(casebookId).EntityToDto<CaseBookModel>();
+            Department depart = new Department();
+            var departs = depart.getDepartment(new DepartmentModel() { TenantId = result.TenantId });
+            int departid = 0;
+            int.TryParse(result.DepartmentName, out departid);
+            result.DepartmentId = departs.Find(f => f.DepartmentId == departid)?.DepartmentId ?? 0;
+            result.DepartmentName = departs.Find(f => f.DepartmentId == departid)?.DepartmentName ?? "全科";//departs.Find(x => x.DepartmentId == mod.DepartmentId) == null ? "" : departs.Find(x => x.DepartmentId == mod.DepartmentId).DepartmentName; ;                    
+            return result;
         }
 
         /// <summary>
