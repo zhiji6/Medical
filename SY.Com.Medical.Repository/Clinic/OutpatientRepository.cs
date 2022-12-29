@@ -201,11 +201,11 @@ namespace SY.Com.Medical.Repository.Clinic
                 Dictionary<string, List<PrescriptionDetailStructure>> predic = new Dictionary<string, List<PrescriptionDetailStructure>>();                
                 foreach(var item in pres_entitys)
                 {
-                    if(!predic.ContainsKey(item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString()))
+                    if(!predic.ContainsKey( item.PreName + "|" + item.Pair.ToString()))
                     {
-                        predic.Add(item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString(), new List<PrescriptionDetailStructure>());
+                        predic.Add( item.PreName + "|" + item.Pair.ToString(), new List<PrescriptionDetailStructure>());
                     }
-                    predic[item.PreNo + "|" + item.PreName + "|" + item.Pair.ToString()].Add(new PrescriptionDetailStructure
+                    predic[ item.PreName + "|" + item.Pair.ToString()].Add(new PrescriptionDetailStructure
                     {
                         GoodsId = item.GoodsId,
                         GoodsName = item.GoodsName,
@@ -226,9 +226,9 @@ namespace SY.Com.Medical.Repository.Clinic
                 foreach (var item in predic)
                 {
                     PrescriptionStructure prestru = new PrescriptionStructure();
-                    prestru.PreNo = int.Parse(item.Key.Split('|')[0]);
-                    prestru.PreName = item.Key.Split('|')[1];
-                    prestru.Pair = int.Parse(item.Key.Split('|')[2]);
+                    prestru.PreNo = 1;//int.Parse(item.Key.Split('|')[0]);
+                    prestru.PreName = item.Key.Split('|')[0];
+                    prestru.Pair = int.Parse(item.Key.Split('|')[1]);
                     prestru.Cost = item.Value.Sum(x => x.GoodsCost);
                     prestru.Details = item.Value;
                     result.Prescriptions.Add(prestru);
