@@ -90,8 +90,10 @@ namespace SY.Com.Medical.BLL.Clinic
 		///<param name="request"></param>
 		/// <returns></returns>
 		public void update(TemplateUpdate request)
-		{
-			TemplateEntity entity = new TemplateEntity();
+		{			
+			var entity = db.Get(request.TemplateId);
+			//entity.TemplateId = request.TemplateId;
+			//entity.EmployeeId = request.EmployeeId;
 			entity.EmployeeId = request.EmployeeId;
 			entity.TemplateName = request.TemplateName;
 			entity.TemplateType = request.TemplateType == "1" ? "私有" : "公开";
