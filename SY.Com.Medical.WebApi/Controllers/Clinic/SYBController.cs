@@ -1214,7 +1214,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.chrg_bchno = opstructure.chrg_bchno;
                 model.data.insutype = "310";
                 model.data.mdtrt_cert_no = mod.Mdtrt_cert_no;
-                model.data.acct_used_flag ="1";
+                model.data.acct_used_flag ="1";                
                 model.data.fulamt_ownpay_amt = mod.fulamt_ownpay_amt;
                 model.data.overlmt_selfpay = mod.overlmt_selfpay;
                 model.data.preselfpay_amt = mod.preselfpay_amt;
