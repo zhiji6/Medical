@@ -3788,6 +3788,11 @@
             收银员名称
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientListModel.IsYbPay">
+            <summary>
+            是否医保支付
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientSearchModel">
             <summary>
             Outpatient搜索模型

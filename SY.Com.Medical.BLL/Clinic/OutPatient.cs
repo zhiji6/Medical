@@ -87,6 +87,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.Cost = Math.Round(x.Cost / 1000.00, 2);
 				mod.DoctorName = x.DoctorName;
 				mod.CreateTime = x.CreateTime;
+				mod.IsYbPay = x.PayYB > 0 ? 1 : 0;
 				mod.PrescriptionCount = x.PrescriptionCount;
 				mod.Cashier = crs?.Find(f=> f.SeeDoctorId == x.OutpatientId)?.Cashier ?? 0;
 				mod.CashierName = crs?.Find(f => f.SeeDoctorId == x.OutpatientId)?.CashierName ?? "";

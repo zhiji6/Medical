@@ -581,6 +581,11 @@ namespace SY.Com.Medical.Model
 		/// 收银员名称
 		/// </summary>
 		public string CashierName { get; set; }
+
+		/// <summary>
+		/// 是否医保支付
+		/// </summary>
+		public int IsYbPay { get; set; }
 		
 	}
 	
