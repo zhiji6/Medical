@@ -48,7 +48,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.Age = pamod.Age;
 				mod.Phone = pamod.Phone;
 				mod.DoctorName = x.DoctorName;
-				mod.Cost = x.Cost;
+				mod.Cost = Math.Round(x.Cost / 1000.00, 2); 
 				mod.CreateTime = x.CreateTime;
 				mod.PrescriptionCount = x.PrescriptionCount;
 				modellist.Add(mod);
