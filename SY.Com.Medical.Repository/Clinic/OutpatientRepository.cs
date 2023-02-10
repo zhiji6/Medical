@@ -35,7 +35,7 @@ namespace SY.Com.Medical.Repository.Clinic
         {
             //string sql = @" Select * From Outpatients Where TenantId = @TenantId And IsBack = 1 ";
             string where = "";
-            if (string.IsNullOrEmpty(searchKey))
+            if (!string.IsNullOrEmpty(searchKey))
             {
                 where += " And SearchKey like '%" + searchKey + "%' ";
             }
