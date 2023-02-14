@@ -349,6 +349,11 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.card_sn = mod.input.card_sn;// 卡识别码 字符型 32          就诊凭证类型为“03”时必填
                 model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));//开始时间 日期时间型               获取历史参保信息时传入
                 model.data.psn_cert_type = "";//   人员证件类型 字符型 6   Y
+                //外籍参保人需要传入certno
+                if(model.data.mdtrt_cert_type == "99")
+                {
+                    model.data.certno = mod.input.mdtrt_cert_no;
+                }
                 //model.data.certno = mod.input.mdtrt_cert_no;//  证件号码 字符型 50
                 //model.data.psn_name = "";// 人员姓名    字符型 50
                 rd1.infno = "1101";
