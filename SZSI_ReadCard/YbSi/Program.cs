@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Windows.Forms;
 
-namespace MkSi
+namespace YBSi
 {
     static class Program
     {

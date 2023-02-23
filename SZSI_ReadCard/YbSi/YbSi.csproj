@@ -80,7 +80,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <StartupObject>MkSi.Program</StartupObject>
+    <StartupObject>YBSi.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />

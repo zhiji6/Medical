@@ -9,7 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace MkSi
+namespace YBSi
 {
     public partial class Form1 : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace MkSi
+﻿namespace YBSi
 {
     partial class Form1
     {

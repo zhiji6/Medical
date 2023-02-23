@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MkSi
+namespace YBSi
 {
     public struct TSSCInfo
     {
@@ -99,7 +99,8 @@ namespace MkSi
             catch (Exception ex)
             {
                 LogHelper.Error(ex.Message + $"参数:StoreSzsbhUrl:{StoreSzsbhUrl}" + "堆栈:" + ex);
-                MessageBox.Show("ReadCard:异常" + ex.Message + "StoreSzsbhUrl:" + StoreSzsbhUrl);                
+                //MessageBox.Show("ReadCard:异常" + ex.Message + "StoreSzsbhUrl:" + StoreSzsbhUrl);
+                MessageBox.Show(ex.Message, "医保读卡错误");              
                 System.Environment.Exit(0);
             }            
         }
@@ -115,7 +116,7 @@ namespace MkSi
             {
                 throw new Exception("读卡器初始化失败");
             }
-            CardModel info = new MkSi.CardModel { result = -1,err_msg="为寻找到合适方法" };
+            CardModel info = new CardModel { result = -1,err_msg="未寻找到合适方法" };
             switch (method.ToLower())
             {
                 case "readcard":info = SYBReadCard.readCard();break;
