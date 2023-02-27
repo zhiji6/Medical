@@ -217,7 +217,7 @@
             科室    
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookModel.PatientInfo">
+        <member name="P:SY.Com.Medical.Model.CaseBookModel.Patient">
             <summary>
             患者导航属性
             </summary>
