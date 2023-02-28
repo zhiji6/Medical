@@ -38,6 +38,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 result.Data.ViewPath = bll.getViewPath(1, request.TenantId);
                 var tenantmodel = tenant.getById(request.TenantId);
                 result.Data.TenantName = tenantmodel.TenantName;
+                result.Data.Temp = new List<PrintTemp>() { new PrintTemp { tempid = 1, tempname = "a" } };
                 return result;
             }
             catch (Exception ex)
@@ -156,24 +157,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         public BaseResponse<CaseBookResponseModel> PrintCaseBook(CaseBookRequestModel request)
         {
             BaseResponse<CaseBookResponseModel> result = new BaseResponse<CaseBookResponseModel>();
-            try
-            {
-                result.Data = new CaseBookResponseModel();
-                result.Data = bll.getCaseBookOne(request.CaseBookId);
-                result.Data.ViewPath = bll.getViewPath(9, request.TenantId);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                if (ex is MyException)
-                {
-                    return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-                }
-                else
-                {
-                    return result.sysException(ex.Message);
-                }
-            }
+            result.Data = bll.getCaseBookOne(request.CaseBookId);
+            result.Data.Temp = new List<PrintTemp>() { new PrintTemp { tempid=1, tempname="a" } };            
+            result.Data.ViewPath = bll.getViewPath(9, request.TenantId);
+            return result;
         }
 
     }

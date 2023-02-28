@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace SY.Com.Medical.Model
 {
-    /// <summary>
-    /// 挂号打印模板入参
-    /// </summary>
-    public class PrintRegisterRequestModel : BaseModel
-    {
-       /// <summary>
-       /// 挂号Id
-       /// </summary>
-       public int RegisterId { get; set; }
-    }
+	/// <summary>
+	/// 挂号打印模板入参
+	/// </summary>
+	public class PrintRegisterRequestModel : BaseModel
+	{
+		/// <summary>
+		/// 挂号Id
+		/// </summary>
+		public int RegisterId { get; set; }
+	}
 
-    /// <summary>
-    /// 挂号打印模板输出
-    /// </summary>
-    public class PrintRegisterResponseModel: BaseModel
-    {
-        /// <summary>
-        /// 模板路径-相对
-        /// </summary>
-        public string ViewPath { get; set; }
+	/// <summary>
+	/// 挂号打印模板输出
+	/// </summary>
+	public class PrintRegisterResponseModel : BaseModel
+	{
+		/// <summary>
+		/// 模板路径-相对
+		/// </summary>
+		public string ViewPath { get; set; }
 		/// <summary>
 		/// 挂号Id
 		/// </summary>
@@ -66,25 +66,25 @@ namespace SY.Com.Medical.Model
 		//		double diffday = (DateTime.Now - CSRQ.Value).TotalDays;
 		//		int totalday = 0;
 		//		for(int i =DateTime.Now.Year;i<= CSRQ.Value.Year; i++)
-  //              {
+		//              {
 		//			//润年
 		//			if( (i % 4 == 0 && i % 100 != 0 ) || i % 400 == 0)
-  //                  {
+		//                  {
 		//				totalday += 366;
-  //                  }
-  //                  else
-  //                  {
+		//                  }
+		//                  else
+		//                  {
 		//				totalday += 365;
-  //                  }
-  //              }
+		//                  }
+		//              }
 		//		if(totalday < diffday)
-  //              {
+		//              {
 		//			return (diffyear - 1).ToString();
-  //              }
-  //              else
-  //              {
+		//              }
+		//              else
+		//              {
 		//			return diffyear.ToString();
-  //              }
+		//              }
 		//	} }
 
 		/// <summary>
@@ -175,13 +175,18 @@ namespace SY.Com.Medical.Model
 		/// 机构名称
 		/// </summary>
 		public string TenantName { get; set; }
+
+		/// <summary>
+		/// 临时凑数
+		/// </summary>
+		public List<PrintTemp> Temp { get; set; }
 	}
 
 	/// <summary>
 	/// 处方打印入参
 	/// </summary>
-    public class PrintPrescriptionRequestModel:BaseModel
-    {
+	public class PrintPrescriptionRequestModel : BaseModel
+	{
 		/// <summary>
 		/// 门诊Id
 		/// </summary>
@@ -194,8 +199,8 @@ namespace SY.Com.Medical.Model
 	/// <summary>
 	/// 处方打印模板输出
 	/// </summary>
-	public class PrintPrescriptionResponseModel:BaseModel
-    {
+	public class PrintPrescriptionResponseModel : BaseModel
+	{
 		/// <summary>
 		/// 模板路径-相对
 		/// </summary>
@@ -209,8 +214,8 @@ namespace SY.Com.Medical.Model
 	/// <summary>
 	/// 打印收费退费输入
 	/// </summary>
-	public class ChargeRecordRequestModel:BaseModel
-    {
+	public class ChargeRecordRequestModel : BaseModel
+	{
 		/// <summary>
 		/// 门诊Id
 		/// </summary>
@@ -225,7 +230,7 @@ namespace SY.Com.Medical.Model
 	/// <summary>
 	/// 打印收费退费输出
 	/// </summary>
-	public class ChargeRecordResponseModel:BaseModel
+	public class ChargeRecordResponseModel : BaseModel
 	{
 		/// <summary>
 		/// 模板路径
@@ -297,56 +302,23 @@ namespace SY.Com.Medical.Model
 	/// <summary>
 	/// 打印病历输入
 	/// </summary>
-	public class CaseBookRequestModel:BaseModel
-    {
+	public class CaseBookRequestModel : BaseModel
+	{
 		/// <summary>
 		/// 病历Id
 		/// </summary>
 		public int CaseBookId { get; set; }
-    }
+	}
 
 	/// <summary>
 	/// 打印病历输出
 	/// </summary>
 	public class CaseBookResponseModel
-    {
+	{
 		/// <summary>
 		/// 打印模板路径
 		/// </summary>
 		public string ViewPath { get; set; }
-
-		/// <summary>
-		/// 主键ID    
-		/// </summary>
-		public int CaseBookId { get; set; }
-
-		/// <summary>
-		/// 患者ID    
-		/// </summary>
-		public int PatientId { get; set; }
-
-		/// <summary>
-		/// 门诊ID    
-		/// </summary>
-		public int OutPatientId { get; set; }
-
-		/// <summary>
-		/// 医生ID,对应Role是医生的EmployeeId    
-		/// </summary>
-		public int DoctorId { get; set; }
-		/// <summary>
-		/// 科室id    
-		/// </summary>
-		public int DepartmentId { get; set; }
-		/// <summary>
-		/// 病历类型枚举ID    
-		/// </summary>
-		public int CaseBookTypeId { get; set; }
-
-		/// <summary>
-		/// 病历编号    
-		/// </summary>
-		public long CaseBookBH { get; set; }
 
 		/// <summary>
 		/// 主诉    
@@ -362,15 +334,6 @@ namespace SY.Com.Medical.Model
 		/// 疾病
 		/// </summary>
 		public string Disease { get; set; }
-		/// <summary>
-		/// 疾病编码
-		/// </summary>
-		public string DiseaseCode { get; set; }
-
-		/// <summary>
-		/// 门诊日期    
-		/// </summary>
-		public DateTime? OutPatientDate { get; set; }
 
 		/// <summary>
 		/// 门诊入诊日期    
@@ -403,11 +366,6 @@ namespace SY.Com.Medical.Model
 		public string Opinions { get; set; }
 
 		/// <summary>
-		/// 牙位    
-		/// </summary>
-		public string Tooth { get; set; }
-
-		/// <summary>
 		/// 部位    
 		/// </summary>
 		public string Place { get; set; }
@@ -429,15 +387,6 @@ namespace SY.Com.Medical.Model
 		/// </summary>    
 		public string PatientName { get; set; }
 
-		/// <summary>
-		/// 姓名拼音    
-		/// </summary> 
-		public string PatientPinYin { get; set; }
-
-		/// <summary>
-		/// 电话（手机号）    
-		/// </summary>       
-		public string Phone { get; set; }
 
 		/// <summary>
 		/// 性别    
@@ -457,33 +406,14 @@ namespace SY.Com.Medical.Model
 		}
 
 		/// <summary>
-		/// 出生日期    
+		/// 患者电话
+		/// </summary>
+		public string Phone { get; set; }
+
+		/// <summary>
+		/// 出生日期
 		/// </summary>
 		public DateTime CSRQ { get; set; }
-
-		/// <summary>
-		/// 身份证号    
-		/// </summary>     
-		public string SFZ { get; set; }
-
-		/// <summary>
-		/// 医保电脑号    
-		/// </summary>  
-		public string YBDNH { get; set; }
-
-		/// <summary>
-		/// 医保卡号    
-		/// </summary>      
-		public string YBKH { get; set; }
-
-		/// <summary>
-		/// 地址    
-		/// </summary>      
-		public string Addr { get; set; }
-		/// <summary>
-		/// 搜索
-		/// </summary>
-		public string SearchKey { get; set; }
 		/// <summary>
 		/// 年龄
 		/// 使用出生日期计算
@@ -518,7 +448,32 @@ namespace SY.Com.Medical.Model
 			}
 		}
 
+		/// <summary>
+		/// 身份证
+		/// </summary>
+		public string SFZ { get; set; }
+
+		/// <summary>
+		/// 打印控件必须要有一个数组
+		/// </summary>
+		public List<PrintTemp> Temp { get; set; }
+
 	}
+
+	/// <summary>
+	/// 打印临时凑数
+	/// </summary>
+	public class PrintTemp
+    {
+		/// <summary>
+		/// 
+		/// </summary>
+		public string tempname { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
+		public int tempid { get; set; }
+    }
 
 	/// <summary>
 	/// 综合打印数据

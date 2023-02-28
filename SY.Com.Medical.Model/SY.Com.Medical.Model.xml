@@ -4935,6 +4935,11 @@
             机构名称
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterResponseModel.Temp">
+            <summary>
+            临时凑数
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrintPrescriptionRequestModel">
             <summary>
             处方打印入参
@@ -5085,41 +5090,6 @@
             打印模板路径
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseBookId">
-            <summary>
-            主键ID    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.PatientId">
-            <summary>
-            患者ID    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.OutPatientId">
-            <summary>
-            门诊ID    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DoctorId">
-            <summary>
-            医生ID,对应Role是医生的EmployeeId    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DepartmentId">
-            <summary>
-            科室id    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseBookTypeId">
-            <summary>
-            病历类型枚举ID    
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseBookBH">
-            <summary>
-            病历编号    
-            </summary>
-        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Complaint">
             <summary>
             主诉    
@@ -5133,16 +5103,6 @@
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Disease">
             <summary>
             疾病
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DiseaseCode">
-            <summary>
-            疾病编码
-            </summary>
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.OutPatientDate">
-            <summary>
-            门诊日期    
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CreateTime">
@@ -5175,11 +5135,6 @@
             治疗意见    
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Tooth">
-            <summary>
-            牙位    
-            </summary>
-        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Place">
             <summary>
             部位    
@@ -5200,16 +5155,6 @@
             患者姓名    
             </summary>    
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.PatientPinYin">
-            <summary>
-            姓名拼音    
-            </summary> 
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Phone">
-            <summary>
-            电话（手机号）    
-            </summary>       
-        </member>
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Sex">
             <summary>
             性别    
@@ -5220,34 +5165,14 @@
             性别描述
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CSRQ">
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Phone">
             <summary>
-            出生日期    
+            患者电话
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.SFZ">
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CSRQ">
             <summary>
-            身份证号    
-            </summary>     
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.YBDNH">
-            <summary>
-            医保电脑号    
-            </summary>  
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.YBKH">
-            <summary>
-            医保卡号    
-            </summary>      
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Addr">
-            <summary>
-            地址    
-            </summary>      
-        </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.SearchKey">
-            <summary>
-            搜索
+            出生日期
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Age">
@@ -5257,6 +5182,31 @@
             大于等于24个月，只显示岁，岁用总月数整除12向下取整
             小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
             小于6月的显示天
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.SFZ">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Temp">
+            <summary>
+            打印控件必须要有一个数组
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintTemp">
+            <summary>
+            打印临时凑数
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintTemp.tempname">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintTemp.tempid">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.CombinePrintDataModel">

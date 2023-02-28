@@ -67,33 +67,23 @@ namespace SY.Com.Medical.BLL.Clinic
             CaseBookRepository cbrep = new CaseBookRepository();
             CaseBookResponseModel resp = new CaseBookResponseModel();
             var mod = cbrep.getOne(id).EntityToDto<CaseBookModel>();
-            resp.CaseBookBH = mod.CaseBookBH;
-            resp.CaseBookId = mod.CaseBookId;
-            resp.CaseBookTypeId = mod.CaseBookTypeId;
             resp.CaseOrder = mod.CaseOrder;
             resp.Complaint = mod.Complaint;
             resp.CreateTime = mod.CreateTime;
-            resp.DepartmentId = mod.DepartmentId;
             resp.DepartmentName = mod.DepartmentName;
             resp.Diagnosis = mod.Diagnosis;
             resp.Disease = mod.Disease;
-            resp.DiseaseCode = mod.DiseaseCode;
-            resp.DoctorId = mod.DoctorId;
             resp.DoctorName = mod.DoctorName;
             resp.HistoryCase = mod.HistoryCase;
             resp.Opinions = mod.Opinions;
-            resp.OutPatientDate = mod.OutPatientDate;
-            resp.OutPatientId = mod.OutPatientId;
             resp.PastCase = mod.PastCase;
             resp.PatientName = mod.Patient.PatientName;
             resp.Sex = mod.Patient.Sex;
             resp.Phone = mod.Patient.Phone;
-            resp.CSRQ = mod.Patient.CSRQ;
-            resp.SFZ = mod.Patient.SFZ;
-            resp.PatientId = mod.PatientId;
             resp.Physical = mod.Physical;
             resp.Place = mod.Place;
-            resp.Tooth = mod.Tooth;
+            resp.CSRQ = mod.Patient.CSRQ;
+            resp.SFZ = mod.Patient.SFZ;
             return resp;
 
         }
