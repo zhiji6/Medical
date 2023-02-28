@@ -422,10 +422,102 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public string DepartmentName { get; set; }
 
+
+
 		/// <summary>
-		/// 患者导航属性
+		/// 患者姓名    
+		/// </summary>    
+		public string PatientName { get; set; }
+
+		/// <summary>
+		/// 姓名拼音    
+		/// </summary> 
+		public string PatientPinYin { get; set; }
+
+		/// <summary>
+		/// 电话（手机号）    
+		/// </summary>       
+		public string Phone { get; set; }
+
+		/// <summary>
+		/// 性别    
 		/// </summary>
-		public PatientModel Patient { get; set; }       //public PatientModel PatientInfo { get; set; }
+		public int Sex { get; set; }
+
+		/// <summary>
+		/// 性别描述
+		/// </summary>
+		public string SexDesc
+		{
+			get
+			{
+				if (Sex == 1) return "男";
+				return "女";
+			}
+		}
+
+		/// <summary>
+		/// 出生日期    
+		/// </summary>
+		public DateTime CSRQ { get; set; }
+
+		/// <summary>
+		/// 身份证号    
+		/// </summary>     
+		public string SFZ { get; set; }
+
+		/// <summary>
+		/// 医保电脑号    
+		/// </summary>  
+		public string YBDNH { get; set; }
+
+		/// <summary>
+		/// 医保卡号    
+		/// </summary>      
+		public string YBKH { get; set; }
+
+		/// <summary>
+		/// 地址    
+		/// </summary>      
+		public string Addr { get; set; }
+		/// <summary>
+		/// 搜索
+		/// </summary>
+		public string SearchKey { get; set; }
+		/// <summary>
+		/// 年龄
+		/// 使用出生日期计算
+		/// 大于等于24个月，只显示岁，岁用总月数整除12向下取整
+		/// 小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+		/// 小于6月的显示天
+		/// </summary>
+		public string Age
+		{
+			get
+			{
+				var totalMonth = (DateTime.Now.Year - CSRQ.Year) * 12 - CSRQ.Month + DateTime.Now.Month;
+				if (totalMonth < 2)
+				{
+					return $"{(DateTime.Now - CSRQ).Days}天";
+				}
+				else if (totalMonth >= 24)
+				{
+					return $"{totalMonth / 12}岁";
+				}
+				else
+				{
+					if (totalMonth >= 12)
+					{
+						return $"{totalMonth / 12}岁{totalMonth % 12}月";
+					}
+					else
+					{
+						return $"{totalMonth}月";
+					}
+				}
+			}
+		}
+
 	}
 
 	/// <summary>

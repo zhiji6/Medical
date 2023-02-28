@@ -5195,9 +5195,68 @@
             科室    
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Patient">
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.PatientName">
             <summary>
-            患者导航属性
+            患者姓名    
+            </summary>    
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.PatientPinYin">
+            <summary>
+            姓名拼音    
+            </summary> 
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Phone">
+            <summary>
+            电话（手机号）    
+            </summary>       
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Sex">
+            <summary>
+            性别    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.SexDesc">
+            <summary>
+            性别描述
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CSRQ">
+            <summary>
+            出生日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.SFZ">
+            <summary>
+            身份证号    
+            </summary>     
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.YBDNH">
+            <summary>
+            医保电脑号    
+            </summary>  
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.YBKH">
+            <summary>
+            医保卡号    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Addr">
+            <summary>
+            地址    
+            </summary>      
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.SearchKey">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Age">
+            <summary>
+            年龄
+            使用出生日期计算
+            大于等于24个月，只显示岁，岁用总月数整除12向下取整
+            小于24个月,显示岁和月，岁依然是月数整除12向下取整，月为月数对12求余        
+            小于6月的显示天
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.CombinePrintDataModel">

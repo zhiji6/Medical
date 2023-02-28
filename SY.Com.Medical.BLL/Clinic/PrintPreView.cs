@@ -85,7 +85,11 @@ namespace SY.Com.Medical.BLL.Clinic
             resp.OutPatientDate = mod.OutPatientDate;
             resp.OutPatientId = mod.OutPatientId;
             resp.PastCase = mod.PastCase;
-            resp.Patient = mod.Patient;
+            resp.PatientName = mod.Patient.PatientName;
+            resp.Sex = mod.Patient.Sex;
+            resp.Phone = mod.Patient.Phone;
+            resp.CSRQ = mod.Patient.CSRQ;
+            resp.SFZ = mod.Patient.SFZ;
             resp.PatientId = mod.PatientId;
             resp.Physical = mod.Physical;
             resp.Place = mod.Place;
