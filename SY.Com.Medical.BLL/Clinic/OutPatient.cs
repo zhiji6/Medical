@@ -73,8 +73,8 @@ namespace SY.Com.Medical.BLL.Clinic
 			Patient pat = new Patient();
 			var tuple = db.getHistoryPaid(tenantId, pageSize, pageIndex, searchKey, start, end,doctorId);
 			var crs = new ChargeRecord().getByOutpatientIds(tenantId, tuple.Item1?.Select(s => s.OutpatientId).ToList());
-			tuple.Item1.ForEach(x =>
-			{
+			foreach(var x in tuple.Item1)
+            {
 				OutpatientListModel mod = new OutpatientListModel();
 				var pamod = pat.get(x.PatientId);
 				mod.OutpatientId = x.OutpatientId;
@@ -89,10 +89,10 @@ namespace SY.Com.Medical.BLL.Clinic
 				mod.CreateTime = x.CreateTime;
 				mod.IsYbPay = x.PayYB > 0 ? 1 : 0;
 				mod.PrescriptionCount = x.PrescriptionCount;
-				mod.Cashier = crs?.Find(f=> f.SeeDoctorId == x.OutpatientId)?.Cashier ?? 0;
+				mod.Cashier = crs?.Find(f => f.SeeDoctorId == x.OutpatientId)?.Cashier ?? 0;
 				mod.CashierName = crs?.Find(f => f.SeeDoctorId == x.OutpatientId)?.CashierName ?? "";
 				modellist.Add(mod);
-			});
+			}
 			Tuple<List<OutpatientListModel>, int> result = new Tuple<List<OutpatientListModel>, int>(modellist, tuple.Item2);
 			return result;
 		}

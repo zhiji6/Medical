@@ -314,10 +314,118 @@ namespace SY.Com.Medical.Model
 		/// 打印模板路径
 		/// </summary>
 		public string ViewPath { get; set; }
+
 		/// <summary>
-		/// 打印数据
+		/// 主键ID    
 		/// </summary>
-		public CaseBookModel Data { get; set; }
+		public int CaseBookId { get; set; }
+
+		/// <summary>
+		/// 患者ID    
+		/// </summary>
+		public int PatientId { get; set; }
+
+		/// <summary>
+		/// 门诊ID    
+		/// </summary>
+		public int OutPatientId { get; set; }
+
+		/// <summary>
+		/// 医生ID,对应Role是医生的EmployeeId    
+		/// </summary>
+		public int DoctorId { get; set; }
+		/// <summary>
+		/// 科室id    
+		/// </summary>
+		public int DepartmentId { get; set; }
+		/// <summary>
+		/// 病历类型枚举ID    
+		/// </summary>
+		public int CaseBookTypeId { get; set; }
+
+		/// <summary>
+		/// 病历编号    
+		/// </summary>
+		public long CaseBookBH { get; set; }
+
+		/// <summary>
+		/// 主诉    
+		/// </summary>
+		public string Complaint { get; set; }
+
+		/// <summary>
+		/// 诊断    
+		/// </summary>
+		public string Diagnosis { get; set; }
+
+		/// <summary>
+		/// 疾病
+		/// </summary>
+		public string Disease { get; set; }
+		/// <summary>
+		/// 疾病编码
+		/// </summary>
+		public string DiseaseCode { get; set; }
+
+		/// <summary>
+		/// 门诊日期    
+		/// </summary>
+		public DateTime? OutPatientDate { get; set; }
+
+		/// <summary>
+		/// 门诊入诊日期    
+		/// </summary>
+		public DateTime? CreateTime { get; set; }
+
+		/// <summary>
+		/// 医嘱    
+		/// </summary>
+		public string CaseOrder { get; set; }
+
+		/// <summary>
+		/// 现病史    
+		/// </summary>
+		public string PastCase { get; set; }
+
+		/// <summary>
+		/// 既往史    
+		/// </summary>
+		public string HistoryCase { get; set; }
+
+		/// <summary>
+		/// 体格检查    
+		/// </summary>
+		public string Physical { get; set; }
+
+		/// <summary>
+		/// 治疗意见    
+		/// </summary>
+		public string Opinions { get; set; }
+
+		/// <summary>
+		/// 牙位    
+		/// </summary>
+		public string Tooth { get; set; }
+
+		/// <summary>
+		/// 部位    
+		/// </summary>
+		public string Place { get; set; }
+
+		/// <summary>
+		/// 医生姓名    
+		/// </summary>
+		public string DoctorName { get; set; }
+
+		/// <summary>
+		/// 科室    
+		/// </summary>
+		public string DepartmentName { get; set; }
+
+		/// <summary>
+		/// 患者导航属性
+		/// </summary>
+		public PatientModel Patient { get; set; }       //public PatientModel PatientInfo { get; set; }
 	}
 
 	/// <summary>

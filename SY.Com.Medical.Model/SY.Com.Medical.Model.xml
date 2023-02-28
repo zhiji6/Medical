@@ -5085,9 +5085,119 @@
             打印模板路径
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Data">
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseBookId">
             <summary>
-            打印数据
+            主键ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.PatientId">
+            <summary>
+            患者ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.OutPatientId">
+            <summary>
+            门诊ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DoctorId">
+            <summary>
+            医生ID,对应Role是医生的EmployeeId    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DepartmentId">
+            <summary>
+            科室id    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseBookTypeId">
+            <summary>
+            病历类型枚举ID    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseBookBH">
+            <summary>
+            病历编号    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Complaint">
+            <summary>
+            主诉    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Diagnosis">
+            <summary>
+            诊断    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Disease">
+            <summary>
+            疾病
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DiseaseCode">
+            <summary>
+            疾病编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.OutPatientDate">
+            <summary>
+            门诊日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CreateTime">
+            <summary>
+            门诊入诊日期    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.CaseOrder">
+            <summary>
+            医嘱    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.PastCase">
+            <summary>
+            现病史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.HistoryCase">
+            <summary>
+            既往史    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Physical">
+            <summary>
+            体格检查    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Opinions">
+            <summary>
+            治疗意见    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Tooth">
+            <summary>
+            牙位    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Place">
+            <summary>
+            部位    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DoctorName">
+            <summary>
+            医生姓名    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.DepartmentName">
+            <summary>
+            科室    
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Patient">
+            <summary>
+            患者导航属性
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.CombinePrintDataModel">

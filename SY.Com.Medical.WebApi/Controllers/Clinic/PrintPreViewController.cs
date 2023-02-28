@@ -159,7 +159,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             try
             {
                 result.Data = new CaseBookResponseModel();
-                result.Data.Data = bll.getCaseBookOne(request.CaseBookId);
+                result.Data = bll.getCaseBookOne(request.CaseBookId);
                 result.Data.ViewPath = bll.getViewPath(9, request.TenantId);
                 return result;
             }

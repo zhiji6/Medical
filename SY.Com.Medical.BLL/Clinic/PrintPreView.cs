@@ -1,4 +1,5 @@
-﻿using SY.Com.Medical.Entity;
+﻿using SY.Com.Medical.BLL.Platform;
+using SY.Com.Medical.Entity;
 using SY.Com.Medical.Extension;
 using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Clinic;
@@ -61,10 +62,36 @@ namespace SY.Com.Medical.BLL.Clinic
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public CaseBookModel getCaseBookOne(int id)
+        public CaseBookResponseModel getCaseBookOne(int id)
         {
             CaseBookRepository cbrep = new CaseBookRepository();
-            return cbrep.getOne(id).EntityToDto<CaseBookModel>();
+            CaseBookResponseModel resp = new CaseBookResponseModel();
+            var mod = cbrep.getOne(id).EntityToDto<CaseBookModel>();
+            resp.CaseBookBH = mod.CaseBookBH;
+            resp.CaseBookId = mod.CaseBookId;
+            resp.CaseBookTypeId = mod.CaseBookTypeId;
+            resp.CaseOrder = mod.CaseOrder;
+            resp.Complaint = mod.Complaint;
+            resp.CreateTime = mod.CreateTime;
+            resp.DepartmentId = mod.DepartmentId;
+            resp.DepartmentName = mod.DepartmentName;
+            resp.Diagnosis = mod.Diagnosis;
+            resp.Disease = mod.Disease;
+            resp.DiseaseCode = mod.DiseaseCode;
+            resp.DoctorId = mod.DoctorId;
+            resp.DoctorName = mod.DoctorName;
+            resp.HistoryCase = mod.HistoryCase;
+            resp.Opinions = mod.Opinions;
+            resp.OutPatientDate = mod.OutPatientDate;
+            resp.OutPatientId = mod.OutPatientId;
+            resp.PastCase = mod.PastCase;
+            resp.Patient = mod.Patient;
+            resp.PatientId = mod.PatientId;
+            resp.Physical = mod.Physical;
+            resp.Place = mod.Place;
+            resp.Tooth = mod.Tooth;
+            return resp;
+
         }
 
         public CombinePrintDataModel getCombineData(int tenantId,int outpatientId)
