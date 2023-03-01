@@ -68,7 +68,7 @@ namespace SY.Com.Medical.Repository
             Type t = typeof(T);
             string tableName = ReadAttribute<DB_TableAttribute>.getKey(t).ToString();//获取表名
             string tablekey = ReadAttribute<DB_KeyAttribute>.getKey(t).ToString();
-            string sql = $" Select * From {tableName} Where {tablekey} = @Id And IsDelete = 1 ";
+            string sql = $" Select * From {tableName} Where {tablekey} = @Id ";
             return _db.QueryFirstOrDefault<T>(sql, new { Id = id });
         }
 
