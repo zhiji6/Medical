@@ -189,6 +189,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 page.PageSize = request.PageSize;
                 page.PageIndex = request.PageIndex;
                 page.SearchKey = request.SearchKey;
+                page.TenantId = request.TenantId;
                 var tuple =  patbll.gets(page);
                 result.Data = tuple.Item1;
                 result.CalcPage(tuple.Item2,1, 1);

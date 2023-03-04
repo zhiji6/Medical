@@ -108,10 +108,10 @@ namespace SY.Com.Medical.Repository.Clinic
             return null;
         }
 
-        public PatientEntity GetInsuplcAdmdvs(string psn_no)
+        public PatientEntity GetInsuplcAdmdvs(string psn_no,int tenantid)
         {
-            string sql = " Select * From Patients Where psn_no = @psnno And insuplc_admdvs <> '' ";
-            var mods = _db.Query<PatientEntity>(sql, new { psnno = psn_no });
+            string sql = " Select * From Patients Where TenantId =@tenantid And  psn_no = @psnno And insuplc_admdvs <> '' ";
+            var mods = _db.Query<PatientEntity>(sql, new { psnno = psn_no,TenantId = tenantid });
             if (mods != null && mods.Any())
             {
                 return mods.FirstOrDefault();                

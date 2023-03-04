@@ -53,7 +53,7 @@ namespace SY.Com.Medical.BLL.Clinic
             PatientEntity patient = null;
             if (!string.IsNullOrEmpty(psn_no))
             {
-                patient = _repository.GetInsuplcAdmdvs(psn_no);                
+                patient = _repository.GetInsuplcAdmdvs(psn_no,tenantId);                
             }
             
             InCommon comm = new InCommon();
