@@ -157,10 +157,14 @@ namespace SY.Com.Medical.BLL.Clinic
             {
 				foreach(var node in mods)
                 {
-					RegisterDoctor mod = new RegisterDoctor();
-					mod.DoctorId = node.EmployeeId;
-					mod.DoctorName = node.EmployeeName;
-					result.Add(mod);
+					if( node.Roles.Split(",").Contains("2"))
+                    {
+						RegisterDoctor mod = new RegisterDoctor();
+						mod.DoctorId = node.EmployeeId;
+						mod.DoctorName = node.EmployeeName;
+						result.Add(mod);
+					}
+
 				}
             }
 			return result;

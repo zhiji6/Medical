@@ -37,6 +37,9 @@ namespace SY.Com.Medical.Repository.Clinic
             }else if(goodType == 7)
             {
                 sqlwhere += " And GoodType in(1,2)";
+            }else if(goodType == 11)
+            {
+                sqlwhere += " And GoodType in(1,2,3,5)";
             }
             if(goodSort > 0)
             {

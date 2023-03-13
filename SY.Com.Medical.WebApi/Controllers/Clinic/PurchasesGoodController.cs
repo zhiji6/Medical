@@ -33,7 +33,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 			BaseResponse<List<PurchasesGoodSearchResponse>> result = new BaseResponse<List<PurchasesGoodSearchResponse>>();
 			if(request.Type == 0)
             {
-				request.GoodType = 0;
+				request.GoodType = 11;
 			}else if(request.Type == 1)
             {
 				request.GoodType = 6;
