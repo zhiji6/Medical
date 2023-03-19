@@ -167,6 +167,19 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public int UpdateStructure(OutpatientAddStructure structure)
         {
+			var oldoutpatient = db.Get(structure.OutpatientId);
+			if (oldoutpatient.TenantId != structure.TenantId )
+			{
+				throw new MyException("该处方无权限修改");
+			}
+			if (oldoutpatient.IsPay == 1)
+			{
+				throw new MyException("该处方已收费,无法修改");
+			}
+			if (oldoutpatient.IsBack == 1)
+			{
+				throw new MyException("该处方已退费,无法修改");
+			}
 			return db.UpdateStructure(structure);
         }
 

@@ -398,6 +398,7 @@ namespace SY.Com.Medical.Repository.Clinic
         /// <returns></returns>
         public int UpdateStructure(OutpatientAddStructure structure)
         {
+
             //插入或修改Patient
             PatientRepository patient_db = new PatientRepository();
 
@@ -421,6 +422,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     patient_db.Update(old_patient);
                 }
             }
+            SaveOutpatientJson(structure.OutpatientId, structure.TenantId, Newtonsoft.Json.JsonConvert.SerializeObject(structure));
             //插入或修改病历
             CaseBookRepository case_db = new CaseBookRepository();
             if (structure.CaseBook.CaseBookId == 0)
