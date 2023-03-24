@@ -27,7 +27,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			var entitys = db.getDic(tenantid, keyFirst, keySecond, searchKey);
 			if(entitys == null || !entitys.Any())
             {
-				return null;
+				return new List<DicKeyValueModel>();
             }
 			entitys.ForEach(x =>
 			{
