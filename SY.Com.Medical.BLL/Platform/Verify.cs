@@ -17,8 +17,8 @@ namespace SY.Com.Medical.BLL.Platform
 
         public VerifyCode Generator()
         {
-            char[] chs = new char[6];
-            for(int i = 0; i < 6; i++)
+            char[] chs = new char[4];
+            for(int i = 0; i < 4; i++)
             {
                 int index = new Random().Next(3);
                 int rd = 48;
@@ -30,7 +30,7 @@ namespace SY.Com.Medical.BLL.Platform
                     default:break;
                 }
                 chs[i] = (char)rd;
-            }            
+            }
             string text = new string(chs);
             byte[] key, iv;
             
