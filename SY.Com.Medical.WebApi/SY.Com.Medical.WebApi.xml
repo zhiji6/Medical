@@ -1318,6 +1318,24 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.LoginController.GenVerifyCode">
+            <summary>
+            生成验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.LoginController.GetVerifyList">
+            <summary>
+            管理员查看所有验证码,前端无需调用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Platform.LoginController.ClearVerify">
+            <summary>
+            管理员清理验证码,前端无需调用
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Platform.MenuController">
             <summary>
             菜单控制器

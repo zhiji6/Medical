@@ -11912,6 +11912,16 @@
             密码(md5小写)
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.LoginRequest.Token">
+            <summary>
+             验证码有效性Token
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.LoginRequest.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.LoginResponse">
             <summary>
             登录出参
@@ -12015,6 +12025,41 @@
         <member name="P:SY.Com.Medical.Model.ChangeRequst.PwdConfirm">
             <summary>
             新密码确认
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.VerifyCode">
+            <summary>
+            图片验证码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.VerifyCode.Token">
+            <summary>
+             验证码有效性Token
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.VerifyCode.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.VerifyToken">
+            <summary>
+            图片验证码Token结构
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.VerifyToken.CreateOn">
+            <summary>
+            创建时间Unix时间戳
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.VerifyToken.ID">
+            <summary>
+            生成的唯一UUID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.VerifyToken.Code">
+            <summary>
+            生成的随机密码
             </summary>
         </member>
         <member name="T:SZSI_Smart.Model.SYB.CFZX.CF7103">

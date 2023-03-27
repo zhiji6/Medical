@@ -46,6 +46,14 @@ namespace SY.Com.Medical.Model
         /// 密码(md5小写)
         /// </summary>
         public string Pwd { get; set; }
+        /// <summary>
+        ///  验证码有效性Token
+        /// </summary>
+        public string Token { get; set; }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        public string Code { get; set; }
     }
 
     /// <summary>
@@ -152,6 +160,41 @@ namespace SY.Com.Medical.Model
         /// </summary>
 
         public string PwdConfirm { get; set; }
+    }
+
+    /// <summary>
+    /// 图片验证码
+    /// </summary>
+    public class VerifyCode
+    {
+        /// <summary>
+        ///  验证码有效性Token
+        /// </summary>
+        public string Token { get; set; }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        public string Code { get; set; }
+    }
+
+    /// <summary>
+    /// 图片验证码Token结构
+    /// </summary>
+    public class VerifyToken
+    {
+        /// <summary>
+        /// 创建时间Unix时间戳
+        /// </summary>
+        public long CreateOn { get; set; }
+
+        /// <summary>
+        /// 生成的唯一UUID
+        /// </summary>
+        public string ID { get; set; }
+        /// <summary>
+        /// 生成的随机密码
+        /// </summary>
+        public string Code { get; set; }
     }
 
 

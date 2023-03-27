@@ -8,7 +8,6 @@ using SY.Com.Medical.WebApi.JWT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SY.Com.Medical.WebApi.Controllers.Platform
 {
@@ -34,6 +33,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             BaseResponse<LoginResponse> result = new BaseResponse<LoginResponse>();
             try
             {
+                //先验证验证码
+                Verify vf = new Verify();
+                var IsCode = vf.AuthCode(new VerifyCode { Code = request.Code, Token = request.Token });
+                if (!IsCode) return new BaseResponse<LoginResponse> { ErrCode = "-1", Result = -2, ErrMes = "验证码错误" };
                 result.Data = new LoginResponse();
                 var usermodel = userbll.Login(request);
                 result.Data.access_token = JWTTokenValidationParameters.getSecurityToken(usermodel.UserId, usermodel.Account);
@@ -147,7 +150,44 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             }
         }
 
+        /// <summary>
+        /// 生成验证码
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public BaseResponse<VerifyCode> GenVerifyCode()
+        {
+            BaseResponse<VerifyCode> result = new BaseResponse<VerifyCode>();
+            Verify vf = new Verify();
+            result.Data = vf.Generator();
+            return result;
+        }
 
+        /// <summary>
+        /// 管理员查看所有验证码,前端无需调用
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public BaseResponse<List<VerifyToken>> GetVerifyList()
+        {
+            BaseResponse<List<VerifyToken>> result = new BaseResponse<List<VerifyToken>>();
+            result.Data = Verify.systemVerifyCode.Values.ToList();
+            return result;
+        }
+
+        /// <summary>
+        /// 管理员清理验证码,前端无需调用
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        [AllowAnonymous]
+        public void ClearVerify()
+        {
+            Verify vf = new Verify();
+            vf.Clear();
+        }
 
 
     }
