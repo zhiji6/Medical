@@ -95,5 +95,9 @@ namespace SY.Com.Medical.Entity
 		/// 单次用量
 		/// </summary>
 		public int SingleNum { get; set; }
+		/// <summary>
+		/// 备注
+		/// </summary>
+		public string Remark { get; set; }
 	}
 } 

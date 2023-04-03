@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SY.Com.Medical.Entity\SY.Com.Medical.Entity.csproj" />
     <ProjectReference Include="..\SY.Com.Medical.Enum\SY.Com.Medical.Enum.csproj" />
   </ItemGroup>
 

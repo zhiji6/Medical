@@ -96,6 +96,7 @@ namespace SY.Com.Medical.Extension
             //return dto;
         }
 
+
         /// <summary>
         /// 深度拷贝并转换数据类型,暂时不兼容Struct
         /// </summary>

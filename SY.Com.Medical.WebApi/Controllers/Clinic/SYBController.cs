@@ -867,7 +867,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                     fdmod.med_list_codg = node.InsuranceCode;
                     fdmod.medins_list_codg = node.CustomerCode;
                     //fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
-                    fdmod.cnt = node.GoodsNum;
+                    fdmod.cnt = node.GoodsNum * (node.GoodsDays <= 0 ? 1 : node.GoodsDays);
                     fdmod.pric = decimal.Parse(Math.Round(node.GoodsPrice, 2).ToString());
                     fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost, 2).ToString());
                     fdmod.bilg_dept_codg = department.code;
@@ -948,7 +948,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                         fdmod.med_list_codg = node.InsuranceCode;
                         fdmod.medins_list_codg = node.CustomerCode;
                         fdmod.det_item_fee_sumamt = Math.Round(decimal.Parse(node.GoodsCost.ToString()), 2);
-                        fdmod.cnt = node.GoodsNum;
+                        fdmod.cnt = node.GoodsNum * (node.GoodsDays <= 0 ? 1 : node.GoodsDays);
                         fdmod.pric = Math.Round(decimal.Parse(node.GoodsPrice.ToString()), 4);
                         fdmod.bilg_dept_codg = department.code;
                         fdmod.bilg_dept_name = department.name;
@@ -1135,6 +1135,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             result.Data.Balc = mod.Message.output.setlinfo.balc.Value;
             result.Data.YBCost= mod.Message.output.setlinfo.acct_pay.Value;
             result.Data.CashCost = mod.Message.output.setlinfo.psn_cash_pay.Value;
+            result.Data.hifp_pay = mod.Message.output.setlinfo.hifp_pay.Value;
             return result;
         }
 
@@ -1254,6 +1255,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             result.Data.Balc = mod.Message.output.setlinfo.balc.Value;
             result.Data.YBCost = mod.Message.output.setlinfo.acct_pay.Value;
             result.Data.CashCost = mod.Message.output.setlinfo.psn_cash_pay.Value;
+            result.Data.hifp_pay = mod.Message.output.setlinfo.hifp_pay.Value;
             return result;
         }
 

@@ -195,7 +195,9 @@ namespace SY.Com.Medical.Repository.Clinic
                         Physical = case_entity.Physical,
                         Opinions = case_entity.Opinions,
                         Tooth = case_entity.Tooth,
-                        Place = case_entity.Place
+                        Place = case_entity.Place,
+                        DiseaseCode = case_entity.DiseaseCode
+
                     };
                 }
                 Dictionary<string, List<PrescriptionDetailStructure>> predic = new Dictionary<string, List<PrescriptionDetailStructure>>();                
@@ -320,7 +322,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 PayCash = 0,
                 PayYBBefor = 0,
                 PayYBAfter = 0,
-                Cost = Convert.ToInt64(structure.Prescriptions.Sum(x => x.Details.Sum(y=> (y.GoodsPrice * y.GoodsNum) * 1000 ))),
+                Cost = Convert.ToInt64(structure.Prescriptions.Sum(x => x.Details.Sum(y=> (y.GoodsPrice * y.GoodsNum * (y.GoodsDays <= 0 ? 1 : y.GoodsDays)) * 1000 ))),
                 SearchKey = structure.Patient.PatientName + "|" + structure.Patient.PatientName.GetPinYin() + "|" + structure.Patient.Phone
             };
             var outpatientId = Create(entity);
@@ -359,7 +361,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsNorm = node.GoodsNorm;
                     pres_entity.GoodsPrice = Convert.ToInt64(node.GoodsPrice * 1000);
                     pres_entity.GoodsNum = node.GoodsNum;
-                    pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice;
+                    pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice * ( pres_entity.GoodsDays <= 0 ? 1 : pres_entity.GoodsDays);
                     string secondkey = "";
                     if(item.PreName.IndexOf("西药") > -1 || item.PreName.IndexOf("中成药") > -1)
                     {
@@ -381,6 +383,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.Pair = item.Pair;
                     pres_entity.InsuranceCode = node.InsuranceCode;
                     pres_entity.CustomerCode = node.CustomerCode;
+                    pres_entity.Remark = node.Remark;
                     pres_entitys.Add(pres_entity);
                 }
             }
@@ -445,7 +448,7 @@ namespace SY.Com.Medical.Repository.Clinic
                 ,DoctorId = structure.DoctorId,DoctorName= doc_entity.EmployeeName,
                 mdtrt_id= structure.mdtrt_id,
                 PrescriptionCount= structure.Prescriptions.Count,
-                Cost= Convert.ToInt64(structure.Prescriptions.Sum(x => x.Details.Sum(y => (y.GoodsPrice * y.GoodsNum) * 1000))),
+                Cost= Convert.ToInt64(structure.Prescriptions.Sum(x => x.Details.Sum(y => (y.GoodsPrice * y.GoodsNum * ( y.GoodsDays <= 0 ? 1 : y.GoodsDays )) * 1000))),
                 SearchKey= structure.Patient.PatientName + structure.Patient.PatientName.GetPinYin() + "|" + structure.Patient.Phone
             });
             var outpatientId = structure.OutpatientId;
@@ -469,7 +472,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsNorm = node.GoodsNorm;
                     pres_entity.GoodsPrice = Convert.ToInt64(node.GoodsPrice * 1000);
                     pres_entity.GoodsNum = node.GoodsNum;
-                    pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice;
+                    pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice * (pres_entity.GoodsDays <= 0 ? 1 : pres_entity.GoodsDays);
                     pres_entity.InsuranceCode = node.InsuranceCode;
                     pres_entity.CustomerCode = node.CustomerCode;
                     string secondkey = "";
@@ -494,6 +497,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.Pair = item.Pair;
                     pres_entity.InsuranceCode = node.InsuranceCode;
                     pres_entity.CustomerCode = node.CustomerCode;
+                    pres_entity.Remark = node.Remark;
                     pres_entitys.Add(pres_entity);
                 }
             }
@@ -506,10 +510,10 @@ namespace SY.Com.Medical.Repository.Clinic
         /// </summary>
         /// <param name="tenantId"></param>
         /// <param name="outpatientId"></param>
-        public void UpdateIsPay(int tenantId,int outpatientId,string setl_id,long balance,long PayYB)
+        public void UpdateIsPay(int tenantId,int outpatientId,string setl_id,long balance,long PayYB,long HifpPay)
         {
-            string sql = @" Update Outpatients Set IsPay = 1,setl_id=@Setl_id,PayYBAfter=@PayYBAfter,PayYB=@YBcost Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
-            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, Setl_id= setl_id, PayYBAfter=balance, YBcost=PayYB });
+            string sql = @" Update Outpatients Set IsPay = 1,setl_id=@Setl_id,PayYBAfter=@PayYBAfter,PayYB=@YBcost,HifpPay=@HifpPay Where TenantId = @TenantId And OutpatientId = @OutpatientId ";
+            _db.Execute(sql, new { TenantId = tenantId, OutpatientId = outpatientId, Setl_id= setl_id, PayYBAfter=balance, YBcost=PayYB, HifpPay=HifpPay });
         }
 
         /// <summary>

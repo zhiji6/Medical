@@ -38,6 +38,20 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             {
                 throw new Exception("请上传处方");
             }
+            if(request.Prescriptions != null && request.Prescriptions.Count > 0)
+            {
+                foreach(var p in request.Prescriptions)
+                {
+                    if(p.Details != null && p.Details.Count > 0)
+                    {
+                        if (p.Details.Exists(w => w.GoodsDays < 0 || w.GoodsDays > 15))
+                        {
+                            var good = p.Details.Find(w => w.GoodsDays < 0 || w.GoodsDays > 15);
+                            throw new MyException($"{good.GoodsName}的天数不能小于0或大于15");
+                        }                            
+                    }
+                }                
+            }
             BaseResponse<int> result = new BaseResponse<int>();
             if(request.OutpatientId == 0)
             {

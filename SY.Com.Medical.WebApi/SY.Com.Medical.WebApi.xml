@@ -676,6 +676,39 @@
             <param name="request"></param>
              <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.ReportController">
+            <summary>
+            报表接口
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ReportController.GetAllCharge(SY.Com.Medical.Model.AllChargeRequest)">
+            <summary>
+            获取时间段内诊所的所有收费记录
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ReportController.TotalPrice(SY.Com.Medical.Model.ReportRequest)">
+            <summary>
+            统计一段时间内机构营收情况
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ReportController.TotalProject(SY.Com.Medical.Model.ReportProjectRequest)">
+            <summary>
+            统计一段时间内的项目信息
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.ReportController.TotalDoctors(SY.Com.Medical.Model.ReportRequest)">
+            <summary>
+            统计一段时间内医生营收信息
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController">
             <summary>
             省医保接口-此分部写获取省医保接口报文的接口

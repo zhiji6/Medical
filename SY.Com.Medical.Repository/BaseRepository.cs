@@ -21,7 +21,7 @@ namespace SY.Com.Medical.Repository
     public class BaseRepository<T> where T : BaseEntity
     {
         public static object obj = new object();
-        protected IDbConnection _db;
+        public IDbConnection _db;
         protected IDbConnection _dbid;
         private string strconnection;
 
@@ -53,6 +53,22 @@ namespace SY.Com.Medical.Repository
         //制定数据库
         public BaseRepository(string strconnection)
         {
+            if (string.IsNullOrEmpty(strconnection))
+            {
+                Type t = this.GetType();
+                if (t.Namespace == "SY.Com.Medical.Repository.Clinic")
+                {
+                    strconnection = ReadConfig.GetConfigSection("Medical_Clinic");
+                }
+                else if (t.Namespace == "SY.Com.Medical.Repository.Platform")
+                {
+                    strconnection = ReadConfig.GetConfigSection("Medical_Platform");
+                }
+                else
+                {
+                    throw new DllNotFoundException("无法找到数据库");
+                }
+            }
             _db = new SqlConnection(strconnection);
             _dbid = new SqlConnection(ReadConfig.GetConfigSection("Medical_Platform"));
 

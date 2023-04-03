@@ -3723,6 +3723,11 @@
             机构编码
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailAddStructure.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.OutpatientListModel">
             <summary>
              Outpatient模型
@@ -3866,6 +3871,11 @@
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.YBCost">
             <summary>
             医保实收-非医保为0
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.HifpPay">
+            <summary>
+            医保统筹---医保支付时,YBCost + HifpPay = Cost
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.OutpatientChargeModel.CashCost">
@@ -6703,6 +6713,147 @@
             ID
             </summary> 
         </member>
+        <member name="T:SY.Com.Medical.Model.ReportModel">
+            <summary>
+            获取报表Model
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.Price">
+            <summary>
+            总费用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.PayYB">
+            <summary>
+            医保支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.HifpPay">
+            <summary>
+            统筹支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.PayCash">
+            <summary>
+            现金支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.PriceBack">
+            <summary>
+            退费金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.Quantitys">
+            <summary>
+            门诊人数
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportModel.DoctorId">
+            <summary>
+            医生Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.ReportProjectModel">
+            <summary>
+            统计项目或药品明细
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectModel.InsuranceCode">
+            <summary>
+            医保编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectModel.GoodsName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectModel.GoodsPrice">
+            <summary>
+            单价
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectModel.GoodsCost">
+            <summary>
+            费用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectModel.GoodsNum">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.AllChargeRequest">
+            <summary>
+            获取时间段内机构所有收费记录
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.AllChargeRequest.Days">
+            <summary>
+            最近几天,如最近3天
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.AllChargeRequest.StartTime">
+            <summary>
+            开始日期,如果Days大于0则优先使用Days
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.AllChargeRequest.EndTime">
+            <summary>
+            结束日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.AllChargeRequest.ChargeType">
+            <summary>
+            记录类型枚举：门诊收费、门诊退费、挂号、退号
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.ReportRequest">
+            <summary>
+            统计时间段内营收情况
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportRequest.Days">
+            <summary>
+            最近几天,如最近3天
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportRequest.StartTime">
+            <summary>
+            开始日期,如果Days大于0则优先使用Days
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportRequest.EndTime">
+            <summary>
+            结束日期
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.ReportProjectRequest">
+            <summary>
+            统计时间段内营收情况
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectRequest.Days">
+            <summary>
+            最近几天,如最近3天
+            </summary>        
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectRequest.StartTime">
+            <summary>
+            开始日期,如果Days大于0则优先使用Days
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectRequest.EndTime">
+            <summary>
+            结束日期
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ReportProjectRequest.PreName">
+            <summary>
+            枚举类型：项目处方、中药处方、西药处方
+            可以不填
+            </summary>       
+        </member>
         <member name="T:SY.Com.Medical.Model.RoleModel">
             <summary>
             角色信息
@@ -7932,6 +8083,11 @@
             符合政策范围金额
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2206OutModel.hifp_pay">
+            <summary>
+            基本医疗保险统筹基金支出
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.SYJS2207Model">
             <summary>
             结算获取报文入参
@@ -8005,6 +8161,11 @@
         <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.CashCost">
             <summary>
             自费实收
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYJS2207OutModel.hifp_pay">
+            <summary>
+            基本医疗保险统筹基金支出
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.SYB2208Model">

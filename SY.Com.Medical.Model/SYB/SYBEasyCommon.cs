@@ -251,6 +251,10 @@ namespace SY.Com.Medical.Model
         /// 符合政策范围金额
         /// </summary>
         public decimal inscp_scp_amt { get; set; }
+        /// <summary>
+        /// 基本医疗保险统筹基金支出
+        /// </summary>
+        public decimal hifp_pay { get; set; }
 
     }
 
@@ -319,7 +323,12 @@ namespace SY.Com.Medical.Model
         /// 自费实收
         /// </summary>
         public decimal CashCost { get; set; }
-      
+        /// <summary>
+        /// 基本医疗保险统筹基金支出
+        /// </summary>
+        public decimal hifp_pay { get; set; }
+
+
 
     }
 

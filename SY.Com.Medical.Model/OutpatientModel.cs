@@ -526,6 +526,10 @@ namespace SY.Com.Medical.Model
 		/// 机构编码
 		/// </summary>
 		public string CustomerCode { get; set; }
+		/// <summary>
+		/// 备注
+		/// </summary>
+		public string Remark { get; set; }
 	}
 
 	///<summary>
@@ -658,6 +662,10 @@ namespace SY.Com.Medical.Model
 		/// 医保实收-非医保为0
 		/// </summary>
 		public double YBCost { get; set; }
+		/// <summary>
+		/// 医保统筹---医保支付时,YBCost + HifpPay = Cost
+		/// </summary>
+		public double? HifpPay { get; set; }
 		/// <summary>
 		/// 自费实收-非医保时此值需要和Cost相等,医保时根据医保接口返回设置
 		/// </summary>

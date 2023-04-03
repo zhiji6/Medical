@@ -85,21 +85,35 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		[HttpPost]
 		public BaseResponse<int> add(TemplateAdd request)
 		{
-				BaseResponse<int> result = new BaseResponse<int>();
-				try{
-					result.Data = bll.add(request);
-					return result;
-				}catch(Exception ex)
+			BaseResponse<int> result = new BaseResponse<int>();
+			try{
+				if (request.Prescription != null && request.Prescription.Count > 0)
 				{
-					if (ex is MyException)
+					foreach (var p in request.Prescription)
 					{
-						return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
-					}
-					else
-					{
-						return result.sysException(ex.Message);
+						if (p.Details != null && p.Details.Count > 0)
+						{
+							if (p.Details.Exists(w => w.GoodsDays < 0 || w.GoodsDays > 15))
+							{
+								var good = p.Details.Find(w => w.GoodsDays < 0 || w.GoodsDays > 15);
+								throw new MyException($"{good.GoodsName}的天数不能小于0或大于15");
+							}
+						}
 					}
 				}
+				result.Data = bll.add(request);
+				return result;
+			}catch(Exception ex)
+			{
+				if (ex is MyException)
+				{
+					return result.busExceptino(Enum.ErrorCode.业务逻辑错误, ex.Message);
+				}
+				else
+				{
+					return result.sysException(ex.Message);
+				}
+			}
 		}
 		///<summary> 
 		///修改

@@ -47,6 +47,10 @@ namespace SY.Com.Medical.Entity
 		///
 		///</summary> 
 		public long PayYB {get;set;} 
+		/// <summary>
+		/// 统筹支付
+		/// </summary>
+		public long HifpPay { get; set; }
 		///<summary> 
 		///
 		///</summary> 

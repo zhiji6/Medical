@@ -126,7 +126,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			chargeentity.PatientId = entity.PatientId;
 			chargeentity.RegisterId = registerId;
 			chargeentity.SeeDoctorId = 0;
-			chargeentity.Price = entity.GoodsPrice;
+			chargeentity.Price = -entity.GoodsPrice;
 			chargeentity.ChargeType = "退号";
 			if (!string.IsNullOrEmpty(entity.mdtrt_id))
 			{

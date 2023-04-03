@@ -213,7 +213,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			chargeentity.ChargeType = "门诊收费";			
 			chargeentity.Cashier = employeemodel.EmployeeId;
 			chargeentity.CashierName = employeemodel.EmployeeName;
-			
+			chargeentity.HifpPay = Convert.ToInt64((mod.HifpPay == null ? 0 : mod.HifpPay) * 1000);
 			if (!string.IsNullOrEmpty(entity.mdtrt_id))
 			{
 				chargeentity.PayYB = Convert.ToInt64(mod.YBCost * 1000);
@@ -233,7 +233,7 @@ namespace SY.Com.Medical.BLL.Clinic
 				chargeentity.PayBank = chargeentity.Price;
 			}
 			//修改支付状态和医保结算时,医保结算号,医保余额
-			db.UpdateIsPay(mod.TenantId, mod.OutpatientId, mod.setl_id, Convert.ToInt64(mod.Balc * 1000),chargeentity.PayYB);
+			db.UpdateIsPay(mod.TenantId, mod.OutpatientId, mod.setl_id, Convert.ToInt64(mod.Balc * 1000),chargeentity.PayYB,chargeentity.HifpPay);
 			int chargeid = chargebll.add(chargeentity);
 			return chargeid;
         }
@@ -270,6 +270,7 @@ namespace SY.Com.Medical.BLL.Clinic
 			chargeentity.PayWx = -charge_entity.PayWx;
 			chargeentity.PayAli = -charge_entity.PayAli;
 			chargeentity.PayBank = -charge_entity.PayBank;
+			chargeentity.HifpPay = -charge_entity.HifpPay;
 			int chargeid = chargebll.add(chargeentity);
 			return chargeid;
 		}

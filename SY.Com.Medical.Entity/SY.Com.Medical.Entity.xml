@@ -289,6 +289,11 @@
             
             </summary> 
         </member>
+        <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.HifpPay">
+            <summary>
+            统筹支付
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Entity.ChargeRecordEntity.PayCash">
             <summary> 
             
@@ -1029,6 +1034,11 @@
             单次用量
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Entity.PrescriptionEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Entity.PrintViewEntity">
             <summary>
             实体
@@ -1308,6 +1318,51 @@
             <summary> 
             
             </summary> 
+        </member>
+        <member name="T:SY.Com.Medical.Entity.ReportEntity">
+            <summary>
+            ReportEntity不对应实体表,是表的统计
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.Price">
+            <summary>
+            总费用
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.PayYB">
+            <summary>
+            医保支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.HifpPay">
+            <summary>
+            统筹支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.PayCash">
+            <summary>
+            现金支付
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.PriceBack">
+            <summary>
+            退费金额
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.Quantitys">
+            <summary>
+            门诊人数
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Entity.ReportEntity.DoctorId">
+            <summary>
+            医生Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Entity.ReportProjectEntity">
+            <summary>
+            不是真实实体
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Entity.RoleEntity">
             <summary>
