@@ -45,7 +45,7 @@ namespace SY.Com.Medical.Repository.Clinic
         }
 
         /// <summary>
-        /// 获取某一类型的打印视图列表
+        /// 获取某一类型的打印视图列表,没有则获取0的
         /// </summary>
         /// <param name="style"></param>
         /// <param name="tenantid"></param>
@@ -64,6 +64,20 @@ namespace SY.Com.Medical.Repository.Clinic
                 }
                 return null;
             }
+            return result.ToList();
+        }
+
+        /// <summary>
+        /// 获取某一类型的打印视图列表
+        /// </summary>
+        /// <param name="style"></param>
+        /// <param name="tenantid"></param>
+        /// <returns></returns>
+        public List<PrintViewEntity> getViews2(int style, int tenantid)
+        {
+            string sql = " Select * From PrintViews Where Style = @style And TenantId = @tenant And IsDelete = 1 ";
+            var result = _db.Query<PrintViewEntity>(sql, new { style = style, tenant = tenantid });
+            if (result == null) return null;
             return result.ToList();
         }
 

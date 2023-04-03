@@ -79,7 +79,7 @@ namespace SY.Com.Medical.BLL.Clinic
             {				
 				throw new MyException($"打印视图Id不对,输入Id:{request.Style}");
 			}
-			var views = db.getViews(request.Style, request.TenantId);
+			var views = db.getViews2(request.Style, request.TenantId);
 			if(views == null || views.Count <= 0)
             {
 				view.PrintViewName = smod.Name;
