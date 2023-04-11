@@ -107,6 +107,10 @@ namespace SY.Com.Medical.Entity
 		/// 部位
 		/// </summary>
 		public string Place { get; set; }
+		/// <summary>
+		/// 科室(标记哪个科室能够开,一般指项目)
+		/// </summary>
+		public string DepartMent { get; set; }
 
 	}
 } 

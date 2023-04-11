@@ -100,7 +100,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
             StaticFileModel request = new StaticFileModel() { StaticFileType = StaticFileType.Print, StaticFileBusiness = StaticFileBusiness.租户打印视图, filepathExtension=$"{Style}/{TenantId}" };
             if (files.Count < 1)
             {
-                throw new MyException("为上传任何文件");
+                throw new MyException("未上传任何文件");
             }
             foreach (var item in files)
             {

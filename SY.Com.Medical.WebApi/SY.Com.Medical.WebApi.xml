@@ -484,6 +484,76 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController">
+            <summary>
+            系统打印接口v1,目前统一使用此类接口
+            </summary>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.GetTenantPrintFiles(SY.Com.Medical.Model.BaseModel)">
+            <summary>
+            获取用户(Tenant)所有类型可用的打印文件,按照打印类型进行分类
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.AddPrintFile(SY.Com.Medical.Model.PrintAddFileRequest)">
+            <summary>
+            用户创建打印文件,每个类型的打印文件最多只能创建两个(系统文件不计数)
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.UpdatePrintFile(SY.Com.Medical.Model.PrintUpdateFileRequest)">
+            <summary>
+            修改打印文件
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.DeletePrintFile(SY.Com.Medical.Model.PrintDeleteFileRequest)">
+            <summary>
+            删除打印文件
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.UsePrintFile(SY.Com.Medical.Model.PrintUseFileRequest)">
+            <summary>
+            设置打印文件为使用状态
+            (一个类型中只有一个为使用状态)
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintRegister(SY.Com.Medical.Model.PrintRegisterRequestModel)">
+            <summary>
+            挂号打印,退号打印,通过IsBack进行区分
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintPrescriptions(SY.Com.Medical.Model.PrintPrescriptionRequestModel)">
+            <summary>
+            打印处方
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintDisposal(SY.Com.Medical.Model.PrintPrescriptionRequestModel)">
+            <summary>
+            打印处置单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintCharge(SY.Com.Medical.Model.ChargeRecordRequestModel)">
+            <summary>
+            打印收费退费
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController">
             <summary>
             打印报表控制器

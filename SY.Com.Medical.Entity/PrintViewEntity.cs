@@ -31,5 +31,13 @@ namespace SY.Com.Medical.Entity
 		///
 		///</summary> 
 		public int Style {get;set;} 
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool IsUse { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
+		public string PrintPathName { get; set; }
 	}
 } 

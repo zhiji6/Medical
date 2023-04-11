@@ -18,7 +18,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     [ApiController]
     [Authorize]
     [Api_Tenant]
-    public class PrintViewController : ControllerBase 
+	[ObsoleteAttribute]
+	public class PrintViewController : ControllerBase 
 	{
 		 PrintView bll = new PrintView();
 		///<summary> 

@@ -1472,6 +1472,11 @@
             价格,保留3位小数
             </summary>		
         </member>
+        <member name="P:SY.Com.Medical.Model.GoodModels.DepartMent">
+            <summary>
+            科室(标记哪个科室能够开,一般指项目)
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodModel">
             <summary>
             药品单个出参
@@ -1575,6 +1580,11 @@
         <member name="P:SY.Com.Medical.Model.GoodModel.EveryDay">
             <summary>
             一天用量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodModel.DepartMent">
+            <summary>
+            科室(标记哪个科室能够开,一般指项目)
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodBllModels">
@@ -1692,6 +1702,11 @@
             一天用量Id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.GoodBllModels.DepartMent">
+            <summary>
+            科室(标记哪个科室能够开,一般指项目)
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.GoodBllModel">
             <summary>
             Goods全模型-单个
@@ -1795,6 +1810,11 @@
         <member name="P:SY.Com.Medical.Model.GoodBllModel.EveryDay">
             <summary>
             一天用量
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.GoodBllModel.DepartMent">
+            <summary>
+            科室(标记哪个科室能够开,一般指项目)
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.GoodAdd">
@@ -4826,6 +4846,22 @@
             挂号Id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterRequestModel.IsView">
+            <summary>
+            是否预览
+            此处预览的意思是使用测试数据查看,主要是为了看打印的样式效果。
+            不要和调用打印时弹出预览窗的操作混淆了
+            true:调用测试数据展示打印样式
+            false:使用真实数据进行打印
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintRegisterRequestModel.IsBack">
+            <summary>
+            是否退号
+            true:打印退号单
+            false:打印挂号单
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrintRegisterResponseModel">
             <summary>
             挂号打印模板输出
@@ -4960,9 +4996,15 @@
             门诊Id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.IsView">
+            <summary>
+            是否预览,参考挂号打印同名字段描述
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.Type">
             <summary>
-            中药处方:1,西药处方:2,项目处方:3,治疗单:4
+            可选,1:中药处方,2:西药处方,3:项目处方
+            不传递则返回门诊所有处方
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PrintPrescriptionResponseModel">
@@ -4993,6 +5035,11 @@
         <member name="P:SY.Com.Medical.Model.ChargeRecordRequestModel.ChargeType">
             <summary>
             类型,门诊收费,门诊退费
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.ChargeRecordRequestModel.IsView">
+            <summary>
+            是否预览,参见挂号打印同名字段说明
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.ChargeRecordResponseModel">
@@ -5378,6 +5425,12 @@
             中药副数
             </summary>
         </member>
+        <member name="M:SY.Com.Medical.Model.CombinePrintDataModel.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.Model.CombinePrintGoodModel">
             <summary>
             综合打印数据之物料
@@ -5431,6 +5484,11 @@
         <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.Price">
             <summary>
             单价
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CombinePrintGoodModel.DepartMent">
+            <summary>
+            科室(标记哪个科室能够开,一般指项目)
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PrintViewModel">
@@ -6853,6 +6911,56 @@
             枚举类型：项目处方、中药处方、西药处方
             可以不填
             </summary>       
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintRequest">
+            <summary>
+            打印接口入参集合
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintAddFileRequest">
+            <summary>
+            添加打印文件
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintAddFileRequest.TemplateId">
+            <summary>
+            打印类型Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintUpdateFileRequest">
+            <summary>
+            修改打印文件
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintUpdateFileRequest.FileId">
+            <summary>
+            打印文件唯一Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintUpdateFileRequest.Bytes">
+            <summary>
+            打印文件二进制字节码
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintDeleteFileRequest">
+            <summary>
+            删除打印文件入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintDeleteFileRequest.FileId">
+            <summary>
+            打印文件唯一Id
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintUseFileRequest">
+            <summary>
+            设置打印文件为使用状态
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintUseFileRequest.FileId">
+            <summary>
+            打印文件唯一Id
+            </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.RoleModel">
             <summary>

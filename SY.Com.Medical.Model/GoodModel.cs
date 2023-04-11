@@ -67,6 +67,10 @@ namespace SY.Com.Medical.Model
 		/// 价格,保留3位小数
 		/// </summary>		
 		public double Price { get; set; }
+		/// <summary>
+		/// 科室(标记哪个科室能够开,一般指项目)
+		/// </summary>
+		public string DepartMent { get; set; }
 	}
 
 	/// <summary>
@@ -154,6 +158,10 @@ namespace SY.Com.Medical.Model
 		/// 一天用量
 		/// </summary>
 		public int EveryDay { get; set; }
+		/// <summary>
+		/// 科室(标记哪个科室能够开,一般指项目)
+		/// </summary>
+		public string DepartMent { get; set; }
 	}
 
 
@@ -250,6 +258,10 @@ namespace SY.Com.Medical.Model
 		/// 一天用量Id
 		/// </summary>
 		public int EveryDayId { get; set; }
+		/// <summary>
+		/// 科室(标记哪个科室能够开,一般指项目)
+		/// </summary>
+		public string DepartMent { get; set; }
 	}
 
 	/// <summary>
@@ -337,6 +349,10 @@ namespace SY.Com.Medical.Model
 		/// 一天用量
 		/// </summary>
 		public int EveryDay { get; set; }
+		/// <summary>
+		/// 科室(标记哪个科室能够开,一般指项目)
+		/// </summary>
+		public string DepartMent { get; set; }
 	}
 
 	/// <summary>

@@ -15,6 +15,20 @@ namespace SY.Com.Medical.Model
 		/// 挂号Id
 		/// </summary>
 		public int RegisterId { get; set; }
+		/// <summary>
+		/// 是否预览
+		/// 此处预览的意思是使用测试数据查看,主要是为了看打印的样式效果。
+		/// 不要和调用打印时弹出预览窗的操作混淆了
+		/// true:调用测试数据展示打印样式
+		/// false:使用真实数据进行打印
+		/// </summary>
+		public bool IsView { get; set; }
+		/// <summary>
+		/// 是否退号
+		/// true:打印退号单
+		/// false:打印挂号单
+		/// </summary>
+		public bool IsBack { get; set; }
 	}
 
 	/// <summary>
@@ -192,9 +206,14 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public int OutpatientId { get; set; }
 		/// <summary>
-		/// 中药处方:1,西药处方:2,项目处方:3,治疗单:4
+		/// 是否预览,参考挂号打印同名字段描述
 		/// </summary>
-		public int Type { get; set; }
+		public bool IsView { get; set; }
+		/// <summary>
+		/// 可选,1:中药处方,2:西药处方,3:项目处方
+		/// 不传递则返回门诊所有处方
+		/// </summary>
+		public int? Type { get; set; }
 	}
 	/// <summary>
 	/// 处方打印模板输出
@@ -224,6 +243,10 @@ namespace SY.Com.Medical.Model
 		/// 类型,门诊收费,门诊退费
 		/// </summary>
 		public string ChargeType { get; set; }
+		/// <summary>
+		/// 是否预览,参见挂号打印同名字段说明
+		/// </summary>
+		public bool IsView { get; set; }
 
 	}
 
@@ -638,6 +661,15 @@ namespace SY.Com.Medical.Model
 		/// </summary>
 		public int Pair { get; set; }
 
+		/// <summary>
+		/// 克隆
+		/// </summary>
+		/// <returns></returns>
+		public CombinePrintDataModel Clone()
+		{
+			return (CombinePrintDataModel)this.MemberwiseClone();
+		}
+
 	}
 
 	/// <summary>
@@ -685,5 +717,9 @@ namespace SY.Com.Medical.Model
 		/// 单价
 		/// </summary>
 		public double Price { get; set; }
+		/// <summary>
+		/// 科室(标记哪个科室能够开,一般指项目)
+		/// </summary>
+		public string DepartMent { get; set; }
 	}
 }

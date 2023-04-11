@@ -13,6 +13,18 @@ namespace SY.Com.Medical.Repository.Clinic
     /// </summary>
     public class PrintViewRepository : BaseRepository<PrintViewEntity> 
 	{ 
+
+        public List<PrintViewEntity> getUserTemplates(int tenantId)
+        {
+            string sql = " Select * From PrintViews Where  TenantId = @tenant And IsDelete = 1 ";
+            var result = _db.Query<PrintViewEntity>(sql, new { tenant = tenantId });
+            if(result != null && result.Any())
+            {
+                return result.ToList();
+            }
+            return null;
+        }
+
         /// <summary>
         /// 获取系统的打印视图
         /// </summary>
@@ -86,8 +98,38 @@ namespace SY.Com.Medical.Repository.Clinic
             int id = getID("PrintViews");
             string sql = @" Insert into PrintViews(PrintViewId, TenantId, PrintViewName, Style, IsDelete, IsEnable)
                             Values(@id,@tenangid,@name,@style,1,1) ";
-            return _db.Execute(sql, new { id = id, tenangid = entity.TenantId, name = entity.PrintViewName,style = entity.Style });
+            int rows =_db.Execute(sql, new { id = id, tenangid = entity.TenantId, name = entity.PrintViewName, style = entity.Style });
+            return rows <= 0 ? 0 : id;
         }
 
-	}
+        public PrintViewEntity getViewById(int tenantId,int printViewId)
+        {
+            string sql = " Select * From PrintViews Where PrintViewId=@PrintViewId And TenantId = @tenantid And IsDelete = 1 ";
+            var result = _db.Query<PrintViewEntity>(sql, new { PrintViewId = printViewId, tenantid = tenantId }).FirstOrDefault();
+            return result;
+        }
+
+        public PrintViewEntity getViewOnlyId(int printViewId)
+        {
+            string sql = " Select * From PrintViews Where PrintViewId=@PrintViewId  And IsDelete = 1 ";
+            var result = _db.Query<PrintViewEntity>(sql, new { PrintViewId = printViewId }).FirstOrDefault();
+            return result;
+        }
+
+        public bool SetCustomerUse(int tenantId,int printViewId)
+        {
+            string sql = " Select * From PrintViews Where PrintViewId=@PrintViewId And TenantId = @tenantid And IsDelete = 1 ";
+            var result = _db.Query<PrintViewEntity>(sql, new { PrintViewId = printViewId, tenantid = tenantId }).FirstOrDefault();
+            string sql2 = @" Update PrintViews Set IsUse = 1 Where PrintViewId=@PrintViewId And TenantId = @tenantid And IsDelete = 1;
+                            Update PrintViews Set IsUse = 0 Where TenantId = @tenantid And IsDelete = 1 And Style=@style And PrintViewId<>@PrintViewId ";
+            return _db.Execute(sql2, new { PrintViewId = printViewId, tenantid = tenantId, style = result.Style }) > 0;
+        }
+
+        public bool SetSystemUse(int tenantId,int styleId)
+        {
+            string sql = " Update PrintViews Set IsUse = 0 Where IsDelete = 1 And Style=@style And TenantId = @tenantid ";
+            return _db.Execute(sql, new {  tenantid = tenantId, style = styleId }) > 0;
+        }
+
+    }
 } 

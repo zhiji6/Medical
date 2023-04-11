@@ -37,6 +37,6 @@ namespace SY.Com.Medical.Enum
         /// 材料=5
         /// </summary>
         [JsonIgnore]
-        材料 =5        
+        材料 =5
     }
 }
