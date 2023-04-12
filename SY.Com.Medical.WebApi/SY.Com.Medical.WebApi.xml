@@ -489,7 +489,7 @@
             系统打印接口v1,目前统一使用此类接口
             </summary>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.GetTenantPrintFiles(SY.Com.Medical.Model.BaseModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.GetTenantPrintFiles(SY.Com.Medical.Model.PrintRequest)">
             <summary>
             获取用户(Tenant)所有类型可用的打印文件,按照打印类型进行分类
             </summary>

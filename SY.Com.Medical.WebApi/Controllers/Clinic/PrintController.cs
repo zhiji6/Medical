@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace SY.Com.Medical.WebApi.Controllers.Clinic
 {
     /// <summary>
-    /// 系统打印接口v1,目前统一使用此类接口
+    /// 系统打印接口v2.0,目前统一使用此类接口
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -22,19 +22,21 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
     [Api_Tenant]
     public class PrintController : ControllerBase
     {
-        PrintTemplate printTemplate = new PrintTemplate();
         Tenant tenant = new Tenant();
+
+
 
         /// <summary>
         /// 获取用户(Tenant)所有类型可用的打印文件,按照打印类型进行分类
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpGet]
-        public BaseResponse<List<PrintTemplate>> GetTenantPrintFiles(BaseModel request)
+        [HttpPost]
+        public BaseResponse<List<PrintTemplate>> GetTenantPrintFiles(PrintRequest request)
         {
             BaseResponse<List<PrintTemplate>> result = new BaseResponse<List<PrintTemplate>>();
-            result.Data = printTemplate.getTemplates(request.TenantId);
+            PrintTemplate printTemplate = new PrintTemplate(request.TenantId);
+            result.Data = printTemplate.GetTemplates();
             return result;
         }
 
@@ -47,7 +49,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         public BaseResponse<PrintFile> AddPrintFile(PrintAddFileRequest request)
         {
             BaseResponse<PrintFile> result = new BaseResponse<PrintFile>();
-            result.Data = printTemplate.AddPrintFile(request.TenantId, request.TemplateId);
+            PrintTemplate printTemplate = new PrintTemplate(request.TenantId);
+            result.Data = printTemplate.AddPrintFile( request.TemplateId);
             return result;
         }
 
@@ -117,7 +120,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 {
                     result.Data = new RegisterPrint().Print(request.TenantId, request.RegisterId);
                 }
-                result.Data.ViewPath = new PrintTemplate().ChooseFile(request.TenantId, request.IsBack ? 2 : 1).FilePath;
+                result.Data.ViewPath = new PrintTemplate(request.TenantId).ChooseFile( request.IsBack ? 2 : 1).FilePath;
                 var tenantmodel = tenant.getById(request.TenantId);
                 result.Data.TenantName = tenantmodel.TenantName;
                 result.Data.Temp = new List<PrintTemp>() { new PrintTemp { tempid = 1, tempname = "a" } };
@@ -196,7 +199,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                     result.Data = new OutPatienPrint().Print(request.TenantId, request.OutpatientId);
                 }
                 var tenantmodel = tenant.getById(request.TenantId);
-                result.Data.ViewPath = new PrintTemplate().ChooseFile(request.TenantId, 8).FilePath;
+                result.Data.ViewPath = new PrintTemplate(request.TenantId).ChooseFile(8).FilePath;
                 result.Data.TenantName = tenantmodel.TenantName;
                 result.Data.TenantCode = tenantmodel.YBCode;
                 return result;
@@ -236,8 +239,8 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             result.Data.TenantCode = tenantmodel.YBCode;
             switch (request.ChargeType)
             {
-                case "门诊收费": result.Data.ViewPath = new PrintTemplate().ChooseFile(request.TenantId, 6).FilePath ; break;
-                case "门诊退费": result.Data.ViewPath = new PrintTemplate().ChooseFile(request.TenantId, 7).FilePath ; break;
+                case "门诊收费": result.Data.ViewPath = new PrintTemplate(request.TenantId).ChooseFile(6).FilePath ; break;
+                case "门诊退费": result.Data.ViewPath = new PrintTemplate(request.TenantId).ChooseFile(7).FilePath ; break;
             }
             return result;
         }

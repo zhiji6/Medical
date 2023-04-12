@@ -20,7 +20,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// <summary>
         /// 文件路径(相对)
         /// </summary>
-        public string FilePath { get { return $"/Print/PrintView/{TemplatePath}/{FileId}.grf"; } }
+        public string FilePath { get { return $"/Print/PrintView/{TemplatePath}/{TemplatePath}_{TenantId}_{FileId}.grf"; } }
         /// <summary>
         /// 文件唯一Id
         /// </summary>
@@ -40,30 +40,29 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// <summary>
         /// 是否系统文件
         /// </summary>
-        public bool IsSystem { get; set; }
+        public bool IsSystem { get { return TenantId == 0; } }
         /// <summary>
         /// 是否用于打印
         /// </summary>
         public bool IsUse { get; set; }
         private int TenantId { get; set; }
-        public PrintFile(int tenantId,int templateId,int fileId,string templateName,string templatePath,bool isSystem,bool isUse)
+        public PrintFile(int tenantId,int templateId,int fileId,string templateName,string templatePath,bool isUse)
         {
             TenantId = tenantId;
             TemplateId = templateId;
             FileId = fileId;
             TemplateName = templateName;
             TemplatePath = templatePath;
-            IsSystem = isSystem;
-            IsUse = IsUse;
+            IsUse = isUse;
         }
         public PrintFile(int tenantId,int fileId)
         {
             TenantId = tenantId;
             var view = db.getViewById(tenantId, fileId);
+            if (view == null) throw new MyException("此打印文件不存在");
             FileId = view.PrintViewId;
             TemplateId = view.Style;
             TemplateName = view.PrintViewName;
-            IsSystem = view.TenantId == 0;
             IsUse = view.IsUse;
             TemplatePath = view.PrintPathName;
         }
@@ -71,10 +70,10 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         public PrintFile(int fileId)
         {
             var view = db.getViewOnlyId(fileId);
+            if (view == null) throw new MyException("此打印文件不存在");
             FileId = view.PrintViewId;
             TemplateId = view.Style;
             TemplateName = view.PrintViewName;
-            IsSystem = view.TenantId == 0;
             IsUse = view.IsUse;
             TemplatePath = view.PrintPathName;
             TenantId = view.TenantId;
@@ -87,19 +86,56 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// <returns></returns>
         public PrintFile Clone(int tenantId)
         {
-            int id = SaveNewdb();
+            int id = SaveNewdb(tenantId);
             var newprintfile = new PrintFile(tenantId, id);
             try
             {
                 newprintfile.Save(FilePath);
-            }catch
+            }
+            catch (MyException)
             {
-                DeleteDB();
+                DeleteDB(id);
+                throw;
+            }
+            catch (Exception)
+            {
+                DeleteDB(id);
+                throw;
             }
             return newprintfile;
         }
 
+        public PrintFile Update(byte[] bytes)
+        {
+            if (TenantId == 0) throw new MyException("系统模板不能修改");
+            File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
+            //更新
+            SaveNewFile(bytes);
+            return this;
+        }
 
+        public void Delete()
+        {
+            if (TenantId == 0) throw new MyException("系统模板不能删除");
+            DeleteFile();
+            DeleteDB();
+        }
+
+        public bool SetUse(int tenantId = 0)
+        {
+            if (IsUse) return true;
+            if (IsSystem)
+            {
+                if (tenantId == 0) throw new MyException("机构参数错误,设置失败");
+                IsUse = true;
+                return db.SetSystemUse(tenantId, TemplateId);
+            }
+            else
+            {
+                IsUse = true;
+                return db.SetCustomerUse(TenantId, FileId);
+            }
+        }
 
         private void Save(string oldfilePath)
         {
@@ -129,27 +165,9 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             }
         }
 
-        private int SaveNewdb()
+        private int SaveNewdb(int tenantId)
         {            
-            return db.Add(new Entity.PrintViewEntity { TenantId = TenantId, PrintViewName = TemplateName, PrintPathName = TemplatePath, Style = TemplateId, IsUse = false });
-        }
-
-
-
-        public PrintFile Update(byte[] bytes)
-        {
-            if (TenantId == 0) throw new MyException("系统模板不能修改");
-            File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
-            //更新
-            SaveNewFile(bytes);
-            return this;
-        }
-
-        public void Delete()
-        {
-            if (TenantId == 0) throw new MyException("系统模板不能删除");
-            DeleteFile();
-            DeleteDB();
+            return db.Add(new Entity.PrintViewEntity { TenantId = tenantId, PrintViewName = TemplateName, PrintPathName = TemplatePath, Style = TemplateId, IsUse = false });
         }
 
         private void DeleteFile()
@@ -162,19 +180,13 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             db.Delete(new Entity.PrintViewEntity { PrintViewId = FileId });
         }
 
-
-        public bool SetUse(int tenantId)
+        private void DeleteDB(int fileId)
         {
-            if (IsUse) return true;
-            if(IsSystem)
-            {
-                return db.SetSystemUse(tenantId, TemplateId);
-            }
-            else
-            {
-                return db.SetCustomerUse(tenantId, FileId);
-            }
+            db.Delete(new Entity.PrintViewEntity { PrintViewId = fileId });
         }
+
+
+
 
 
     }

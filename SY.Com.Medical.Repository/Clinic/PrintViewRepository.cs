@@ -96,9 +96,9 @@ namespace SY.Com.Medical.Repository.Clinic
         public int Add(PrintViewEntity entity)
         {
             int id = getID("PrintViews");
-            string sql = @" Insert into PrintViews(PrintViewId, TenantId, PrintViewName, Style, IsDelete, IsEnable)
-                            Values(@id,@tenangid,@name,@style,1,1) ";
-            int rows =_db.Execute(sql, new { id = id, tenangid = entity.TenantId, name = entity.PrintViewName, style = entity.Style });
+            string sql = @" Insert into PrintViews(PrintViewId, TenantId, PrintViewName, Style,PrintPathName,IsUse, IsDelete, IsEnable)
+                            Values(@id,@tenangid,@name,@style,@printPathName,@isuse,1,1) ";
+            int rows =_db.Execute(sql, new { id = id, tenangid = entity.TenantId, name = entity.PrintViewName, style = entity.Style, printPathName=entity.PrintPathName, isuse = entity.IsUse });
             return rows <= 0 ? 0 : id;
         }
 

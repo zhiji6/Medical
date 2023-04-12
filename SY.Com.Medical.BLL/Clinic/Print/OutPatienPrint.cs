@@ -123,7 +123,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             {
                 CombinePrintDataModel west = data.Clone();
                 west.Goods = west.Goods.Where(w => w.PreName == prename).ToList();
-                west.ViewPath = new PrintTemplate().ChooseFile(tenantId, templateId).FilePath;
+                west.ViewPath = new PrintTemplate(tenantId).ChooseFile(templateId).FilePath;
                 west.TenantName = tenantmodel.TenantName;
                 west.TenantCode = tenantmodel.YBCode;
                 result.Add(west);

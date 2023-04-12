@@ -29,22 +29,27 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// 打印类型下的打印文件
         /// </summary>
         public List<PrintFile> PrintFiles { get; set; }
+        private int TenantId { get; set; }
+        public PrintTemplate(int tenantId)
+        {
+            TenantId = tenantId;
+        }
         /// <summary>
         /// 获取用户(Tenant)的所有打印文件,按照分类规整好
         /// </summary>
         /// <param name="tenantId"></param>
         /// <returns></returns>
-        public List<PrintTemplate> getTemplates(int tenantId)
+        public List<PrintTemplate> GetTemplates()
         {
             List<PrintViewEntity> dbViews = new List<PrintViewEntity>();
-            if (tenantId == 0 )
+            if (TenantId == 0 )
             {
-                dbViews = db.getUserTemplates(tenantId);
+                dbViews = db.getUserTemplates(TenantId);
             }
             else
             {
                 dbViews = db.getUserTemplates(0);
-                var printviews = db.getUserTemplates(tenantId);
+                var printviews = db.getUserTemplates(TenantId);
                 if(printviews != null)
                 {
                     dbViews.AddRange(printviews);
@@ -59,24 +64,28 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// <param name="tenantId">用户Id</param>
         /// <param name="templateId">打印文件类型Id</param>
         /// <returns></returns>
-        public PrintFile AddPrintFile(int tenantId,int templateId)
+        public PrintFile AddPrintFile(int templateId)
         {
-            if (tenantId == 0) throw new MyException("系统模板不能新增");
-            var tenantTempaltes = db.getViews2(templateId, tenantId);
+            if (TenantId == 0) throw new MyException("系统模板不能新增");
+            var tenantTempaltes = db.getViews2(templateId, TenantId);
             if (tenantTempaltes == null) tenantTempaltes = new List<Entity.PrintViewEntity>();
             if (tenantTempaltes.Count > 1) throw new MyException("最多只能添加2张打印模板");
             var systemTemplate = db.getSystemView(new Entity.PrintViewEntity() { Style = templateId, TenantId = 0 });
-            var sysPrintFile = new PrintFile(systemTemplate.TenantId, templateId, systemTemplate.PrintViewId, systemTemplate.PrintViewName, systemTemplate.PrintPathName, false, false);
-            var newPrintFile = sysPrintFile.Clone(tenantId);
+            var sysPrintFile = new PrintFile(systemTemplate.TenantId, templateId, systemTemplate.PrintViewId, systemTemplate.PrintViewName, systemTemplate.PrintPathName, false);
+            var newPrintFile = sysPrintFile.Clone(TenantId);
             return newPrintFile;
         }
+
 
         /// <summary>
         /// 选择用来做打印的打印文件
         /// </summary>
-        public PrintFile ChooseFile(int tenantId, int templateId)
+        /// <param name="tenantId">操作机构的id</param>
+        /// <param name="templateId">操作打印文件类型id</param>
+        /// <returns></returns>
+        public PrintFile ChooseFile( int templateId)
         {
-            List<PrintTemplate> templates = new PrintTemplate().getTemplates(tenantId);
+            List<PrintTemplate> templates = new PrintTemplate(TenantId).GetTemplates();
             var template = templates.Find(f => f.TemplateId == templateId);
             if (template == null) throw new MyException("找不到所需要的打印类型");
             var file = template.PrintFiles.Find(f => f.IsUse);
@@ -94,17 +103,17 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             {
                 if (!hashtable.ContainsKey(view.Style))
                 {
-                    hashtable.Add(view.Style, new PrintTemplate() { TemplateName = view.PrintViewName, TemplateId = view.Style
-                        , PrintFiles = new List<PrintFile>() { new PrintFile(view.TenantId,view.Style,view.PrintViewId,view.PrintViewName,view.PrintPathName,view.TenantId == 0,view.IsUse) } });
+                    hashtable.Add(view.Style, new PrintTemplate(TenantId) { TemplateName = view.PrintViewName, TemplateId = view.Style
+                        , PrintFiles = new List<PrintFile>() { new PrintFile(view.TenantId,view.Style,view.PrintViewId,view.PrintViewName,view.PrintPathName,view.IsUse) } });
                 }
                 else
                 {
                     var pt = (PrintTemplate)hashtable[view.Style];
-                    pt.PrintFiles.Add(new PrintFile(view.TenantId, view.Style, view.PrintViewId, view.PrintViewName, view.PrintPathName, view.TenantId == 0, view.IsUse));
+                    pt.PrintFiles.Add(new PrintFile(view.TenantId, view.Style, view.PrintViewId, view.PrintViewName, view.PrintPathName, view.IsUse));
                 }
             }
             var keys = hashtable.Keys;
-            foreach(string key in keys)
+            foreach(int key in keys)
             {
                 var pt = (PrintTemplate)hashtable[key];
                 if(!pt.PrintFiles.Exists(w=>w.IsUse == true))

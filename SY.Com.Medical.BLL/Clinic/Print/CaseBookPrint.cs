@@ -33,7 +33,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             resp.Place = mod.Place;
             resp.CSRQ = mod.Patient.CSRQ;
             resp.SFZ = mod.Patient.SFZ;
-            resp.ViewPath = new PrintTemplate().ChooseFile(tenantId, 9).FilePath;
+            resp.ViewPath = new PrintTemplate(tenantId).ChooseFile(9).FilePath;
             resp.Temp = new List<PrintTemp>() { new PrintTemp { tempid = 1, tempname = "a" } };
             return resp;
         }
@@ -48,7 +48,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
                 , Physical="未做体检", Place="无部位",
             };
             mod.Temp = new List<PrintTemp>() { new PrintTemp { tempid = 1, tempname = "a" } };
-            mod.ViewPath = new PrintTemplate().ChooseFile(tenantId, 9).FilePath;
+            mod.ViewPath = new PrintTemplate(tenantId).ChooseFile(9).FilePath;
             return mod;
         }
     }

@@ -35,9 +35,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YbSi", "SZSI_ReadCard\YbSi\
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "YbEXE", "SZSI_ReadCard\YbEXE\YbEXE.vdproj", "{2E515E13-A177-4DE2-B2A1-C22AC43CBB44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Log", "SY.Com.Log\SY.Com.Log.csproj", "{A7E45576-B166-4E72-B942-4E8E1B782C9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.Log", "SY.Com.Log\SY.Com.Log.csproj", "{A7E45576-B166-4E72-B942-4E8E1B782C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.LogTest", "SY.Com.LogTest\SY.Com.LogTest.csproj", "{4FADAE45-951E-49BE-BF17-BFE8ACC81B19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SY.Com.LogTest", "SY.Com.LogTest\SY.Com.LogTest.csproj", "{4FADAE45-951E-49BE-BF17-BFE8ACC81B19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SY.Com.Medical.TestUnit", "SY.Com.Medical.TestUnit\SY.Com.Medical.TestUnit.csproj", "{D6F4854B-2937-4EDB-8131-18C84F35231D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{4FADAE45-951E-49BE-BF17-BFE8ACC81B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FADAE45-951E-49BE-BF17-BFE8ACC81B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FADAE45-951E-49BE-BF17-BFE8ACC81B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F4854B-2937-4EDB-8131-18C84F35231D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F4854B-2937-4EDB-8131-18C84F35231D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F4854B-2937-4EDB-8131-18C84F35231D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F4854B-2937-4EDB-8131-18C84F35231D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
