@@ -38,7 +38,7 @@ namespace SY.Com.Medical.TestUnit
             PrintFile newfile = new PrintFile(2);
             PrintFile oldfile = new PrintFile(24);
             string path = SystemEnvironment.GetRootDirector() + newfile.FilePath;
-            var bytes = File.ReadAllBytes(path);
+            var bytes = File.ReadAllText(path,System.Text.Encoding.UTF8);
             oldfile.Update(bytes);
         }
 

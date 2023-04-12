@@ -105,13 +105,14 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             return newprintfile;
         }
 
-        public PrintFile Update(byte[] bytes)
+
+
+        public PrintFile Update(string content)
         {
-            if (TenantId == 0) throw new MyException("系统模板不能修改");
-            File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
-            //更新
-            SaveNewFile(bytes);
-            return this;
+            //处理\r\n,\\r\\n
+            content = content.Replace("\r\n", "").Replace("\\r\\n","\r\n");
+            return Update(Encoding.UTF8.GetBytes(content));
+            //保存报表的时候，通过此函数 ReportDesigner.Report.SaveToStr()得到报表文件的内容字符串，字符串直接传输给我即可
         }
 
         public void Delete()
@@ -135,6 +136,14 @@ namespace SY.Com.Medical.BLL.Clinic.Print
                 IsUse = true;
                 return db.SetCustomerUse(TenantId, FileId);
             }
+        }
+        private PrintFile Update(byte[] bytes)
+        {
+            if (TenantId == 0) throw new MyException("系统模板不能修改");
+            File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
+            //更新
+            SaveNewFile(bytes);
+            return this;
         }
 
         private void Save(string oldfilePath)

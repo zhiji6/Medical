@@ -34,9 +34,11 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public int FileId { get; set; }
         /// <summary>
-        /// 打印文件二进制字节码
+        /// 打印文件内容字符串
+        /// 保存报表的时候，通过Js函数 ReportDesigner.Report.SaveToStr()得到报表文件的内容字符串，字符串直接传输给我即可
+        /// 其中ReportDesigner报表设计器对象(js)
         /// </summary>
-        public byte[] Bytes { get; set; }
+        public string Content { get; set; }
     }
     /// <summary>
     /// 删除打印文件入参

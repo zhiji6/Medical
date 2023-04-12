@@ -64,7 +64,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         {
             BaseResponse<PrintFile> result = new BaseResponse<PrintFile>();
             PrintFile printfile = new PrintFile(request.TenantId,  request.FileId);
-            result.Data = printfile.Update(request.Bytes);
+            result.Data = printfile.Update(request.Content);
             return result;
         }
 

@@ -486,7 +486,7 @@
         </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController">
             <summary>
-            系统打印接口v1,目前统一使用此类接口
+            系统打印接口v2.0,目前统一使用此类接口
             </summary>
         </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.GetTenantPrintFiles(SY.Com.Medical.Model.PrintRequest)">
