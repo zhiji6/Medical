@@ -6937,9 +6937,11 @@
             打印文件唯一Id
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.PrintUpdateFileRequest.Bytes">
+        <member name="P:SY.Com.Medical.Model.PrintUpdateFileRequest.Content">
             <summary>
-            打印文件二进制字节码
+            打印文件内容字符串
+            保存报表的时候，通过Js函数 ReportDesigner.Report.SaveToStr()得到报表文件的内容字符串，字符串直接传输给我即可
+            其中ReportDesigner报表设计器对象(js)
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PrintDeleteFileRequest">
