@@ -21,6 +21,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// 文件路径(相对)
         /// </summary>
         public string FilePath { get { return $"/Print/PrintView/{TemplatePath}/{TemplatePath}_{TenantId}_{FileId}.grf"; } }
+        public string FilePathSave { get { return $"wwwroot\\Print\\PrintView\\{TemplatePath}\\{TemplatePath}_{TenantId}_{FileId}.grf"; } }
         /// <summary>
         /// 文件唯一Id
         /// </summary>
@@ -90,7 +91,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             var newprintfile = new PrintFile(tenantId, id);
             try
             {
-                newprintfile.Save(FilePath);
+                newprintfile.Save(FilePathSave);
             }
             catch (MyException)
             {
@@ -140,7 +141,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         private PrintFile Update(byte[] bytes)
         {
             if (TenantId == 0) throw new MyException("系统模板不能修改");
-            File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
+            File.Delete(SystemEnvironment.GetRootDirector() + FilePathSave);
             //更新
             SaveNewFile(bytes);
             return this;
@@ -149,11 +150,11 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         private void Save(string oldfilePath)
         {
             if (!File.Exists(SystemEnvironment.GetRootDirector() + oldfilePath))
-                throw new MyException("打印模板文件丢失");
+                throw new MyException("打印模板文件丢失:" + SystemEnvironment.GetRootDirector() + oldfilePath);
             var bytes = File.ReadAllBytes(SystemEnvironment.GetRootDirector() + oldfilePath);
-            if (File.Exists(SystemEnvironment.GetRootDirector() + FilePath))
+            if (File.Exists(SystemEnvironment.GetRootDirector() + FilePathSave))
             {
-                File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
+                File.Delete(SystemEnvironment.GetRootDirector() + FilePathSave);
                 //更新
                 SaveNewFile(bytes);
             }
@@ -168,7 +169,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         private void SaveNewFile(byte[] bytes)
         {
             //保存文件
-            using (var fs = File.Create(SystemEnvironment.GetRootDirector() + FilePath))
+            using (var fs = File.Create(SystemEnvironment.GetRootDirector() + FilePathSave))
             {
                 fs.Write(bytes, 0, bytes.Count());
             }
@@ -181,7 +182,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
 
         private void DeleteFile()
         {
-            File.Delete(SystemEnvironment.GetRootDirector() + FilePath);
+            File.Delete(SystemEnvironment.GetRootDirector() + FilePathSave);
         }
 
         private void DeleteDB()

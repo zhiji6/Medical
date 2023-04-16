@@ -145,9 +145,10 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<List<CombinePrintDataModel>> PrintPrescriptions(PrintPrescriptionRequestModel request)
+        public BaseResponse<List<CombinePrintDataModel>> PrintPrescriptions(PrintPrescriptionRequestModel2 request)
         {
             BaseResponse<List<CombinePrintDataModel>> result = new BaseResponse<List<CombinePrintDataModel>>();
+            result.Data = new List<CombinePrintDataModel>();
             try
             {
                 CombinePrintDataModel data;
@@ -185,7 +186,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public BaseResponse<CombinePrintDataModel> PrintDisposal(PrintPrescriptionRequestModel request)
+        public BaseResponse<CombinePrintDataModel> PrintDisposal(PrintPrescriptionRequestModel2 request)
         {
             BaseResponse<CombinePrintDataModel> result = new BaseResponse<CombinePrintDataModel>();
             try

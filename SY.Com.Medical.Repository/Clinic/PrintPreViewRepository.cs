@@ -39,7 +39,7 @@ namespace SY.Com.Medical.Repository.Clinic
         public RegisterEntity getRegisterData(int registerId)
         {
             string sql = " Select * From Registers Where RegisterId = @id  ";
-            return _db.Query<RegisterEntity>(sql, new { id = registerId }).First();
+            return _db.Query<RegisterEntity>(sql, new { id = registerId }).FirstOrDefault();
         }
 
         /// <summary>

@@ -533,14 +533,14 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintPrescriptions(SY.Com.Medical.Model.PrintPrescriptionRequestModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintPrescriptions(SY.Com.Medical.Model.PrintPrescriptionRequestModel2)">
             <summary>
             打印处方
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintDisposal(SY.Com.Medical.Model.PrintPrescriptionRequestModel)">
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintDisposal(SY.Com.Medical.Model.PrintPrescriptionRequestModel2)">
             <summary>
             打印处置单
             </summary>

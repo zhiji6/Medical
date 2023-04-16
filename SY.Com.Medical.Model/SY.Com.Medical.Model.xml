@@ -5004,7 +5004,21 @@
         <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel.Type">
             <summary>
             可选,1:中药处方,2:西药处方,3:项目处方
-            不传递则返回门诊所有处方
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.PrintPrescriptionRequestModel2">
+            <summary>
+            处方打印入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel2.OutpatientId">
+            <summary>
+            门诊Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.PrintPrescriptionRequestModel2.IsView">
+            <summary>
+            是否预览,参考挂号打印同名字段描述
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PrintPrescriptionResponseModel">

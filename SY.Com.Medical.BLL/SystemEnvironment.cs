@@ -10,7 +10,8 @@ namespace SY.Com.Medical.BLL
     {
         public static string GetRootDirector()
         {
-            return System.Environment.CurrentDirectory + "/wwwroot/";
+            return AppContext.BaseDirectory;
+            //return System.Environment.CurrentDirectory + "/wwwroot/";
         }
     }
 }

@@ -71,6 +71,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
             if (tenantTempaltes == null) tenantTempaltes = new List<Entity.PrintViewEntity>();
             if (tenantTempaltes.Count > 1) throw new MyException("最多只能添加2张打印模板");
             var systemTemplate = db.getSystemView(new Entity.PrintViewEntity() { Style = templateId, TenantId = 0 });
+            if (systemTemplate == null) throw new MyException("找不到该打印文件类型");
             var sysPrintFile = new PrintFile(systemTemplate.TenantId, templateId, systemTemplate.PrintViewId, systemTemplate.PrintViewName, systemTemplate.PrintPathName, false);
             var newPrintFile = sysPrintFile.Clone(TenantId);
             return newPrintFile;

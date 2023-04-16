@@ -81,10 +81,10 @@ namespace SY.Com.Medical.BLL.Clinic.Print
 
         public CombinePrintDataModel View(int tenantId, int outpatientId)
         {
-            var mod = Print(9, 1);
-            if (string.IsNullOrEmpty(mod.TenantCode))
+            var mod = Print(9, 17);
+            if (string.IsNullOrEmpty(mod.DoctorName))
             {
-                mod = Print(25, 1);
+                mod = Print(25, 6);
             }
             return mod;
         }
@@ -102,6 +102,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
 
         public void ProjPrescription(int tenantId, CombinePrintDataModel data, UserTenantResponse tenantmodel, List<CombinePrintDataModel> result)
         {
+            if (data == null || data.Goods == null) throw new MyException("未找到处方明细");
             int templateId = 5;
             if(data.Goods.Where(w => w.PreName == "项目处方").Any())
             {
@@ -119,6 +120,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
 
         public void Prescription(int tenantId, CombinePrintDataModel data, UserTenantResponse tenantmodel, List<CombinePrintDataModel> result,string prename,int templateId)
         {
+            if (data == null || data.Goods == null) throw new MyException("未找到处方明细");
             if (data.Goods.Where(w => w.PreName == prename).Any())
             {
                 CombinePrintDataModel west = data.Clone();

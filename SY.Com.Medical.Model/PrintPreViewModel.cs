@@ -209,12 +209,27 @@ namespace SY.Com.Medical.Model
 		/// 是否预览,参考挂号打印同名字段描述
 		/// </summary>
 		public bool IsView { get; set; }
+        /// <summary>
+        /// 可选,1:中药处方,2:西药处方,3:项目处方
+        /// </summary>
+        public int? Type { get; set; }
+    }
+
+	/// <summary>
+	/// 处方打印入参
+	/// </summary>
+	public class PrintPrescriptionRequestModel2 : BaseModel
+	{
 		/// <summary>
-		/// 可选,1:中药处方,2:西药处方,3:项目处方
-		/// 不传递则返回门诊所有处方
+		/// 门诊Id
 		/// </summary>
-		public int? Type { get; set; }
+		public int OutpatientId { get; set; }
+		/// <summary>
+		/// 是否预览,参考挂号打印同名字段描述
+		/// </summary>
+		public bool IsView { get; set; }
 	}
+
 	/// <summary>
 	/// 处方打印模板输出
 	/// </summary>
