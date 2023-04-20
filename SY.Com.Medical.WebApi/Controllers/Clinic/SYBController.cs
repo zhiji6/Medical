@@ -425,12 +425,25 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
             result.Data = entity.EntityToDto<PatientYBModel>();
             result.Data.ybinfo = new List<YBinsuinfo>();
+            double sum = 0;
             foreach(var item in mod.Message.output.insuinfo)
             {
+                sum += item.balc;
                 YBinsuinfo node = new YBinsuinfo();
-                node.balc = mod.Message.output.insuinfo.Count == 1 && item.balc <= 0 ? "0.01" : item.balc.ToString();
+                node.balc = item.balc.ToString();// mod.Message.output.insuinfo.Count == 1 && item.balc <= 0 ? "0.01" : item.balc.ToString();
                 node.insutype = item.insutype;
                 result.Data.ybinfo.Add(node);
+            }
+            if(sum <= 0)
+            {
+                if(result.Data.ybinfo.Exists(e=>e.insutype == "310"))
+                {
+                    result.Data.ybinfo.Find(f => f.insutype == "310").balc = "0.01";
+                }
+                else
+                {
+                    result.Data.ybinfo[0].balc = "0.01";
+                }
             }
             return result;
         }

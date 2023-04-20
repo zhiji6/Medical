@@ -154,9 +154,9 @@ namespace SY.Com.Medical.BLL.Platform
         /// <param name="pwd">密码</param>
         /// <param name="userid">用户id</param>
         /// <returns></returns>
-        public bool Change(string pwd,int userid)
+        public bool Change(string pwd,int userid,string oldpwd)
         {
-            return db.Change(userid, pwd);
+            return db.Change(userid, pwd,oldpwd);
         }
 
 

@@ -160,6 +160,10 @@ namespace SY.Com.Medical.Model
         /// </summary>
 
         public string PwdConfirm { get; set; }
+        /// <summary>
+        /// 原密码
+        /// </summary>
+        public string OldPwd { get; set; }
     }
 
     /// <summary>

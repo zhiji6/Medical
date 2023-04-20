@@ -29,11 +29,12 @@ namespace SY.Com.Medical.WebApi.Controllers.Platform
         public BaseResponse<bool> ChangePwd(ChangeRequst request)
         {            
             BaseResponse<bool> result = new BaseResponse<bool>();
+            if (string.IsNullOrEmpty(request.OldPwd)) return result.busExceptino(Enum.ErrorCode.业务逻辑错误, "未传入原密码");
             if (request.UserId == 0) return result.busExceptino(Enum.ErrorCode.业务逻辑错误, "无法识别用户");
             if(request.Pwd.Trim() != request.PwdConfirm.Trim()) return result.busExceptino(Enum.ErrorCode.业务逻辑错误, "两次密码不同");
             try
             {
-                result.Data = userbll.Change(request.Pwd,request.UserId);
+                result.Data = userbll.Change(request.Pwd,request.UserId,request.OldPwd);
                 return result;
             }
             catch (Exception ex)

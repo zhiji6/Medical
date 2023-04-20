@@ -61,10 +61,10 @@ namespace SY.Com.Medical.Repository.Platform
         /// <param name="userid"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public bool Change(int userid,string pwd)
+        public bool Change(int userid,string pwd,string oldpwd)
         {
-            string sql = " Update Users Set Pwd = @pwd Where UserId = @id ";
-            return _db.Execute(sql, new { pwd = pwd, id = userid }) >= 0;
+            string sql = " Update Users Set Pwd = @pwd Where UserId = @id And Pwd=@OldPwd  ";
+            return _db.Execute(sql, new { pwd = pwd, id = userid, OldPwd=oldpwd }) >= 0;
         }
 
     }
