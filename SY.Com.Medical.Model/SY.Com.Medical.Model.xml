@@ -12312,6 +12312,11 @@
             新密码确认
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.ChangeRequst.OldPwd">
+            <summary>
+            原密码
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.VerifyCode">
             <summary>
             图片验证码
