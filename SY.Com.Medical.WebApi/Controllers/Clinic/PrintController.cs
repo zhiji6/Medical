@@ -245,5 +245,28 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             }
             return result;
         }
+
+        /// <summary>
+        /// 打印病历
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public BaseResponse<CaseBookResponseModel> PrintCaseBook(CaseBookRequestModel request)
+        {
+            BaseResponse<CaseBookResponseModel> result = new BaseResponse<CaseBookResponseModel>();
+            if (request.IsView)
+            {
+                result.Data = new CaseBookPrint().View(request.TenantId, request.CaseBookId);
+            }
+            else
+            {
+                result.Data = new CaseBookPrint().Print(request.TenantId, request.CaseBookId);
+            }
+            var tenantmodel = tenant.getById(request.TenantId);
+            result.Data.TenantName = tenantmodel.TenantName;
+            result.Data.TenantCode = tenantmodel.YBCode;
+            return result;
+        }
     }
 }

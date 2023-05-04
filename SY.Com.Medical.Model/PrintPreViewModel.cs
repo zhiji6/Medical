@@ -346,6 +346,10 @@ namespace SY.Com.Medical.Model
 		/// 病历Id
 		/// </summary>
 		public int CaseBookId { get; set; }
+		/// <summary>
+		/// 是否预览,参见挂号打印同名字段说明
+		/// </summary>
+		public bool IsView { get; set; }
 	}
 
 	/// <summary>
@@ -495,6 +499,14 @@ namespace SY.Com.Medical.Model
 		/// 打印控件必须要有一个数组
 		/// </summary>
 		public List<PrintTemp> Temp { get; set; }
+		/// <summary>
+		/// 机构名称
+		/// </summary>
+		public string TenantName { get; set; }
+		/// <summary>
+		/// 结构编码
+		/// </summary>
+		public string TenantCode { get; set; }
 
 	}
 

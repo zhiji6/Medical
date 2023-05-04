@@ -5151,6 +5151,11 @@
             病历Id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookRequestModel.IsView">
+            <summary>
+            是否预览,参见挂号打印同名字段说明
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.CaseBookResponseModel">
             <summary>
             打印病历输出
@@ -5263,6 +5268,16 @@
         <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.Temp">
             <summary>
             打印控件必须要有一个数组
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.TenantName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.CaseBookResponseModel.TenantCode">
+            <summary>
+            结构编码
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.PrintTemp">

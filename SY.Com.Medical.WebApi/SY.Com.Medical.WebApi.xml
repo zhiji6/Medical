@@ -554,6 +554,13 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.PrintController.PrintCaseBook(SY.Com.Medical.Model.CaseBookRequestModel)">
+            <summary>
+            打印病历
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="T:SY.Com.Medical.WebApi.Controllers.Clinic.PrintPreViewController">
             <summary>
             打印报表控制器
