@@ -442,7 +442,9 @@ namespace SY.Com.Medical.Model
 		/// 单次用量
 		/// </summary>
 		public int SingleNum { get; set; }
-	}
+		public string Remark { get; set; }
+
+    }
 
 	/// <summary>
 	/// 门诊内处方结构

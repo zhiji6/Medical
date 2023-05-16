@@ -221,7 +221,8 @@ namespace SY.Com.Medical.Repository.Clinic
                         GoodsSalesUnit = item.GoodsSalesUnit,
                         InsuranceCode = item.InsuranceCode,
                         CustomerCode = item.CustomerCode,
-                        Place = item.Place                        
+                        Place = item.Place,
+                        Remark = item.Remark
                     });                    
                 }
                 result.Prescriptions = new List<PrescriptionStructure>();
