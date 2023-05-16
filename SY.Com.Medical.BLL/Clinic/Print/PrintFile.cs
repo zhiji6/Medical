@@ -21,7 +21,7 @@ namespace SY.Com.Medical.BLL.Clinic.Print
         /// 文件路径(相对)
         /// </summary>
         public string FilePath { get { return $"/Print/PrintView/{TemplatePath}/{TemplatePath}_{TenantId}_{FileId}.grf"; } }
-        public string FilePathSave { get { return $"wwwroot\\Print\\PrintView\\{TemplatePath}\\{TemplatePath}_{TenantId}_{FileId}.grf"; } }
+        public string FilePathSave { get { return $"wwwroot\\PrintView\\{TemplatePath}\\{TemplatePath}_{TenantId}_{FileId}.grf"; } }
         /// <summary>
         /// 文件唯一Id
         /// </summary>

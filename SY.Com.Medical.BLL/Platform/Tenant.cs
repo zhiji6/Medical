@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SY.Com.Medical.BLL.Clinic;
 using SY.Com.Medical.Enum;
+using NPOI.HSSF.Record.Aggregates;
 
 namespace SY.Com.Medical.BLL.Platform
 {
@@ -45,7 +46,12 @@ namespace SY.Com.Medical.BLL.Platform
             if (boss.Any()) boss.ToList().ForEach(entity => responsesboss.Add(entity.EntityToDto<UserTenantResponse>()));
             if (responsesjoin.Any()) responsesjoin.ForEach(response => response.IsBoss = (int)Enum.IsBoss.不是);
             if (responsesboss.Any()) responsesboss.ForEach(response => response.IsBoss = (int)Enum.IsBoss.是);
-            return responsesjoin.Concat(responsesboss);
+            var resp = responsesjoin.Concat(responsesboss);
+            foreach(var tenant in resp)
+            {
+                tenant.IsExpire = tenant.TenantServiceEnd < DateTime.Now;
+            }
+            return resp;
         }
 
         /// <summary>

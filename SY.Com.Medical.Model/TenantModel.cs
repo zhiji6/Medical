@@ -85,6 +85,12 @@ namespace SY.Com.Medical.Model
         /// 租户图片
         /// </summary>
         public string LogoImg { get; set; }
+        /// <summary>
+        /// 是否过期,true:过期,false:未过期
+        /// </summary>
+        public bool IsExpire { get; set; }
+
+
     }
 
     /// <summary>
