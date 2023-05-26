@@ -348,7 +348,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 model.data.mdtrt_cert_no = mod.input.mdtrt_cert_no;// 就诊凭证编号  字符型 50 Y 就诊凭证类型为“01”时填写电子凭证令牌，为“02”时填写身份证号，为“03”时填写社会保障卡卡号
                 model.data.card_sn = mod.input.card_sn;// 卡识别码 字符型 32          就诊凭证类型为“03”时必填
                 model.data.begntime = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));//开始时间 日期时间型               获取历史参保信息时传入
-                model.data.psn_cert_type = "";//   人员证件类型 字符型 6   Y
+                model.data.psn_cert_type = "";//mod.input.mdtrt_cert_type;//   人员证件类型 字符型 6   Y
                 //外籍参保人需要传入certno
                 if(model.data.mdtrt_cert_type == "99")
                 {
