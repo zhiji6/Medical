@@ -3648,6 +3648,11 @@
             单次用量
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.PrescriptionDetailStructure.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.PrescriptionAddStructure">
             <summary>
             门诊内处方结构
