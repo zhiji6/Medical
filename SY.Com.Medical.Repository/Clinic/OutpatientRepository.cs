@@ -362,7 +362,8 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsNorm = node.GoodsNorm;
                     pres_entity.GoodsPrice = Convert.ToInt64(node.GoodsPrice * 1000);
                     pres_entity.GoodsNum = node.GoodsNum;
-                    pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice * ( pres_entity.GoodsDays <= 0 ? 1 : pres_entity.GoodsDays);
+                    pres_entity.GoodsDays = node.GoodsDays;
+                    pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice * ( pres_entity.GoodsDays <= 0 ? 1 : pres_entity.GoodsDays);//
                     string secondkey = "";
                     if(item.PreName.IndexOf("西药") > -1 || item.PreName.IndexOf("中成药") > -1)
                     {
@@ -377,8 +378,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     }
                     //枚举1: 西药,2:中成药,3:中药,4:诊疗项目,5:材料
                     pres_entity.GoodsUsage = dic_db.getValueById(structure.TenantId, node.GoodsUsage, "Usage", secondkey);
-                    pres_entity.GoodsEveryDay = dic_db.getValueById(structure.TenantId, node.GoodsEveryDay, "EveryDay", "");
-                    pres_entity.GoodsDays = node.GoodsDays;
+                    pres_entity.GoodsEveryDay = dic_db.getValueById(structure.TenantId, node.GoodsEveryDay, "EveryDay", "");                    
                     pres_entity.GoodsSalesUnit = node.GoodsSalesUnit;
                     pres_entity.Place = node.Place;
                     pres_entity.Pair = item.Pair;
@@ -473,6 +473,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     pres_entity.GoodsNorm = node.GoodsNorm;
                     pres_entity.GoodsPrice = Convert.ToInt64(node.GoodsPrice * 1000);
                     pres_entity.GoodsNum = node.GoodsNum;
+                    pres_entity.GoodsDays = node.GoodsDays;
                     pres_entity.GoodsCost = pres_entity.GoodsNum * pres_entity.GoodsPrice * (pres_entity.GoodsDays <= 0 ? 1 : pres_entity.GoodsDays);
                     pres_entity.InsuranceCode = node.InsuranceCode;
                     pres_entity.CustomerCode = node.CustomerCode;
@@ -491,8 +492,7 @@ namespace SY.Com.Medical.Repository.Clinic
                     }
                     //枚举1: 西药,2:中成药,3:中药,4:诊疗项目,5:材料
                     pres_entity.GoodsUsage = dic_db.getValueById(structure.TenantId, node.GoodsUsage, "Usage", secondkey);
-                    pres_entity.GoodsEveryDay = dic_db.getValueById(structure.TenantId, node.GoodsEveryDay, "EveryDay", "");
-                    pres_entity.GoodsDays = node.GoodsDays;
+                    pres_entity.GoodsEveryDay = dic_db.getValueById(structure.TenantId, node.GoodsEveryDay, "EveryDay", "");                    
                     pres_entity.GoodsSalesUnit = node.GoodsSalesUnit;
                     pres_entity.Place = node.Place;
                     pres_entity.Pair = item.Pair;
