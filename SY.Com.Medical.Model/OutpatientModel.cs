@@ -313,12 +313,12 @@ namespace SY.Com.Medical.Model
 		/// 诊断
 		/// </summary>
 		public string Diagnosis { get; set; }
+        /// <summary>
+        /// 疾病,多个用逗号(,)隔开
+        /// </summary>
+        public string Disease { get; set; }
 		/// <summary>
-		/// 疾病
-		/// </summary>
-		public string Disease { get; set; }
-		/// <summary>
-		/// 疾病编码
+		/// 疾病编码,多个用逗号(,)隔开
 		/// </summary>
 		public string DiseaseCode { get; set; }
 		/// <summary>

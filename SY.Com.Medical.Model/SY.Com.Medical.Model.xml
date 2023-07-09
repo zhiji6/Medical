@@ -3500,12 +3500,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.Disease">
             <summary>
-            疾病
+            疾病,多个用逗号(,)隔开
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.DiseaseCode">
             <summary>
-            疾病编码
+            疾病编码,多个用逗号(,)隔开
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.CaseBookStructure.CaseOrder">
@@ -7648,6 +7648,306 @@
             社保卡号校验结果 1=成功 0=失败
             </summary>
         </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MZ4203">
+            <summary>
+            自费病人就诊以及费用明细上传完成
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MZ4203.In4203Data">
+            <summary>
+            入参总格式
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4203.In4203Data.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MZ4203.InMZ4203">
+            <summary>
+            真实入参
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4203.InMZ4203.fixmedins_mdtrt_id">
+            <summary>
+            机构内生成唯一就诊流水
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4203.InMZ4203.fixmedins_code">
+            <summary>
+            必须上传医保标准规范的编码
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4203.InMZ4203.cplt_flag">
+            <summary>
+            费用明细和就诊信息上传完成后修改完成标志
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.In4025Data.mdtrtinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.In4025Data.diseinfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.med_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.begntime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.main_cond_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.dise_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.dise_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.birctrl_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.birctrl_matn_date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.diag_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.diag_srt_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.diag_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.diag_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.diag_dept">
+            <summary>
+            
+            </summary>            
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.dise_dor_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.dise_dor_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.diag_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.Diseinfo2.vali_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.feedetl_sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.psn_no">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.chrg_bchno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.dise_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.rxno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.rx_circ_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.fee_ocur_time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.med_list_codg">
+            <summary>
+            
+            </summary>            
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.medins_list_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.det_item_fee_sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.cnt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.pric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.sin_dos_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.used_frqu_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.prd_days">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.medc_way_dscr">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.bilg_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.bilg_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.bilg_dr_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.bilg_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.acord_dept_codg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.acord_dept_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.orders_dr_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.orders_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.hosp_appr_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.tcmdrug_used_way">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.etip_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.etip_hosp_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.dscg_tkdrug_flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.matn_fee_flag">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.In9001">
             <summary>
             
@@ -8104,12 +8404,12 @@
         </member>
         <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.DiseaseName">
             <summary>
-            疾病名称
+            疾病名称,多个用逗号(,)隔开
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.SYBMZUploadModel.DiseaseCode">
             <summary>
-            疾病编码
+            疾病编码,多个用逗号(,)隔开
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.SYBMZ2204Model">
@@ -8325,6 +8625,66 @@
         <member name="P:SY.Com.Medical.Model.SYB2208Model.OutpatientId">
             <summary>
             门诊ID
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB4203Model">
+            <summary>
+            MZ4203自费病人就诊以及费用明细上传完成
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4203Model.EmployeeId">
+            <summary>
+            操作员工Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4203Model.OutpatientId">
+            <summary>
+            门诊id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4203Model.Cplt_flag">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:SY.Com.Medical.Model.SYB4025Model">
+            <summary>
+            MZ4025自费病人门诊就医信息上传
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.EmployeeId">
+            <summary>
+            操作者Id
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.DoctorId">
+            <summary>
+            医生ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.RegisterId">
+            <summary>
+            挂号ID
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.Diagnosis">
+            <summary>
+            诊断信息
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.DiseaseName">
+            <summary>
+            疾病名称,多个用逗号(,)隔开
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.DiseaseCode">
+            <summary>
+            疾病编码,多个用逗号(,)隔开
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.OutpatientId">
+            <summary>
+            门诊Id
             </summary>
         </member>
         <member name="T:SY.Com.Medical.Model.Up9101">

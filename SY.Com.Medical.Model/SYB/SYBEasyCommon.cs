@@ -132,15 +132,13 @@ namespace SY.Com.Medical.Model
         public string Diagnosis { get; set; }
 
         /// <summary>
-        /// 疾病名称
+        /// 疾病名称,多个用逗号(,)隔开
         /// </summary>
         public string DiseaseName { get; set; }
         /// <summary>
-        /// 疾病编码
+        /// 疾病编码,多个用逗号(,)隔开
         /// </summary>
-        public string DiseaseCode { get; set; }
-
-
+        public string DiseaseCode { get; set; }      
 
     }
 
@@ -346,5 +344,63 @@ namespace SY.Com.Medical.Model
         /// </summary>
         public int OutpatientId { get; set; }
     }
+
+    /// <summary>
+    /// MZ4203自费病人就诊以及费用明细上传完成
+    /// </summary>
+    public class SYB4203Model : BaseModel
+    {
+        /// <summary>
+        /// 操作员工Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 门诊id
+        /// </summary>
+        public int OutpatientId { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public string Cplt_flag { get; set; }
+    }
+
+    /// <summary>
+    /// MZ4025自费病人门诊就医信息上传
+    /// </summary>
+    public class SYB4025Model : BaseModel
+    {
+        /// <summary>
+        /// 操作者Id
+        /// </summary>
+        public int EmployeeId { get; set; }
+        /// <summary>
+        /// 医生ID
+        /// </summary>
+        public int DoctorId { get; set; }
+        /// <summary>
+        /// 挂号ID
+        /// </summary>
+        public int RegisterId { get; set; }
+        /// <summary>
+        /// 诊断信息
+        /// </summary>
+        public string Diagnosis { get; set; }
+
+        /// <summary>
+        /// 疾病名称,多个用逗号(,)隔开
+        /// </summary>
+        public string DiseaseName { get; set; }
+        /// <summary>
+        /// 疾病编码,多个用逗号(,)隔开
+        /// </summary>
+        public string DiseaseCode { get; set; }
+        /// <summary>
+        /// 门诊Id
+        /// </summary>
+        public int OutpatientId { get; set; }
+    }
+
+    
+
 
 }

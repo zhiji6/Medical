@@ -1041,6 +1041,20 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ4203(SY.Com.Medical.Model.SYB4203Model)">
+            <summary>
+            MZ4203自费病人就诊以及费用明细上传完成标识
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.MZ4205(SY.Com.Medical.Model.SYB4025Model)">
+            <summary>
+            MZ4205自费病人就诊以及费用明细上传
+            </summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="M:SY.Com.Medical.WebApi.Controllers.Clinic.SYBController.JY2601(SY.Com.Medical.Model.SYBEasyCommon{SZSI_Smart.Model.SYB.YBJS.CZ2601.In2601})">
             <summary>
             交易冲正
