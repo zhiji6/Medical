@@ -38,9 +38,17 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// <returns></returns>
 		public List<DiseaseModel> getsNoPage(List<string> names)
         {
-			var result = db.getsNoPage(names);
-			var datas = result?.EntityToDto<DiseaseModel>();
-			return datas?.OrderBy(x => x.DiseaseName.Length).Take(10)?.ToList();
+			List<DiseaseModel> result = new List<DiseaseModel>();
+			foreach(var name in names)
+			{
+                var resulttemp = db.getsNoPage(name);
+                var datas = resulttemp?.EntityToDto<DiseaseModel>();
+				if(datas != null)
+				{
+                    result.AddRange(datas.OrderBy(x => x.DiseaseName.Length).Take(10).ToList());
+				}
+			}
+			return result;
 		}
 
 		///<summary> 
