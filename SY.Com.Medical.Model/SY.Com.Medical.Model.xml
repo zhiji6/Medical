@@ -1237,7 +1237,7 @@
              Disease模型
              </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.DiseaseRequest.DiseaseName">
+        <member name="P:SY.Com.Medical.Model.DiseaseRequest.DiseaseNames">
             <summary> 
             疾病名称
             </summary> 

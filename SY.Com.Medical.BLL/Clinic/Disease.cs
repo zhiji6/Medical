@@ -36,9 +36,9 @@ namespace SY.Com.Medical.BLL.Clinic
 		/// </summary>
 		/// <param name="name"></param>
 		/// <returns></returns>
-		public List<DiseaseModel> getsNoPage(string name)
+		public List<DiseaseModel> getsNoPage(List<string> names)
         {
-			var result = db.getsNoPage(name);
+			var result = db.getsNoPage(names);
 			var datas = result?.EntityToDto<DiseaseModel>();
 			return datas?.OrderBy(x => x.DiseaseName.Length).Take(10)?.ToList();
 		}

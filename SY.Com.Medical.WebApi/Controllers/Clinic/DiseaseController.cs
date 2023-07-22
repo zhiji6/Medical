@@ -55,7 +55,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
 		{
 			BaseResponse<List<DiseaseModel>> result = new BaseResponse<List<DiseaseModel>>();
 			try{
-				result.Data = bll.getsNoPage(request.DiseaseName);
+				result.Data = bll.getsNoPage(request.DiseaseNames);
 				return result;
 			}catch(Exception ex)
 			{

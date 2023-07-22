@@ -31,7 +31,7 @@ namespace SY.Com.Medical.Model
 		///<summary> 
 		///疾病名称
 		///</summary> 
-		public string DiseaseName { get;set;} 
+		public List<string> DiseaseNames { get;set;} 
 	}
 	
 ///<summary>
