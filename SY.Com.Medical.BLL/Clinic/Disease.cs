@@ -5,6 +5,7 @@ using SY.Com.Medical.Model;
 using SY.Com.Medical.Repository.Clinic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace SY.Com.Medical.BLL.Clinic
     /// <summary>
     /// 业务逻辑层
     /// </summary>
-    public class Disease 
+    public class Disease  
 	{
 		private DiseaseRepository db;
 		public Disease()
@@ -48,15 +49,15 @@ namespace SY.Com.Medical.BLL.Clinic
                     result.AddRange(datas.OrderBy(x => x.DiseaseName.Length).Take(10).ToList());
 				}
 			}
-			return result;
+			return result.Distinct(new DiseaseComparer()).ToList();
 		}
 
-		///<summary> 
-		///新增
-		///</summary> 
-		///<param name="request"></param>
-		/// <returns></returns>
-		public int add(DiseaseAdd request)
+        ///<summary> 
+        ///新增
+        ///</summary> 
+        ///<param name="request"></param>
+        /// <returns></returns>
+        public int add(DiseaseAdd request)
 		{
 			return db.Create(request.DtoToEntity<DiseaseEntity>());
 		}
@@ -78,5 +79,23 @@ namespace SY.Com.Medical.BLL.Clinic
 		{
 			db.Delete(request.DtoToEntity<DiseaseEntity>());
 		}
-	}
+
+    }
+
+	public class DiseaseComparer : IEqualityComparer<DiseaseModel>
+	{
+        public bool Equals(DiseaseModel x, DiseaseModel y)
+		{
+            if (x == null || y == null)
+                return false;
+            return x.DiseaseCode == y.DiseaseCode;
+        }
+
+        public int GetHashCode([DisallowNull] DiseaseModel obj)
+		{
+            if (obj == null)
+                return 0;
+            return obj.DiseaseCode.GetHashCode();
+        }
+    }
 } 
