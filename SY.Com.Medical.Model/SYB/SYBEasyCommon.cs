@@ -398,6 +398,10 @@ namespace SY.Com.Medical.Model
         /// 门诊Id
         /// </summary>
         public int OutpatientId { get; set; }
+        /// <summary>
+        /// 发票号
+        /// </summary>
+        public string Invoice_no { get; set; }
     }
 
     

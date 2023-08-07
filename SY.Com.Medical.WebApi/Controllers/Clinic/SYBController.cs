@@ -1532,7 +1532,7 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                     fdmod.bilg_dept_name = department.name;
                     fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
                     fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
-                    fdmod.memo = $"{{\"hosp_appr_flag\":\"1\",\"invoice_no\":\"\",\"memo\":\"自费\"}}";
+                    fdmod.memo = $"{{\"hosp_appr_flag\":\"1\",\"invoice_no\":\"{mod.Invoice_no}\",\"memo\":\"自费\"}}";
                     fdlist.Add(fdmod);
                 }
             }

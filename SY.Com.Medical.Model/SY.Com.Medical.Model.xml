@@ -8747,6 +8747,11 @@
             门诊Id
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.SYB4025Model.Invoice_no">
+            <summary>
+            发票号
+            </summary>
+        </member>
         <member name="T:SY.Com.Medical.Model.Up9101">
             <summary>
             
