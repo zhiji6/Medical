@@ -1469,7 +1469,6 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
         {
             BaseResponse<InCommon> rd = new BaseResponse<InCommon>();
             Outpatient opbll = new Outpatient();
-            var rentity = bll.getRegisterById(mod.RegisterId);
             var doctor = bll.getEmployeeById(mod.DoctorId);
             var opstructure = opbll.getStructure(mod.TenantId, mod.OutpatientId);
             var department = bll.getYBDepartment(opstructure.Doctor.Department);
@@ -1480,18 +1479,22 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
             var diseasesNames = mod.DiseaseName.Split(',');
             var diseasesCodes = mod.DiseaseCode.Split(',');
             int len = Math.Min(diseasesNames.Length, diseasesCodes.Length);
+            mmod.fixmedins_code = rd1.fixmedins_code;
+            mmod.fixmedins_name = rd1.fixmedins_name;
+            mmod.fixmedins_mdtrt_id= rd1.fixmedins_code + mod.OutpatientId;//rentity.mdtrt_id;
+            mmod.psn_cert_type = "01";
+            mmod.certno = opstructure.Patient?.SFZ ?? "";
+            mmod.psn_name= opstructure.Patient?.PatientName ?? "";//rentity.psn_no;
+            mmod.med_type = "11";
+            mmod.begntime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             for(int i = 0; i < len; i++)
             {
                 Diseinfo2 dmod = new Diseinfo2();
-                mmod.mdtrt_id = rentity.mdtrt_id;
-                mmod.psn_no = rentity.psn_no;
-                mmod.med_type = "11";
-                mmod.begntime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                dmod.diag_type = rentity.DepartmentName.IndexOf("中医") > 0 ? "3" : "1";
+                dmod.diag_type = doctor.Departments.IndexOf("中医") > 0 ? "3" : "1"; //rentity.DepartmentName.IndexOf("中医") > 0 ? "3" : "1";
                 dmod.diag_srt_no = (i+1).ToString();
                 dmod.diag_code = diseasesCodes[i];//mod.DiseaseCode;
                 dmod.diag_name = diseasesNames[i];//mod.DiseaseName;//mod.Diagnosis;
-                dmod.diag_dept = bll.getYBDepartment(rentity.DepartmentName).name;
+                dmod.diag_dept = bll.getYBDepartment(doctor.Departments).name;
                 dmod.dise_dor_no = doctor.YBCode;
                 dmod.dise_dor_name = doctor.EmployeeName;
                 dmod.diag_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -1507,29 +1510,34 @@ namespace SY.Com.Medical.WebApi.Controllers.Clinic
                 foreach (var node in item.Details)
                 {
                     FeeDetail2 fdmod = new FeeDetail2();
-                    fdmod.feedetl_sn = rd1.fixmedins_code + mod.TenantId.ToString() + mod.OutpatientId.ToString() + node.GoodsId.ToString() + (9999 - fdlist.Count).ToString();
-                    fdmod.mdtrt_id = opstructure.mdtrt_id;
-                    fdmod.psn_no = opstructure.Patient.psn_no;
-                    fdmod.chrg_bchno = opstructure.chrg_bchno;
-                    fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
-                    fdmod.rx_circ_flag = "0";
+                    fdmod.fixmedins_code = rd1.fixmedins_code;
+                    fdmod.fixmedins_name = rd1.fixmedins_name;
+                    fdmod.fixmedins_mdtrt_id = mmod.fixmedins_mdtrt_id;
+                    fdmod.med_type = "11";
+                    fdmod.bkkp_sn= rd1.fixmedins_code + mod.TenantId.ToString() + mod.OutpatientId.ToString() + node.GoodsId.ToString() + (9999 - fdlist.Count).ToString();
                     fdmod.fee_ocur_time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    fdmod.med_list_codg = node.InsuranceCode;
-                    fdmod.medins_list_codg = node.CustomerCode;
-                    //fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
                     fdmod.cnt = node.GoodsNum * (node.GoodsDays <= 0 ? 1 : node.GoodsDays);
                     fdmod.pric = decimal.Parse(Math.Round(node.GoodsPrice, 2).ToString());
                     fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost, 2).ToString());
+                    fdmod.med_list_codg = node.InsuranceCode;
+                    fdmod.medins_list_codg = node.CustomerCode;
+                    fdmod.medins_list_name = node.GoodsName;
+                    fdmod.prodname = node.GoodsName;
+                    fdmod.med_chrgitm_type = "05";
+                    //fdmod.psn_no = opstructure.Patient.psn_no;
+                    //fdmod.chrg_bchno = opstructure.chrg_bchno;
+                    //fdmod.rxno = rd1.fixmedins_code + DateTime.Now.ToString("yyyyMMddHHmmssfff") + item.PreNo;
+                    //fdmod.det_item_fee_sumamt = decimal.Parse(Math.Round(node.GoodsCost / 1000.00, 2).ToString());
                     fdmod.bilg_dept_codg = department.code;
                     fdmod.bilg_dept_name = department.name;
                     fdmod.bilg_dr_codg = opstructure.Doctor.YBCode;
                     fdmod.bilg_dr_name = opstructure.Doctor.EmployeeName;
-                    fdmod.hosp_appr_flag = "1";
+                    fdmod.memo = $"{{\"hosp_appr_flag\":\"1\",\"invoice_no\":\"\",\"memo\":\"自费\"}}";
                     fdlist.Add(fdmod);
                 }
             }
             model.feedetail = fdlist;
-            rd1.infno = "4025";            
+            rd1.infno = "4205";            
             rd1.input = model;
             rd.Data = rd1;
             return rd;

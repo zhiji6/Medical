@@ -30,11 +30,27 @@ namespace SY.Com.Medical.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public string mdtrt_id { get; set; }//  就诊ID 字符型	30	　	Y
+            public string fixmedins_mdtrt_id { get; set; }//  就诊ID 字符型	30	　	Y
             /// <summary>
             /// 
             /// </summary>
-            public string psn_no { get; set; }//  人员编号 字符型	30	　	Y
+            public string fixmedins_code { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string fixmedins_name { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string psn_cert_type { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string certno { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string psn_name { get; set; }//  人员编号 字符型	30	　	Y
             /// <summary>
             /// 
             /// </summary>
@@ -113,17 +129,32 @@ namespace SY.Com.Medical.Model.SYB
             public string vali_flag { get; set; } //  有效标志 字符型	3	Y Y
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public class FeeDetail2
         {
             /// <summary>
             /// 
             /// </summary>
-
-            public string feedetl_sn { get; set; }// 费用明细流水号 字符型	30	　	Y 单次就诊内唯一
+            public string fixmedins_code { get; set; }
             /// <summary>
             /// 
             /// </summary>
-            public string mdtrt_id { get; set; }// 就诊ID    字符型	30		Y
+            public string fixmedins_name { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string fixmedins_mdtrt_id { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string med_type { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+
+            public string bkkp_sn{ get; set; }// 费用明细流水号 字符型	30	　	Y 单次就诊内唯一
             /// <summary>
             /// 
             /// </summary>
@@ -148,7 +179,7 @@ namespace SY.Com.Medical.Model.SYB
             /// <summary>
             /// 
             /// </summary>
-            public string fee_ocur_time { get; set; }// 费用发生时间  日期时间型 Y   yyyy-MM-dd HH:mm:ss
+            public string fee_ocur_time{ get; set; }// 费用发生时间  日期时间型 Y   yyyy-MM-dd HH:mm:ss
             /// <summary>
             /// 
             /// </summary>            
@@ -160,7 +191,19 @@ namespace SY.Com.Medical.Model.SYB
             /// <summary>
             /// 
             /// </summary>
+            public string medins_list_name { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
             public decimal det_item_fee_sumamt { get; set; }// 明细项目费用总额 数值型	16,2	　	Y
+            /// <summary>
+            /// 
+            /// </summary>
+            public string med_chrgitm_type { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string prodname { get; set; }
             /// <summary>
             /// 
             /// </summary>
@@ -205,6 +248,10 @@ namespace SY.Com.Medical.Model.SYB
             /// 
             /// </summary>
             public string bilg_dr_name { get; set; }// 开单医师姓名  字符型	50	　	Y
+            /// <summary>
+            /// 
+            /// </summary>
+            public string memo { get; set; }
             /// <summary>
             /// 
             /// </summary>

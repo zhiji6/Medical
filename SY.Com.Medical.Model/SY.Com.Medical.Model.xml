@@ -7698,12 +7698,32 @@
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.mdtrt_id">
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.fixmedins_mdtrt_id">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.psn_no">
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.fixmedins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.psn_cert_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.certno">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.MdtrtInfo2.psn_name">
             <summary>
             
             </summary>
@@ -7793,12 +7813,32 @@
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.feedetl_sn">
+        <member name="T:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2">
             <summary>
             
             </summary>
         </member>
-        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.mdtrt_id">
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.fixmedins_code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.fixmedins_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.fixmedins_mdtrt_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.med_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.bkkp_sn">
             <summary>
             
             </summary>
@@ -7843,7 +7883,22 @@
             
             </summary>
         </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.medins_list_name">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.det_item_fee_sumamt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.med_chrgitm_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.prodname">
             <summary>
             
             </summary>
@@ -7894,6 +7949,11 @@
             </summary>
         </member>
         <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.bilg_dr_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SY.Com.Medical.Model.SYB.MZ4205.FeeDetail2.memo">
             <summary>
             
             </summary>
